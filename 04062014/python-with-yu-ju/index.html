@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>Python with語句(轉) | Themis_Sword&#39;s Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Themis_Sword's Blog">
+    <meta name="author" content="Themis_Sword">
+    <meta name="description" content="Never Scared Endeavoring." />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Themis_Sword&#39;s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(7)</small></a></li>
+				    
+				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/inspiring/" class="animsition-link">inspiring<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(17)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/python-artificial-intelligence/" class="animsition-link">python artificial-intelligence<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/software/" class="animsition-link">software<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/web/" class="animsition-link">web<small>(3)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            <li><a href="/portfolio" class="animsition-link" title="Protfolio">Protfolio</a></li>
+            <li><a href="/gallery" class="animsition-link" title="Gallery">Gallery</a></li>
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/author" class="animsition-link" title="Author">Author</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Themis_Sword's Blog</a></li>
+                            <li class="nolink">Never Scared Endeavoring.</li>
+                            
+                            
+                            
+                            
+                            
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>每一个不曾起舞的日子都是对生命的辜负。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2014-04-06T08:37:46.000Z" itemprop="datePublished">
+          2014-04-06
+      </time>
+    
+</span>
+                <h1>Python with語句(轉)</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p><strong>1. With 語句是什麼</strong><br>Python’s with statement provides a very convenient way of dealing with the situation where you have to do a setup and teardown to make something happen. A very good example for this is the situation where you want to gain a handler to a file, read data from the file and the close the file handler.<br>有一些任務，可能事先需要設置，事後做清理工作。對於這種場景，Python的with語句提供了一種非常方便的處理方式。一個很好的例子是文件處理，你需要獲取一個文件句柄，從文件中讀取數據，然後關閉文件句柄。<a id="more"></a>  </p>
+<p>Without the with statement, one would write something along the lines of:<br>如果不用with語句，代碼如下：   </p>
+<pre><code class="python">file = open(<span class="string">"/tmp/foo.txt"</span>)
+data = file.read()
+file.close()
+</code></pre>
+<p>There are two annoying things here. First, you end up forgetting to close the file handler. The second is how to handle exceptions that may occur once the file handler has been obtained. One could write something like this to get around this:<br>這裏有兩個問題。一是可能忘記關閉文件句柄；二是文件讀取數據發生異常，沒有進行任何處理。下面是處理異常的加強版本：  </p>
+<pre><code class="python">file = open(<span class="string">"/tmp/foo.txt"</span>)
+<span class="keyword">try</span>:
+    data = file.read()
+<span class="keyword">finally</span>:
+    file.close()
+</code></pre>
+<p>While this works well, it is unnecessarily verbose. This is where with is useful. The good thing about with apart from the better syntax is that it is very good handling exceptions. The above code would look like this, when using with:<br>雖然這段代碼運行良好，但是太冗長了。這時候就是with一展身手的時候了。除了有更優雅的語法，with還可以很好的處理上下文環境產生的異常。下面是with版本的代碼：  </p>
+<pre><code class="python"><span class="keyword">with</span> open(<span class="string">"/tmp/foo.txt"</span>) <span class="keyword">as</span> file:
+    data = file.read()
+</code></pre>
+<p><strong>2. with如何工作</strong><br>while this might look like magic, the way Python handles with is more clever than magic. The basic idea is that the statement after with has to evaluate an object that responds to an __enter__() as well as an __exit__() function.<br>這看起來充滿魔法，但不僅僅是魔法，Python對with的處理還很聰明。基本思想是with所求值的對象必須有一個__enter__()方法，一個__exit__()方法。  </p>
+<p>After the statement that follows with is evaluated, the __enter__() function on the resulting object is called. The value returned by this function is assigned to the variable following as. After every statement in the block is evaluated, the __exit__() function is called.<br>緊跟with後面的語句被求值後，返回對象的__enter__()方法被調用，這個方法的返回值將被賦值給as後面的變量。當with後面的代碼塊全部被執行完之後，將調用前面返回對象的__exit__()方法。  </p>
+<p>This can be demonstrated with the following example:<br>下面例子可以具體說明with如何工作：  </p>
+<pre><code class="python"><span class="comment">#!/usr/bin/env python</span>
+<span class="comment"># with_example01.py</span>
+
+
+<span class="class"><span class="keyword">class</span> <span class="title">Sample</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__enter__</span><span class="params">(self)</span>:</span>
+        <span class="keyword">print</span> <span class="string">"In __enter__()"</span>
+        <span class="keyword">return</span> <span class="string">"Foo"</span>
+
+    <span class="function"><span class="keyword">def</span> <span class="title">__exit__</span><span class="params">(self, type, value, trace)</span>:</span>
+        <span class="keyword">print</span> <span class="string">"In __exit__()"</span>
+
+
+<span class="function"><span class="keyword">def</span> <span class="title">get_sample</span><span class="params">()</span>:</span>
+    <span class="keyword">return</span> Sample()
+
+
+<span class="keyword">with</span> get_sample() <span class="keyword">as</span> sample:
+    <span class="keyword">print</span> <span class="string">"sample:"</span>, sample
+</code></pre>
+<p>When executed, this will result in:<br>運行代碼，輸出如下  </p>
+<pre><code class="python">bash-<span class="number">3.2</span>$ ./with_example01.py
+In __enter__()
+sample: Foo
+In __exit__()
+</code></pre>
+<p>As you can see,<br>The __enter__() function is executed<br>The value returned by it - in this case “Foo” is assigned to sample<br>The body of the block is executed, thereby printing the value of sample ie. “Foo”<br>The __exit__() function is called.<br>What makes with really powerful is the fact that it can handle exceptions. You would have noticed that the __exit__() function for Sample takes three arguments - val, type and trace. These are useful in exception handling. Let’s see how this works by modifying the above example.<br>正如你看到的，<br>1) __enter__()方法被執行<br>2) __enter__()方法返回的值 - 這個例子中是”Foo”，賦值給變量’sample’<br>3) 執行代碼塊，打印變量”sample”的值為 “Foo”<br>4) __exit__()方法被調用<br>with真正強大之處是它可以處理異常。可能你已經註意到Sample類的__exit()__方法有三個參數- val, type 和 trace。 這些參數在異常處理中相當有用。我們來改一下代碼，看看具體如何工作的。  </p>
+<pre><code class="python"><span class="comment">#!/usr/bin/env python</span>
+<span class="comment"># with_example02.py</span>
+
+
+<span class="class"><span class="keyword">class</span> <span class="title">Sample</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__enter__</span><span class="params">(self)</span>:</span>
+        <span class="keyword">return</span> self
+
+    <span class="function"><span class="keyword">def</span> <span class="title">__exit__</span><span class="params">(self, type, value, trace)</span>:</span>
+        <span class="keyword">print</span> <span class="string">"type:"</span>, type
+        <span class="keyword">print</span> <span class="string">"value:"</span>, value
+        <span class="keyword">print</span> <span class="string">"trace:"</span>, trace
+
+    <span class="function"><span class="keyword">def</span> <span class="title">do_something</span><span class="params">(self)</span>:</span>
+        bar = <span class="number">1</span>/<span class="number">0</span>
+        <span class="keyword">return</span> bar + <span class="number">10</span>
+
+<span class="keyword">with</span> Sample() <span class="keyword">as</span> sample:
+    sample.do_something()
+</code></pre>
+<p>Notice how in this example, instead of get<em>sample(), with takes Sample(). It does not matter, as long as the statement that follows with evaluates to an object that has an \</em>_enter__() and __exit__() functions. In this case, Sample()’s __enter__() returns the newly created instance of Sample and that is what gets passed to sample.<br>這個例子中，with後面的get<em>sample()變成了Sample()。這沒有任何關系，只要緊跟with後面的語句所返回的對象有\</em>_enter__()和__exit__()方法即可。此例中，Sample()的__enter__()方法返回新創建的Sample對象，並賦值給變量sample。  </p>
+<p>When executed:<br>代碼執行後：  </p>
+<pre><code class="python">bash-<span class="number">3.2</span>$ ./with_example02.py
+type: &lt;type <span class="string">'exceptions.ZeroDivisionError'</span>&gt;
+value: integer division <span class="keyword">or</span> modulo by zero
+trace: &lt;traceback object at <span class="number">0x1004a8128</span>&gt;
+Traceback (most recent call last):
+  File <span class="string">"./with_example02.py"</span>, line <span class="number">19</span>, <span class="keyword">in</span> &lt;module&gt;
+    sample.do_something()
+  File <span class="string">"./with_example02.py"</span>, line <span class="number">15</span>, <span class="keyword">in</span> do_something
+    bar = <span class="number">1</span>/<span class="number">0</span>
+ZeroDivisionError: integer division <span class="keyword">or</span> modulo by zero
+</code></pre>
+<p>Essentially, if there are exceptions being thrown from anywhere inside the block, the __exit__() function for the object is called. As you can see, the type, value and the stack trace associated with the exception thrown is passed to this function. In this case, you can see that there was a ZeroDivisionError exception being thrown. People implementing libraries can write code that clean up resources, close files etc. in their __exit__() functions.<br>實際上，在with後面的代碼塊拋出任何異常時，__exit__()方法被執行。正如例子所示，異常拋出時，與之關聯的type，value和stack trace傳給__exit__()方法，因此拋出的ZeroDivisionError異常被打印出來了。開發庫時，清理資源，關閉文件等等操作，都可以放在__exit__方法當中。  </p>
+<p>Thus, Python’s with is a nifty construct that makes code a little less verbose and makes cleaning up during exceptions a bit easier.<br>因此，Python的with語句是提供一個有效的機制，讓代碼更簡練，同時在異常產生時，清理工作更簡單。  </p>
+<p>I have put the code examples given here on <a href="https://github.com/sdqali/python_dojo/tree/master/with" target="_blank" rel="external">Github</a>.<br>示例代碼可以在<a href="https://github.com/sdqali/python_dojo/tree/master/with" target="_blank" rel="external">Github</a>上面找到。  </p>
+<p>譯註：本文原文見<a href="http://blog.sdqali.in/blog/2012/07/09/understanding-pythons-with/" target="_blank" rel="external">Understanding Python’s “With” Statement</a>  </p>
+<p><a href="http://python.42qu.com/11155501" target="_blank" rel="external">Origin</a></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/04082014/stay-hungry/" style="float: left;">
+        ← Stay Hungry, Stay Foolish
+    </a>
+    
+    
+    <a class="pull-right" href="/04022014/fading-away/">
+        Fading away →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="04062014/python-with-yu-ju/" data-title="Python with語句(轉)" data-url="http://yoursite.com/04062014/python-with-yu-ju/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Themis_Sword. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
