@@ -110,7 +110,7 @@
 				    
 				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(3)</small></a></li>
 				    
-				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(17)</small></a></li>
+				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(16)</small></a></li>
 				    
 				    <li><a href="/categories/python/" class="animsition-link">python<small>(18)</small></a></li>
 				    
@@ -123,11 +123,11 @@
 				</ul>
         	</li>
 			
-            <li><a href="/portfolio" class="animsition-link" title="Protfolio">Protfolio</a></li>
+            <li><a href="/portfolio" class="animsition-link" title="Portfolio">Portfolio</a></li>
             <li><a href="/gallery" class="animsition-link" title="Gallery">Gallery</a></li>
         </ul>
         <!-- Lists in Slidebars -->
-        <ul class="sb-menu secondary">
+        <ul class="sb-menu">
             <li><a href="/author" class="animsition-link" title="Author">Author</a></li>
         </ul>
     </div>
@@ -224,7 +224,7 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>Python提供了time/datetime/calendar等模塊來處理日期和時間。<br><strong>1.time模塊常用的函數</strong><br><em>A. time.time()</em><br>1970年1月1日以來的秒數，是一個浮點數。<br><em>B. time.sleep()</em><br>可以通過調用time.sleep來挂起當前的進程。time.sleep接收一个浮點型參數，表示進程挂起的時間。<br><em>C. time.clock()</em><br>time.clock()返回第一次调用该方法到现在的秒數，其精確度高於1微秒。可以使用该函數來記錄程序執行的時間。 <a id="more"></a><br><em>D. time.gmtime()</em><br>該函數原型為time.gmtime([sec])，可選參數sec表示從1970-01-01以來的秒數，默認值為time.time()，函數返回time.struct_time類型的對象。(struct_time是在time模塊中定義的表示時間的對象)，下面是一個簡單的例子：  </p>
+      		<p>Python提供了time/datetime/calendar等模塊來處理日期和時間。<br><strong>1.time模塊常用的函數</strong><br><em>A. time.time()</em><br>1970年1月1日以來的秒數，是一個浮點數。<br><em>B. time.sleep()</em><br>可以通過調用time.sleep來挂起當前的進程。time.sleep接收一个浮點型參數，表示進程挂起的時間。<br><em>C. time.clock()</em><br>time.clock()返回第一次调用该方法到现在的秒數，其精確度高於1微秒。可以使用该函數來記錄程序執行的時間。<br><em>D. time.gmtime()</em><br>該函數原型為time.gmtime([sec])，可選參數sec表示從1970-01-01以來的秒數，默認值為time.time()，函數返回time.struct_time類型的對象。(struct_time是在time模塊中定義的表示時間的對象)，下面是一個簡單的例子：<a id="more"></a>  </p>
 <pre><code class="python"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> time.gmtime()                        <span class="comment">#獲取當前時間的struct_time對象   </span>
 (<span class="number">2013</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">28</span>, <span class="number">30</span>, <span class="number">0</span>, <span class="number">98</span>, <span class="number">0</span>)
 <span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> time.gmtime(time.time())

@@ -110,7 +110,7 @@
 				    
 				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(3)</small></a></li>
 				    
-				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(17)</small></a></li>
+				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(16)</small></a></li>
 				    
 				    <li><a href="/categories/python/" class="animsition-link">python<small>(18)</small></a></li>
 				    
@@ -123,11 +123,11 @@
 				</ul>
         	</li>
 			
-            <li><a href="/portfolio" class="animsition-link" title="Protfolio">Protfolio</a></li>
+            <li><a href="/portfolio" class="animsition-link" title="Portfolio">Portfolio</a></li>
             <li><a href="/gallery" class="animsition-link" title="Gallery">Gallery</a></li>
         </ul>
         <!-- Lists in Slidebars -->
-        <ul class="sb-menu secondary">
+        <ul class="sb-menu">
             <li><a href="/author" class="animsition-link" title="Author">Author</a></li>
         </ul>
     </div>
@@ -233,14 +233,13 @@
 </code></pre><p>We can do:</p>
 <pre><code><span class="keyword">for</span> <span class="tag">i</span>, item <span class="keyword">in</span> <span class="function"><span class="title">enumerate</span><span class="params">(iterable)</span></span>:
     print <span class="tag">i</span>, item
-</code></pre><p>Enumerate can also take a second argument. Here is an example:</p>
+</code></pre><p>Enumerate can also take a second argument. Here is an example:<a id="more"></a></p>
 <pre><code>&gt;&gt;&gt; <span class="function"><span class="title">list</span><span class="params">(enumerate(<span class="string">'abc'</span>)</span></span>) 
 [(<span class="number">0</span>, <span class="string">'a'</span>), (<span class="number">1</span>, <span class="string">'b'</span>), (<span class="number">2</span>, <span class="string">'c'</span>)] 
 
 &gt;&gt;&gt; <span class="function"><span class="title">list</span><span class="params">(enumerate(<span class="string">'abc'</span>, <span class="number">1</span>)</span></span>) 
 [(<span class="number">1</span>, <span class="string">'a'</span>), (<span class="number">2</span>, <span class="string">'b'</span>), (<span class="number">3</span>, <span class="string">'c'</span>)]
-</code></pre><a id="more"></a>
-<h4 id="Dict/Set_comprehensions">Dict/Set comprehensions</h4><p>You might know about list comprehensions but you might not be aware of dict/set comprehensions. They are simple to use and just as effective. Here is an example:</p>
+</code></pre><h4 id="Dict/Set_comprehensions">Dict/Set comprehensions</h4><p>You might know about list comprehensions but you might not be aware of dict/set comprehensions. They are simple to use and just as effective. Here is an example:</p>
 <pre><code>my_dict = <span class="comment">{i: i * i for i in xrange(100)}</span> 
 my_set = <span class="comment">{i * 15 for i in xrange(100)}</span>
 

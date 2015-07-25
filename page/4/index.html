@@ -110,7 +110,7 @@
 				    
 				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(3)</small></a></li>
 				    
-				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(17)</small></a></li>
+				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(16)</small></a></li>
 				    
 				    <li><a href="/categories/python/" class="animsition-link">python<small>(18)</small></a></li>
 				    
@@ -123,11 +123,11 @@
 				</ul>
         	</li>
 			
-            <li><a href="/portfolio" class="animsition-link" title="Protfolio">Protfolio</a></li>
+            <li><a href="/portfolio" class="animsition-link" title="Portfolio">Portfolio</a></li>
             <li><a href="/gallery" class="animsition-link" title="Gallery">Gallery</a></li>
         </ul>
         <!-- Lists in Slidebars -->
-        <ul class="sb-menu secondary">
+        <ul class="sb-menu">
             <li><a href="/author" class="animsition-link" title="Author">Author</a></li>
         </ul>
     </div>
@@ -217,37 +217,6 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/04022014/wang-ye-zhong-ding-xiang-de-fang-fa/">網頁重定向的方法(轉)</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2014-04-02T02:58:43.000Z" itemprop="datePublished">
-          2014-04-02
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        1. 使用HTTP通訊協定301 Moved Permanently來完成轉導網址(永久轉址)建議使用，不會對SEO有不良影響  
-PHP程式範例:123456789101112131415161718192021222324252627282930313233343536&lt;?php    header(“HTTP/1.1 301 Moved Permanently");    header(“Location: http://w
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/04022014/wang-ye-zhong-ding-xiang-de-fang-fa/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
                     <h3><a href="/04012014/software-testing/">Software Testing</a></h3>
                     <span>
                         <span class="post-meta">
@@ -261,7 +230,12 @@ PHP程式範例:123456789101112131415161718192021222324252627282930313233343536&
                 <div class="col-md-8">
                     <p>
                       
-                        <h3 id="1-_Overview">1. Overview</h3><p>Software testing provide an objective, independent view to allow the business to appreciate and understand the risks of software, product or service implementation. Test techniques include, but are not limited to the process of executing a program or application with the intent of finding software bugs (errors or other defects).
+                        <h3 id="1-_Overview">1. Overview</h3><p>Software testing provide an objective, independent view to allow the business to appreciate and understand the risks of software, product or service implementation. Test techniques include, but are not limited to the process of executing a program or application with the intent of finding software bugs (errors or other defects).  </p>
+<p>Software testing can be stated as the process of validating and verifying that a computer program/application/product:  </p>
+<ul>
+<li>meets the requirements that guided its design and development,  </li>
+<li>works as expected,  </li>
+<li>can be implemented with the same characteristics,<br>and satisfies the needs of stakeholders.
                       
                     </p>
                     
@@ -291,7 +265,7 @@ PHP程式範例:123456789101112131415161718192021222324252627282930313233343536&
                 <div class="col-md-8">
                     <p>
                       
-                        <p>python對文件的處理的兩個內建函數：<br>open()、file()，這個兩函數提供了初始化輸入\輸出（I\O）操作的通用接口。兩函數的功能相同。<br>基本用法：<br>file_object=open(filename, access_mode=’r’, buffering=-1）<br>file_object 是定義一個打開文件的對象<br>access_mode 是打開文件的模式；通常，文件使用模式  ‘r’,’w’,’a’ 來打開，分別代表，讀取，寫入，追加。<br>‘r’ 模式打開已經存在的文件<br>‘w’ 模式打開的文件若存在則首先清空，再加入內容。<br>‘a’ 這個模式是追加內容到文件中
+                        <p>python對文件的處理的兩個內建函數：<br>open()、file()，這個兩函數提供了初始化輸入\輸出（I\O）操作的通用接口。兩函數的功能相同。<br>基本用法：<br>file_object=open(filename, access_mode=’r’, buffering=-1）<br>file_object 是定義一個打開文件的對象<br>access_mode 是打開文件的模式；通常，文件使用模式  ‘r’,’w’,’a’ 來打開，分別代表，讀取，寫入，追加。<br>‘r’ 模式打開已經存在的文件<br>‘w’ 模式打開的文件若存在則首先清空，再加入內容。<br>‘a’ 這個模式是追加內容到文件中<br>註. ‘b’ 模式這個是打開二進制文件，對於unix-like/unix類型的系統’b’模式是可有可無的。
                       
                     </p>
                     
@@ -322,7 +296,7 @@ PHP程式範例:123456789101112131415161718192021222324252627282930313233343536&
                     <p>
                       
                         <p><strong>1. os模塊</strong><br>Python os模塊包含普遍的操作系統功能。如果你希望你的程序能夠與平臺無關的話，這個模塊是尤為重要的。  </p>
-<p>1) os.name<br>輸出字符串指示正在使用的平臺。如果是window 則用’nt’表示，對於Linux/Unix用戶，它是’posix’。<br>2) os.mkdir(path [,mode=0777])<br>創建目錄<br>3) os.rmdir()<br>刪除目錄
+<p>1) os.name<br>輸出字符串指示正在使用的平臺。如果是window 則用’nt’表示，對於Linux/Unix用戶，它是’posix’。<br>2) os.mkdir(path [,mode=0777])<br>創建目錄<br>3) os.rmdir()<br>刪除目錄<br>4) os.mkdirs()<br>創建多層目錄，類似系統makedir -p<br>5) os.removedirs()<br>刪除多層目錄，每層都是空的，除了要刪除的目錄外。<br>6) os.getcwd()<br>函數得到當前工作目錄，即當前Python腳本工作的目錄路徑。<br>7) os.listdir()<br>返回指定目錄下的所有文件和目錄名。
                       
                     </p>
                     
@@ -414,7 +388,7 @@ PHP程式範例:123456789101112131415161718192021222324252627282930313233343536&
                 <div class="col-md-8">
                     <p>
                       
-                        <p>Python提供了time/datetime/calendar等模塊來處理日期和時間。<br><strong>1.time模塊常用的函數</strong><br><em>A. time.time()</em><br>1970年1月1日以來的秒數，是一個浮點數。<br><em>B. time.sleep()</em><br>可以通過調用time.sleep來挂起當前的進程。time.sleep接收一个浮點型參數，表示進程挂起的時間。<br><em>C. time.clock()</em><br>time.clock()返回第一次调用该方法到现在的秒數，其精確度高於1微秒。可以使用该函數來記錄程序執行的時間。
+                        <p>Python提供了time/datetime/calendar等模塊來處理日期和時間。<br><strong>1.time模塊常用的函數</strong><br><em>A. time.time()</em><br>1970年1月1日以來的秒數，是一個浮點數。<br><em>B. time.sleep()</em><br>可以通過調用time.sleep來挂起當前的進程。time.sleep接收一个浮點型參數，表示進程挂起的時間。<br><em>C. time.clock()</em><br>time.clock()返回第一次调用该方法到现在的秒數，其精確度高於1微秒。可以使用该函數來記錄程序執行的時間。<br><em>D. time.gmtime()</em><br>該函數原型為time.gmtime([sec])，可選參數sec表示從1970-01-01以來的秒數，默認值為time.time()，函數返回time.struct_time類型的對象。(struct_time是在time模塊中定義的表示時間的對象)，下面是一個簡單的例子：
                       
                     </p>
                     
@@ -475,7 +449,9 @@ PHP程式範例:123456789101112131415161718192021222324252627282930313233343536&
                     <p>
                       
                         <img src="/images/mourning_angel.jpg">
-<p>The distance between life and death, might be far beyond the real boundary from life and death.
+<p>The distance between life and death, might be far beyond the real boundary from life and death.  </p>
+<p>It might need only one second separating fresh teary faces from pale freezing corpses. Or, seventeen days’ passing eclipse infinite dread and heart-lacerating sorrow over these pathetic waiting families who have already withstood too much.  </p>
+<p>Time is a queer thing could not be explained reasonably which gives people shock, sadness, hope then and despair finally.
                       
                     </p>
                     
@@ -506,12 +482,45 @@ PHP程式範例:123456789101112131415161718192021222324252627282930313233343536&
                     <p>
                       
                         <img src="/images/Boeing777.jpg">  
-<p><em>About Time</em> is a movie telling a young man could travel in time back to anytime in his own life changing what happens and what has happened.
+<p><em>About Time</em> is a movie telling a young man could travel in time back to anytime in his own life changing what happens and what has happened.  </p>
+<p>Well, if I am asked what could I change if I have such ability, what would I answer?  </p>
+<p>I have no idea.  </p>
+<p>Since the “disappearance” of the flight MH370, there would be more than 18 hours. Presume you would be a passenger on board, do you regret if it’s the end of your life? Or suppose you’re a relative/friend of someone on board, what do you think?
                       
                     </p>
                     
                     <p class="pull-right readMore">
                         <a href="/03082014/about-time/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/03062014/fibonacci-cheng-fa-biao-primes/">Fibonacci序列, 乘法表與求素數的算法</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2014-03-06T09:07:25.000Z" itemprop="datePublished">
+          2014-03-06
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        1. 不同算法實現Fibonacci數列1) 遞歸：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/03062014/fibonacci-cheng-fa-biao-primes/">Read More...</a>
                     </p>
                     
                 </div>
@@ -529,7 +538,7 @@ PHP程式範例:123456789101112131415161718192021222324252627282930313233343536&
 <section id="statement">
     <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
         <div class="row">
-            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
+            <p><span>I Came, I Live, I Experience.</span></p>
         </div>
     </div>
 </section>
