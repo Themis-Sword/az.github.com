@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>刪除列表重複元素的三種方法及效率分析(轉) | Themis_Sword&#39;s Blog</title>
+  <title>search | Themis_Sword&#39;s Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -217,68 +217,24 @@
     			<span class="post-meta">
     
 </span>
-                <h1>刪除列表重複元素的三種方法及效率分析(轉)</h1>
+                <h1>search</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h4 id="方法一：">方法一：</h4><p>使用列表對象的sort()方法對列表進行排序，從最後一個元素開始循環迭代列表，判斷相鄰的兩個元素是否相同。  </p>
-<pre><code class="python">def methodONE(list):
-    list.sort()
-    lenList = len(list)
-    lastItem = list[lenList-1]
-    for i in range(lenList-2,-1,-1):
-     if list[i] == lastItem:
-      list.remove(list[i])
-     else:
-      lastItem = list[i]
-    return list
-```    &lt;!--more--&gt;
-####方法二：  
-定義一個臨時列表，循環迭代出的元素如果不在循環列表中，則加入，最後返回列表。  
-``` python
-def methodTWO(list):
-    templist = []
-    for i in list:
-     if not i in temp list:
-      templist.addend(i)
-    return templist
-</code></pre>
-<h4 id="方法三：">方法三：</h4><pre><code class="python">list = [<span class="number">20</span>,<span class="number">12</span>,<span class="number">34</span>,<span class="number">12</span>,<span class="number">24</span>,<span class="number">34</span>,<span class="number">55</span>,<span class="number">27</span>]
-<span class="keyword">print</span> list(set(lists))
-</code></pre>
-<h4 id="分析：">分析：</h4><ol>
-<li>方法一相對方法二來說，有更多的額外操作如：排序、賦值。因爲在Python中，變量是不可變的，每迭代出一个元素比較不相等後的操作都是新建立一个局部變量、賦值並丟棄原變量，這需要消耗更多的内存!同時因爲排序操作，破壞了相對位置。  </li>
-<li>方法二建立一个臨時列表進行操作，而列表是可變的，每次追加元素都只是在原列表上增加一个索引及值,因而相對方法一來說效率會更高!  </li>
-<li>方法三无疑是效率最好的(無論是代碼的簡潔還是運行效率)。set()是內置的數據類型“集合類型”，它是無序的且值是唯一的！所以set()執行的结果就是轉為集合且直接去除了重複的元素，list()則將集合轉回列表類型。<br>但是，set()會破壞排列順序，如果要保留排序，list(set(lists))可改為sorted(set(lists), key=lists.index)  </li>
-</ol>
-<p>在itertools有个强大的函数groupby可以很快捷的实现:  </p>
-<pre><code class="python"><span class="keyword">from</span> itertools <span class="keyword">import</span> *
+      		<div><script><br>  (function() {<br>    var cx = ‘016604640184447215994:u1xiowofg70’;<br>    var gcse = document.createElement(‘script’);<br>    gcse.type = ‘text/javascript’;<br>    gcse.async = true;<br>    gcse.src = (document.location.protocol == ‘https:’ ? ‘https:’ : ‘http:’) +<br>        ‘//www.google.com/cse/cse.js?cx=’ + cx;<br>    var s = document.getElementsByTagName(‘script’)[0];<br>    s.parentNode.insertBefore(gcse, s);<br>  })();<br></script><br><gcse:searchresults-only></gcse:searchresults-only></div>
 
-a = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">11</span>]
-a.sort()
-b = [k <span class="keyword">for</span> k, g <span class="keyword">in</span> groupby(a)]
-<span class="keyword">print</span> b
-</code></pre>
-<p><a href="https://github.com/bluescorpio/mydocuments/blob/master/Todo/%E5%88%A0%E9%99%A4%E5%88%97%E8%A1%A8%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E5%85%83%E7%B4%A0%E5%8F%8A%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90.txt" target="_blank" rel="external">Origin</a></p>
+<p>robots.txt</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/02172014/destiny/" style="float: left;">
-        ← Destiny
-    </a>
-    
-    
-    <a class="pull-right" href="/02152014/the-zen-of-python/">
-        The Zen of Python →
-    </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="02152014/shan-chu-lie-biao-zhong-fu-yuan-su/" data-title="刪除列表重複元素的三種方法及效率分析(轉)" data-url="http://yoursite.com/02152014/shan-chu-lie-biao-zhong-fu-yuan-su/"></div>
+<div class="ds-thread" data-thread-key="search/index.html" data-title="search" data-url="http://yoursite.com/search/index.html"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"duoshuo_name"};
 (function() {
