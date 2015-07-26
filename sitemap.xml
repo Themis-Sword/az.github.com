@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/07262015/%E5%B0%87Blog%E5%BE%9EOctopress%E9%81%B7%E7%A7%BB%E8%87%B3Hexo/</loc>
+    <lastmod>2015-07-26T05:09:47.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/timeline/index.html</loc>
     <lastmod>2015-07-26T04:59:58.000Z</lastmod>
   </url>
@@ -9,11 +14,6 @@
   <url>
     <loc>http://yoursite.com/search/index.html</loc>
     <lastmod>2015-07-26T04:36:54.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/07262015/%E5%B0%87Blog%E5%BE%9EOctopress%E9%81%B7%E7%A7%BB%E8%87%B3Hexo/</loc>
-    <lastmod>2015-07-26T03:08:31.000Z</lastmod>
   </url>
   
   <url>
