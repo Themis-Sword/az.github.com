@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>Python 動態類型(轉) | Themis_Sword&#39;s Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Themis_Sword's Blog">
+    <meta name="author" content="Themis_Sword">
+    <meta name="description" content="Never Scared Endeavoring." />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Themis_Sword&#39;s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(7)</small></a></li>
+				    
+				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/inspiring/" class="animsition-link">inspiring<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(16)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/python-artificial-intelligence/" class="animsition-link">python artificial-intelligence<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/software/" class="animsition-link">software<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/web/" class="animsition-link">web<small>(4)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            <li><a href="/portfolio" class="animsition-link" title="Portfolio">Portfolio</a></li>
+            <li><a href="/gallery" class="animsition-link" title="Gallery">Gallery</a></li>
+            <li><a href="/timeline" class="animsition-link" title="Timeline">Timeline</a></li>
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/author" class="animsition-link" title="Author">Author</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Themis_Sword's Blog</a></li>
+                            <li class="nolink">Never Scared Endeavoring.</li>
+                            
+                            
+                            
+                            
+                            
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2><span>Love, and to be Loved.</span></h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>我愛你，你是自由的。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+    
+</span>
+                <h1>Python 動態類型(轉)</h1>
+                <h5>Wed Apr 02 2014 15:15:39 GMT+0800</h5>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>Python中只有一個賦值模型  </p>
+<h4 id="1-_缺少類型聲明語句的情況">1. 缺少類型聲明語句的情況</h4><p>在Python中，類型是在運行過程中自動決定的，而不是通過代碼聲明。這意味著沒有必要事聲明變量。只要記住，這個概念實質上對變量，對象和它們之間的關系都適用。那麽這個概念也容易理解並掌握。  </p>
+<p><strong>A 變量，對象和引用</strong><br>變量創建：一個變量，當代碼第一次給它賦值時它就被創建了。之後的賦值將會改變已創建的變量名的值。Python在代碼運行之前先檢測變量名，可以當成是最初的賦值創建變量。<br>變量類型：變量永遠不會有任何的它關聯的類型信息或約束。類型的概念是存在於對象中而不是變量中。變量原本是通用的。它只是在一個特定的時間點，簡單地引用了一個特定的對像而已。<br>變量的使用：當變量出現在表達式中時，它會馬上被當前引用的對像所代替，無論這個對象是什麽類型。<br>此外，所有的變量都必須在其使用前明確地賦值。使用未賦值的變量會產生錯誤。<br><code>&gt;&gt;&gt;a=3</code><a id="more"></a>  </p>
+<p>在概念上說，Python將執行三個不同的步驟去完成這個請求。<br>1) 創建一個對象來代表值3<br>2) 創建一個變量a，如果它還沒有創建的話<br>3) 將變量與新的對象3連接  </p>
+<p>在python中從變量到對象的連接稱作引用。引用是一種關系，以內存中的指針形式實現。  </p>
+<ul>
+<li>變量 是一個系統表的元素，擁有指向對象的連接空間。  </li>
+<li>對象 是被分配的一塊內存，有足夠的空間去表現它們所代表的值。  </li>
+<li>引用 是自動形成的從變量到對象的指針。  </li>
+</ul>
+<p>每一個對象都用兩個標準的頭部信息：一個類型標誌符去標識這個對象的類型，以及一個引用的計數器，用來決定是不是可以回收這個對象。  </p>
+<p><strong>B 類型屬於對象，而不是變量</strong><br>Python中的類型是與對象相關聯的，而不是和變量關聯。<br>變量沒有類型，變量指向對象。對象有類型，知道自己的類型，每個對象都包含了一個頭部信息，其中標記了這個對象的類型。  </p>
+<p><strong>C 對象的垃圾收集</strong><br>對象生命結束時發生了什麽變化？<br>每當一個變量名被賦與了一個新的對象，之前的那個對象占用的空間就會被收回（如果它沒有被其他變量名和對象所引用).這種自動回收對象空間的技術稱作垃圾收集。<br>在內部，Python是通過保持用每個對象中的計數器記錄引用指到這個對象上的次數來完成這一功能。一旦（並精確在同一時間）這個計數器被設置為零，這個對象的內存空間就會自動收回。垃圾收集最直接的，可感受到的好處就是這意味著可以在腳本中任意使用對象而不需要考慮釋放內存空間。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;</span>&gt; x=<span class="number">42</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; id(x)</span><br><span class="line"><span class="number">674748828</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; x=<span class="string">"cli"</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; id(x)    </span><br><span class="line"><span class="number">676367648</span></span><br><span class="line"><span class="string">``</span><span class="string">`  </span><br><span class="line">  </span><br><span class="line">####2. 共享引用  </span><br><span class="line">上面所講都是單個變量被賦值引用了多個對象的情況。現在，在交互模式下，引入另一個變量，並看一下變量名和對象的變化。  </span><br><span class="line">`</span><span class="string">``</span> </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; a=<span class="number">10</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; b=a </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; id(a)</span><br><span class="line"><span class="number">674749212</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; id(b)</span><br><span class="line"><span class="number">674749212</span></span><br><span class="line"><span class="string">``</span><span class="string">`  </span><br><span class="line">第二行會使用python創建變量b。使用的是變量a,並且它在這裏沒有被賦值，所以它被替換成其應用的對象10，從而b也成為這個對象的一個引用。實際效果就是變量a和b都引用相同的對象（也就是說指向了相同的內存空間。在Python中稱作是共享引用--多個變量名應用了同一個對象。)  </span><br><span class="line">  </span><br><span class="line">`</span><span class="string">``</span> </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; a=<span class="number">10</span> </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; b=a  </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; a=<span class="string">'cli'</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; id(a) </span><br><span class="line"><span class="number">676367648</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; id(b)</span><br><span class="line"><span class="number">674749212</span></span><br><span class="line"><span class="string">``</span><span class="string">`  </span><br><span class="line">變量a改變了，但是不影響變量b.這完全可以說明變量b是指向對象10內存空間的。  </span><br><span class="line">  </span><br><span class="line">在ptyhon中，變量總是一個指向對象的指針，而不是可以改變的內存區域的標簽。給一變量賦一個新的值，並不是替換了原始的對象，而是讓這個變量去引用完全不同的一個對象。實際的效果就是對一個變量賦值，僅僅會影響那個被賦值的變量。  </span><br><span class="line">  </span><br><span class="line">**A 共享引用和在原處修改**  </span><br><span class="line">有一些對象和類型確實會在實地改變對象。例如，在一個列表中對一個偏移進行賦值確實會改變這個列表對象，而不是生成一個新的列表對象。  </span><br><span class="line">`</span><span class="string">``</span> </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span>=[<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span>=<span class="constant">T1</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span></span><br><span class="line">[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span></span><br><span class="line">[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span>=<span class="number">22</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span></span><br><span class="line"><span class="number">22</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span></span><br><span class="line">[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="string">``</span><span class="string">`  </span><br><span class="line">  </span><br><span class="line">這個和先前一樣T1改變了T2沒有改變，T2改變也不影響T1  </span><br><span class="line">`</span><span class="string">``</span> </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span>=[<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span>=<span class="constant">T1</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span></span><br><span class="line">[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span></span><br><span class="line">[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span>[<span class="number">1</span>]=<span class="number">33</span>     </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span></span><br><span class="line">[<span class="number">33</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span></span><br><span class="line">[<span class="number">33</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="string">``</span><span class="string">`  </span><br><span class="line">發現T2改變了，T1也跟這改變了  </span><br><span class="line">同樣T1改變了，T2也改變了  </span><br><span class="line">`</span><span class="string">``</span> </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span>[<span class="number">1</span>]=<span class="number">99</span>  </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span></span><br><span class="line">[<span class="number">33</span>, <span class="number">99</span>, <span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span></span><br><span class="line">[<span class="number">33</span>, <span class="number">99</span>, <span class="number">13</span>]</span><br><span class="line"><span class="string">``</span><span class="string">`  </span><br><span class="line">這裏T1沒有改變，改變了T1所引用對象的一個元素。這類修改會覆蓋列表對象中的某部分。因為這個列表對象是與其他對象共享的（被其他對象引用），那麽一個像這樣在原處的改變不僅僅會對T1有影響。必須意識到當做了這樣的修改，它會影響程序的其他部分。  </span><br><span class="line">  </span><br><span class="line">如果不想要這樣的現象發生，需要Python拷貝對象，而不是創建引用。方法包括內置列表函數以及標準庫的copy模塊，最常用的辦法就是從頭到尾的分片T1[:]</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>T1=[11,12,13]<br>T2=T1[:]<br>T1<br>[11, 12, 13]<br>T2<br>[11, 12, 13]<br>T1[0]=99<br>T1<br>[99, 12, 13]<br>T2<br>[11, 12, 13]<br>id(T1)<br>676366604<br>id(T2)<br>675542060<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T1和T2指向不同的對象，所以不會相互影響。  </span><br><span class="line">註意：這種分片技術不會引用在其他的可變的核心類型上（字典，因為它們不是序列），對字典應該使用<span class="keyword">D</span>.<span class="keyword">copy</span>（）方法.而且，註意標準庫中的<span class="keyword">copy</span>模塊有一個通用的拷貝任意對象的調用，也有一個拷貝嵌套對象的結構的調用.</span><br></pre></td></tr></table></figure></p>
+<p>X={‘name’:’cli’,’age’:27}<br>import copy<br>Y=copy.copy(X)<br>X<br>{‘age’: 27, ‘name’: ‘cli’}<br>Y<br>{‘age’: 27, ‘name’: ‘cli’}<br>id(X)<br>676370468<br>id(Y)<br>676414436<br>X={‘name’:{‘FirstName’:’cli’,’LastName’:’cli’},’age’:27}<br>X<br>{‘age’: 27, ‘name’: {‘LastName’: ‘cli’, ‘FirstName’: ‘cli’}}<br>Y=copy.copy(X)<br>Y<br>{‘age’: 27, ‘name’: {‘LastName’: ‘cli’, ‘FirstName’: ‘cli’}}<br>Z=copy.deepcopy(X)<br>Z<br>{‘age’: 27, ‘name’: {‘LastName’: ‘cli’, ‘FirstName’: ‘cli’}}<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span>B 共享引用和相等<span class="keyword">*</span><span class="keyword">*</span></span><br></pre></td></tr></table></figure></p>
+<p>x=33<br>x=’cli’<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">因為Python緩存並復用了小的整數和小的字符串，就像前文提到的那樣，這裏對象33也許不像前期所說的被收回，相反，它將可能仍保持在一個系統表中，等待下一次你的代碼生成另一個33來利用。盡快如此，大多數種類的對象都會在不再引用時馬上回收。對於那些不會被回收的，緩沖機制與代碼並沒有什麽關系。  </span><br><span class="line">  </span><br><span class="line">判斷是否相等</span><br></pre></td></tr></table></figure></p>
+<p>L=[1,2,3]<br>M=L<br>L==M<br>True<br>L is M<br>True<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">==檢查對象是否有相同的值。 <span class="keyword">is</span>操作符，檢查對象的同一性。如果兩個變量名精準地指向同一個對象，它會返回<span class="keyword">True</span>。所以這是一種更嚴格的相等測試。  </span><br><span class="line">實際上,<span class="keyword">is</span>只是比較現實引用的指針。所以如果必要的話是代碼中檢測共享引用的一種方法。如果變量名引用值相等。但是為不同的對象，它的返回值將是<span class="keyword">False</span>.  </span><br><span class="line">``` </span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>L=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>M=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>L==M</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>L <span class="keyword">is</span> M</span><br><span class="line"><span class="keyword">False</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>id(L)</span><br><span class="line"><span class="number">676367788</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>id(M)</span><br><span class="line"><span class="number">676367724</span></span><br><span class="line">```  </span><br><span class="line">通過id()函數可以看到兩個變量指向不同的對象。  </span><br><span class="line">  </span><br><span class="line">``` </span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>X=<span class="number">33</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>Y=<span class="number">33</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>X==Y</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>X <span class="keyword">is</span> Y</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>id(X)</span><br><span class="line"><span class="number">674748936</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>id(Y)</span><br><span class="line"><span class="number">674748936</span></span><br><span class="line">```  </span><br><span class="line">這個<span class="keyword">is</span>測試返回<span class="keyword">True</span>因為小的整數和字符串被緩存被復用了。</span><br><span class="line">如果想更進一步了解，可以向Python查詢一個對象應用的次數：在sys模塊中的getrefcount函數返回對象應用的次數。</span><br></pre></td></tr></table></figure></p>
+<p>import sys<br>sys.getrefcount(33)<br>13<br>sys.getrefcount(1)<br>427<br>sys.getrefcount(00)<br>296<br>sys.getrefcount(99)<br>6<br>```  </p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><a href="http://ipseek.blog.51cto.com/1041109/786518" target="_blank" rel="external">Origin</a></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/blog/04022014/fading-away/" style="float: left;">
+        ← Fading away
+    </a>
+    
+    
+    <a class="pull-right" href="/blog/04022014/wang-ye-zhong-ding-xiang-de-fang-fa/">
+        網頁重定向的方法(轉) →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="blog/04022014/python-dong-tai-lei-xing/" data-title="Python 動態類型(轉)" data-url="http://www.aprilzephyr.com/blog/04022014/python-dong-tai-lei-xing/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Themis_Sword. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran.</a> Thanks!</p>
+            </div>
+<div align='right'>
+    <form class="navbar-form" action="/search/">
+        <input type="text" class="form-control" placeholder="Google Search" name="q">
+    </form>
+ </div>
+            
+            
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>

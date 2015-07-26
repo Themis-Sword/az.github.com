@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>The Python IAQ: Infrequently Answered Questions | Themis_Sword&#39;s Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Themis_Sword's Blog">
+    <meta name="author" content="Themis_Sword">
+    <meta name="description" content="Never Scared Endeavoring." />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Themis_Sword&#39;s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(7)</small></a></li>
+				    
+				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/inspiring/" class="animsition-link">inspiring<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(16)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/python-artificial-intelligence/" class="animsition-link">python artificial-intelligence<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/software/" class="animsition-link">software<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/web/" class="animsition-link">web<small>(4)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            <li><a href="/portfolio" class="animsition-link" title="Portfolio">Portfolio</a></li>
+            <li><a href="/gallery" class="animsition-link" title="Gallery">Gallery</a></li>
+            <li><a href="/timeline" class="animsition-link" title="Timeline">Timeline</a></li>
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/author" class="animsition-link" title="Author">Author</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Themis_Sword's Blog</a></li>
+                            <li class="nolink">Never Scared Endeavoring.</li>
+                            
+                            
+                            
+                            
+                            
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2><span>Love, and to be Loved.</span></h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>我愛你，你是自由的。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+    
+</span>
+                <h1>The Python IAQ: Infrequently Answered Questions</h1>
+                <h5>Tue May 05 2015 13:02:30 GMT+0800</h5>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="1_Q:_什麽是”少有回答的問題(Infrequently_Answered_Question)”_?">1 Q: 什麽是”少有回答的問題(Infrequently Answered Question)” ?</h3><p>一個問題之所以很少有人回答，要麽是因為很少有人知道問題的答案，要麽是因為它涉及到一個晦澀而隱蔽的知識點(但可能是你關心的)。我過去認為是我在<a href="http://www.norvig.com/java-iaq.html" target="_blank" rel="external">Java IAQ</a>中發明了這個詞組，但是它也出現在了以資料豐富而著稱的<a href="http://urbanlegends.about.com/library/weekly/aa082497.htm" target="_blank" rel="external">About.com Urban Legends</a>網站上. 關於Python的FAQ有很多,但是Python的IAQ只有這一個。(“少見問題列表”倒是有一些，其中一個是有諷刺意味的<a href="http://www.plethora.net/%7Eseebs/faqs/c-iaq.html" target="_blank" rel="external">C</a>。)<a id="more"></a></p>
+<h3 id="2_Q:_finally子句中的代碼每次都會被執行,對嗎?">2 Q: finally子句中的代碼每次都會被執行,對嗎?</h3><p>每次?應該說，幾乎每次。在try子句被執行後，無論是否出現異常，finally子句中的代碼都會被執行，即使調用了sys.exit. 不過如果程序沒有執行到finally子句的話，它就沒有辦法運行了。下面的代碼中，無論choice取何值，都會發生這樣的情況:</p>
+<pre><code><span class="keyword">try</span>:
+    <span class="keyword">if</span> choice:
+        <span class="keyword">while</span> <span class="number">1</span>:
+            <span class="keyword">pass</span>
+    <span class="keyword">else</span>:
+        <span class="keyword">print</span> <span class="string">"Please pull the plug on your computer sometime soon..."</span>
+        time.sleep(<span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">365</span> * <span class="number">10000</span>)
+<span class="keyword">finally</span>:
+    <span class="keyword">print</span> <span class="string">"Finally ..."</span>
+</code></pre><h3 id="3_Q:_多態真是太棒了!無論一個列表(list)中的元素是什麽類型,我都可以用sort對它排序,對嗎?">3 Q: 多態真是太棒了!無論一個列表(list)中的元素是什麽類型,我都可以用sort對它排序,對嗎?</h3><p>不對。考慮這種情況:</p>
+<pre><code>&gt;&gt;&gt; x = [<span class="number">1</span>, <span class="number">1</span>j]
+&gt;&gt;&gt; x.<span class="built_in">sort</span>()
+Traceback (most recent call <span class="keyword">last</span>):
+  File <span class="string">"&lt;pyshell#13&gt;"</span>, <span class="built_in">line</span> <span class="number">1</span>, <span class="operator">in</span> ?
+    x.<span class="built_in">sort</span>()
+TypeError: cannot compare complex numbers <span class="keyword">using</span> &lt;, &lt;=, &gt;, &gt;=
+</code></pre><p>(1j是一個數，表示-1的平方根)問題在於:sort方法(在目前的實現中)使用__lt__方法來 比較元素的大小。而__lt__方法拒絕比較復數的大小(因為它們是不能排序的)。奇怪的是,complex.__lt__會毫不猶豫的比較復數與字符串，列表(list)和其他所有類型，除了復數。所以答案是,你可以對支持__lt__方法的對象序列(sequence)進行排序(當然如果將來實現變了，可能就是其它方法了)。</p>
+<p>對於問題的地一部份，“多態真棒”，我同意。但是Python有時會讓使用多態變得困難，因為許多Python的類型(比如序列和數)的定義不太符合規則。</p>
+<h3 id="4_Q:_在Python中我能寫++x和x++嗎?">4 Q: 在Python中我能寫++x和x++嗎?</h3><p>從語法上說，++x能， x++不能。但是從實際使用來說，別這樣做。這麽說什麽意思？  </p>
+<ul>
+<li>可以， ++x是合法的Python語法。不過如果你是一個C++或者Java程序員的話，它表示不是你想的那個意思。加號+是一個單目前綴操作符，所以++x被解析為+(+x),它表示的(至少對於數字來說)就是x。  </li>
+<li>不可以， x++本身就不是一個合法的表達式, 雖然在某些上下文時合法。比如， x++ -y被解析為x++(-(y)), 對於數字來說，等於x - y。當然，你可以創建一個類，讓++x有(很有限的)意義。比如可以讓這個類保存一個數字，然後使單目操作符+使它增加0.5(或者有0.5的概率增加1，如果你喜歡隨機化算法)，但是…  </li>
+<li>不可以，那樣真傻。最好還是用Python 2.0已經中加入的x += 1。<br>進一步的問題:為什麽Python不允許 x++？ 我相信原因與Python不允許在表達式中賦值一樣: Python想要清晰的區分語句和表達式。如果我覺得這兩者應該有所區別，那麽不允許++就是最好的決定。另一方面，函數語言的鼓吹者認為語句就應該是表達式。我跟我的丹麥老鄉，Bjarne Stroustrup，都這樣認為。他在The Design and Evolution of C++中說:“如果是從頭來設計一種語言的話，我會按照Algol68的方式，讓每條語句和聲明都是一個有返回值的表達式”。</li>
+</ul>
+<h3 id="5_Q:_我能使用C++中對ostreams那樣的語法嗎，像這樣麽:_count_&lt;&lt;_x_&lt;&lt;_y_…?">5 Q: 我能使用C++中對ostreams那樣的語法嗎，像這樣麽: count &lt;&lt; x &lt;&lt; y …?</h3><p>當然可以。如果你不喜歡寫”print x,y”，你可以試試這個：</p>
+<pre><code><span class="keyword">import</span> sys
+
+<span class="class"><span class="keyword">class</span> <span class="title">ostream</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, file)</span>:</span>
+        self.file = file
+
+    <span class="function"><span class="keyword">def</span> <span class="title">__lshift__</span><span class="params">(self, obj)</span>:</span>
+        self.file.write(str(obj));
+        <span class="keyword">return</span> self
+
+cout = ostream(sys.stdout)
+cerr = ostream(sys.stderr)
+nl = <span class="string">'\n'</span>
+-----------------------------------
+cout &lt;&lt; x &lt;&lt; <span class="string">" "</span> &lt;&lt; y &lt;&lt; nl
+</code></pre><p>(本文中所有的文件中的代碼都在橫線以上，使用這些代碼的例子在橫線以下。)這樣你就可以使用一種不同的語法了，但是它不能給你帶來一種新的輸出格式，它只是把Python中以有str的格式封裝了一層而已。這個做法很像Java裏面的toString()格式。C++使用的是一種迥異的格式：它沒有定義一組把對象轉換為字符串的規則，而定義了一種把對象打印到流的規則(也許是不完整的規則，因為很多C++程序仍然使用printf)。用流來實現會更加復雜，但是它的優勢在於如果你需要打印一個相當巨大的對象，就不用創建一個巨大的臨時對象來做這件事。</p>
+<h3 id="6_Q:_如果我喜歡C++的printf呢?">6 Q: 如果我喜歡C++的printf呢?</h3><p>在Python中定義一個printf不是一個壞主意. 你可能認為printf(“%d = %s”, num, result)比print “%d = %s” % (num, result)更加自然, 因為那一對括號在更熟悉的位置(而且你不想要那個%)。更和況, 滿足這個需求輕而易舉:  </p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">printf</span><span class="params">(format, *args)</span>:</span> <span class="keyword">print</span> format % args,
+</code></pre><p>即使是像這樣的一行代碼，也有幾個不同實現。首先，我必需要決定是否在結尾添加逗號。為了更像C++, 我決定加上(這就意味著如果你想在結尾換行，你需要自己在格式字符串的末尾添加)。其次，結尾處會打印一個空格。如果你不想要它，使用sys.stdout.write來代替print. 最後, 把一切都變得更像C好是一件好事嗎? 是，因為你需要一個打印函數(而不是一個打印語句)在只接受函數不接受語句的地方使用。比如，在lambda表達式中和map的第一個參數。事實上，這樣一個函數使用起來是很趁手的，你可能想要一個沒有格式化功能的:</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">prin</span><span class="params">(x)</span>:</span> <span class="keyword">print</span> x,
+</code></pre><p>現在map(prin, seq)將打印seq中的每一個元素. 但是map(print, seq)是一個語法錯誤. 我曾經見過有些粗心大意的程序員(好吧, 沒錯, 我自己就是. 但是我知道我自己很粗心 )認為把這兩個函數合二為一是個好主意, 像這樣:</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">printf</span><span class="params">(format, *args)</span>:</span> <span class="keyword">print</span> str(format) % args,  
+</code></pre><p>這樣 printf(42)， printf(‘A multi-line\n message’)和 printf(‘%4.2f’, 42)都能工作。但是當你用了pring(‘100% guaranteed’)或者是其他任何含有%字符卻並不是一個格式化指令時，”好主意”就會變成”我想啥呢?”。如果你真的實現了這麽一個printf，它需要這樣的註釋:</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">printf</span><span class="params">(format, *args)</span>:</span> 
+    <span class="string">"""使用第一個參數作為格式字符串來格式化args, 然後打印. 
+    如果format不是字符串, 將被str轉換成字符串. 如果x可能含
+    有%和反斜線字符, 你必須使用printf('%s', x)來代替    printf(x).
+    """</span> 
+  <span class="keyword">print</span> str(format) % args,
+</code></pre><h3 id="7_Q:_關於字典(Dictionary)，有沒有更好的語法?_我使用的鍵(key)都是標識符-">7 Q: 關於字典(Dictionary)，有沒有更好的語法? 我使用的鍵(key)都是標識符.</h3><p>有!用一對引號來包括鍵的確是一件麻煩的事情，尤其當鍵是一個很長的字符串時. 起初我認為Python中加入特別的語法是有幫助的，用{a=1, b=2}來代替現在必需的{‘a’:1, ‘b’:2}。在Python 2.3中，你可以用的語法是dict(a=1, b=2, c=3, dee=4)，這和我的想法一樣好。在Python 2.3以前，我使用一個只有一行的函數def Dict(**dict): return dict</p>
+<p>一個讀者指出，對於散列Perl也有類似的特殊符號: 在Perl中對於散列文本，你可以寫(“a”, 1, “b”, 2)或者(a=&gt;1, b=&gt;2)。這是事實，但不是事實的全部。”man perlop”說”=&gt;符號最多只是逗號操作符的同意詞…”而且事實上當a和b是barewords時，你可以寫(a, 1, b, 2)。但是，就像Dag Asheim指出的，如果你打開strict，你將會從這個寫法中得到一個錯誤。你必須要麽使用字符串，要麽使用=&gt;操作符。最後，Larry Wall已經申明，”Perl 6中將不會有bareword”。(關於perl的這以部分，我的翻譯可能有很大問題，因為我根本不會Perl!—譯註)</p>
+<h3 id="8_Q:_那麽，對象有沒有類似的簡便辦法呢?">8 Q: 那麽，對象有沒有類似的簡便辦法呢?</h3><p>的確是有的。如果你想要創建一個對象來把數據保存在不同的域中，下面的代碼就可以做到:</p>
+<pre><code><span class="class"><span class="keyword">class</span> <span class="title">Struct</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, **entries)</span>:</span>         self.__dict__.update(entries)
+<span class="prompt">&gt;&gt;&gt; </span>globals = Struct(answer=<span class="number">42</span>, linelen = <span class="number">80</span>,     font=<span class="string">'courier'</span>)
+<span class="prompt">&gt;&gt;&gt; </span>globals.answer
+<span class="number">42</span>
+<span class="prompt">&gt;&gt;&gt; </span>globals.answer = <span class="string">'plastics'</span>
+<span class="prompt">&gt;&gt;&gt; </span>vars(globals)
+{<span class="string">'answer'</span>: <span class="string">'plastics'</span>, <span class="string">'font'</span>: <span class="string">'courier'</span>, <span class="string">'linelen'</span>: <span class="number">80</span>}
+</code></pre><p>從本質上說，我們在這裏做的是創建一個匿名類。好吧，我知道globals的類是 Struct，但是因為我們在它裏面添加了slots，就像是創建了一個新的，未命名的類(這和lambda創建匿名函數是很像的)。我討厭再給Struct添加什麽了，因為它現在很簡潔，不過如果你添加下面的方法，就可以漂亮打印出它的每個結構。</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span>
+    args = [<span class="string">'%s=%s'</span> % (k, repr(v)) <span class="keyword">for</span> (k,v) <span class="keyword">in</span>     vars(self).items()]
+    <span class="keyword">return</span> <span class="string">'Struct(%s)'</span> % <span class="string">', '</span>.join(args)
+<span class="prompt">&gt;&gt;&gt; </span>globals
+------------------------------------------------
+Struct(answer=<span class="string">'plastics'</span>, font=<span class="string">'courier'</span>, linelen=<span class="number">80</span>)
+</code></pre><h3 id="9_Q:_這樣創建新對象是很方便，但是要更新時怎麽辦呢?">9 Q: 這樣創建新對象是很方便，但是要更新時怎麽辦呢?</h3><p>是這樣的，字典是有一個update方法的，所以當d是一個字典時，你可以用d.update(dict(a=100, b=200))。但是對象沒有對應的方法，所以你只能用obj.a = 100;obj.b = 200。或者你可以定義一個函數update(x, a=100, b=200)來更新x，無論它是字典還是對象都可以:</p>
+<pre><code><span class="keyword">import</span> types
+
+<span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(x, **entries)</span>:</span>
+    <span class="keyword">if</span> type(x) == types.DictType: x.update(entries)
+    <span class="keyword">else</span>: x.__dict__.update(entries)
+    <span class="keyword">return</span> x
+</code></pre><p>把它用於構造函數特別漂亮:</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, a, b, c, d=<span class="number">42</span>, e=None, f=<span class="params">()</span>)</span>:</span>
+    update(self, a=a, b=b, c=c, d=d, e=e, f=f) 
+</code></pre><h3 id="10_Q:_我能創建一個默認值為0或者[]的或者別的什麽的字典麽?">10 Q: 我能創建一個默認值為0或者[]的或者別的什麽的字典麽?</h3><p>如果你常常要對某個東西計數，咱們會有同感: count[x] ＋＝ 1比被迫用的count[x] = count.get(x, 0) + 1要優美許多。在Python 2.2以後，繼承內建的dict類可以輕松的搞定這個。我把它叫做我的DefaultDict。註意copy.deepcopy的使用: 有了它，就不會讓dict裏面的每個key都使用同一個[]作為默認值(雖然拷貝0浪費了一點時間，不過如果你使用更新和訪問比初始化更頻繁的話，還算可以接受):</p>
+<pre><code><span class="class"><span class="keyword">class</span> <span class="title">DefaultDict</span><span class="params">(dict)</span>:</span>
+<span class="string">"""Dictionary with a default value for unknown keys."""</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, default)</span>:</span>
+        self.default = default
+
+   <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, key)</span>:</span>
+        <span class="keyword">if</span> key <span class="keyword">in</span> self: <span class="keyword">return</span> self.get(key)
+        <span class="keyword">return</span> self.setdefault(key, copy.deepcopy(self.default))
+--------------------------------------
+<span class="prompt">&gt;&gt;&gt; </span>d = DefaultDict(<span class="number">0</span>)
+<span class="prompt">&gt;&gt;&gt; </span>d[<span class="string">'hello'</span>] += <span class="number">1</span>
+<span class="prompt">&gt;&gt;&gt; </span>d
+{<span class="string">'hello'</span>: <span class="number">1</span>}
+<span class="prompt">&gt;&gt;&gt; </span>d2 = DefaultDict([])
+<span class="prompt">&gt;&gt;&gt; </span>d2[<span class="number">1</span>].append(<span class="string">'hello'</span>)
+<span class="prompt">&gt;&gt;&gt; </span>d2[<span class="number">2</span>].append(<span class="string">'world'</span>)
+<span class="prompt">&gt;&gt;&gt; </span>d2[<span class="number">1</span>].append(<span class="string">'there'</span>)
+<span class="prompt">&gt;&gt;&gt; </span>d2
+{<span class="number">1</span>: [<span class="string">'hello'</span>, <span class="string">'there'</span>], <span class="number">2</span>: [<span class="string">'world'</span>]}
+
+<span class="function"><span class="keyword">def</span> <span class="title">bigrams</span><span class="params">(words)</span>:</span>
+    <span class="string">"Counts of word pairs, in a dict of dicts."</span>
+    d = DefaultDict(DefaultDict(<span class="number">0</span>))
+    <span class="keyword">for</span> (w1, w2) <span class="keyword">in</span> zip([<span class="keyword">None</span>] + words, words + [<span class="keyword">None</span>]):
+        d[w1][w2] += <span class="number">1</span>
+    <span class="keyword">return</span> d
+
+<span class="prompt">&gt;&gt;&gt; </span>bigrams(<span class="string">'i am what i am'</span>.split())
+{<span class="keyword">None</span>: {<span class="string">'i'</span>: <span class="number">1</span>}, <span class="string">'i'</span>: {<span class="string">'am'</span>: <span class="number">2</span>}, <span class="string">'what'</span>: {<span class="string">'i'</span>: <span class="number">1</span>},     <span class="string">'am'</span>: {<span class="keyword">None</span>: <span class="number">1</span>, <span class="string">'what'</span>: <span class="number">1</span>}}
+</code></pre><p>值得註意的是，如果沒有DefaultDict，bigram例子程序中的d[w1][w2] += 1就大概應該象這樣:</p>
+<pre><code>d.setdefault(w1,{}).setdefault(w2, 0); d[<span class="link_label">w1</span>][<span class="link_reference">w2</span>] += 1
+</code></pre><h3 id="11_Q:_嘿，你能用0-0007KB或者更少的代碼做一個矩陣變換麽?">11 Q: 嘿，你能用0.0007KB或者更少的代碼做一個矩陣變換麽?</h3><p>我還以為你永遠不會問呢. 如果你用序列組成的序列來表示矩陣的話，用zip就可以搞定了:</p>
+<pre><code>&gt;&gt;&gt; m = [<span class="comment">(1,2,3)</span>, <span class="comment">(4,5,6)</span>] 
+&gt;&gt;&gt; zip<span class="comment">(*m)</span> 
+[<span class="comment">(1, 4)</span>, <span class="comment">(2, 5)</span>, <span class="comment">(3, 6)</span>]
+</code></pre><p>要想理解它，你需要知道f(*m)就像於apply(f,m)。你問的是一個古老的Lisp問題，在Python中它的等價答案是map(None, *m)，但是用Chih-Chung Chang建議的zip版代碼會更短小。你可能認為這些代碼唯一的用處就是在Letterman的Stupid Programmer’sTricks(David Michael Letterman, 美國晚間脫口秀主持人，他主持的一個著名節目是Stupid Pet Tricks——譯註)中露臉，但是有一天我遇到了這個問題:有一個數據庫行的列表，每一行中都是排序過的值的列表。找出每一列中不重復的值，組成一個列表。我的答案是：</p>
+<pre><code>possible_values = map<span class="list">(<span class="keyword">unique</span>, zip<span class="list">(<span class="keyword">*db</span>)</span>)</span>  
+</code></pre><h3 id="12_Q:_用f(*m)的技巧很酷-_有沒有同樣的語法可以用在方法調用上,_比如x-f(*y)?">12 Q: 用f(*m)的技巧很酷. 有沒有同樣的語法可以用在方法調用上, 比如x.f(*y)?</h3><p>這個問題暴露一個錯誤的概念。根本就沒有方法調用的語法！Python語法中，有函數調用的，也有從對象中取得域的，也有綁定方法的。把這三者結合起來，就讓x.f(y)看起來像一塊單獨的語法，而事實上，它等價於(x.f)(y)，後者又等價於(getattr(x, ‘f’))(y)。我猜你可能不相信我，來看:</p>
+<pre><code><span class="class"><span class="keyword">class</span> <span class="title">X</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(self, y)</span>:</span> <span class="keyword">return</span> <span class="number">2</span> * y
+    --------------------------------------
+<span class="prompt">&gt;&gt;&gt; </span>x = X()
+<span class="prompt">&gt;&gt;&gt; </span>x.f
+&lt;bound method X.f of &lt;__main__.X instance at <span class="number">0x009C7DB0</span>&gt;&gt;
+<span class="prompt">&gt;&gt;&gt; </span>y = <span class="number">21</span>
+<span class="prompt">&gt;&gt;&gt; </span>x.f(y)
+<span class="number">42</span>
+<span class="prompt">&gt;&gt;&gt; </span>(x.f)(y)
+<span class="number">42</span>
+<span class="prompt">&gt;&gt;&gt; </span>(getattr(x, <span class="string">'f'</span>))(y)
+<span class="number">42</span>
+<span class="prompt">&gt;&gt;&gt; </span>xf = x.f
+<span class="prompt">&gt;&gt;&gt; </span>xf(y)
+<span class="number">42</span>
+<span class="prompt">&gt;&gt;&gt; </span>map(x.f, range(<span class="number">5</span>))
+[<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]
+</code></pre><p>所以這個問題的答案是:你可以在方法調用中使用*y或<em>\</em>y(或者其他任何你可以放在函數調用中的)，因為方法調用就是函數調用。</p>
+<h3 id="13_Q:_你能用用0行代碼實現Python的抽象類嗎?_4行呢?">13 Q: 你能用用0行代碼實現Python的抽象類嗎? 4行呢?</h3><p>Java中有一個abstract關鍵詞。你可以用它來定義一個只能繼承不能被實例化的抽象類，該類中所有的抽象方法都需要你來實現。很少有人知道在Python中，你可以用幾乎一樣的方式使用abstract。不同的是，當你想要調用一個沒有實現的方式時，你得到的是一個運行時錯誤而不是編譯錯誤。比較下面的代碼:</p>
+<pre><code><span class="comment">## Python</span>
+<span class="class"><span class="keyword">class</span> <span class="title">MyAbstractClass</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">method1</span><span class="params">(self)</span>:</span> abstract
+
+<span class="class"><span class="keyword">class</span> <span class="title">MyClass</span><span class="params">(MyAbstractClass)</span>:</span> 
+    <span class="keyword">pass</span>
+    --------------------------------------
+<span class="prompt">&gt;&gt;&gt; </span>MyClass().method1()
+Traceback (most recent call last):
+    ...
+NameError: name <span class="string">'abstract'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined
+</code></pre><p>==============================================</p>
+<pre><code>    <span class="comment">/* Java */</span>
+public <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAbstractClass</span> {</span>
+    public <span class="keyword">abstract</span> void method1();
+}
+
+<span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">MyAbstractClass</span> {</span>}
+----------------------------------------------
+% javac <span class="type">MyAbstractClass</span>
+<span class="type">MyAbstractClass</span>.java:<span class="number">5</span>: 
+  <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> <span class="title">must</span> <span class="title">be</span> <span class="title">declared</span> <span class="title">abstract</span>. 
+</span>  <span class="type">It</span> does not define void method1() from <span class="class"><span class="keyword">class</span> <span class="title">MyAbstractClass</span>.</span>
+</code></pre><p>別花太多時間在Python語言參考手冊裏面尋找abstract關鍵字，它根本就不在那裏。我把它加入了Python語言中，並且最美妙的是，它的實現用了0行代碼! 當你調用methord1，你會得到一個NameError錯誤，因為不存在abstract變量。(你也許會說這是欺騙，如果有人定義一個變量叫做abstract它就沒有效果了) 但是如果代碼中依賴的一個變量被人重定義的話，任何程序都難逃錯誤的命運。這裏唯一的區別就是我們依賴的是沒有定義的變量。</p>
+<p>如果你願意寫abstract()替代abstract，那麽你可以定義一個函數拋出一個更有意義的NotImplementedError以取代NameError。(同樣，如果有人重定義abstract為零參數函數以外的任何東西，你還是會得到一個錯誤信息。)為了讓abstract的錯誤信息看起來舒服一點，只需去函數調用棧(stack frame)中看看誰是這個討厭的調用者:</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">abstract</span><span class="params">()</span>:</span>
+    <span class="keyword">import</span> inspect
+    caller = inspect.getouterframes(inspect.currentframe())[<span class="number">1</span>][<span class="number">3</span>]
+    <span class="keyword">raise</span> NotImplementedError(caller + <span class="string">' must be implemented in subclass'</span>)
+    ----------------------------------------------
+<span class="prompt">&gt;&gt;&gt; </span>MyDerivedClass().method1()
+Traceback (most recent call last):
+    ...
+NotImplementedError: method1 must be implemented <span class="keyword">in</span> subclass
+</code></pre><h3 id="14_Q:_在Python中我怎麽實現枚舉類型呢?">14 Q: 在Python中我怎麽實現枚舉類型呢?</h3><p>這個問題沒有一個答案，因為在Python中有好幾個答案，取決於你對枚舉的期望。如果你只是想有幾個變量，每個都有不同的整數值，你可以這樣:</p>
+<pre><code><span class="built_in">red</span>, <span class="built_in">green</span>, <span class="built_in">blue</span> = range(<span class="number">3</span>)
+</code></pre><p>缺點是當你想在左邊添加一個新的變量，需要同時增加右邊的整數。不過這不算太壞，因為當你忘記的時候Python會拋出一個錯誤。如果你把枚舉隔離在類中可能更幹凈一點:</p>
+<pre><code><span class="class"><span class="keyword">class</span> <span class="title">Colors</span>:
+    <span class="typename">red</span>, <span class="typename">green</span>, <span class="typename">blue = range</span></span>(<span class="number">3</span>)
+</code></pre><p>現在Colors.red會得到0, 並且dir(Colors)可能也能派上用場(雖然你還需要忽略__doc__和__module__兩項). 如果你想完全控制每個枚舉變量的值, 可以使用好幾個問題以前的Struct函數, 就像下面:</p>
+<pre><code><span class="variable">Enum =</span> Struct
+<span class="variable">Colors =</span> Enum(<span class="variable">red=</span><span class="number">0</span>, <span class="variable">green=</span><span class="number">100</span>, <span class="variable">blue=</span><span class="number">200</span>)
+</code></pre><p>盡管這些簡單的辦法通常已經夠了，可有人還想要更多。在 <a href="http://www.python.org/doc/essays/metaclasses/Enum.py" target="_blank" rel="external">python.org</a>，<a href="http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/67107" target="_blank" rel="external">ASPN</a>和<a href="http://www.faqts.com/knowledge_base/view.phtml/aid/4415" target="_blank" rel="external">faqts</a>上都有枚舉類型的實現。下面是我的版本，它(幾乎)涵蓋所有人的需要，並且仍然保持合理的簡潔(一共44行，其中有22行代碼):</p>
+<pre><code><span class="class"><span class="keyword">class</span> <span class="title">Enum</span>:</span>
+
+    <span class="string">"""創建一個可的枚舉類型, 然後給他添加變量/值對. 構造函數
+    和.ints(names)方法接受變量名的列表並且將連續的整數賦予他們. 方法.strs(names)將每個變量名賦給它自己(就是說變量'v'有值'v'). 方法.vals(a=99, b=200) 讓你可以給任何變量賦任何值. "變量名列表"也可以是一個字符串, 它將被.split()分開. 方法.end()返回最大整數值加1,比如: opcode = Enum("add sub load store").vals(illegal=255)."""</span>
+
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, names=[])</span>:</span> self.ints(names)
+
+    <span class="function"><span class="keyword">def</span> <span class="title">set</span><span class="params">(self, var, val)</span>:</span>
+    <span class="string">"""Set var to the value val in the enum."""</span>
+        <span class="keyword">if</span> var <span class="keyword">in</span> vars(self).keys(): <span class="keyword">raise</span> AttributeError(<span class="string">"duplicate var in enum"</span>)
+        <span class="keyword">if</span> val <span class="keyword">in</span> vars(self).values(): <span class="keyword">raise</span> ValueError(<span class="string">"duplicate value in enum"</span>)
+        vars(self)[var] = val
+        <span class="keyword">return</span> self
+
+    <span class="function"><span class="keyword">def</span> <span class="title">strs</span><span class="params">(self, names)</span>:</span>
+    <span class="string">"""Set each of the names to itself (as a string) in the enum."""</span>
+        <span class="keyword">for</span> var <span class="keyword">in</span> self._parse(names): self.set(var, var)
+        <span class="keyword">return</span> self
+
+    <span class="function"><span class="keyword">def</span> <span class="title">ints</span><span class="params">(self, names)</span>:</span>
+    <span class="string">"""Set each of the names to the next highest int in the enum."""</span>
+        <span class="keyword">for</span> var <span class="keyword">in</span> self._parse(names): self.set(var, self.end())
+        <span class="keyword">return</span> self
+
+    <span class="function"><span class="keyword">def</span> <span class="title">vals</span><span class="params">(self, **entries)</span>:</span>
+    <span class="string">"""Set each of var=val pairs in the enum."""</span>
+        <span class="keyword">for</span> (var, val) <span class="keyword">in</span> entries.items(): self.set(var, val)
+        <span class="keyword">return</span> self
+
+    <span class="function"><span class="keyword">def</span> <span class="title">end</span><span class="params">(self)</span>:</span>
+    <span class="string">"""One more than the largest int value in the enum, or 0 if none."""</span>
+        <span class="keyword">try</span>: <span class="keyword">return</span> max([x <span class="keyword">for</span> x <span class="keyword">in</span> vars(self).values() <span class="keyword">if</span> type(x)==type(<span class="number">0</span>)]) + <span class="number">1</span>
+        <span class="keyword">except</span> ValueError: <span class="keyword">return</span> <span class="number">0</span>
+
+    <span class="function"><span class="keyword">def</span> <span class="title">_parse</span><span class="params">(self, names)</span>:</span>
+    <span class="comment">### If names is a string, parse it as a list of names.</span>
+        <span class="keyword">if</span> type(names) == type(<span class="string">""</span>): <span class="keyword">return</span> names.split()
+        <span class="keyword">else</span>: <span class="keyword">return</span> names
+</code></pre><p>下面是使用它的例子:</p>
+<pre><code><span class="prompt">&gt;&gt;</span>&gt; opcodes = <span class="constant">Enum</span>(<span class="string">"add sub load store"</span>).vals(illegal=<span class="number">255</span>)
+<span class="prompt">&gt;&gt;</span>&gt; opcodes.add
+  <span class="number">0</span>
+<span class="prompt">&gt;&gt;</span>&gt; opcodes.illegal
+  <span class="number">255</span>
+<span class="prompt">&gt;&gt;</span>&gt; opcodes.end()
+  <span class="number">256</span>
+<span class="prompt">&gt;&gt;</span>&gt; dir(opcodes)
+  [<span class="string">'add'</span>, <span class="string">'illegal'</span>, <span class="string">'load'</span>, <span class="string">'store'</span>, <span class="string">'sub'</span>]
+<span class="prompt">&gt;&gt;</span>&gt; vars(opcodes)
+  {<span class="string">'store'</span><span class="symbol">:</span> <span class="number">3</span>, <span class="string">'sub'</span><span class="symbol">:</span> <span class="number">1</span>, <span class="string">'add'</span><span class="symbol">:</span> <span class="number">0</span>, <span class="string">'illegal'</span><span class="symbol">:</span> <span class="number">255</span>, <span class="string">'load'</span><span class="symbol">:</span> <span class="number">2</span>}
+<span class="prompt">&gt;&gt;</span>&gt; vars(opcodes).values()
+  [<span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">2</span>]
+</code></pre><p>註意這些方法都是層疊(cascaded)的，在構造函數後你可以把.strs， .ints和.vals組合在一行代碼中。還要註意的dir和vals輔助使用，它們不會被任何東西幹擾, 除了你定義的變量。為了遍歷所有的枚舉值，你可以使用for x in vars(opcodes).values()。還有就是，如果你願意，可以使用非整數值來賦給枚舉變量。使用.strs和.vals方法就行了。最後，註意重復變量名和值都是一種錯誤。有時你可能想有一個重復的值(比如為了創建別名)。你可以刪掉拋出ValueError的那行，或者像這樣用:vars(opcodes)[‘first_op’] = 0。這裏我最不喜歡的是很有可能把vals和value搞混。也許我可以給vals想一個更好的名字。</p>
+<h3 id="15_Q:_為什麽Python中沒有”集合(Set)”類型?">15 Q: 為什麽Python中沒有”集合(Set)”類型?</h3><p>當這個問題第一個發布在這裏的時候還沒有, 程序員們通常用字典來代替它. 但是在Python 2.4中有一個很好的內建<a href="http://docs.python.org/lib/types-set.html" target="_blank" rel="external">set類型</a>。</p>
+<h3 id="16_Q:_我能用布爾類型嗎?">16 Q: 我能用布爾類型嗎?</h3><p>當這個問題第一次發布在這裏時，Python中還沒有布爾類型。現在嘛，Python 2.3以後都內建有一個<a href="http://docs.python.org/lib/node31.html" target="_blank" rel="external">bool類型</a>。</p>
+<h3 id="17_Q:_Python中有能與(test?result:alternative)等價的操作嗎?">17 Q: Python中有能與(test?result:alternative)等價的操作嗎?</h3><p>Java和C++都有三目運算符(test?result:alternative)。Python一直拒絕它，但在將來的Python 2.5中，將允許(result if test else alternative)形式的表達式。這樣的結果是破壞了Python中表達式和語句清楚的區別，不過它是對許多人要求的妥協。</p>
+<p>在Python 2.5到來前，你怎麽辦?這裏有幾個選擇:</p>
+<ol>
+<li>你可以試試[alternaticve, result][test]. 註意如果alternative和result中有遞歸調用或者昂貴的操作的話, 這個方法不太好, 因為它們兩個都會被求值. 如果test可以返回一個非布爾值, 那就下面這個</li>
+<li>[result, alternative][not test]. 這兩個的可讀性都很好.</li>
+<li>test and result or alternative 有人很習慣這樣，有人卻覺得它令人糊塗. 它只在能確認result非假後使用.</li>
+<li>(test and [result] or [alternative])[0] 避免了上面那個限制.</li>
+<li>[lambda: result, lambda: alternative][not not test]()擺脫了上面所有的限制(除了可讀性), 但別跟人家說是我告訴你這樣做的. 你甚至可以把它封裝在一個函數裏面. 公認的命名規範是, 對於模仿關鍵詞的變量, 在後面跟一個下劃線. 所以我們有:</li>
+<li>if_(test, result, lambda: alternative)<br>這裏我們定義</li>
+</ol>
+<hr>
+<pre><code>def if_(test, <span class="literal">result</span>, alternative=<span class="type">None</span>):
+<span class="string">"If test is true, 'do' result, else alternative. 'Do' means call if callable."</span>
+    <span class="keyword">if</span> test:
+    <span class="keyword">if</span> callable(<span class="literal">result</span>): <span class="literal">result</span> = <span class="literal">result</span>()
+    <span class="keyword">return</span> <span class="literal">result</span>
+<span class="keyword">else</span>:
+    <span class="keyword">if</span> callable(alternative): alternative = alternative()
+    <span class="keyword">return</span> alternative
+--------------------------------------------------
+&gt;&gt;&gt; fact = lambda n: if_(n &lt;= <span class="number">1</span>, <span class="number">1</span>, lambda: n *     fact(n-<span class="number">1</span>))
+&gt;&gt;&gt; fact(<span class="number">6</span>)
+<span class="number">720</span>
+</code></pre><ol>
+<li>現在假定你因為某種原因, 與”if(test, …”的語法相比, 就是更喜歡”if(test) …”(並且, 你從來不想擺脫alternative那個部分). 你可以試試這個:</li>
+</ol>
+<hr>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">_if</span><span class="params">(test)</span>:</span>
+    <span class="keyword">return</span> <span class="keyword">lambda</span> alternative: \
+               <span class="keyword">lambda</span> result: \
+                   [delay(result), delay(alternative)][<span class="keyword">not</span> <span class="keyword">not</span> test]()
+
+<span class="function"><span class="keyword">def</span> <span class="title">delay</span><span class="params">(f)</span>:</span>
+    <span class="keyword">if</span> callable(f): <span class="keyword">return</span> f
+    <span class="keyword">else</span>: <span class="keyword">return</span> <span class="keyword">lambda</span>: f
+<span class="prompt">&gt;&gt;&gt; </span>fact = <span class="keyword">lambda</span> n: _if (n &lt;= <span class="number">1</span>) (<span class="number">1</span>) (<span class="keyword">lambda</span>: n *     fact(n-<span class="number">1</span>))
+<span class="prompt">&gt;&gt;&gt; </span>fact(<span class="number">100</span>)
+<span class="number">93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000L</span>
+</code></pre><p>If u cn rd ths, u cn gt a jb in fncnl prg (if thr wr any)。(這個就不翻了吧:) ) </p>
+<h3 id="18_Q:_還有其他主要類型是Python缺少的嗎?">18 Q: 還有其他主要類型是Python缺少的嗎?</h3><p>關於Python，有一件很爽的事情就是你可以使用數字，字符串，列表，和字典(現在還有集合和布爾)就能走很遠。但是還有幾個主要類型是缺少的. 對我來說，最重要的是一個可變的字符串。一次又一次的使用str ＋＝ x 是很慢的，而維護字符組成的列表(或者子字符串的列表)意味著你放棄了一些很棒的字符串函數。一個可能的解決是array.array(‘c’)。另一個是UserString.MutableString，盡管它本來的目的是用於教學而不是實踐。第三個是mmap模塊, 第四是cStringIO. 這些方法都不完美，不過加在一起也提供了足夠的選擇。最後，我發現我經常需要一個某種順序的隊列。標準庫中有一個<a href="http://www.python.org/doc/current/lib/module-Queue.html" target="_blank" rel="external">Queue module</a>，但它是專用於線程的隊列。因為這裏有太多選項了，所以我就不為了實現一個標準隊列的去遊說了。不過呢，我將提供我實現的幾種隊列，FIFO，LIFO和優先隊列:</p>
+<pre><code><span class="string">"""
+This module provides three types of queues, with these constructors:
+  Stack([items])  -- Create a Last In First Out queue, implemented as a list
+  Queue([items])  -- Create a First In First Out queue
+  PriorityQueue([items]) -- Create a queue where minimum item (by &lt;) is first
+Here [items] is an optional list of initial items; if omitted, queue is empty.
+Each type supports the following methods and functions:
+  len(q)          -- number of items in q (also q.__len__())
+  q.append(item)  -- add an item to the queue
+  q.extend(items) -- add each of the items to the queue
+  q.pop()         -- remove and return the "first" item from the queue
+"""</span>
+
+<span class="function"><span class="keyword">def</span> <span class="title">Stack</span><span class="params">(items=None)</span>:</span>
+    <span class="string">"A stack, or last-in-first-out queue, is     implemented as a list."</span>
+    <span class="keyword">return</span> items <span class="keyword">or</span> []
+
+<span class="class"><span class="keyword">class</span> <span class="title">Queue</span>:</span>
+    <span class="string">"A first-in-first-out queue."</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, items=None)</span>:</span> self.start = <span class="number">0</span>;     self.A = items <span class="keyword">or</span> []
+    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span>                <span class="keyword">return</span>     len(self.A) - self.start
+    <span class="function"><span class="keyword">def</span> <span class="title">append</span><span class="params">(self, item)</span>:</span>               self.A.append(item)
+    <span class="function"><span class="keyword">def</span> <span class="title">extend</span><span class="params">(self, items)</span>:</span>              self.A.extend(items)
+
+    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span>
+        A = self.A
+        item = A[self.start]
+        self.start += <span class="number">1</span>
+        <span class="keyword">if</span> self.start &gt; <span class="number">100</span> <span class="keyword">and</span> self.start &gt; len(A)/<span class="number">2</span>:
+            <span class="keyword">del</span> A[:self.start]
+            self.start = <span class="number">0</span>
+        <span class="keyword">return</span> item
+
+<span class="class"><span class="keyword">class</span> <span class="title">PriorityQueue</span>:</span>
+    <span class="string">"A queue in which the minimum element (as determined by cmp) is first."</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, items=None, cmp=operator.lt)</span>:</span>
+          self.A = []; self.cmp = cmp;
+          <span class="keyword">if</span> items: self.extend(items)
+
+    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span> <span class="keyword">return</span> len(self.A)
+
+    <span class="function"><span class="keyword">def</span> <span class="title">append</span><span class="params">(self, item)</span>:</span>
+        A, cmp = self.A, self.cmp
+        A.append(item)
+        i = len(A) - <span class="number">1</span>
+        <span class="keyword">while</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> cmp(item, A[i//<span class="number">2</span>]):
+            A[i], i = A[i//<span class="number">2</span>], i//<span class="number">2</span>
+        A[i] = item
+
+    <span class="function"><span class="keyword">def</span> <span class="title">extend</span><span class="params">(self, items)</span>:</span>
+        <span class="keyword">for</span> item <span class="keyword">in</span> items: self.append(item)
+
+    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span>
+        A = self.A
+        <span class="keyword">if</span> len(A) == <span class="number">1</span>: <span class="keyword">return</span> A.pop()
+        e = A[<span class="number">0</span>]
+        A[<span class="number">0</span>] = A.pop()
+        self.heapify(<span class="number">0</span>)
+        <span class="keyword">return</span> e
+
+    <span class="function"><span class="keyword">def</span> <span class="title">heapify</span><span class="params">(self, i)</span>:</span>
+        <span class="string">"Assumes A is an array whose left and right children are heaps,"</span>
+        <span class="string">"move A[i] into the correct position.  See CLR&amp;S p. 130"</span>
+        A, cmp = self.A, self.cmp
+        left, right, N = <span class="number">2</span>*i + <span class="number">1</span>, <span class="number">2</span>*i + <span class="number">2</span>, len(A)-<span class="number">1</span>
+        <span class="keyword">if</span> left &lt;= N <span class="keyword">and</span> cmp(A[left], A[i]):
+            smallest = left
+        <span class="keyword">else</span>:
+            smallest = i
+        <span class="keyword">if</span> right &lt;= N <span class="keyword">and</span> cmp(A[right], A[smallest]):
+            smallest = right
+        <span class="keyword">if</span> smallest != i:
+            A[i], A[smallest] = A[smallest], A[i]
+            self.heapify(smallest)
+</code></pre><p>註意一個技巧”items or []”，下面這樣做是非常錯誤的</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">Stack</span><span class="params">(items=[])</span>:</span> <span class="keyword">return</span> items
+</code></pre><p>這是想說明默認值是一個空的列表。如果我們這樣作了，那麽不同的堆棧將會共享一個列表。通過使默認值為None(一個有效輸入之外的false值)，我們可以安排每個實例得到它自己的新列表。可能拒絕使用這個技巧的理由，在下面例子中，一個用戶這樣用</p>
+<pre><code>s = <span class="function"><span class="title">Stack</span><span class="params">(items)</span></span>
+</code></pre><p>他可能覺得之後的s和items應該是相同的。但這是只會在發生在當items非空的時候。我認為這樣的反對理由是不太嚴重的，因為這裏並沒有什麽明確的承諾。(事實上，一個用戶也可能期望items保持不變，這只在item為空時候成立)。</p>
+<h3 id="19_Q:_在Python裏面怎麽實現Singleton模式?">19 Q: 在Python裏面怎麽實現Singleton模式?</h3><p>我假定你的意思是：你希望一個類只可以被實例化一次，然後當你再次實例化時拋出一個異常。我知道的最簡單的辦法是定義一個函數施行這個想法，然後在你的類構造函數裏面調用這個函數:</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">singleton</span><span class="params">(object, instantiated=[])</span>:</span>
+    <span class="string">"Raise an exception if an object of this class has been instantiated before."</span>
+    <span class="keyword">assert</span> object.__class__ <span class="keyword">not</span> <span class="keyword">in</span> instantiated, \
+        <span class="string">"%s is a Singleton class but is already instantiated"</span> % object.__class__
+    instantiated.append(object.__class__)
+
+<span class="class"><span class="keyword">class</span> <span class="title">YourClass</span>:</span>
+    <span class="string">"A singleton class to do something ..."</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, args)</span>:</span>
+        singleton(self)
+        ...
+</code></pre><p>你也可以跟metaclass打交道，這樣你可以寫出class YourClass(Singletion)，但是為什麽自找麻煩呢?在”四人幫”把理論帶給我們以前，”singleton”(沒有那個公式化的名字)只是一個簡單的想法，剛好與一行簡單代碼相配，而不是一套信仰.</p>
+<h3 id="20_Q:_沒有”news”是好消息嗎?">20 Q: 沒有”news”是好消息嗎?</h3><p>我假設你的意思是Python沒有new關鍵字。的確是的。在C++中，new用來標記堆的分配而不是棧的。這時，這個關鍵字是有用的。在Java中，所有的對象都是在堆上分配的，所以new沒有真正的意義。它只是作為一個區別構造函數和其他靜態方法的提醒。但是這個區別可能對Java弊大於利，因為它是低層次的，它強迫實現代碼過早決定那些真正應該延後的東西。我想Python作出了正確的選擇，保持構造函數和一個普通函數調用使用相同的語法。</p>
+<p>比如說，在有bool類出現之前，我們曾經想實現一個。為了跟內建的有所區別的，我們就叫它Bool。假設我們想實現這樣的想法:Bool類型只有一個true和一個false對象。一個辦法是把類名從Bool改為_Bool(這樣它不會被導出)，然後定義一個函數Bool:</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">Bool</span><span class="params">(val)</span>:</span>
+    <span class="keyword">if</span> val: <span class="keyword">return</span> true
+    <span class="keyword">else</span>: <span class="keyword">return</span> false
+
+true, false = _Bool(<span class="number">1</span>), _Bool(<span class="number">0</span>)
+</code></pre><p>這就讓函數Bool變成_Bool對象的一個工廠(誠然是一個小得少見的工廠)。要點在於調用Bool(1)的程序員不應該知道或者關心返回的對象是一個新的還是回收的(至少對於不可變對象是這樣)。Python語法允許隱藏這個區別，但是Java語法不行。</p>
+<p>在一些著作中這裏有點混淆。有些人使用術語”Singleton Pattern”稱呼這樣的工廠，因為這裏對構造函數的每個不同的參數有一個單獨的對象。和大多數人一樣，我贊同前一個問題中我下的定義。這個模式也可以封裝一個類型。我們可以叫它”CachedFactory”。這個想法來源於當你寫下</p>
+<pre><code>class <span class="built_in">Bool</span>:
+    ... <span class="comment">## see here for Bool's definition</span>
+
+<span class="built_in">Bool</span> = CachedFactory(<span class="built_in">Bool</span>)
+</code></pre><p>然後當你第一次調用Bool(1)，參數列表(1,)，得到原來的Bool類的代理。但是任何後續的對Bool(1)調用將返回第一個對象，它是被保存在緩存中：</p>
+<pre><code><span class="class"><span class="keyword">class</span> <span class="title">CachedFactory</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, klass)</span>:</span>
+        self.cache = {}
+        self.klass = klass
+
+    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, *args)</span>:</span>
+        <span class="keyword">if</span> self.cache.has_key(args):
+            <span class="keyword">return</span> self.cache[args]
+        <span class="keyword">else</span>:
+            object = self.cache[args] = self.klass(*args)
+            <span class="keyword">return</span> object
+</code></pre><p>需要註意的一件事情是，類和構造函數沒有任何其余的東西。這個模式將適用於所有可調用的對象。當擴展到普通的函數，它被稱作”Memoization Pattern”。實現代碼是一樣的，只是名字變了:</p>
+<pre><code><span class="class"><span class="keyword">class</span> <span class="title">Memoize</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, fn)</span>:</span>
+        self.cache = {}
+        self.fn = fn
+
+    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, *args)</span>:</span>
+        <span class="keyword">if</span> self.cache.has_key(args):
+            <span class="keyword">return</span> self.cache[args]
+        <span class="keyword">else</span>:
+            object = self.cache[args] = self.fn(*args)
+            <span class="keyword">return</span> object
+</code></pre><p>現在你可以寫下fact = Memoize(fact)，現在階乘運算的時間復雜度是分攤到每次調用的O(1)，而不是O(n)。</p>
+<h3 id="21_Q:_我能有一個像shell裏面一樣的歷史記錄嗎?">21 Q: 我能有一個像shell裏面一樣的歷史記錄嗎?</h3><p>能。如果你要是這個麽?</p>
+<pre><code><span class="prompt">&gt;&gt;</span>&gt; from shellhistory import h
+h[<span class="number">2</span>] <span class="prompt">&gt;&gt;&gt; </span><span class="number">7</span>*<span class="number">8</span>
+<span class="number">56</span>
+h[<span class="number">3</span>] <span class="prompt">&gt;&gt;&gt; </span><span class="number">9</span>*<span class="number">9</span>
+<span class="number">81</span>
+h[<span class="number">4</span>] <span class="prompt">&gt;&gt;&gt; </span>h[<span class="number">2</span>]
+<span class="number">56</span>
+h[<span class="number">5</span>] <span class="prompt">&gt;&gt;&gt; </span><span class="string">'hello'</span> + <span class="string">' world'</span>
+<span class="string">'hello world'</span>
+h[<span class="number">6</span>] <span class="prompt">&gt;&gt;&gt; </span>h
+[<span class="constant">None</span>, <span class="number">9</span>, <span class="number">56</span>, <span class="number">81</span>, <span class="number">56</span>, <span class="string">'hello world'</span>]
+h[<span class="number">7</span>] <span class="prompt">&gt;&gt;&gt; </span>h[<span class="number">5</span>] * <span class="number">2</span>
+<span class="string">'hello worldhello world'</span>
+h[<span class="number">8</span>] <span class="prompt">&gt;&gt;&gt;  </span>h[<span class="number">7</span>] is <span class="number">_</span> is h[-<span class="number">1</span>]
+<span class="number">1</span>
+</code></pre><p>這是怎辦到的?變量sys.ps1是系統提示符，默認值是字符串’&gt;&gt;&gt;’，但是你可以設置成其它任何東西。如果你設置了一個非字符串對象，這個對象的__str__方法將被調用。所以我們將創建這麽一個對象，它的字符串方法把最近的結果(變量_)添加到一個叫h(代表history)的列表中, 然後返回一個包含列表長度，接著是’&gt;&gt;&gt;’的提示字符串。至少原來計劃是這樣。結果是(在IDLE 2.2的Windows實現中)，sys.ps1.__str__被調用了三次，而不是提示符被打印前的一次。別問我為什麽。為了解決這個問題，只有當_不是歷史列表中最後一個元素時，我才加入它。而且我也不自討麻煩的把None加入歷史列表中了，因為它不會被Python的交互循環顯示。我還排除了向h自己中添加h，因為這樣的環形結構可以能會帶來打印和比較時的麻煩。另一個復雜因素是Python解釋器實際上是嘗試打印’\n’ + sys.ps1，(它本來應該單獨的打印’\n’，或者打印’\n’ + str(sys.ps1))這就意味著sys.ps1也需要一個__radd__方法. 最後，如果Python session中(或者是在.python啟動文件中)一開始的輸入是導入我的第一版模塊，它將會失敗。在檢查了一番之後，我發現這是因為直到第一個表達式被求值以後，變量_才被綁定。所以我捕獲了_未綁定的異常。然後就有:</p>
+<pre><code><span class="keyword">import</span> sys
+
+h = [<span class="keyword">None</span>]
+
+<span class="class"><span class="keyword">class</span> <span class="title">Prompt</span>:</span>
+    <span class="string">"Create a prompt that stores results (i.e. _) in the array h."</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, str=<span class="string">'h[%d] &gt;&gt;&gt; '</span>)</span>:</span>
+        self.str = str;
+
+    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span>
+        <span class="keyword">try</span>:
+            <span class="keyword">if</span> _ <span class="keyword">not</span> <span class="keyword">in</span> [h[-<span class="number">1</span>], <span class="keyword">None</span>, h]: h.append(_);
+        <span class="keyword">except</span> NameError:
+            <span class="keyword">pass</span>
+        <span class="keyword">return</span> self.str % len(h);
+
+    <span class="function"><span class="keyword">def</span> <span class="title">__radd__</span><span class="params">(self, other)</span>:</span>
+        <span class="keyword">return</span> str(other) + str(self)
+
+sys.ps1 = Prompt()
+</code></pre><h3 id="22_Q:_怎麽得到我的函數的執行時間?">22 Q: 怎麽得到我的函數的執行時間?</h3><p>下面是一個簡單的答案:</p>
+<pre><code>def <span class="function"><span class="title">timer</span><span class="params">(fn, *args)</span></span>:
+    <span class="string">"Time the application of fn to args. Return (result, seconds)."</span>
+    import <span class="tag">time</span>
+    start = <span class="tag">time</span>.<span class="function"><span class="title">clock</span><span class="params">()</span></span>
+    return <span class="function"><span class="title">fn</span><span class="params">(*args)</span></span>, <span class="tag">time</span>.<span class="function"><span class="title">clock</span><span class="params">()</span></span> - start
+&gt;&gt;&gt;<span class="function"><span class="title">timer</span><span class="params">(max, range(<span class="number">1</span>e6)</span></span>)
+(<span class="number">999999</span>, <span class="number">0.4921875</span>)
+</code></pre><p>在我的utils module裏還有一個更復雜的答案。</p>
+<h3 id="23_Q:_我的-python啟動文件是什麽樣子的?">23 Q: 我的.python啟動文件是什麽樣子的?</h3><p>現在它是看起來像這樣，但是它已經改變了很多了:</p>
+<pre><code><span class="keyword">from</span> __future__ <span class="keyword">import</span> nested_scopes
+<span class="keyword">import</span> sys, os, string, time
+<span class="keyword">from</span> utils <span class="keyword">import</span> *
+
+<span class="comment">################ Interactive Prompt and Debugging ################</span>
+
+<span class="keyword">try</span>:
+    <span class="keyword">import</span> readline
+<span class="keyword">except</span> ImportError:
+    <span class="keyword">print</span> <span class="string">"Module readline not available."</span>
+<span class="keyword">else</span>:
+    <span class="keyword">import</span> rlcompleter
+    readline.parse_and_bind(<span class="string">"tab: complete"</span>)
+
+h = [<span class="keyword">None</span>]
+
+<span class="class"><span class="keyword">class</span> <span class="title">Prompt</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, str=<span class="string">'h[%d] &gt;&gt;&gt; '</span>)</span>:</span>
+        self.str = str;
+
+    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span>
+        <span class="keyword">try</span>:
+            <span class="keyword">if</span> _ <span class="keyword">not</span> <span class="keyword">in</span> [h[-<span class="number">1</span>], <span class="keyword">None</span>, h]: h.append(_);
+        <span class="keyword">except</span> NameError:
+           <span class="keyword">pass</span>
+        <span class="keyword">return</span> self.str % len(h);
+
+  <span class="function"><span class="keyword">def</span> <span class="title">__radd__</span><span class="params">(self, other)</span>:</span>
+        <span class="keyword">return</span> str(other) + str(self)
+
+
+<span class="keyword">if</span> os.environ.get(<span class="string">'TERM'</span>) <span class="keyword">in</span> [ <span class="string">'xterm'</span>, <span class="string">'vt100'</span> ]:
+    sys.ps1 = Prompt(<span class="string">'\001\033[0:1;31m\002h[%d] &gt;&gt;&gt; \001\033[0m\002'</span>)
+<span class="keyword">else</span>:
+    sys.ps1 = Prompt()
+sys.ps2 = <span class="string">''</span>
+</code></pre><p><a href="mailto: peter@norvig.com" target="_blank" rel="external">Peter Norvig</a><br><a href="http://norvig.com/python-iaq.html" target="_blank" rel="external">Origin</a><br><a href="http://pythonic.zoomquiet.io/data/20071017193806/index.html#11" target="_blank" rel="external">中文翻譯</a></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/blog/05102015/data-science-resources/" style="float: left;">
+        ← Data Science Resources
+    </a>
+    
+    
+    <a class="pull-right" href="/blog/04302015/ji-qi-xue-xi-and-shen-du-xue-xi-zi-liao/">
+        機器學習&amp;深度學習資料 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="blog/05052015/python-infrequently-answered-questions/" data-title="The Python IAQ: Infrequently Answered Questions" data-url="http://www.aprilzephyr.com/blog/05052015/python-infrequently-answered-questions/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Themis_Sword. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran.</a> Thanks!</p>
+            </div>
+<div align='right'>
+    <form class="navbar-form" action="/search/">
+        <input type="text" class="form-control" placeholder="Google Search" name="q">
+    </form>
+ </div>
+            
+            
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
