@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/timeline/index.html</loc>
+    <lastmod>2015-07-26T04:59:58.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/search/index.html</loc>
     <lastmod>2015-07-26T04:36:54.000Z</lastmod>
   </url>
@@ -237,11 +242,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/04032015/the-20-most-popular-ted-talks-of-all-time/</loc>
-    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/03282014/python-string/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
   </url>
@@ -272,7 +272,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/05022014/tips-on-writing/</loc>
+    <loc>http://yoursite.com/04032015/the-20-most-popular-ted-talks-of-all-time/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
   </url>
   
@@ -287,12 +287,12 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/05042014/python-zheng-ze-biao-da-shi-zhi-nan-zhuan/</loc>
+    <loc>http://yoursite.com/02222014/si-wei-dian-di/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yoursite.com/02202014/100-interview-questions/</loc>
+    <loc>http://yoursite.com/05042014/python-zheng-ze-biao-da-shi-zhi-nan-zhuan/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
   </url>
   
@@ -312,7 +312,12 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/02222014/si-wei-dian-di/</loc>
+    <loc>http://yoursite.com/05022014/tips-on-writing/</loc>
+    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/02202014/100-interview-questions/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
   </url>
   
