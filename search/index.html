@@ -221,8 +221,41 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p><script><br>  (function() {<br>    var cx = ‘016604640184447215994:u1xiowofg70’;<br>    var gcse = document.createElement(‘script’);<br>    gcse.type = ‘text/javascript’;<br>    gcse.async = true;<br>    gcse.src = (document.location.protocol == ‘https:’ ? ‘https:’ : ‘http:’) +<br>        ‘//cse.google.com/cse.js?cx=’ + cx;<br>    var s = document.getElementsByTagName(‘script’)[0];<br>    s.parentNode.insertBefore(gcse, s);<br>  })();<br></script></p>
-<p><gcse:searchresults-only></gcse:searchresults-only></p>
+      		<p><div id="cse" style="width: 100%;">Loading</div></p>
+<script src="//www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+google.load('search', '1', {language: 'zh-Hant', style: google.loader.themes.ESPRESSO});
+google.setOnLoadCallback(function() {
+  var customSearchOptions = {};
+  var orderByOptions = {};
+  orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
+  customSearchOptions['enableOrderBy'] = true;
+  customSearchOptions['orderByOptions'] = orderByOptions;
+  var customSearchControl =   new google.search.CustomSearchControl('016604640184447215994:u1xiowofg70', customSearchOptions);
+  customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+  var options = new google.search.DrawOptions();
+  options.enableSearchResultsOnly();
+  options.setAutoComplete(true);
+  customSearchControl.draw('cse', options);
+  function parseParamsFromUrl() {
+    var params = {};
+    var parts = window.location.search.substr(1).split('&');
+    for (var i = 0; i < parts.length; i++) {
+      var keyValuePair = parts[i].split('=');
+      var key = decodeURIComponent(keyValuePair[0]);
+      params[key] = keyValuePair[1] ?
+          decodeURIComponent(keyValuePair[1].replace(/\+/g, ' ')) :
+          keyValuePair[1];
+    }
+    return params;
+  }
+  var urlParams = parseParamsFromUrl();
+  var queryParamName = 'q';
+  if (urlParams[queryParamName]) {
+    customSearchControl.execute(urlParams[queryParamName]);
+  }
+}, true);
+</script>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
