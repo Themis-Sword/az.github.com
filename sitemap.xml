@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.aprilzephyr.com/blog/08012015/begin-again/</loc>
+    <lastmod>2015-08-24T02:52:29.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.aprilzephyr.com/blog/05122015/excerpt-machine-learning-tom-mitchell/</loc>
     <lastmod>2015-07-26T09:52:36.000Z</lastmod>
   </url>
@@ -242,11 +247,6 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/03282014/python-string/</loc>
-    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://www.aprilzephyr.com/blog/02152014/shan-chu-lie-biao-zhong-fu-yuan-su/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
   </url>
@@ -272,7 +272,7 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04032015/the-20-most-popular-ted-talks-of-all-time/</loc>
+    <loc>http://www.aprilzephyr.com/blog/05022014/tips-on-writing/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
   </url>
   
@@ -297,12 +297,12 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/05042014/python-zheng-ze-biao-da-shi-zhi-nan-zhuan/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02192014/excerpt-software-engineering/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02182014/range-xrange-random/</loc>
+    <loc>http://www.aprilzephyr.com/blog/05042014/python-zheng-ze-biao-da-shi-zhi-nan-zhuan/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
   </url>
   
@@ -312,12 +312,17 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/05022014/tips-on-writing/</loc>
+    <loc>http://www.aprilzephyr.com/blog/04032015/the-20-most-popular-ted-talks-of-all-time/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02192014/excerpt-software-engineering/</loc>
+    <loc>http://www.aprilzephyr.com/blog/03282014/python-string/</loc>
+    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/02182014/range-xrange-random/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
   </url>
   
