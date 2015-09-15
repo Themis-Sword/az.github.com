@@ -223,8 +223,7 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
       		<img src="/images/aws.jpg">
-<p>####預備</p>
-<ol>
+<h4 id="預備">預備</h4><ol>
 <li>申請<a href="https://aws.amazon.com" target="_blank" rel="external">Amazon AWS服務</a></li>
 <li>進入<a href="http://console.aws.amazon.com" target="_blank" rel="external">AWS控制台</a>，選擇亞太區東京的數據中心</li>
 <li>在Compute下創建EC2實例，選擇Ubuntu-64位操作系統，下載SSH密鑰文件並保存好</li>
@@ -232,8 +231,7 @@
 <li>啟動實例</li>
 <li>在Elastic IP下申請一個固定的IP地址，並與上述實例綁定(如果停止實例，一定要把Elastic IP解除綁定，否則將被計費)<a id="more"></a></li>
 </ol>
-<p>####從本地連接實例</p>
-<ol>
+<h4 id="從本地連接實例">從本地連接實例</h4><ol>
 <li>Open an SSH client. (<a href="https://docs.aws.amazon.com/console/ec2/instances/connect/putty" target="_blank" rel="external">find out how to connect using PuTTY</a>)</li>
 <li>Locate your private key file (xxxx.pem). The wizard automatically detects the key you used to launch the instance.</li>
 <li><p>Your key must not be publicly viewable for SSH to work. Use this command if needed:</p>
@@ -244,7 +242,7 @@
 </code></pre></li>
 </ol>
 <p>Please note that in most cases the username above will be correct, however please ensure that you read your AMI usage instructions to ensure that the AMI owner has not changed the default AMI username.<br>If you need any assistance connecting to your instance, please see our <a href="https://docs.aws.amazon.com/console/ec2/instances/connect/docs" target="_blank" rel="external">connection documentation</a>.</p>
-<p>####EC2實例下安裝PPTP VPN<br>設置root密碼</p>
+<h4 id="EC2實例下安裝PPTP_VPN">EC2實例下安裝PPTP VPN</h4><p>設置root密碼</p>
 <pre><code><span class="title">sudo</span> passwd
 </code></pre><p>安装pptpd</p>
 <pre><code>sudo apt-<span class="keyword">get</span> install pptpd

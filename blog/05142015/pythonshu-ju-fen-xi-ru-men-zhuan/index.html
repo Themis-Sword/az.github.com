@@ -231,8 +231,7 @@
 <li>可視化；  </li>
 <li>創建自定義函數。<a id="more"></a></li>
 </ol>
-<p>###數據導入</p>
-<p>這是很關鍵的一步，為了後續的分析我們首先需要導入數據。通常來說，數據是CSV格式，就算不是，至少也可以轉換成CSV格式。在Python中，我們的操作如下：</p>
+<h3 id="數據導入">數據導入</h3><p>這是很關鍵的一步，為了後續的分析我們首先需要導入數據。通常來說，數據是CSV格式，就算不是，至少也可以轉換成CSV格式。在Python中，我們的操作如下：</p>
 <pre><code><span class="keyword">import</span> pandas <span class="keyword">as</span> pd
 
 <span class="comment"># Reading data locally</span>
@@ -242,8 +241,7 @@ df = pd.read_csv(<span class="string">'/Users/al-ahmadgaidasaad/Documents/d.csv'
 data_url = <span class="string">"https://raw.githubusercontent.com/alstat/Analysis-with-Programming/master/2014/Python/Numerical-Descriptions-of-the-Data/data.csv"</span>
 df = pd.read_csv(data_url)
 </code></pre><p>為了讀取本地CSV文件，我們需要pandas這個數據分析庫中的相應模塊。其中的read_csv函數能夠讀取本地和web數據。</p>
-<p>###數據變換</p>
-<p>既然在工作空間有了數據，接下來就是數據變換。統計學家和科學家們通常會在這一步移除分析中的非必要數據。我們先看看數據：</p>
+<h3 id="數據變換">數據變換</h3><p>既然在工作空間有了數據，接下來就是數據變換。統計學家和科學家們通常會在這一步移除分析中的非必要數據。我們先看看數據：</p>
 <pre><code><span class="preprocessor"># Head of the data</span>
 print df.head()
 
@@ -377,7 +375,7 @@ max    <span class="number">60303.000000</span>  <span class="number">54625.0000
  <span class="built_in">array</span>([  <span class="number">2.62704721e-01</span>,   <span class="number">2.87680340e-01</span>,   <span class="number">4.15643528e-70</span>,
           <span class="number">1.83764399e-05</span>,   <span class="number">2.82461897e-08</span>]))
 </code></pre><p>第一個數組是t統計量，第二個數組則是相應的p值。</p>
-<p>###可視化<br>Python中有許多可視化模塊，最流行的當屬matpalotlib庫。稍加提及，我們也可選擇bokeh和seaborn模塊。之前的博文中，我已經說明了matplotlib庫中的盒須圖模塊功能。<br><img src="/images/pda/1.jpg"></p>
+<h3 id="可視化">可視化</h3><p>Python中有許多可視化模塊，最流行的當屬matpalotlib庫。稍加提及，我們也可選擇bokeh和seaborn模塊。之前的博文中，我已經說明了matplotlib庫中的盒須圖模塊功能。<br><img src="/images/pda/1.jpg"></p>
 <pre><code><span class="comment"># Import the module for plotting</span>
 <span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
  plt.show(df.plot(kind = <span class="string">'box'</span>))
@@ -400,7 +398,7 @@ plt.show(sns.boxplot(df, widths = <span class="number">0.5</span>, color = <span
     plt.<span class="function"><span class="title">show</span><span class="params">(sns.jointplot(df.ix[:,<span class="number">1</span>], df.ix[:,<span class="number">2</span>], kind = <span class="string">"kde"</span>)</span></span>)
 </code></pre><img src="/images/pda/7.jpg">
 <pre><code>plt.<span class="function"><span class="title">show</span><span class="params">(sns.lmplot(<span class="string">"Benguet"</span>, <span class="string">"Ifugao"</span>, df)</span></span>)
-</code></pre><p>###創建自定義函數<br>在Python中，我們使用def函數來實現一個自定義函數。例如，如果我們要定義一個兩數相加的函數，如下即可：</p>
+</code></pre><h3 id="創建自定義函數">創建自定義函數</h3><p>在Python中，我們使用def函數來實現一個自定義函數。例如，如果我們要定義一個兩數相加的函數，如下即可：</p>
 <pre><code><span class="function"><span class="keyword">def</span> <span class="title">add_2int</span><span class="params">(x, y)</span>:</span>
     <span class="keyword">return</span> x + y
 
@@ -461,8 +459,7 @@ def case(<span class="keyword">n</span> = 10, mu = 3, sigma = np.<span class="li
     desc = <span class="string">"There are "</span> + str(inside) + <span class="string">" confidence intervals that contain "</span>
            <span class="string">"the true mean ("</span> + str(mu) + <span class="string">"), that is "</span> + str(per) + <span class="string">" percent of the total CIs"</span>
     <span class="keyword">return</span> {<span class="string">"Matrix"</span>: m, <span class="string">"Decision"</span>: desc}
-</code></pre><p>###更新</p>
-<p>那些對於本文ipython notebook版本感興趣的，請點擊<a href="http://nuttenscl.be/Python_Getting_Started_with_Data_Analysis.html" target="_blank" rel="external">這裏</a>。這篇文章由<a href="https://twitter.com/NuttensC" target="_blank" rel="external">Nuttens Claude</a>負責轉換成 ipython notebook 。</p>
+</code></pre><h3 id="更新">更新</h3><p>那些對於本文ipython notebook版本感興趣的，請點擊<a href="http://nuttenscl.be/Python_Getting_Started_with_Data_Analysis.html" target="_blank" rel="external">這裏</a>。這篇文章由<a href="https://twitter.com/NuttensC" target="_blank" rel="external">Nuttens Claude</a>負責轉換成 ipython notebook 。</p>
 <p>關於作者: <a href="http://python.jobbole.com/author/dengcy/" target="_blank" rel="external">Den</a></p>
 <p><a href="http://alstatr.blogspot.ca/2015/02/python-getting-started-with-data.html" target="_blank" rel="external">Origin</a><br><a href="http://python.jobbole.com/81133/" target="_blank" rel="external">中文譯文</a></p>
 
