@@ -222,26 +222,24 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>###前言<br>之前均採用Octopress+GitHub框架來發布、管理Blog，但每次升級、重裝、切換操作系統的時候均需要對環境重新部署和調整，繁冗至極，於是，在比較了眾多Blog框架或技術之後，最終決定切換到Hexo+GitHub。<br><a href="https://hexo.io/zh-tw/" target="_blank" rel="external">來自Hexo官網的介紹</a></p>
-<p>####超級快速<br>Node.js帶給您超級快的檔案產生速度，上百個檔案只需幾秒就能建立完成。</p>
-<p>####一鍵部署<br>您只需要一個指令就能把網站部署到 GitHub Pages, Heroku 或其他網站。</p>
-<p>####Markdown 支援<br>Hexo 支援所有 GitHub Flavored Markdown 的功能，您甚至能在 Hexo 使用大部份的 Octopress 外掛。</p>
-<p>####豐富的外掛<br>Hexo 有強大的外掛系統，您可安裝外掛讓 Hexo 支援 Jade, CoffeeScript。<a id="more"></a></p>
-<p>###一、安裝運行環境</p>
-<p>####安裝Git<br>通過下載<a href="http://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="external">Git OS X Installer</a>安裝。</p>
-<p>####安裝Node.js</p>
-<p>通過下載<a href="http://www.nodejs.org/" target="_blank" rel="external">Node.js Installer</a>安裝。</p>
-<p>###二、安裝主程序<br>完成了上述配置操作之後，我們來安裝Hexo主程序，打開終端，輸入：</p>
-<p>####安裝npm<br>因為我們已經安裝了Git，所以我們可以運行：</p>
+      		<h3 id="前言">前言</h3><p>之前均採用Octopress+GitHub框架來發布、管理Blog，但每次升級、重裝、切換操作系統的時候均需要對環境重新部署和調整，繁冗至極，於是，在比較了眾多Blog框架或技術之後，最終決定切換到Hexo+GitHub。<br><a href="https://hexo.io/zh-tw/" target="_blank" rel="external">來自Hexo官網的介紹</a></p>
+<h4 id="超級快速">超級快速</h4><p>Node.js帶給您超級快的檔案產生速度，上百個檔案只需幾秒就能建立完成。</p>
+<h4 id="一鍵部署">一鍵部署</h4><p>您只需要一個指令就能把網站部署到 GitHub Pages, Heroku 或其他網站。</p>
+<h4 id="Markdown_支援">Markdown 支援</h4><p>Hexo 支援所有 GitHub Flavored Markdown 的功能，您甚至能在 Hexo 使用大部份的 Octopress 外掛。</p>
+<h4 id="豐富的外掛">豐富的外掛</h4><p>Hexo 有強大的外掛系統，您可安裝外掛讓 Hexo 支援 Jade, CoffeeScript。<a id="more"></a></p>
+<h3 id="一、安裝運行環境">一、安裝運行環境</h3><h4 id="安裝Git">安裝Git</h4><p>通過下載<a href="http://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="external">Git OS X Installer</a>安裝。</p>
+<h4 id="安裝Node-js">安裝Node.js</h4><p>通過下載<a href="http://www.nodejs.org/" target="_blank" rel="external">Node.js Installer</a>安裝。</p>
+<h3 id="二、安裝主程序">二、安裝主程序</h3><p>完成了上述配置操作之後，我們來安裝Hexo主程序，打開終端，輸入：</p>
+<h4 id="安裝npm">安裝npm</h4><p>因為我們已經安裝了Git，所以我們可以運行：</p>
 <pre><code>git <span class="built_in">clone</span> http://github.com/isaacs/npm.git
 <span class="built_in">cd</span> npm
 sudo make install
 </code></pre><p>或者，運行：</p>
 <pre><code>curl <span class="string">http:</span><span class="comment">//npmjs.org/install.sh | sh</span>
 </code></pre><p>(可能需要用sudo sh代替sh)</p>
-<p>####然後再次嘗試安裝Hexo<br>運行：</p>
+<h4 id="然後再次嘗試安裝Hexo">然後再次嘗試安裝Hexo</h4><p>運行：</p>
 <pre><code><span class="comment">sudo</span> <span class="comment">npm</span> <span class="comment">install</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">unsafe</span><span class="literal">-</span><span class="comment">perm</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">verbose</span> <span class="literal">-</span><span class="comment">g</span> <span class="comment">hexo</span>
-</code></pre><p>###三、Hexo初始化<br>單獨建立一個文件夾用來存放Hexo相關文件。</p>
+</code></pre><h3 id="三、Hexo初始化">三、Hexo初始化</h3><p>單獨建立一個文件夾用來存放Hexo相關文件。</p>
 <pre><code><span class="built_in">cd</span> ~/Documents
 <span class="built_in">mkdir</span> hexo
 hexo init
@@ -254,7 +252,7 @@ hexo init
 <pre><code><span class="title">hexo</span> g <span class="comment">#完整是hexo generate 生成靜態頁面</span>
 hexo s <span class="comment">#完整是hexo server 運行本地服務器</span>
 </code></pre><p>在瀏覽器打開127.0.0.1:4000，便可以看到Hello World了！</p>
-<p>###四、在Github上發布<br>首先需要新建一個Repository，名稱為你的用戶名.github.io，然後獲取HTTPS clone URL，例如：</p>
+<h3 id="四、在Github上發布">四、在Github上發布</h3><p>首先需要新建一個Repository，名稱為你的用戶名.github.io，然後獲取HTTPS clone URL，例如：</p>
 <pre><code>http<span class="variable">s:</span>//github.<span class="keyword">com</span>/<span class="keyword">abc</span>/<span class="keyword">abc</span>.github.io.git
 </code></pre><p>然後裝一個git發布插件，運行：</p>
 <pre><code>npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span>
