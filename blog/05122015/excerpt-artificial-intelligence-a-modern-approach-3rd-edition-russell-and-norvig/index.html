@@ -222,8 +222,7 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>###1. Introduction</p>
-<ul>
+      		<h3 id="1-_Introduction">1. Introduction</h3><ul>
 <li>Different people approach Al with different goals in mind, Two important questions to ask are: Are you concerned with thinking or behavior? Do you want to model humans or work from an ideal standard?<br></li>
 <li>In this book, we adopt the view that intelligence is concerned mainly with rational action. Ideally, an intelligent agent takes the best possible action in a situation. We study the problem of building agents that are intelligent in this sense.<br></li>
 <li>Philosophers (going back to 400 B.C.) made AI conceivable by considering the ideas that the mind is in some ways like a machine, that it operates on knowledge encoded in some internal language, and that thought can be used to choose what actions to take.<a id="more"></a><br></li>
@@ -237,8 +236,7 @@
 <li>AI has advanced more rapidly in the past decade because of greater use of the scientific method in experimenting with and comparing approaches.<br></li>
 <li>Recent progress in understanding the theoretical basis for intelligence has gone hand in hand with improvements in the capabilities of real systems. The subfields of AI have become more integrated, and AI has found common ground with other disciplines.<br></li>
 </ul>
-<p>###2. Intelligent Agents</p>
-<ul>
+<h3 id="2-_Intelligent_Agents">2. Intelligent Agents</h3><ul>
 <li>An agent is something that perceives and acts in an environment. The agent ftmction for an avail. specifics the action taken by the agent in response to any percept sequence.  </li>
 <li>The performance measure evaluates the behavior of the agent in an environment A rational agent acts so as to maximize the expected value of the performance measure, given the percept sequence it has seen so far.</li>
 <li>A task environment specification includes the performance measure, the external environment, the actuators. and the sensors. In designing an agent, the first step must always be to specify the task environment as fully as possible.</li>
@@ -247,8 +245,7 @@
 <li>Simple reflex agents respond directly to percepts, whereas model-based reflex agents maintain internal state to track aspects of the world that are not evident in the current percept. Goal-based agents act to achieve their goals, and utility-based agents try to maximize their own expected “happiness.”</li>
 <li>All agents can improve their performance through learning.</li>
 </ul>
-<p>###3. Solving Problems by Searching</p>
-<ul>
+<h3 id="3-_Solving_Problems_by_Searching">3. Solving Problems by Searching</h3><ul>
 <li>Before an agent can start searching for solutions, a goal must be identified and a well-defined problem must be formulated.</li>
 <li>A problem consists of five parts: the initial state, a set of actions, a transition model describing the results of those actions, a goal test function, and a path cost function. The environment of the problem is represented by a state space. A path through the state space from the initial state to a goal state is asolution.</li>
 <li>Search algorithms treat states and actions as atomic: they do not consider any internal structure they might possess.</li>
@@ -258,8 +255,7 @@
 <li>Informed search methods may have access to a <strong>heuristic</strong> function h(n) that estimates the cost of a solution from n.<br>*<em> The generic <strong>best-first</strong> search algorithm selects a node for expansion according to an evaluation function.<br><br>*<em> <strong>Greedy best-first</strong> search expands nudes with minimal h(n). It is not optimal but is often efficient.<br><br>*<em> **A\</em></em></em> search expands nodes with minimal f(n) = g(n) + h(n). A<em> is complete and optimal, provided that h(n) is admissible (for TREE-SEARCH) or consistent (for <strong>GRAPH-SEARCH</strong>). The space complexity of A</em> is still prohibitive.<br><br>*<em> <strong>RBFS</strong> (recursive best-first search) and <strong>SMA\</strong></em> (simplified memory-bounded A*) are robust, optimal search algorithms that use limited amounts of memory; given enough time, they can solve problems that A* cannot solve because it runs out of memory.</li>
 <li>The performance of heuristic search algorithms depends on the quality of the heuristic function. One can sometimes construct good heuristics by relaxing the problem definition, by storing precomputed solution costs for subproblems in a pattern database, or by learning from experience with the problem class.</li>
 </ul>
-<p>###4. Beyond Classical Search</p>
-<ul>
+<h3 id="4-_Beyond_Classical_Search">4. Beyond Classical Search</h3><ul>
 <li>Local search methods such as <strong>hill climbing</strong> operate on complete-state formulations, keeping only a small number of nodes in memory. Several stochastic algorithms have been developed, including <strong>simulated annealing</strong>, which returns optimal solutions when given an appropriate cooling schedule.</li>
 <li>Many local search methods apply also to problems in continuous spaces. <strong>Linear programming</strong> and <strong>convex optimization</strong> problem; obey certain restrictions on the shape of the state space and the nature of the objective function, and admit polynomial-time algorithms that are often extremely efficient in practice.</li>
 <li>A <strong>genetic algorithm</strong> is a stochastic hill-climbing search in which a large population of states is maintained. New states are generated by mutation and by crossover, which combines pairs of states from the population.</li>
@@ -268,8 +264,7 @@
 <li><strong>Standard search</strong> algorithms can be applied directly to belief-state space to solve <strong>sensorless problems</strong>, and belief-state AND—OR search can solve general partially observable problems. Incremental algorithms that construct solutions state by state within a belief state are often more efficient.</li>
 <li><strong>Exploration problems</strong> arise when the agent has no idea about the states and actions of its environment. For safely explorable environments, <strong>online search</strong> agents can build a map and find a goal if one exists. Updating heuristic estimates from experience provides an effective method to escape from local minima.</li>
 </ul>
-<p>###5. Adversarial Search</p>
-<ul>
+<h3 id="5-_Adversarial_Search">5. Adversarial Search</h3><ul>
 <li>A game can be defined by the initial state (how the board is set up), the legal actions in each state, the result of each action, a terminal test (which says when the game is over), and a utility function that applies to terminal states.</li>
 <li>In two-player zero-sum games with perfect information, the minimax algorithm can select optimal moves by a depth-first enumeration of the game tree.</li>
 <li>The alpha—beta search algorithm computes the same optimal move as minimax, but achieves much greater efficiency by eliminating subtrees that are provably irrelevant.</li>
@@ -279,8 +274,7 @@
 <li>Optimal play in games of <strong>imperfect information</strong>, such as Kriegspiel and bridge, requires reasoning about the current and future <strong>belief states</strong> of each player. A simple approximation can be obtained by averaging the value of an action over each possible configuration of missing information.</li>
 <li>Programs have bested even champion human players at games such as chess, checkers, and Othello. Humans retain the edge in several games of imperfect information, such as poker, bridge, and Kriegspiel, and in games with very large branching factors and little good heuristic knowledge, such as Go.</li>
 </ul>
-<p>###6. Constraint Satisfaction Probllems</p>
-<ul>
+<h3 id="6-_Constraint_Satisfaction_Probllems">6. Constraint Satisfaction Probllems</h3><ul>
 <li><strong>Constraint satisfaction problems (CSPs)</strong> represent a state with a set of variable/value pairs and represent the conditions for a solution by a set of constraints on the variables. Many important real-world problems can be described as CSPs.</li>
 <li>A number of inference techniques use the constraints to infer winch variable/value pairs are consistent and which are not. These include node, arc, path, and k-consistency.</li>
 <li><strong>Backtracking search</strong>, a form of depth-first search, is commonly used for solving CSPs. Inference can be interwoven with search.</li>
@@ -288,8 +282,7 @@
 <li>Local search using the <strong>min-conflicts</strong> heuristic has also been applied to constraint satisfaction problems with great success.</li>
 <li>The complexity of solving a CSP is strongly related to the structure of its constraint graph. Tree-structured problems can be solved in linear time. <strong>Cutset conditioning</strong> can reduce a general CSP to a tree-structured one and is quite efficient if a small cutset can be found. <strong>Tree decomposition</strong> techniques transform the CSP into a tree of subproblems and are efficient if the <strong>tree width</strong> of the constraint graph is small.</li>
 </ul>
-<p>###7. Logical Agents</p>
-<ul>
+<h3 id="7-_Logical_Agents">7. Logical Agents</h3><ul>
 <li>Intelligent agents need knowledge about the world in order to reach good decisions.</li>
 <li>Knowledge is contained in agents in the form of sentences in a <strong>knowledge representation language</strong> that are stored in a <strong>knowledge base</strong>.</li>
 <li>A knowledge-based agent is composed of a knowledge base and an inference mechanism. It operates by storing sentences about the world in its knowledge base, using the inference mechanism to infer new sentences, and using these sentences to decide what action to take.</li>
@@ -304,8 +297,7 @@
 <li>Decisions within a logical agent can be made by SAT solving: finding possible models specifying future action sequences that reach the goal. This approach works only for fully observable or sensorless environments.</li>
 <li>Propositional logic does not scale to environments of unbounded size because it lacks the expressive power to deal concisely with time, space, and universal patterns of relationships among objects.</li>
 </ul>
-<p>###8. First-Order Logic</p>
-<ul>
+<h3 id="8-_First-Order_Logic">8. First-Order Logic</h3><ul>
 <li>Knowledge representation languages should be declarative, compositional, expressive,<br>context independent, and unambiguous.</li>
 <li>Logics differ in their <strong>ontological commitments</strong> and <strong>epistemological commitments</strong>. While propositional logic commits only to the existence of facts, firsi-order logic commits to the existence of objects and relations and thereby gains expressive power.</li>
 <li>The syntax of first-order logic builds on that of propositional logic. It adds terms to represent objects, and has universal and existential quantifiers to construct assertions about all or some of the possible values of the quantified variables.</li>
@@ -313,8 +305,7 @@
 <li>An atomic sentence is true just when the relation named by the predicate holds between the objects named by the terms. <strong>Extended interpretations</strong>, which map quantifier variables to objects in the model, define the truth of quantified sentences.</li>
 <li>Developing a knowledge base in first-order logic requires a careful process of analyzing the domain, choosing a vocabulary, and encoding the axioms required to support the desired inferences.</li>
 </ul>
-<p>###9. Inference in First-Order Logic</p>
-<ul>
+<h3 id="9-_Inference_in_First-Order_Logic">9. Inference in First-Order Logic</h3><ul>
 <li>A first approach uses inference rules (universal instantiation and existential instan- tiation) to <strong>propositionalize</strong> the inference problem. Typically, this approach is slow, unless the domain is small.  </li>
 <li>The use of unification to identify appropriate substitutions for variables eliminates the instantiation step in first-order proofs, making the process more efficient in many cases.</li>
 <li>A lifted version of Modus Ponens uses unification to provide a natural and powerful inference nile, generalized <strong>Modus Ponens</strong>. The <strong>forward-chaining</strong> and <strong>backward-chaining</strong> algorithms apply this rule to sets of definite clauses.</li>
@@ -326,8 +317,7 @@
 <li>Several strategies exist for reducing the search space of a resolution system without compromising completeness. One of the most important issues is dealing with equality; we showed how <strong>demodulation</strong> and <strong>paramodulation</strong> can be used.</li>
 <li>Efficient resolution-based theorem provers have been used to prove interesting mathematical theorems and to verify and synthesize software and hardware.</li>
 </ul>
-<p>###10. Classical Planning</p>
-<ul>
+<h3 id="10-_Classical_Planning">10. Classical Planning</h3><ul>
 <li>Planning systems are problem-solving algorithms that operate on explicit propositional or relational representations of states and actions. These representations make possible the derivation of effective heuristics and the development of powerful and flexible algorithms for solving problems.</li>
 <li>PDDL, the Planning Domain Definition Language, describes the initial and goal states as conjunctions of literals, and actions in terms of their preconditions and effects.</li>
 <li>State-space search can operate in the forward direction (progression) or the backward direction (regression), Effective heuristics can be derived by subgoal independence assumptions and by various relaxations of the planning problem.</li>
@@ -335,8 +325,7 @@
 <li>Other approaches include first-order deduction over situation calculus axioms; encoding a planning problem as a Boolean satisfiability problem or as a constraint satisfaction problem; and explicitly searching through the space of partially ordered plans.</li>
 <li>Each of the major approaches to planning has its adherents, and there is as yet no con- sensus on which is best. Competition and cross-fertilization among the approaches have resulted in significant gains in efficiency for planning systems.</li>
 </ul>
-<p>###11. Planning and Acting in the Real World</p>
-<ul>
+<h3 id="11-_Planning_and_Acting_in_the_Real_World">11. Planning and Acting in the Real World</h3><ul>
 <li>Many actions consume <strong>resources</strong>, such as money, gas, or raw materials. It is convenient to treat these resources as numeric measures in a pool rather than try to reason about. say, each individual coin and bill in the world. Actions can generate and consume resources, and it is usually cheap and effective to check partial plans for satisfaction of resource constraints before attempting further refinements.</li>
 <li>Time is one of the most important resources. It can be handled by specialized scheduling algorithms, or scheduling can be integrated with planning.</li>
 <li><strong>Hierarchical task network (HTN)</strong> planning allows the agent to take advice from the domain designer in the form of high-level actions (HLAs) that can be implemented in various ways by lower-level action sequences. The effects of HLAs can be defined with <strong>angelic semantics</strong>, allowing provably correct high-level plans to be derived without consideration of lower-level implementations. HTN methods can create the very large plans required by many real-world applications.</li>
@@ -346,8 +335,7 @@
 <li><strong>Multiagent planning</strong> is necessary when there are other agents in the environment with which to cooperate or compete. Joint plans can be constructed, but must be augmented with some form of coordination if two agents are to agree on which joint plan to execute.</li>
 <li>This chapter extends classic planning to cover nondeterministic environments (where outcomes of actions are uncertain), but it is not the last word on planning. Chapter 17 describes techniques for stochastic environments (in which outcomes of actions have probabilities associated with them): Markov decision processes, partially observable Markov decision processes, and game theory. In Chapter 21 we show that reinforcement learning allows an agent to learn how to behave from past successes and failures.</li>
 </ul>
-<p>###12. Knowledge Representation</p>
-<ul>
+<h3 id="12-_Knowledge_Representation">12. Knowledge Representation</h3><ul>
 <li>Large-scale knowledge representation requites a general-purpose ontology to organize and tie together the various specific domains of knowledge.</li>
 <li>A general-purpose ontology needs to cover a wide variety of knowledge and should be capable, in principle, of handling any domain.</li>
 <li>Building a large, general-purpose ontology is a significant challenge that has yet to be<br>fully realized, although current frameworks seem to be quite robust.</li>
@@ -360,8 +348,7 @@
 <li><strong>Nonmonotonic logics</strong>, such as <strong>circumscription and default logic, are intended to capture</strong> default reasoning in general.</li>
 <li><strong>Truth maintenance systems handle knowledge updates</strong> and revisions efficiently.</li>
 </ul>
-<p>###13. Quantifying Uncertainty</p>
-<ul>
+<h3 id="13-_Quantifying_Uncertainty">13. Quantifying Uncertainty</h3><ul>
 <li>Uncertainty arises because of both laziness and ignorance. It is inescapable in complex,<br>nondeterministic, or partially observable environments.</li>
 <li>Probabilities express the agent’s inability to reach a definite decision regarding the truth of a sentence. Probabilities summarize the agent’s beliefs relative to the evidence.</li>
 <li>Decision theory combines the agent’s beliefs and desires, defining the best action as the one that maximizes expected utility.</li>
@@ -373,8 +360,7 @@
 <li>Conditional independence brought about by direct causal relationships in the domain might allow the full joint distribution to be factored into smaller, conditional distributions. The naive Bayes model assumes the conditional independence of all effect variables, given a single cause variable, and grows linearly with the number of effects.</li>
 <li>A wumpus-world agent can calculate probabilities for unobserved aspects of the world, thereby improving on the decisions of a purely logical agent. Conditional independence makes these calculations tractable.</li>
 </ul>
-<p>###14. Probabilistic Reasoning</p>
-<ul>
+<h3 id="14-_Probabilistic_Reasoning">14. Probabilistic Reasoning</h3><ul>
 <li>A Bayesian network is a directed acyclic graph whose nodes correspond to random variables; each node has a conditional distribution for the node, given its parents.</li>
 <li>Bayesian networks provide a concise way to represent <strong>conditional independence relationships in the domain</strong>.</li>
 <li>A Bayesian network specifies a full joint distribution; each joint entry is defined as the product of the corresponding entries in the local conditional distributions. A Bayesian network is often exponentially smaller than an explicitly enumerated joint distribution.</li>
@@ -385,8 +371,7 @@
 <li>Probability theory can be combined with representational ideas from first-order logic to produce very powerful systems for reasoning under uncertainty, <strong>Relational probability models (RPMs)</strong> include representational restrictions that guarantee a well-defined probability distribution that can be expressed as an equivalent Bayesian network. <strong>Open universe probability models</strong> handle <strong>existence</strong> and <strong>identity uncertainty</strong>, defining probabilty distributions over the infinite space of first-order possible worlds.</li>
 <li>Various alternative systems for reasoning under uncertainty have been suggested. Generally speaking, truth-functional systems are not well suited for such reasoning.</li>
 </ul>
-<p>###15. Probabilistic Reasoning over Time</p>
-<ul>
+<h3 id="15-_Probabilistic_Reasoning_over_Time">15. Probabilistic Reasoning over Time</h3><ul>
 <li>The changing state of the world is handled by using a set of random variables to represent the state at each point in time.</li>
 <li>Representations can be designed to satisfy the Markov property, so that the future is independent of the past given the present. Combined with the assumption that the process is stationary -— that is, the dynamics do not change over time – this greatly simplifies the representation.</li>
 <li>A temporal probability model can he thought of as containing a transition model describing the state evolution and a sensor model describing the observation process.</li>
@@ -395,8 +380,7 @@
 <li>Unless special assumptions are made, as in Kalman filters, exact inference with many stare variables is intractahle. In practice, the particle filtering algorithm seems to he an effective approximation algorithm.</li>
 <li>When trying to keep track of many objects, uncertainty arises as to which observations belong to which objects – the data association problem. The number of association hypotheses is typically intractably large, but MCMC and particle filtering algorithms for data association work well in practice.</li>
 </ul>
-<p>###16. Making Simple Decisions</p>
-<ul>
+<h3 id="16-_Making_Simple_Decisions">16. Making Simple Decisions</h3><ul>
 <li>Probability theory describes what an agent should believe on the basis of evidence, utility theory describes what an agent wants, and decision theory puts the two together to describe what an agent should do.</li>
 <li>We can use decision theory to build a system that makes decisions by considering all possible actions and choosing the one that leads to the best expected outcome. Such a system is known as a rational agent.</li>
 <li>Utility theory shows that an agent whose preferences between lotteries are consistent with a set of simple axioms can be described as possessing a utility function; further-more, the agent selects actions as if maximizing its expected utility.</li>
@@ -405,8 +389,7 @@
 <li>Sometimes, salving a problem involves finding more information before making a decision. The <strong>value of information</strong> is defined as the expected improvement in utility compared with making a decision without the information.</li>
 <li>Expert systems that incorporate utility information have additional capabilities compared with pure inference systems. In addition to being able to make decisions, they can use the value of information to decide which questions to ask, if any; they can recommend contingency plans; and they can calculate the sensitivity of their decisions to small changes in probability and utility assessments.</li>
 </ul>
-<p>###17. Making Complex Decisions</p>
-<ul>
+<h3 id="17-_Making_Complex_Decisions">17. Making Complex Decisions</h3><ul>
 <li>Sequential decision problems in uncertain environments, also called <strong>Markov decision</strong> processes, or <strong>MDPs</strong>, are defined by a <strong>transition model</strong> specifying the probabilistic outcomes of actions and a <strong>reward function</strong> specifying the reward in each state.</li>
 <li>The utility of a state sequence is the sum of all the rewards over the sequence, possibly discounted over time. The solution of an MDP is a policy that associates a decision with every stale that the agent might reach. An optimal policy maximizes the utility of the state sequences encountered when it is executed.</li>
 <li>The utility of a state is the expected utility of the state sequences encountered when an optimal policy is executed, starting in that state. <strong>The value iteration</strong> algorithm for solving MDPs works by iteratively solving the equations relating the utility of each state to those of its neighbors.</li>
@@ -416,8 +399,7 @@
 <li><strong>Game theory</strong> describes rational behavior for agents in situations in which multiple agents interact simultaneously. Solutions of games are Nash equilibria – strategy profiles in which no agent has an incentive to deviate from the specified strategy.</li>
 <li><strong>Mechanism design</strong> can be used to set the rules by which agents will interact, in order to maximize some global utility through the operation of individually rational agents. Sometimes, mechanisms exist that achieve this goal without requiring each agent to consider the choices made by other agents.</li>
 </ul>
-<p>###18. Learning From Examples</p>
-<ul>
+<h3 id="18-_Learning_From_Examples">18. Learning From Examples</h3><ul>
 <li>Learning takes many forms, depending on the nature of the agent, the component to be improved, and the available feedback.</li>
 <li>If the available feedback provides the correct answer for example inputs, then the learning problem is called supervised learning. The task is to learn a function y = h(x). Learning a discrete-valued function is called classification; learning a continuous function is called regression.</li>
 <li>Inductive learning involves finding a hypothesis that agrees well with the examples. <strong>Ockham’s razor</strong> suggests choosing the simplest consistent hypothesis. The difficulty of this task depends on the chosen representation.</li>
@@ -429,8 +411,7 @@
 <li><strong>Linear regression</strong> is a widely used model. The optimal parameters of a linear regression model can he found by gradient descent search, or computed exactly.</li>
 <li>A linear classifier with a hard threshold – also known as a <strong>perceptron</strong> – can be trained by a simple weight update rule to fit data that are <strong>linearly separable</strong>. In other cases, the rule fails to converge.</li>
 </ul>
-<p>###19. Knowledge in Learning</p>
-<ul>
+<h3 id="19-_Knowledge_in_Learning">19. Knowledge in Learning</h3><ul>
 <li>The use of prior knowledge in learning leads to a picture of <strong>cumulative learning</strong>, in which learning agents improve their learning ability as they acquire more knowledge.</li>
 <li>Prior knowledge helps learning by eliminating otherwise consistent hypotheses and by “filling in” the explanation of examples, thereby allowing for shorter hypotheses. These contributions often result in faster teaming from fewer examples.</li>
 <li>Understanding the different logical roles played by prior knowledge, as expressed by entailment constraints, helps to define a variety of learning techniques.</li>
@@ -441,8 +422,7 @@
 <li>1LP can be done with a top-down approach of refining a very general rule or through a bottom-up approach of inverting the deductive process.</li>
 <li>1LP methods naturally generate new predicates with which concise new theories can be expressed and show promise as general-purpose scientific theory formation systems.</li>
 </ul>
-<p>###20. Learning Probabilistic Models</p>
-<ul>
+<h3 id="20-_Learning_Probabilistic_Models">20. Learning Probabilistic Models</h3><ul>
 <li><strong>Bayesian learning</strong> methods formulate learning as a form of probabilistic inference, using the observations to update a prior distribution over hypotheses. This approach provides a good way to implement Ockham’s razor, but quickly becomes intractable for complex hypothesis spaces.</li>
 <li><strong>Maximum a posteriori (MAP)</strong> learning selects a single most likely hypothesis given the data. The hypothesis prior is still used and the method is often more tractable than full Bayesian learning.</li>
 <li><strong>Maximum-likelihood learning</strong> simply selects the hypothesis that maximizes the likelihood of the data; it is equivalent to MAP learning with a uniform prior. In simple cases such as linear regression and fully observable Bayesian networks, maximum-likelihood solutions can be found easily in closed form. <strong>Naive Bayes learning</strong> is a particularly effective technique that scales well.</li>
@@ -450,8 +430,7 @@
 <li>Learning the structure of Bayesian networks is an example of <strong>model selection</strong>. This usually involves a discrete search in the space of structures. Some method is required for trading off model complexity against degree of fit.</li>
 <li><strong>Nonparametric models</strong> represent a distribution using the collection of data points. Thus, the number of parameters grows with the training set. Nearest-neighbors methods look at the examples nearest to the point in question, whereas <strong>kernel methods</strong> form a distance-weighted combination of all the examples.</li>
 </ul>
-<p>###21. Reinforcement Learning</p>
-<ul>
+<h3 id="21-_Reinforcement_Learning">21. Reinforcement Learning</h3><ul>
 <li>The overall agent design dictates the kind of information that must be learned. The three main designs we covered were the <strong>model-based</strong> design, using a model P and a utility function U; the model-free design, using an action-utility function Q; and the reflex design, using a policy r.</li>
 <li>Utilities can be learned using three approaches:<br>*<em> <strong>Direct utility estimation</strong> uses the total observed reward-to-go for a given state as direct evidence for learning its utility.<br><br>*<em> <strong>Adaptive dynamic programming (ADP)</strong> learns a model and a reward function from observations and then uses value or policy iteration to obtain the utilities or an optimal policy. ADP makes optimal use of the local constraints on utilities of states imposed through the neighborhood structure of the environment.<br><br>\</em></em> Temporal-difference (TD) methods update utility estimates to match those of successor states. They can be viewed as simple approximations to the ADP approach that can learn without requiring a transition model. Using a learned model to generate pseudoexperiences can, however, result in faster learning.</li>
 <li>Action-utility functions, or Q-functions, can be learned by an ADP approach or a TD approach. With TD, Q-learning requires no model in either the learning or action-selection phase. This simplifies the learning problem but potentially restricts the ability to learn in complex environments, because the agent cannot simulate the results of possible courses of action.</li>
@@ -459,8 +438,7 @@
 <li>In large state spaces, reinforcement learning algorithms must use an approximate functional representation in order to generalize over states. The temporal-difference signal can be used directly to update parameters in representations such as neural networks.</li>
 <li>Policy-search methods operate directly on a representation of the policy, attempting to improve it based on observed performance. The variation in the performance in a stochastic domain is a serious problem; for simulated domains this can be overcome by fixing the randomness in advance.</li>
 </ul>
-<p>###22. Natural Language Processing</p>
-<ul>
+<h3 id="22-_Natural_Language_Processing">22. Natural Language Processing</h3><ul>
 <li>Probabilistic language models based on n-grams recover a surprising amount of information about as language. They can perform well on such diverse tasks as language identification, spelling correction, genre classification, and named-entity recognition.</li>
 <li>These language models can have millions of features, so feature selection and preprocessing of the data to reduce noise is important.</li>
 <li><strong>Text classification</strong> can be done with naive Bayes n-gram models or with any of the classification algorithms we have previously discussed. Classification can also be seen as a problem in data compression.</li>
@@ -469,8 +447,7 @@
 <li><strong>Information-extraction</strong> systems use a more complex model that includes limited notions of syntax and semantics in the form of templates. They can be built from finite-state automata, HMMs, or conditional random fields, and can be learned from examples.</li>
 <li>In building a statistical language system, it is best to devise a model that can make good use of available <strong>data</strong>, even if the model seems overly simplistic.</li>
 </ul>
-<p>###23. Natural Language for Communication</p>
-<ul>
+<h3 id="23-_Natural_Language_for_Communication">23. Natural Language for Communication</h3><ul>
 <li>Formal language theory and <strong>phrase structure</strong> grammars (and in particular, context. free grammar) are useful tools for dealing with some aspects of natural language. The probabilistic context-free grammar (PCFG) formalism is widely used.</li>
 <li>Sentences in a context-free language can be parsed in O(n<sup>3</sup>) time by a <strong>chart parser</strong> such as the CYK algorithm, which requires grammar rules to be in <strong>Chomsky Normal Form</strong>.</li>
 <li>A treebank can be used to learn a grammar. It is also possible to learn a grammar from an unparsed corpus of sentences, but this is less successful.</li>
@@ -481,15 +458,13 @@
 <li><strong>Machine translation</strong> systems have been implemented using a range of techniques, from full syntactic and semantic analysis to statistical techniques based on phrase frequencies. Currently the statistical models are most popular and most successful.</li>
 <li><strong>Speech recognition</strong> systems are also primarily based on statistical principles. Speech<br>systems are popular and useful, albeit imperfect.<br>Together, machine translation and speech recognition are two of the big successes of natural language technology. One reason that the models perform well is that large corpora are available—both translation and speech are tasks that are performed in the wild” by people every day. In contrast, tasks like parsing sentences have been less successful, in part because no large corpora of parsed sentences are available in the wild” and in part because parsing is not useful in and of itself.</li>
 </ul>
-<p>###24. Perception</p>
-<ul>
+<h3 id="24-_Perception">24. Perception</h3><ul>
 <li>The process of image formation is well understood in its geometric and physical aspects. Given a description of a three-dimensional scene, we can easily produce a picture of it from some arbitrary camera position (the graphics problem). Inverting the process by going from an image to a description of the scene is more difficult.</li>
 <li>To extract the visual information necessary for the tasks of manipulation ; navigation, and recognition, intermediate representations have to be constructed. Early vision image-processing algorithms extract primitive features from the image, such as edges and regions.</li>
 <li>There are various cues in the image that enable one to obtain three-dimensional in- formation about the scene: motion, stereopsis, texture, shading, and contour analysis. Each of these cues relies en background assumptions about physical scenes to provide nearly unambiguous interpretations.</li>
 <li>Object recognition in its full generality is a very hard problem. We discussed brightness-based and feature-based approaches. We also presented a simple algorithm for pose estimation. Other possibilities exist.</li>
 </ul>
-<p>###25. Robotics</p>
-<ul>
+<h3 id="25-_Robotics">25. Robotics</h3><ul>
 <li>Robots are equipped with sensors fur perceiving their environment and effectors with which they can assert physical forces on their environment. Most robots are either manipulators anchored at fixed locations or mobile robots that can move.</li>
 <li>Robotic perception concerns itself with estimating decision-relevant quantities from sensor data. To do so, we need an internal representation and a method for updating this intemal representation over time. Common examples of hard perceptual problems include <strong>localization, mapping, and object recognition</strong>.</li>
 <li><strong>Probabilistic filtering algorithms</strong> such as Kalman filters and particle filters arc useful for robot perception. These techniques maintain the belief state, a posterior distribution over state variables.</li>
@@ -499,8 +474,7 @@
 <li><strong>Potential field</strong> techniques navigate robots by potential functions, defined over the distance to obstacles and the goal location. Potential field techniques may get stuck in local minima but they can generate motion directly without the need for path planning.</li>
 <li>Sometimes it is easier to specify a robot controller directly, rather than deriving a path from an explicit model of the environment. Such controllers can often be written as simple <strong>finite state machines</strong>.</li>
 </ul>
-<p>###26. Philosophical Foundations</p>
-<ul>
+<h3 id="26-_Philosophical_Foundations">26. Philosophical Foundations</h3><ul>
 <li>Philosophers use the term weak AI for the hypothesis that machines could possibly behave intelligently. and strong AI for the hypothesis that such machines would count as having actual minds (as opposed to simulated minds).</li>
 <li>Alan Turing rejected the question “Can machines think” and replaced it with a behavioral test. He anticipated many objections to the possibility of thinking machines. Few AI researchers pay attention to the Turing Test, preferring to concentrate on their systems’ performance on practical tasks, rather than the ability to imitate humans.</li>
 <li>There is general agreement in modem times that mental states are brain states.</li>
