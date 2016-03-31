@@ -229,9 +229,8 @@
                 <div class="col-md-8">
                     <p>
                       
-                        <img src="/images/success.jpg">  
-<p>‘’’<br>“””<br>Transform category features into One Hot Encoder.<br>“””<br>ohe_feats = dt.columns - [“xxx”, “xxx”,”xxx”, “Current Status”]<br>for f in ohe_feats:<br>    dt_dummy = pd.get_dummies(dt[f],prefix=f)<br>    dt.drop(f, axis=1,inplace=True)<br>    dt = pd.concat([dt, dt_dummy],axis=1)</p>
-<p>dt[“Current Status”].replace({“Cancelled”: 0, “Commercial Sales”: 1}, inplace= True)<br>‘’’<br>
+                        
+123456789101112"""Transform category features into One Hot Encoder."""ohe_feats = dt.columns - ["xxx", "xxx","xxx", "Current Status"]for f in ohe_feats:    dt_dummy = pd.get_dummies(dt[f],prefix=f)    dt.drop(f, axis=1,
                       
                     </p>
                     
