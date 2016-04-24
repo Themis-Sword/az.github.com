@@ -1,4 +1,7 @@
 User-agent: *
+Allow: /
+Allow: /archives/
+
 Disallow: /author/
 Disallow: /css/
 Disallow: /js/
