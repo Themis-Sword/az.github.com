@@ -196,7 +196,6 @@ h6 {
 	font-weight: 400;
 	font-weight: normal;
 	color: #151515;
-	text-align: justify;
 }
 h2 {
 	text-transform: uppercase;
@@ -205,12 +204,10 @@ h2 {
 	font-size: 22px;
 	line-height: 30px;
 	letter-spacing: 1px;
-	text-align: justify;
 }
 @media (max-width:768px) {
 	h2 {
 		font-size: 22px;
-		text-align: justify;
 	}
 }
 h3 {
@@ -219,7 +216,6 @@ h3 {
 	line-height: 37px;
 	font-size: 20px;
 	margin-top: 0;
-	text-align: justify;
 }
 h4 {
 	font-style: normal;
@@ -227,7 +223,6 @@ h4 {
 	font-size: 18px;
 	line-height: 30px;
 	color: #333333;
-	text-align: justify;
 }
 h1 span,
 h2 span,
@@ -244,7 +239,6 @@ h6 span,
 	text-transform: none;
 	position: relative;
 	top: -1px;
-	text-align: justify;
 }
 h1 span {
 	top: -2px
