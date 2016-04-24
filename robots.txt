@@ -4,7 +4,6 @@ Disallow: /css/
 Disallow: /js/
 Disallow: /highlightjs/
 Disallow: /fonts/
-Disallow: /assets
 
 Sitemap: http://www.aprilzephyr.com/sitemap.xml 
 Sitemap: http://www.aprilzephyr.com/baidusitemap.xml 
