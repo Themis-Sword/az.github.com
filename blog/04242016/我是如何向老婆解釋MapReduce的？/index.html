@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>About Lives | Themis_Sword&#39;s Blog</title>
+  <title>我是如何向老婆解釋MapReduce的？ | Themis_Sword&#39;s Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -218,38 +218,53 @@
     			<span class="post-meta">
     
 </span>
-                <h1>About Lives</h1>
+                <h1>我是如何向老婆解釋MapReduce的？</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<img src="/images/mourning_angel.jpg">
-<p>The distance between life and death, might be far beyond the real boundary from life and death.  </p>
-<p>It might need only one second separating fresh teary faces from pale freezing corpses. Or, seventeen days’ passing eclipse infinite dread and heart-lacerating sorrow over these pathetic waiting families who have already withstood too much.  </p>
-<p>Time is a queer thing could not be explained reasonably which gives people shock, sadness, hope then and despair finally.<a id="more"></a>  </p>
-<p>Since March 8th, no solid wreckages of MH370 are found yet. Maybe we would never find the aircraft. However, things become weird and bizarre thanks to kinds of press conferences, analyses, information from so-called concerned third parties. Emotions of the whole nation are affected like riding on the roller coasters, let alone the relatives.   </p>
-<p>The latest news, came unexpectedly without any warmth of humanity. A text message sending to relatives of the passengers onboard says that “we have to assume beyond any reasonable doubt that MH370 has been lost and that none of those onboard survived.” Maybe the planes was ended in the remote Southern Indian Ocean for it is “far from any possible landing sites.”  </p>
-<p>Cannot imagine those relatives’ heartbreak.  </p>
-<p>Lives are so fragile that any good bye would become a farewell forever.  </p>
-<p>Please pray for the living, and mourn over the passing. Cherish every single moment sharing with your beloved. Treat life well.</p>
-
+      		<p>昨天，我在Xebia印度辦公室發表了一個關於MapReduce的演說。演說進行得很順利，聽眾們都能夠理解MapReduce的概念（根據他們的反饋）。我成功地向技術聽眾們（主要是Java程序員，一些Flex程序員和少數的測試人員）解釋了MapReduce的概念，這讓我感到興奮。在所有辛勤的工作之後，我們在Xebia印度辦公室享用了豐盛的晚餐，然後我徑直回了家。  </p>
+<p>回家後，我的妻子（Supriya）問道：“你的會開得怎麼樣？”我說還不錯。 接着她又問我會議是的內容是什麼(她不是從事軟件或編程領域的工作的)。我告訴她說MapReduce。“Mapduce，那是什麼玩意兒？”她問道： “跟地形圖有關嗎？”我說不，不是的，它和地形圖一點關係也沒有。“那麼，它到底是什麼玩意兒？”妻子問道。 “唔…讓我們去Dominos(披薩連鎖)吧，我會在餐桌上跟你好好解釋。” 妻子說：“好的。” 然後我們就去了披薩店。<a id="more"></a><br><img src="/images/mapreduce.png"><br>我們在Domions點餐之後，櫃檯的小夥子告訴我們說披薩需要15分鐘才能準備好。於是，我問妻子：“你真的想要弄懂什麼是MapReduce？” 她很堅定的回答說“是的”。 因此我問道：  </p>
+<p>我： 你是如何準備洋蔥辣椒醬的？（以下並非準確食譜，請勿在家嘗試）  </p>
+<p>妻子： 我會取一個洋蔥，把它切碎，然後拌入鹽和水，最後放進混合研磨機裡研磨。這樣就能得到洋蔥辣椒醬了。  </p>
+<p>妻子： 但這和MapReduce有什麼關係？  </p>
+<p>我： 你等一下。讓我來編一個完整的情節，這樣你肯定可以在15分鐘內弄懂MapReduce。  </p>
+<p>妻子： 好吧。  </p>
+<p>我：現在，假設你想用薄荷、洋蔥、番茄、辣椒、大蒜弄一瓶混合辣椒醬。你會怎麼做呢？  </p>
+<p>妻子： 我會取薄荷葉一撮，洋蔥一個，番茄一個，辣椒一根，大蒜一根，切碎後加入適量的鹽和水，再放入混合研磨機裡研磨，這樣你就可以得到一瓶混合辣椒醬了。  </p>
+<p>我： 沒錯，讓我們把MapReduce的概念應用到食譜上。Map和Reduce其實是兩種操作，我來給你詳細講解下。  </p>
+<p>Map（映射）: 把洋蔥、番茄、辣椒和大蒜切碎，是各自作用在這些物體上的一個Map操作。所以你給Map一個洋蔥，Map就會把洋蔥切碎。 同樣的，你把辣椒，大蒜和番茄一一地拿給Map，你也會得到各種碎塊。 所以，當你在切像洋蔥這樣的蔬菜時，你執行就是一個Map操作。 Map操作適用於每一種蔬菜，它會相應地生產出一種或多種碎塊，在我們的例子中生產的是蔬菜塊。在Map操作中可能會出現有個洋蔥壞掉了的情況，你只要把壞洋蔥丟了就行了。所以，如果出現壞洋蔥了，Map操作就會過濾掉壞洋蔥而不會生產出任何的壞洋蔥塊。  </p>
+<p>Reduce（化簡）:在這一階段，你將各種蔬菜碎都放入研磨機裡進行研磨，你就可以得到一瓶辣椒醬了。這意味要製成一瓶辣椒醬，你得研磨所有的原料。因此，研磨機通常將map操作的蔬菜碎聚集在了一起。  </p>
+<p>妻子： 所以，這就是MapReduce?  </p>
+<p>我： 你可以說是，也可以說不是。 其實這只是MapReduce的一部分，MapReduce的強大在於分佈式計算。  </p>
+<p>妻子： 分佈式計算？ 那是什麼？請給我解釋下吧。  </p>
+<p>我： 沒問題。  </p>
+<p>我： 假設你參加了一個辣椒醬比賽並且你的食譜贏得了最佳辣椒醬獎。得獎之後，辣椒醬食譜大受歡迎，於是你想要開始出售自製品牌的辣椒醬。假設你每天需要生產10000瓶辣椒醬，你會怎麼辦呢？  </p>
+<p>妻子： 我會找一個能為我大量提供原料的供應商。  </p>
+<p>我：是的..就是那樣的。那你能否獨自完成製作呢？也就是說，獨自將原料都切碎？ 僅僅一部研磨機又是否能滿足需要？而且現在，我們還需要供應不同種類的辣椒醬，像洋蔥辣椒醬、青椒辣椒醬、番茄辣椒醬等等。  </p>
+<p>妻子： 當然不能了，我會僱傭更多的工人來切蔬菜。我還需要更多的研磨機，這樣我就可以更快地生產辣椒醬了。  </p>
+<p>我：沒錯，所以現在你就不得不分配工作了，你將需要幾個人一起切蔬菜。每個人都要處理滿滿一袋的蔬菜，而每一個人都相當於在執行一個簡單的Map操作。每一個人都將不斷的從袋子裡拿出蔬菜來，並且每次只對一種蔬菜進行處理，也就是將它們切碎，直到袋子空了為止。  </p>
+<p>這樣，當所有的工人都切完以後，工作台（每個人工作的地方）上就有了洋蔥塊、番茄塊、和蒜蓉等等。  </p>
+<p>妻子：但是我怎麼會製造出不同種類的番茄醬呢？  </p>
+<p>我：現在你會看到MapReduce遺漏的階段—攪拌階段。MapReduce將所有輸出的蔬菜碎都攪拌在了一起，這些蔬菜碎都是在以key為基礎的 map操作下產生的。攪拌將自動完成，你可以假設key是一種原料的名字，就像洋蔥一樣。 所以全部的洋蔥keys都會攪拌在一起，並轉移到研磨洋蔥的研磨器裡。這樣，你就能得到洋蔥辣椒醬了。同樣地，所有的番茄也會被轉移到標記着番茄的研磨器裡，並製造出番茄辣椒醬。  </p>
+<p>披薩終於做好了，她點點頭說她已經弄懂什麼是MapReduce了。我只希望下次她聽到MapReduce時，能更好的理解我到底在做些什麼。  </p>
+<p>編註：下面這段話是網上其他人用最簡短的語言解釋MapReduce：<br>We want to count all the books in the library. You count up shelf #1, I count up shelf #2. That’s map. The more people we get, the faster it goes.<br>我們要數圖書館中的所有書。你數1號書架，我數2號書架。這就是“Map”。我們人越多，數書就更快。<br>Now we get together and add our individual counts. That’s reduce.<br>現在我們到一起，把所有人的統計數加在一起。這就是“Reduce”。  </p>
+<p><a href="http://blog.jobbole.com/1321/" target="_blank" rel="external">Origin</a>  </p>
+<p><iframe src="https://player.vimeo.com/video/128270143" width="640" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe></p>
+<p><a href="https://vimeo.com/128270143" target="_blank" rel="external">Big Ideas- Demystifying Hadoop</a> from <a href="https://vimeo.com/user38102981" target="_blank" rel="external">Yi Liu</a> on <a href="https://vimeo.com" target="_blank" rel="external">Vimeo</a>.</p>
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/blog/03262014/join-split-zip-map-reduce-filter/" style="float: left;">
-        ← Python 常用函數之Join, Split, Zip, Map, Reduce, Filter
-    </a>
     
-    
-    <a class="pull-right" href="/blog/03082014/about-time/">
-        About Time →
+    <a class="pull-right" href="/blog/11012015/Immanent-Anxiety/">
+        Immanent Anxiety →
     </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="blog/03242014/about-lives/" data-title="About Lives" data-url="http://www.aprilzephyr.com/blog/03242014/about-lives/"></div>
+<div class="ds-thread" data-thread-key="blog/04242016/我是如何向老婆解釋MapReduce的？/" data-title="我是如何向老婆解釋MapReduce的？" data-url="http://www.aprilzephyr.com/blog/04242016/我是如何向老婆解釋MapReduce的？/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"duoshuo_name"};
 (function() {
