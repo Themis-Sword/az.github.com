@@ -90,10 +90,12 @@ h2 {
 	font-size: 22px;
 	line-height: 30px;
 	letter-spacing: 1px;
+	text-align: justify;
 }
 @media (max-width:768px) {
 	h2 {
 		font-size: 22px;
+		text-align: justify;
 	}
 }
 h3 {
@@ -102,6 +104,7 @@ h3 {
 	line-height: 37px;
 	font-size: 20px;
 	margin-top: 0;
+	text-align: justify;
 }
 h4 {
 	font-style: normal;
@@ -109,6 +112,7 @@ h4 {
 	font-size: 18px;
 	line-height: 30px;
 	color: #333333;
+	text-align: justify;
 }
 h1 span,
 h2 span,
@@ -125,6 +129,7 @@ h6 span,
 	text-transform: none;
 	position: relative;
 	top: -1px;
+	text-align: justify;
 }
 h1 span {
 	top: -2px
@@ -976,6 +981,7 @@ span.sb-caret { /* Caret Down */
 #page-content {
 	padding-top: 60px;
 	padding-bottom: 60px
+	text-align: justify;
 }
 
 /* *******************************************************
@@ -1011,8 +1017,10 @@ span.sb-caret { /* Caret Down */
 ******************************************************* */
 #blog article h3 {
 	margin-bottom: 35px;
+	text-align: justify;
 }
 #blog .content p {
+	text-align: justify;
 	margin: 10px 0 30px;
 }
 #blog article img {
@@ -1036,6 +1044,7 @@ span.sb-caret { /* Caret Down */
 }
 #blog .pager {
 	padding: 20px 0 0;
+	text-align: justify;
 }
 #blog .pager li > a:hover,
 #blog .pager li > a:focus {
@@ -1062,6 +1071,7 @@ span.sb-caret { /* Caret Down */
 	margin-left: -60px;
 	position: relative;
 	top: 3px;
+	text-align: justify;
 }
 #blog #subscribe p {
 	font-family: 'Georgia', serif, Helvetica, "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans CN", "WenQuanYi Micro Hei", Arial, sans-serif;
@@ -1130,6 +1140,7 @@ span.sb-caret { /* Caret Down */
 ******************************************************* */
 #blog-post #page-header {
 	margin-top: 61px;
+	text-align: justify;
 }
 #blog-post .avatar img {
 	position: absolute;
@@ -1250,11 +1261,13 @@ span.sb-caret { /* Caret Down */
 }
 #blog-post .comments {
 	margin-top: 60px;
+	text-align: justify;
 }
 
 /* Social Sharrres plugin */
 #blog-post #social {
 	margin-bottom: 10px;
+	text-align: justify;
 }
 #blog-post .published {
 	clear: both;
