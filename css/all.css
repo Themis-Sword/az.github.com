@@ -1094,7 +1094,7 @@ span.sb-caret { /* Caret Down */
 ******************************************************* */
 .titleblock {
 	padding-bottom: 60px;
-	text-align: center;
+	text-align: justify;
 }
 
 .titleblock h1,
