@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.aprilzephyr.com/blog/08012015/begin-again/</loc>
+    
+    <lastmod>2016-04-25T12:12:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.aprilzephyr.com/author/index.html</loc>
     
     <lastmod>2016-04-25T06:15:57.000Z</lastmod>
@@ -131,13 +138,6 @@
     <loc>http://www.aprilzephyr.com/blog/04302015/machine-learning-is-fun/</loc>
     
     <lastmod>2015-09-16T11:41:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/08012015/begin-again/</loc>
-    
-    <lastmod>2015-09-16T11:39:16.000Z</lastmod>
     
   </url>
   
@@ -401,21 +401,7 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02252014/shu-zhai-tan-pan-li/</loc>
-    
-    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/02222014/si-wei-dian-di/</loc>
-    
-    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/02192014/excerpt-software-engineering/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02132014/commencement/</loc>
     
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
     
@@ -429,7 +415,21 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02182014/ping-heng-dian-he-zhi-pei-dian-wen-ti/</loc>
+    <loc>http://www.aprilzephyr.com/blog/04032015/the-20-most-popular-ted-talks-of-all-time/</loc>
+    
+    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/02192014/excerpt-software-engineering/</loc>
+    
+    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/02252014/shu-zhai-tan-pan-li/</loc>
     
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
     
@@ -450,14 +450,14 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02182014/range-xrange-random/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02182014/ping-heng-dian-he-zhi-pei-dian-wen-ti/</loc>
     
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02132014/commencement/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02222014/si-wei-dian-di/</loc>
     
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
     
@@ -471,7 +471,7 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04032015/the-20-most-popular-ted-talks-of-all-time/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02182014/range-xrange-random/</loc>
     
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
     

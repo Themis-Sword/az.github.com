@@ -3,6 +3,24 @@
 
 
     
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/08012015/begin-again/</loc>
+    <lastmod>2016-04-25T12:12:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>Begin Again</title>
+        <pubTime>2015-08-01T14:08:47.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="mood" url="http://www.aprilzephyr.com/categories/mood/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://www.aprilzephyr.com/blog/04242016/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E5%90%91%E8%80%81%E5%A9%86%E8%A7%A3%E9%87%8BMapReduce%E7%9A%84%EF%BC%9F(%E8%BD%89)/</loc>
@@ -288,24 +306,6 @@
            
              
               <breadCrumb title="artificial-intelligence" url="http://www.aprilzephyr.com/categories/artificial-intelligence/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/08012015/begin-again/</loc>
-    <lastmod>2015-09-16T11:39:16.000Z</lastmod>
-    <data>
-        <display>
-        <title>Begin Again</title>
-        <pubTime>2015-08-01T14:08:47.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="mood" url="http://www.aprilzephyr.com/categories/mood/"/>
           
         </display>
     </data>
@@ -911,53 +911,17 @@
 
     
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02252014/shu-zhai-tan-pan-li/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02132014/commencement/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
     <data>
         <display>
-        <title>書摘_談判力</title>
-        <pubTime>2014-02-25T11:36:09.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="business" url="http://www.aprilzephyr.com/categories/business/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/02222014/si-wei-dian-di/</loc>
-    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
-    <data>
-        <display>
-        <title>思維點滴_關於未來</title>
-        <pubTime>2014-02-22T13:36:20.000Z</pubTime>
+        <title>Commencement</title>
+        <pubTime>2014-02-13T12:23:32.000Z</pubTime>
         
          
            
              
               <breadCrumb title="mood" url="http://www.aprilzephyr.com/categories/mood/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/02192014/excerpt-software-engineering/</loc>
-    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
-    <data>
-        <display>
-        <title>Excerpt_Software Engineering: A Practitioner Approach</title>
-        <pubTime>2014-02-19T10:44:39.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="software" url="http://www.aprilzephyr.com/categories/software/"/>
           
         </display>
     </data>
@@ -983,17 +947,53 @@
 
     
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02182014/ping-heng-dian-he-zhi-pei-dian-wen-ti/</loc>
+    <loc>http://www.aprilzephyr.com/blog/04032015/the-20-most-popular-ted-talks-of-all-time/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
     <data>
         <display>
-        <title>平衡點問題和支配點問題(轉)</title>
-        <pubTime>2014-02-18T13:46:13.000Z</pubTime>
+        <title>The 20 Most Popular TED Talks of All Time</title>
+        <pubTime>2015-04-03T12:00:00.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="python" url="http://www.aprilzephyr.com/categories/python/"/>
+              <breadCrumb title="inspiring" url="http://www.aprilzephyr.com/categories/inspiring/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/02192014/excerpt-software-engineering/</loc>
+    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>Excerpt_Software Engineering: A Practitioner Approach</title>
+        <pubTime>2014-02-19T10:44:39.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="software" url="http://www.aprilzephyr.com/categories/software/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/02252014/shu-zhai-tan-pan-li/</loc>
+    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>書摘_談判力</title>
+        <pubTime>2014-02-25T11:36:09.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="business" url="http://www.aprilzephyr.com/categories/business/"/>
           
         </display>
     </data>
@@ -1037,12 +1037,12 @@
 
     
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02182014/range-xrange-random/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02182014/ping-heng-dian-he-zhi-pei-dian-wen-ti/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
     <data>
         <display>
-        <title>Python range(), xrange(), random()與求兩個序列的和的差最小</title>
-        <pubTime>2014-02-18T06:09:05.000Z</pubTime>
+        <title>平衡點問題和支配點問題(轉)</title>
+        <pubTime>2014-02-18T13:46:13.000Z</pubTime>
         
          
            
@@ -1055,12 +1055,12 @@
 
     
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02132014/commencement/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02222014/si-wei-dian-di/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
     <data>
         <display>
-        <title>Commencement</title>
-        <pubTime>2014-02-13T12:23:32.000Z</pubTime>
+        <title>思維點滴_關於未來</title>
+        <pubTime>2014-02-22T13:36:20.000Z</pubTime>
         
          
            
@@ -1091,17 +1091,17 @@
 
     
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04032015/the-20-most-popular-ted-talks-of-all-time/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02182014/range-xrange-random/</loc>
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
     <data>
         <display>
-        <title>The 20 Most Popular TED Talks of All Time</title>
-        <pubTime>2015-04-03T12:00:00.000Z</pubTime>
+        <title>Python range(), xrange(), random()與求兩個序列的和的差最小</title>
+        <pubTime>2014-02-18T06:09:05.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="inspiring" url="http://www.aprilzephyr.com/categories/inspiring/"/>
+              <breadCrumb title="python" url="http://www.aprilzephyr.com/categories/python/"/>
           
         </display>
     </data>
