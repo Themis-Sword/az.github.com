@@ -320,7 +320,24 @@
                 <div class="col-md-8">
                     <p>
                       
-                        1. 不同算法實現Fibonacci數列1) 遞歸：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010
+                        <h3 id="1-_不同算法實現Fibonacci數列">1. 不同算法實現Fibonacci數列</h3><p>1) 遞歸：  </p>
+<pre><code class="python">fib=<span class="keyword">lambda</span> n:<span class="number">1</span> <span class="keyword">if</span> n&lt;=<span class="number">2</span> <span class="keyword">else</span> fib(n-<span class="number">1</span>)+fib(n-<span class="number">2</span>)
+</code></pre>
+<p>2) 迭代：  </p>
+<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>
+ x,y=<span class="number">0</span>,<span class="number">1</span>
+ <span class="keyword">while</span>(n):
+  x,y,n=y,x+y,n-<span class="number">1</span>
+ <span class="keyword">return</span> x
+</code></pre>
+<p>3) 尾遞歸(SICP)：  </p>
+<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>
+ <span class="function"><span class="keyword">def</span> <span class="title">fib_iter</span><span class="params">(n,x,y)</span>:</span>
+  <span class="keyword">if</span> n==<span class="number">0</span> : <span class="keyword">return</span> x
+  <span class="keyword">else</span> : <span class="keyword">return</span> fib_iter(n-<span class="number">1</span>,y,x+y)
+ <span class="keyword">return</span> fib_iter(n,<span class="number">0</span>,<span class="number">1</span>)
+</code></pre>
+<p><a href="http://www.cnblogs.com/figure9/archive/2010/08/30/1812927.html">Origin</a>
                       
                     </p>
                     
@@ -452,7 +469,9 @@
                 <div class="col-md-8">
                     <p>
                       
-                        <p>1月13日，著名博客作者<a href="http://www.noop.nl">Jurgen Appelo</a>寫了一篇博文：<a href="http://www.noop.nl/2009/01/100-interview-questions-for-software-developers.html">“軟件開發者面試百問”</a>。該文甚受讀者歡迎，15日便登上了delicious，Popurls.com，Reddit的首頁。InfoQ中文站在得到作者許可之後，将其全文翻譯爲中文，希望可以對國內讀者有所助益。</br><br></br><br>以下爲文章全文：</br><br></br><br>想雇到搞軟件開發的聰明人可不容易。萬一一不小心，就會搞到一堆低能大狒狒。我去年就碰到这種事了。你肯定不想這樣吧。聽我的，没錯。在樹上開站立會議門都没有。
+                        <p>1月13日，著名博客作者<a href="http://www.noop.nl">Jurgen Appelo</a>寫了一篇博文：<a href="http://www.noop.nl/2009/01/100-interview-questions-for-software-developers.html">“軟件開發者面試百問”</a>。該文甚受讀者歡迎，15日便登上了delicious，Popurls.com，Reddit的首頁。InfoQ中文站在得到作者許可之後，将其全文翻譯爲中文，希望可以對國內讀者有所助益。  </p>
+<p>以下爲文章全文：  </p>
+<p>想雇到搞軟件開發的聰明人可不容易。萬一一不小心，就會搞到一堆低能大狒狒。我去年就碰到这種事了。你肯定不想這樣吧。聽我的，没錯。在樹上開站立會議門都没有。
                       
                     </p>
                     

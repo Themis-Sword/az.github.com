@@ -838,7 +838,7 @@ span.sb-caret { /* Caret Down */
 }
 @media (max-width:991px) {
 	.title-emphasis {
-		text-align: left;
+		text-align: justify;
 	}
 }
 
@@ -1079,7 +1079,7 @@ span.sb-caret { /* Caret Down */
 }
 #blog #subscribe label.status {
 	display: block;
-	text-align: center;
+	text-align: justify;
 	clear: both;
 	margin: 40px auto;
 	float: left;
@@ -1375,7 +1375,7 @@ span.sb-caret { /* Caret Down */
 	background-color: #F7F7F7;
 }
 #comments-tb .form-horizontal .control-label {
-	text-align: left;
+	text-align: justify;
 }
 #comments-tb .nav-tabs {
 	border-bottom: none;
@@ -1743,7 +1743,7 @@ a.flex-next {
 #process .timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-time {
 	left: auto;
 	right: -100px;
-	text-align: left;
+	text-align: justify;
 }
 #process span.number {
 	font-family: 'Georgia', serif, Helvetica, "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans CN", "WenQuanYi Micro Hei", Arial, sans-serif;
@@ -1819,7 +1819,7 @@ a.flex-next {
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	border-radius: 20px;
-	text-align: center;
+	text-align: justify;
 	border: 4px solid #F5F5F6;
 	line-height: 40px;
 	font-size: 15px;
@@ -2344,11 +2344,11 @@ ul.page-nav i {
 
 #faq-content .question-icon .col-xs-12.col-sm-2 {
 	padding-top: 30px;
-	text-align: center;
+	text-align: justify;
 }
 #faq-content .question-icon i {
 	font-size: 50px;
-	text-align: center;
+	text-align: justify;
 }
 #faq-content .question-icon h3 {
 	margin-bottom: 0
@@ -2528,7 +2528,7 @@ ul.page-nav i {
 .sortlinks {
 	display: table;
 	margin: 0 auto;
-	text-align: center;
+	text-align: justify;
 }
 #projects .filter-item {
 	-webkit-box-sizing: border-box;
@@ -2575,10 +2575,10 @@ ul.page-nav i {
 	width: 100%;
 	display: table-cell;
 	vertical-align: middle;
-	text-align: center;
+	text-align: justify;
 }
 #projects .filter-item a {
-	text-align: center;
+	text-align: justify;
 	margin-bottom: 0
 }
 #projects .filter-item a {
@@ -2659,7 +2659,7 @@ ul.filters li p:hover {
 @media (max-width:1024px) {
 	#portfolio-item .client h3,
 	#portfolio-item .client p {
-		text-align: center;
+		text-align: justify;
 	}
 	#portfolio-item hr.client-accent {
 		margin: 20px auto 30px auto;
@@ -2776,7 +2776,7 @@ ul.filters li p:hover {
 * Mailinglist signup, (homepage)
 ******************************************************* */
 #mailinglist {
-	text-align: center;
+	text-align: justify;
 	background-color: #fff;
 	z-index: 4;
 }
@@ -2805,7 +2805,7 @@ ul.filters li p:hover {
 }
 #mailinglist label.status {
 	display: block;
-	text-align: center;
+	text-align: justify;
 	clear: both;
 	margin: 40px auto;
 	float: left;
