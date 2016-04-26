@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.aprilzephyr.com/author/index.html</loc>
+    
+    <lastmod>2016-04-26T07:20:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/02132014/blogging-with-octopress/</loc>
+    
+    <lastmod>2016-04-25T14:12:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.aprilzephyr.com/blog/08012015/begin-again/</loc>
     
     <lastmod>2016-04-25T14:05:36.000Z</lastmod>
@@ -58,13 +72,6 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/author/index.html</loc>
-    
-    <lastmod>2016-04-25T06:15:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.aprilzephyr.com/blog/04242016/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E5%90%91%E8%80%81%E5%A9%86%E8%A7%A3%E9%87%8BMapReduce%E7%9A%84%EF%BC%9F(%E8%BD%89)/</loc>
     
     <lastmod>2016-04-24T10:28:54.000Z</lastmod>
@@ -117,13 +124,6 @@
     <loc>http://www.aprilzephyr.com/blog/07042013/declaration-of-independence/</loc>
     
     <lastmod>2015-09-16T12:07:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/02132014/blogging-with-octopress/</loc>
-    
-    <lastmod>2015-09-16T12:07:10.000Z</lastmod>
     
   </url>
   
@@ -422,21 +422,7 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04032015/the-20-most-popular-ted-talks-of-all-time/</loc>
-    
-    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/02252014/shu-zhai-tan-pan-li/</loc>
-    
-    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/03272014/python-import-from-import/</loc>
+    <loc>http://www.aprilzephyr.com/blog/03062014/pai-xu-suan-fa/</loc>
     
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
     
@@ -444,13 +430,6 @@
   
   <url>
     <loc>http://www.aprilzephyr.com/blog/02192014/excerpt-software-engineering/</loc>
-    
-    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/02182014/ping-heng-dian-he-zhi-pei-dian-wen-ti/</loc>
     
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
     
@@ -471,7 +450,28 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/03062014/pai-xu-suan-fa/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02252014/shu-zhai-tan-pan-li/</loc>
+    
+    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/02182014/ping-heng-dian-he-zhi-pei-dian-wen-ti/</loc>
+    
+    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/03272014/python-import-from-import/</loc>
+    
+    <lastmod>2015-04-15T09:37:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/04032015/the-20-most-popular-ted-talks-of-all-time/</loc>
     
     <lastmod>2015-04-15T09:37:46.000Z</lastmod>
     
