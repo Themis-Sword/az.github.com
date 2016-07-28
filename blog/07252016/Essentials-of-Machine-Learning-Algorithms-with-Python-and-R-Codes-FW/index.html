@@ -102,7 +102,7 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(10)</small></a></li>
+				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(11)</small></a></li>
 				    
 				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
 				    
@@ -236,7 +236,7 @@
 <p>We are probably living in the most defining period of human history. The period when computing moved from large mainframes to PCs to cloud. But what makes it defining is not what has happened, but what is coming our way in years to come.<a id="more"></a>  </p>
 <p>What makes this period exciting for some one like me is the democratization of the tools and techniques, which followed the boost in computing. Today, as a data scientist, I can build data crunching machines with complex algorithms for a few dollors per hour. But, reaching here wasn’t easy! I had my dark days and nights.  </p>
 <h3 id="Who_can_benefit_the_most_from_this_guide?">Who can benefit the most from this guide?</h3><h4 id="What_I_am_giving_out_today_is_probably_the_most_valuable_guide,_I_have_ever_created-">What I am giving out today is probably the most valuable guide, I have ever created.</h4><p>The idea behind creating this guide is to simplify the journey of aspiring data scientists and machine learning enthusiasts across the world. Through this guide, I will enable you to work on machine learning problems and gain from experience. <strong>I am providing a high level understanding about various machine learning algorithms along with R &amp; Python codes to run them. These should be sufficient to get your hands dirty.</strong></p>
-<img src="/images/Essentials1.jpg">  
+<img src="/images/Essentials/Essentials1.jpg">  
 <p>I have deliberately skipped the statistics behind these techniques, as you don’t need to understand them at the start. So, if you are looking for statistical understanding of these algorithms, you should look elsewhere. But, if you are looking to equip yourself to start building machine learning project, you are in for a treat.</p>
 <h3 id="Broadly,_there_are_3_types_of_Machine_Learning_Algorithms-">Broadly, there are 3 types of Machine Learning Algorithms..</h3><h4 id="1-_Supervised_Learning">1. Supervised Learning</h4><p><strong><em>How it works</em></strong>: This algorithm consist of a target / outcome variable (or dependent variable) which is to be predicted from a given set of predictors (independent variables). Using these set of variables, we generate a function that map inputs to desired outputs. The training process continues until the model achieves a desired level of accuracy on the training data. Examples of Supervised Learning: Regression, <a href="http://www.analyticsvidhya.com/blog/2015/01/decision-tree-simplified/" target="_blank" rel="external">Decision Tree</a>, <a href="http://www.analyticsvidhya.com/blog/2014/06/introduction-random-forest-simplified/" target="_blank" rel="external">Random Forest</a>, KNN, Logistic Regression etc.</p>
 <h4 id="2-_Unsupervised_Learning">2. Unsupervised Learning</h4><p><strong><em>How it works</em></strong>: In this algorithm, we do not have any target or outcome variable to predict / estimate.  It is used for clustering population in different groups, which is widely used for segmenting customers in different groups for specific intervention. Examples of Unsupervised Learning: Apriori algorithm, K-means.</p>
@@ -264,7 +264,7 @@
 <li>b – Intercept  </li>
 </ul>
 <p>These coefficients a and b are derived based on minimizing the sum of squared difference of distance between data points and regression line.</p>
-<p>Look at the below example. Here we have identified the best fit line having linear equation <strong>y=0.2811x+13.9</strong>. Now using this equation, we can find the weight, knowing the height of a person.<br><img src="/images/Essentials2.png">  </p>
+<p>Look at the below example. Here we have identified the best fit line having linear equation <strong>y=0.2811x+13.9</strong>. Now using this equation, we can find the weight, knowing the height of a person.<br><img src="/images/Essentials/Essentials2.png">  </p>
 <p>Linear Regression is of mainly two types: Simple Linear Regression and Multiple Linear Regression. Simple Linear Regression is characterized by one independent variable. And, Multiple Linear Regression(as the name suggests) is characterized by multiple (more than 1) independent variables. While finding best fit line, you can fit a polynomial or curvilinear regression. And these are known as polynomial or curvilinear regression.</p>
 <p><strong><em>Python Code</em></strong>  </p>
 <pre><code>#Import Library
@@ -306,7 +306,7 @@ predicted= predict(linear,x_test)</span>
 <span class="function"><span class="title">logit</span><span class="params">(p)</span></span> = <span class="function"><span class="title">ln</span><span class="params">(p/(<span class="number">1</span>-p)</span></span>) = b0+b1X1+b2X2+b3X3....+bkXk  
 </code></pre><p>Above, p is the probability of presence of the characteristic of interest. It chooses parameters that maximize the likelihood of observing the sample values rather than that minimize the sum of squared errors (like in ordinary regression).</p>
 <p>Now, you may ask, why take a log? For the sake of simplicity, let’s just say that this is one of the best mathematical way to replicate a step function. I can go in more details, but that will beat the purpose of this article.</p>
-<img src="/images/Essentials3.png">  
+<img src="/images/Essentials/Essentials3.png">  
 <p><strong><em>Python Code</em></strong>  </p>
 <pre><code>#Import Library
 from sklearn.linear_model import LogisticRegression
@@ -336,11 +336,11 @@ predicted= predict<span class="list">(<span class="keyword">logistic</span>,x_te
 <li>using a non-linear model</li>
 </ul>
 <h3 id="3-_Decision_Tree">3. Decision Tree</h3><p>This is one of my favorite algorithm and I use it quite frequently. It is a type of supervised learning algorithm that is mostly used for classification problems. Surprisingly, it works for both categorical and continuous dependent variables. In this algorithm, we split the population into two or more homogeneous sets. This is done based on most significant attributes/ independent variables to make as distinct groups as possible. For more details, you can read: <a href="http://www.analyticsvidhya.com/blog/2015/01/decision-tree-simplified/" target="_blank" rel="external">Decision Tree Simplified</a>.</p>
-<img src="/images/Essentials4.png">  
+<img src="/images/Essentials/Essentials4.png">  
 <p><em>source: <a href="http://stats.stackexchange.com/" target="_blank" rel="external">statsexchange</a></em></p>
 <p>In the image above, you can see that population is classified into four different groups based on multiple attributes to identify ‘if they will play or not’. To split the population into different heterogeneous groups, it uses various techniques like Gini, Information Gain, Chi-square, entropy.</p>
 <p>The best way to understand how decision tree works, is to play Jezzball – a classic game from Microsoft (image below). Essentially, you have a room with moving walls and you need to create walls such that maximum area gets cleared off with out the balls.</p>
-<img src="/images/Essentials5.jpg">  
+<img src="/images/Essentials/Essentials5.jpg">  
 <p>So, every time you split the room with a wall, you are trying to create 2 different populations with in the same room. Decision trees work in very similar fashion by dividing a population in as different groups as possible.</p>
 <p><em>More: <a href="http://www.analyticsvidhya.com/blog/2015/01/decision-tree-simplified/" target="_blank" rel="external">Simplified Version of Decision Tree Algorithms</a></em></p>
 <p><strong><em>Python Code</em></strong>  </p>
@@ -366,9 +366,9 @@ summary(fit)
 predicted= predict(fit,x_test)
 </code></pre><h3 id="4-_SVM_(Support_Vector_Machine)">4. SVM (Support Vector Machine)</h3><p>It is a classification method. In this algorithm, we plot each data item as a point in n-dimensional space (where n is number of features you have) with the value of each feature being the value of a particular coordinate.</p>
 <p>For example, if we only had two features like Height and Hair length of an individual, we’d first plot these two variables in two dimensional space where each point has two co-ordinates (these co-ordinates are known as <strong>Support Vectors</strong>)</p>
-<img src="/images/Essentials6.png">  
+<img src="/images/Essentials/Essentials6.png">  
 <p>Now, we will find some line that splits the data between the two differently classified groups of data. This will be the line such that the distances from the closest point in each of the two groups will be farthest away.</p>
-<img src="/images/Essentials7.png">  
+<img src="/images/Essentials/Essentials7.png">  
 <p>In the example shown above, the line which splits the data into two differently classified groups is the black line, since the two closest points are the farthest apart from the line. This line is our classifier. Then, depending on where the testing data lands on either side of the line, that’s what class we can classify the new data as.</p>
 <p><em>More: <a href="http://www.analyticsvidhya.com/blog/2014/10/support-vector-machine-simplified/" target="_blank" rel="external">Simplified Version of Support Vector Machine</a></em></p>
 <p><strong>Think of this algorithm as playing JezzBall in n-dimensional space. The tweaks in the game are:</strong></p>
@@ -398,7 +398,7 @@ summary<span class="list">(<span class="keyword">fit</span>)</span>
 predicted= predict<span class="list">(<span class="keyword">fit</span>,x_test)</span>
 </code></pre><h3 id="5-_Naive_Bayes">5. Naive Bayes</h3><p>It is a classification technique based on <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem" target="_blank" rel="external">Bayes’ theorem</a> with an assumption of independence between predictors. In simple terms, a Naive Bayes classifier assumes that the presence of a particular feature in a class is unrelated to the presence of any other feature. For example, a fruit may be considered to be an apple if it is red, round, and about 3 inches in diameter. Even if these features depend on each other or upon the existence of the other features, a naive Bayes classifier would consider all of these properties to independently contribute to the probability that this fruit is an apple.</p>
 <p>Naive Bayesian model is easy to build and particularly useful for very large data sets. Along with simplicity, Naive Bayes is known to outperform even highly sophisticated classification methods.</p>
-<p>Bayes theorem provides a way of calculating posterior probability P(c|x) from P(c), P(x) and P(x|c). Look at the equation below:<br><img src="/images/Essentials8.png">  </p>
+<p>Bayes theorem provides a way of calculating posterior probability P(c|x) from P(c), P(x) and P(x|c). Look at the equation below:<br><img src="/images/Essentials/Essentials8.png">  </p>
 <p>Here,</p>
 <ul>
 <li>P(c|x) is the posterior probability of class (target) given predictor (attribute). </li>
@@ -409,7 +409,7 @@ predicted= predict<span class="list">(<span class="keyword">fit</span>,x_test)</
 <p><strong>Example</strong>: Let’s understand it using an example. Below I have a training data set of weather and corresponding target variable ‘Play’. Now, we need to classify whether players will play or not based on weather condition. Let’s follow the below steps to perform it.</p>
 <p>Step 1: Convert the data set to frequency table</p>
 <p>Step 2: Create Likelihood table by finding the probabilities like Overcast probability = 0.29 and probability of playing is 0.64.</p>
-<img src="/images/Essentials9.png">  
+<img src="/images/Essentials/Essentials9.png">  
 <p>Step 3: Now, use Naive Bayesian equation to calculate the posterior probability for each class. The class with the highest posterior probability is the outcome of prediction.</p>
 <p><strong>Problem</strong>: Players will pay if weather is sunny, is this statement is correct?</p>
 <p>We can solve it using above discussed method, so P(Yes | Sunny) = P( Sunny | Yes) * P(Yes) / P (Sunny)</p>
@@ -436,7 +436,7 @@ predicted= predict<span class="list">(<span class="keyword">fit</span>,x_test)</
 </code></pre><h3 id="6-_KNN_(K-_Nearest_Neighbors)">6. KNN (K- Nearest Neighbors)</h3><p>It can be used for both classification and regression problems. However, it is more widely used in classification problems in the industry. K nearest neighbors is a simple algorithm that stores all available cases and classifies new cases by a majority vote of its k neighbors. The case being assigned to the class is most common amongst its K nearest neighbors measured by a distance function.</p>
 <p>These distance functions can be Euclidean, Manhattan, Minkowski and Hamming distance. First three functions are used for continuous function and fourth one (Hamming) for categorical variables. If K = 1, then the case is simply assigned to the class of its nearest neighbor. At times, choosing K turns out to be a challenge while performing KNN modeling.</p>
 <p><em>More: Introduction to k-nearest neighbors : Simplified.</em></p>
-<img src="/images/Essentials10.png">  
+<img src="/images/Essentials/Essentials10.png">  
 <p>KNN can easily be mapped to our real lives. If you want to learn about a person, of whom you have no information, you might like to find out about his close friends and the circles he moves in and gain access to his/her information!</p>
 <p><strong>Things to consider before selecting KNN:</strong>  </p>
 <ul>
@@ -464,7 +464,7 @@ summary<span class="list">(<span class="keyword">fit</span>)</span>
 predicted= predict<span class="list">(<span class="keyword">fit</span>,x_test)</span>
 </code></pre><h3 id="7-_K-Means">7. K-Means</h3><p>It is a type of unsupervised algorithm which  solves the clustering problem. Its procedure follows a simple and easy  way to classify a given data set through a certain number of  clusters (assume k clusters). Data points inside a cluster are homogeneous and heterogeneous to peer groups.</p>
 <p>Remember figuring out shapes from ink blots? k means is somewhat similar this activity. You look at the shape and spread to decipher how many different clusters / population are present!</p>
-<img src="/images/Essentials11.jpg">  
+<img src="/images/Essentials/Essentials11.jpg">  
 <p><strong>How K-means forms cluster:</strong></p>
 <ol>
 <li>K-means picks k number of points for each cluster known as centroids.</li>
@@ -475,7 +475,7 @@ predicted= predict<span class="list">(<span class="keyword">fit</span>,x_test)</
 <p><strong>How to determine value of K:</strong></p>
 <p>In K-means, we have clusters and each cluster has its own centroid. Sum of square of difference between centroid and the data points within a cluster constitutes within sum of square value for that cluster. Also, when the sum of square values for all the clusters are added, it becomes total within sum of square value for the cluster solution.</p>
 <p>We know that as the number of cluster increases, this value keeps on decreasing but if you plot the result you may see that the sum of squared distance decreases sharply up to some value of k, and then much more slowly after that. Here, we can find the optimum number of cluster.</p>
-<img src="/images/Essentials12.png">  
+<img src="/images/Essentials/Essentials12.png">  
 <p><strong><em>Python Code</em></strong>  </p>
 <pre><code>#Import Library
 from sklearn.cluster import KMeans
@@ -571,6 +571,10 @@ predicted= predict(fit,x_test,<span class="keyword">type</span>= <span class="st
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/blog/07282016/機器學習常用算法梳理/" style="float: left;">
+        ← 機器學習常用算法梳理
+    </a>
     
     
     <a class="pull-right" href="/blog/07122016/8個經過證實的方法：提高機器學習模型的準確率-轉/">

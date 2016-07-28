@@ -102,7 +102,7 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(10)</small></a></li>
+				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(11)</small></a></li>
 				    
 				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
 				    
@@ -214,6 +214,42 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h4><a href="/blog/03312014/python-os-sys/">Python os &amp; sys模塊</a></h4>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2014-03-31T08:06:01.000Z" itemprop="datePublished">
+          2014-03-31
+      </time>
+    
+    
+    | 
+    <a href='/categories/python/'>python</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p><strong>1. os模塊</strong><br>Python os模塊包含普遍的操作系統功能。如果你希望你的程序能夠與平臺無關的話，這個模塊是尤為重要的。  </p>
+<p>1) os.name<br>輸出字符串指示正在使用的平臺。如果是window 則用’nt’表示，對於Linux/Unix用戶，它是’posix’。<br>2) os.mkdir(path [,mode=0777])<br>創建目錄<br>3) os.rmdir()<br>刪除目錄<br>4) os.mkdirs()<br>創建多層目錄，類似系統makedir -p<br>5) os.removedirs()<br>刪除多層目錄，每層都是空的，除了要刪除的目錄外。<br>6) os.getcwd()<br>函數得到當前工作目錄，即當前Python腳本工作的目錄路徑。<br>7) os.listdir()<br>返回指定目錄下的所有文件和目錄名。
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/blog/03312014/python-os-sys/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -477,53 +513,6 @@
                     
                     <p class="pull-right readMore">
                         <a href="/blog/03062014/fibonacci-cheng-fa-biao-primes/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h4><a href="/blog/03062014/pai-xu-suan-fa/">排序算法</a></h4>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2014-03-06T07:53:21.000Z" itemprop="datePublished">
-          2014-03-06
-      </time>
-    
-    
-    | 
-    <a href='/categories/python/'>python</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        <p><strong>1. 冒泡排序</strong>  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">bubble</span><span class="params">(x,n)</span>:</span>  
-\冒泡排序，x是列表，n是列表長度  
-<span class="keyword">for</span> i <span class="keyword">in</span> range(n):  
- <span class="keyword">for</span> j <span class="keyword">in</span> range(n-<span class="number">1</span>):  
-  <span class="keyword">if</span> x[j]&gt;x[j+<span class="number">1</span>]:  
-   t = x[j]  
-   x[j] = x[j+<span class="number">1</span>]  
-   x[j+<span class="number">1</span>] = t  
-<span class="keyword">return</span> x                  
-<span class="keyword">print</span> bubble([<span class="number">1</span>,<span class="number">10</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">41</span>,<span class="number">25</span>,<span class="number">3</span>,<span class="number">48</span>], <span class="number">8</span>)
-</code></pre>
-<p></br>
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/blog/03062014/pai-xu-suan-fa/">Read More...</a>
                     </p>
                     
                 </div>

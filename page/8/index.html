@@ -102,7 +102,7 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(10)</small></a></li>
+				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(11)</small></a></li>
 				    
 				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
 				    
@@ -214,6 +214,48 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h4><a href="/blog/02152014/shan-chu-lie-biao-zhong-fu-yuan-su/">刪除列表重複元素的三種方法及效率分析(轉)</a></h4>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2014-02-15T09:53:01.000Z" itemprop="datePublished">
+          2014-02-15
+      </time>
+    
+    
+    | 
+    <a href='/categories/python/'>python</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        方法一：使用列表對象的sort()方法對列表進行排序，從最後一個元素開始循環迭代列表，判斷相鄰的兩個元素是否相同。  
+def methodONE(list):
+    list.sort()
+    lenList = len(list)
+    lastItem = list[lenList-1]
+    for i in range(lenList-2,-1,-1):
+     if list[i] == lastItem:
+  
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/blog/02152014/shan-chu-lie-biao-zhong-fu-yuan-su/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -481,46 +523,9 @@ Octopress and Github, I’m coming!
             </div>
         </div>
         
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h4><a href="/blog/07042013/bill-of-rights/">Bill of Rights and the Constitution Amendments 11-27</a></h4>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2013-07-04T04:00:00.000Z" itemprop="datePublished">
-          2013-07-04
-      </time>
-    
-    
-    | 
-    <a href='/categories/justice/'>justice</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        <img src="/images/billor.jpg">  
-<h4 id="The_Preamble_to_The_Bill_of_Rights">The Preamble to The Bill of Rights</h4><h4 id="Congress_of_the_United_States">Congress of the United States</h4><p>begun and held at the City of New-York, on<br>Wednesday the fourth of March, one thousand seven hundred and eighty nine.  </p>
-<p><strong>THE</strong> Conventions of a number of the States, having at the time of their adopting the Constitution, expressed a desire, in order to prevent misconstruction or abuse of its powers, that further declaratory and restrictive clauses should be added: And as extending the ground of public confidence in the Government, will best ensure the beneficent ends of its institution.
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/blog/07042013/bill-of-rights/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
         <nav class="pagination" role="pagination">
           <a class="pull-left" href="/page/7/">← Newer Posts</a>
-          
+          <a class="pull-right" href="/page/9/">Older Posts →</a>
         </nav>
     </div>
 </section>

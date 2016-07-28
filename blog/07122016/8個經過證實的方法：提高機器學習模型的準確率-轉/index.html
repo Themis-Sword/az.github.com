@@ -102,7 +102,7 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(10)</small></a></li>
+				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(11)</small></a></li>
 				    
 				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
 				    
@@ -230,7 +230,7 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<img src="/images/8proven1.jpg">  
+      		<img src="/images/8proven/8proven1.jpg">  
 <h4 id="摘要：本文分享了_8_個經過證實的方法。這些方法用來改善模型的預測表現。它們廣為人知，但不一定要按照文中的順序逐個使用。">摘要：本文分享了 8 個經過證實的方法。這些方法用來改善模型的預測表現。它們廣為人知，但不一定要按照文中的順序逐個使用。</h4><hr>
 <h2 id="導語：">導語：</h2><p>提升一個<a href="http://www.analyticsvidhya.com/blog/2015/01/model-performance-metrics-classification/" target="_blank" rel="external">模型的表現</a>有時很困難。如果你們曾經糾結於相似的問題，那我相信你們中很多人會同意我的看法。你會嘗試所有曾學習過的策略和算法，但模型正確率並沒有改善。你會覺得無助和困頓，這是90%的數據科學家開始放棄的時候。<a id="more"></a></p>
 <p>不過，這才是考驗真本領的時候！這也是普通的數據科學家跟大師級數據科學家的差距所在。你是否曾經夢想過成為大師級的數據科學家呢？</p>
@@ -245,7 +245,7 @@
 <h3 id="1-增加更多數據">1.增加更多數據</h3><p>持有更多的數據永遠是個好主意。相比於去依賴假設和弱相關，更多的數據允許數據進行“自我表達”。數據越多，模型越好，正確率越高。</p>
 <p>我明白，有時無法獲得更多數據。比如，在數據科學競賽中，訓練集的數據量是無法增加的。但對於企業項目，我建議，如果可能的話，去索取更多數據。這會減少由於數據集規模有限帶來的痛苦。</p>
 <h3 id="2-處理缺失值和異常值">2.處理缺失值和異常值</h3><p>訓練集中缺失值與異常值的意外出現，往往會導致模型正確率低或有偏差。這會導致錯誤的預測。這是由於我們沒能正確分析目標行為以及與其他變量的關系。所以處理好缺失值和異常值很重要。</p>
-<p>仔細看下面一幅截圖。在存在缺失值的情況下，男性和女性玩板球的概率相同。但如果看第二張表（缺失值根據稱呼“Miss”被填補以後），相對於男性，女性玩板球的概率更高。<br><img src="/images/8proven2.png">  </p>
+<p>仔細看下面一幅截圖。在存在缺失值的情況下，男性和女性玩板球的概率相同。但如果看第二張表（缺失值根據稱呼“Miss”被填補以後），相對於男性，女性玩板球的概率更高。<br><img src="/images/8proven/8proven2.png">  </p>
 <p>左側：缺失值處理前；右側：缺失值處理後</p>
 <p>從上面的例子中，我們可以看出缺失值對於模型準確率的不利影響。所幸，我們有各種方法可以應對缺失值和異常值：</p>
 <p><strong>1.缺失值</strong>：對於連續變量，可以把缺失值替換成平均值、中位數、眾數。對於分類變量，可以把變量作為一個特殊類別看待。你也可以建立模型預測缺失值。KNN為處理缺失值提供了很好的方法。想了解更多這方面內容，推薦閱讀<a href="http://www.analyticsvidhya.com/blog/2015/02/7-steps-data-exploration-preparation-building-model-part-2/" target="_blank" rel="external">《Methods to Deal and Treat Missing Values》</a>。</p>
@@ -254,32 +254,32 @@
 <p>假設生成對特征工程影響很大。好的假設能帶來更好的特征集。這也是我一直建議在假設生成上花時間的原因。特征工程能被分為兩個步驟：</p>
 <p><strong>特征轉換</strong>：許多場景需要進行特征轉換：</p>
 <p>A)把變量的範圍從原始範圍變為從0到1。這通常被稱作數據標準化。比如，某個數據集中第一個變量以米計算，第二個變量是厘米，第三個是千米，在這種情況下，在使用任何算法之前，必須把數據標準化為相同範圍。</p>
-<p>B)有些算法對於正態分布的數據表現更好。所以我們需要去掉變量的偏向。對數，平方根，倒數等方法可用來修正偏斜。<br><img src="/images/8proven3.png">  </p>
+<p>B)有些算法對於正態分布的數據表現更好。所以我們需要去掉變量的偏向。對數，平方根，倒數等方法可用來修正偏斜。<br><img src="/images/8proven/8proven3.png">  </p>
 <p>C)有些時候，數值型的數據在分箱後表現更好，因為這同時也處理了異常值。數值型數據可以通過把數值分組為箱變得離散。這也被稱為數據離散化。</p>
 <p><strong>創建新特征</strong>：從現有的變量中衍生出新變量被稱為特征創建。這有助於釋放出數據集中潛藏的關系。比如，我們想通過某家商店的交易日期預測其交易量。在這個問題上日期可能和交易量關系不大，但如果研究這天是星期幾，可能會有更高的相關。在這個例子中，某個日期是星期幾的信息是潛在的。我們可以把這個信息提取為新特征，優化模型。</p>
-<h3 id="4-特征選擇">4.特征選擇</h3><p>特征選擇是尋找眾多屬性的哪個子集合，能夠最好的解釋目標變量與各個自變量的關系的過程。<br><img src="/images/8proven4.jpg">  </p>
+<h3 id="4-特征選擇">4.特征選擇</h3><p>特征選擇是尋找眾多屬性的哪個子集合，能夠最好的解釋目標變量與各個自變量的關系的過程。<br><img src="/images/8proven/8proven4.jpg">  </p>
 <p>你可以根據多種標準選取有用的特征，例如：</p>
 <p><strong>所在領域知識</strong>：根據在此領域的經驗，可以選出對目標變量有更大影響的變量。</p>
-<p><strong>可視化</strong>：正如這名字所示，可視化讓變量間的關系可以被看見，使特征選擇的過程更輕松。<br><img src="/images/8proven5.png">  </p>
+<p><strong>可視化</strong>：正如這名字所示，可視化讓變量間的關系可以被看見，使特征選擇的過程更輕松。<br><img src="/images/8proven/8proven5.png">  </p>
 <p><strong>統計參數</strong>：我們可以考慮p值，信息價值（information values）和其他統計參數來選擇正確的參數。  </p>
 <ul>
 <li><strong>PCA</strong>：這種方法有助於在低維空間表現訓練集數據。這是一種降維技術。降低數據集維度還有許多方法：如因子分析、低方差、高相關、前向後向變量選擇及其他。</li>
 </ul>
 <h3 id="5-使用多種算法">5.使用多種算法</h3><p>使用正確的機器學習算法是獲得更高準確率的理想方法。但是說起來容易做起來難。</p>
-<p>這種直覺來自於經驗和不斷嘗試。有些算法比其他算法更適合特定類型數據。因此，我們應該使用所有有關的模型，並檢測其表現。<br><img src="/images/8proven6.png">  </p>
+<p>這種直覺來自於經驗和不斷嘗試。有些算法比其他算法更適合特定類型數據。因此，我們應該使用所有有關的模型，並檢測其表現。<br><img src="/images/8proven/8proven6.png">  </p>
 <p>來源：Scikit-Learn算法選擇圖</p>
 <h3 id="6-算法的調整">6.算法的調整</h3><p>我們都知道機器學習算法是由參數驅動的。這些參數對學習的結果有明顯影響。參數調整的目的是為每個參數尋找最優值，以改善模型正確率。要調整這些參數，你必須對它們的意義和各自的影響有所了解。你可以在一些表現良好的模型上重復這個過程。</p>
 <p>例如，在隨機森林中，我們有 max_features,number_trees, random_state, oob_score 以及其他參數。優化這些參數值會帶來更好更準確的模型。</p>
 <p>想要詳細了解調整參數帶來的影響，可以查閱<a href="http://www.analyticsvidhya.com/blog/2015/06/tuning-random-forest-model/" target="_blank" rel="external">《Tuning the Parameters of Your Random Forest Model》</a>。下面是隨機森林算法在scikit learn中的全部參數清單：</p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RandomForestClassifier(n_estimators=<span class="number">10</span>,criterion=<span class="string">'gini'</span>,max_depth=<span class="literal">None</span>,min_samples_split=<span class="number">2</span>,min_samples_leaf=<span class="number">1</span>,min_weight_fraction_leaf=<span class="number">0.0</span>,max_features=<span class="string">'auto'</span>,max_leaf_nodes=<span class="literal">None</span>,bootstrap=<span class="literal">True</span>,oob_score=<span class="literal">False</span>,n_jobs=<span class="number">1</span>,random_state=<span class="literal">None</span>,verbose=<span class="number">0</span>,warm_start=<span class="literal">False</span>,class_weight=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-<img src="/images/8proven7.jpg">  
+<img src="/images/8proven/8proven7.jpg">  
 <h3 id="7-集成模型">7.集成模型</h3><p>在數據科學競賽獲勝方案中最常見的方法。這個技術就是把多個弱模型的結果組合在一起，獲得更好的結果。它能通過許多方式實現，如：</p>
 <p>·Bagging(Bootstrap Aggregating)</p>
 <p>·Boosting</p>
 <p>想了解更多這方面內容，可以查閱<a href="http://www.analyticsvidhya.com/blog/2015/08/introduction-ensemble-learning/" target="_blank" rel="external">《Introduction to Ensemble Learning》</a>。</p>
 <p>使用集成方法改進模型正確率永遠是個好主意。主要有兩個原因：1）集成方法通常比傳統方法更復雜；2）傳統方法提供好的基礎，在此基礎上可以建立集成方法。</p>
 <h2 id="註意！">註意！</h2><p>到目前為止，我們了解了改善模型準確率的方法。但是，高準確率的模型不一定（在未知數據上）有更好的表現。有時，模型準確率的改善是由於過度擬合。</p>
-<p>8.交叉驗證<br>如果想解決這個問題，我們必須使用交叉驗證技術（cross validation）。交叉驗證是數據建模領域最重要的概念之一。它是指，保留一部分數據樣本不用來訓練模型，而是在完成模型前用來驗證。<br><img src="/images/8proven8.png">  </p>
+<p>8.交叉驗證<br>如果想解決這個問題，我們必須使用交叉驗證技術（cross validation）。交叉驗證是數據建模領域最重要的概念之一。它是指，保留一部分數據樣本不用來訓練模型，而是在完成模型前用來驗證。<br><img src="/images/8proven/8proven8.png">  </p>
 <p>這種方法有助於得出更有概括性的關系。想了解更多有關交叉檢驗的內容，建議查閱<a href="http://www.analyticsvidhya.com/blog/2015/11/improve-model-performance-cross-validation-in-python-r/" target="_blank" rel="external">《Improve Model Performance Using Cross Validation》</a>。</p>
 <hr>
 <h2 id="結語">結語</h2><p>預測建模的過程令人疲憊。但是，如果你能靈活思考，就可以輕易勝過其他人。簡單地說，多考慮上面這8個步驟。獲得數據集以後，遵循這些被驗證過的方法，你就一定會得到穩健的機器學習模型。不過，只有當你熟練掌握了這些步驟，它們才會真正有幫助。比如，想要建立一個集成模型，你必須對多種機器學習算法有所了解。</p>

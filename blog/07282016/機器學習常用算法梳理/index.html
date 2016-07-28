@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>機器學習常用算法梳理 | Themis_Sword&#39;s Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Themis_Sword's Blog">
+    <meta name="author" content="Themis_Sword">
+    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Themis_Sword&#39;s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(11)</small></a></li>
+				    
+				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/inspiring/" class="animsition-link">inspiring<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/python-artificial-intelligence/" class="animsition-link">python artificial-intelligence<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/software/" class="animsition-link">software<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/web/" class="animsition-link">web<small>(4)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            <li><a href="/information" class="animsition-link" title="Information">Information</a></li>
+            <li><a href="/gallery" class="animsition-link" title="Gallery">Gallery</a></li>
+            <li><a href="/timeline" class="animsition-link" title="Timeline">Timeline</a></li>
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/author" class="animsition-link" title="Author">Author</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Themis_Sword's Blog</a></li>
+                            <li class="nolink">Reverence for Nature, and Life.</li>
+                            
+                            
+                            
+                            
+                            
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2><span>Love, and to be Loved.</span></h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>我愛你，你是自由的。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-07-28T02:56:28.000Z" itemprop="datePublished">
+          2016-07-28
+      </time>
+    
+    
+    | 
+    <a href='/categories/artificial-intelligence/'>artificial-intelligence</a>
+    
+    
+</span>
+                <h1>機器學習常用算法梳理</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<img src="/images/mla.jpg">  
+<p>機器學習算法太多了，分類、回歸、聚類、推薦、圖像識別領域等等，要想找到一個合適算法真的不容易，所以在實際應用中，我們一般都是采用啟發式學習方式來實驗。通常最開始我們都會選擇大家普遍認同的算法，諸如SVM，GBDT，Adaboost，現在深度學習很火熱，神經網絡也是一個不錯的選擇。假如你在乎精度（accuracy）的話，最好的方法就是通過交叉驗證（cross-validation）對各個算法一個個地進行測試，進行比較，然後調整參數確保每個算法達到最優解，最後選擇最好的一個。但是如果你只是在尋找一個“足夠好”的算法來解決你的問題，或者這裡有些技巧可以參考，下面來分析下各個算法的優缺點，基於算法的優缺點，更易於我們去選擇它。<a id="more"></a>  </p>
+<h2 id="偏差&amp;方差">偏差&amp;方差</h2><p>在統計學中，一個模型好壞，是根據偏差(Bias)和方差(Variance)來衡量的，所以我們先來普及一下偏差和方差：</p>
+<p>偏差：描述的是預測值（估計值）的期望E’與真實值Y之間的差距。偏差越大，越偏離真實數據。The bias is error from erroneous assumptions in the learning algorithm. High bias can cause an algorithm to miss the relevant relations between features and target outputs (underfitting).<br><a href="https://www.codecogs.com/eqnedit.php?latex=Bias[\hat{f}(x)]&space;=&space;E[\hat{f}(x)]&space;-&space;f(x)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Bias[\hat{f}(x)]&space;=&space;E[\hat{f}(x)]&space;-&space;f(x)" title="Bias[\hat{f}(x)] = E[\hat{f}(x)] - f(x)"></a></p>
+<p>方差：描述的是預測值P的變化範圍，離散程度，是預測值的方差，也就是離其期望值E的距離。方差越大，數據的分布越分散。The variance is error from sensitivity to small fluctuations in the training set. High variance can cause overfitting: modeling the random noise in the training data, rather than the intended outputs.<br><a href="https://www.codecogs.com/eqnedit.php?latex=Var[\hat{f}(x)]&space;=&space;E[(\hat{f}(x)&space;-&space;E[\hat{f}(x)])^{2}]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Var[\hat{f}(x)]&space;=&space;E[(\hat{f}(x)&space;-&space;E[\hat{f}(x)])^{2}]" title="Var[\hat{f}(x)] = E[(\hat{f}(x) - E[\hat{f}(x)])^{2}]"></a></p>
+<p>模型的真實誤差是兩者之和，如下式：<br><a href="https://www.codecogs.com/eqnedit.php?latex=E[(y&space;-&space;\hat{f}(x))^{2}]&space;=&space;Bias[\hat{f}(x)]^{2}&space;&plus;&space;Var[\hat{f}(x)]&space;&plus;&space;\sigma&space;^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?E[(y&space;-&space;\hat{f}(x))^{2}]&space;=&space;Bias[\hat{f}(x)]^{2}&space;&plus;&space;Var[\hat{f}(x)]&space;&plus;&space;\sigma&space;^{2}" title="E[(y - \hat{f}(x))^{2}] = Bias[\hat{f}(x)]^{2} + Var[\hat{f}(x)] + \sigma ^{2}"></a></p>
+<p>如果是小訓練集，高偏差/低方差的分類器（例如，樸素貝葉斯NB）要比低偏差/高方差大分類的優勢大（例如，KNN），因為後者會過擬合。但是，隨著你訓練集的增長，模型對於原數據的預測能力就越好，偏差就會降低，此時低偏差/高方差分類器就會漸漸的表現其優勢（因為它們有較低的漸近誤差），此時高偏差分類器此時已經不足以提供准確的模型了。</p>
+<p>當然，你也可以認為這是生成模型（混合高斯模型、樸素貝葉斯，隱馬爾科夫模型等）與判別模型（KNN、SVM、LR等）的一個區別。</p>
+<p>在概率統計理論中, 生成模型(Generatve Model)是指能夠隨機生成觀測數據的模型，尤其是在給定某些隱含參數的條件下。它給觀測值和標註數據序列指定一個聯合概率分佈。在機器學習中，生成模型可以用來直接對數據建模（例如根據某個變量的概率密度函數進行數據採樣），也可以用來建立變量間的條件概率分佈。條件概率分佈可以由生成模型根據貝葉斯准測形成。</p>
+<p>在機器學習領域判別模型(Discriminative Model)是一種對未知數據<a href="https://www.codecogs.com/eqnedit.php?latex=y" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y" title="y"></a>與已知數據<a href="https://www.codecogs.com/eqnedit.php?latex=x" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x" title="x"></a>之間關係進行建模的方法。判別模型是一種基於概率理論的方法。已知輸入變量<a href="https://www.codecogs.com/eqnedit.php?latex=x" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x" title="x"></a>，判別模型通過構建條件概率分佈<a href="https://www.codecogs.com/eqnedit.php?latex=P(y|x)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(y|x)" title="P(y|x)"></a>預測<a href="https://www.codecogs.com/eqnedit.php?latex=y" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y" title="y"></a>。</p>
+<p>與生成模型不同，判別模型不考慮<a href="https://www.codecogs.com/eqnedit.php?latex=x" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x" title="x"></a>與<a href="https://www.codecogs.com/eqnedit.php?latex=y" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y" title="y"></a>間的聯合分佈。對於諸如分類和回歸問題，由於不考慮聯合概率分佈，採用判別模型可以取得更好的效果。而生成模型在刻畫複雜學習任務中的依賴關係方面則較判別模型更加靈活。大部分判別模型本身是監督學習模型，不易擴展用於非監督學習過程。實踐中，需根據應用的具體特性來選取判別模型或生成模型。</p>
+<p><strong><em>為什麼說樸素貝葉斯是高偏差低方差?</em></strong><br>以下內容引自知乎：</p>
+<blockquote>
+<p>首先，假設你知道訓練集和測試集的關系。簡單來講是我們要在訓練集上學習一個模型，然後拿到測試集去用，效果好不好要根據測試集的錯誤率來衡量。但很多時候，我們只能假設測試集和訓練集的是符合同一個數據分布的，但卻拿不到真正的測試數據。這時候怎麼在只看到訓練錯誤率的情況下，去衡量測試錯誤率呢？</p>
+<p>由於訓練樣本很少（至少不足夠多），所以通過訓練集得到的模型，總不是真正正確的。（就算在訓練集上正確率100%，也不能說明它刻畫了真實的數據分布，要知道刻畫真實的數據分布才是我們的目的，而不是只刻畫訓練集的有限的數據點）。而且，實際中，訓練樣本往往還有一定的噪音誤差，所以如果太追求在訓練集上的完美而采用一個很復雜的模型，會使得模型把訓練集裡面的誤差都當成了真實的數據分布特征，從而得到錯誤的數據分布估計。這樣的話，到了真正的測試集上就錯的一塌糊塗了（這種現像叫過擬合）。但是也不能用太簡單的模型，否則在數據分布比較復雜的時候，模型就不足以刻畫數據分布了（體現為連在訓練集上的錯誤率都很高，這種現像較欠擬合）。過擬合表明采用的模型比真實的數據分布更復雜，而欠擬合表示采用的模型比真實的數據分布要簡單。</p>
+<p>在統計學習框架下，大家刻畫模型復雜度的時候，有這麼個觀點，認為Error = Bias + Variance。這裡的Error大概可以理解為模型的預測錯誤率，是有兩部分組成的，一部分是由於模型太簡單而帶來的估計不准確的部分（Bias），另一部分是由於模型太復雜而帶來的更大的變化空間和不確定性（Variance）。</p>
+<p>所以，這樣就容易分析樸素貝葉斯了。它簡單的假設了各個數據之間是無關的，是一個被<strong>嚴重簡化了的模型</strong>。所以，對於這樣一個簡單模型，大部分場合都會Bias部分大於Variance部分，也就是說高偏差而低方差。</p>
+<p>在實際中，為了讓Error盡量小，我們在選擇模型的時候需要平衡Bias和Variance所占的比例，也就是平衡over-fitting和under-fitting。</p>
+</blockquote>
+<p>偏差和方差與模型復雜度的關系使用下圖更加明了：<br><img src="/images/mla2.png"></p>
+<p>當模型復雜度上升的時候，偏差會逐漸變小，而方差會逐漸變大。  </p>
+<h2 id="常用算法梳理">常用算法梳理</h2><h3 id="1-_樸素貝葉斯(Naive_Bayes)">1. 樸素貝葉斯(Naive Bayes)</h3><hr>
+<p>事件A和B同時發生的概率為<strong><em>在A發生的情況下發生B</em></strong>或者<strong><em>在B發生的情況下發生A</em></strong>。<br><a href="https://www.codecogs.com/eqnedit.php?latex=P(A\bigcap&space;B)&space;=&space;P(A)&space;*&space;P(B|A)&space;=&space;P(B)&space;*&space;P(A|B)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(A\bigcap&space;B)&space;=&space;P(A)&space;*&space;P(B|A)&space;=&space;P(B)&space;*&space;P(A|B)" title="P(A\bigcap B) = P(A) * P(B|A) = P(B) * P(A|B)"></a><br>所以有：<br><a href="https://www.codecogs.com/eqnedit.php?latex=P(A|B)&space;=&space;\frac{P(B|A)&space;*&space;P(A)}{P(B)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(A|B)&space;=&space;\frac{P(B|A)&space;*&space;P(A)}{P(B)}" title="P(A|B) = \frac{P(B|A) * P(A)}{P(B)}"></a><br>對於給出的待分類項，求解在此項出現的條件下各個目標類別出現的概率，哪個最大，就認為此分類項屬於哪個類別。</p>
+<h4 id="工作原理">工作原理</h4><ol>
+<li>假設現在有樣本<a href="https://www.codecogs.com/eqnedit.php?latex=x&space;=&space;(a_{1},&space;a_{2},&space;a_{3},...a_{n})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x&space;=&space;(a_{1},&space;a_{2},&space;a_{3},...a_{n})" title="x = (a_{1}, a_{2}, a_{3},...a_{n})"></a>這個待分類項(並認為x裡面的特徵獨立)</li>
+<li>再假設現在有分類目標<a href="https://www.codecogs.com/eqnedit.php?latex=Y&space;=&space;\{&space;y_{1},&space;y_{2},&space;y_{3},...y_{n}&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Y&space;=&space;\{&space;y_{1},&space;y_{2},&space;y_{3},...y_{n}&space;\}" title="Y = \{ y_{1}, y_{2}, y_{3},...y_{n} \}"></a></li>
+<li>那麼<a href="https://www.codecogs.com/eqnedit.php?latex=max(P(y_{1}|x),&space;P(y_{2}|x),&space;P(y_{3}|x),...P(y_{n}|x))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?max(P(y_{1}|x),&space;P(y_{2}|x),&space;P(y_{3}|x),...P(y_{n}|x))" title="max(P(y_{1}|x), P(y_{2}|x), P(y_{3}|x),...P(y_{n}|x))"></a>就是最終的分類類別</li>
+<li>而<a href="https://www.codecogs.com/eqnedit.php?latex=P(y_{i}|x)&space;=&space;\frac{P(x|y_{i})&space;*&space;P(y_{i})}{P(x)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(y_{i}|x)&space;=&space;\frac{P(x|y_{i})&space;*&space;P(y_{i})}{P(x)}" title="P(y_{i}|x) = \frac{P(x|y_{i}) * P(y_{i})}{P(x)}"></a></li>
+<li>因為<a href="https://www.codecogs.com/eqnedit.php?latex=x" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x" title="x"></a>對於每個分類目標來說都一樣，所以就是求<a href="https://www.codecogs.com/eqnedit.php?latex=max(P(x|y_{i})&space;*&space;P(y_{i}))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?max(P(x|y_{i})&space;*&space;P(y_{i}))" title="max(P(x|y_{i}) * P(y_{i}))"></a></li>
+<li><a href="https://www.codecogs.com/eqnedit.php?latex=P(x|y_{i})&space;*&space;P(y_{i})&space;=&space;P(y_{i})&space;*&space;\prod&space;_{i}&space;(P(a_{i}|y_{i}))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(x|y_{i})&space;*&space;P(y_{i})&space;=&space;P(y_{i})&space;*&space;\prod&space;_{i}&space;(P(a_{i}|y_{i}))" title="P(x|y_{i}) * P(y_{i}) = P(y_{i}) * \prod _{i} (P(a_{i}|y_{i}))"></a></li>
+<li>而具體的<a href="https://www.codecogs.com/eqnedit.php?latex=P(a_{i}|y_{i})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(a_{i}|y_{i})" title="P(a_{i}|y_{i})"></a>和<a href="https://www.codecogs.com/eqnedit.php?latex=P(y_{i})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(y_{i})" title="P(y_{i})"></a>都是能從訓練樣本中統計出來的。<a href="https://www.codecogs.com/eqnedit.php?latex=P(a_{i}|y_{i})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(a_{i}|y_{i})" title="P(a_{i}|y_{i})"></a>表示該類別下該特徵出現的概率；<a href="https://www.codecogs.com/eqnedit.php?latex=P(y_{i})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(y_{i})" title="P(y_{i})"></a>表示全部類別中這個類別出現的概率。  </li>
+</ol>
+<h4 id="工作流程">工作流程</h4><ol>
+<li>准備階段<br>確定特征屬性，並對每個特征屬性進行適當劃分，然後由人工對一部分待分類項進行分類，形成訓練樣本。</li>
+<li>訓練階段<br>計算每個類別在訓練樣本中的出現頻率及每個特征屬性劃分對每個類別的條件概率估計</li>
+<li>應用階段<br>使用分類器進行分類，輸入是分類器和待分類樣本，輸出是樣本屬於的分類類別  </li>
+</ol>
+<h4 id="屬性特徵">屬性特徵</h4><ol>
+<li>特征為離散值時直接統計即可（表示統計概率）</li>
+<li>特征為連續值的時候假定特征符合高斯分布:<a href="https://www.codecogs.com/eqnedit.php?latex=g(x,&space;n,&space;u)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?g(x,&space;n,&space;u)" title="g(x, n, u)"></a>,<br>那麼<a href="https://www.codecogs.com/eqnedit.php?latex=P(a_{k}|y_{i})&space;=&space;g(x_{k},&space;n_{i},&space;u_{i})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(a_{k}|y_{i})&space;=&space;g(x_{k},&space;n_{i},&space;u_{i})" title="P(a_{k}|y_{i}) = g(x_{k}, n_{i}, u_{i})"></a></li>
+</ol>
+<h4 id="Laplace校准(拉普拉斯校驗)">Laplace校准(拉普拉斯校驗)</h4><p>當某個類別下某個特征劃分沒有出現時，會有<a href="https://www.codecogs.com/eqnedit.php?latex=P(a|y)&space;=&space;0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(a|y)&space;=&space;0" title="P(a|y) = 0"></a>，就是導致分類器質量降低，所以此時引入Laplace校驗，就是對沒類別下所有劃分的計數加1。</p>
+<h4 id="遇到特征之間不獨立問題">遇到特征之間不獨立問題</h4><p>參考改進的貝葉斯網絡，使用<strong><em>DAG</em></strong>來進行概率圖的描述</p>
+<h4 id="優缺點">優缺點</h4><h5 id="優點">優點</h5><ol>
+<li>樸素貝葉斯模型發源於古典數學理論，有著堅實的數學基礎，以及穩定的分類效率。</li>
+<li>對小規模的數據表現很好，能個處理多分類任務，適合增量式訓練；</li>
+<li>對缺失數據不太敏感，算法也比較簡單，常用於文本分類。</li>
+</ol>
+<h5 id="缺點">缺點</h5><ol>
+<li>需要計算先驗概率；</li>
+<li>分類決策存在錯誤率；</li>
+<li>對輸入數據的表達形式很敏感(離散、連續，值極大極小等)。</li>
+</ol>
+<h3 id="2-_邏輯回歸(Logistic_Regression)">2. 邏輯回歸(Logistic Regression)</h3><hr>
+<p>邏輯回歸(LR)是一個線性的二分類模型，主要是<strong><em>計算在某個樣本特征下事件發生的概率</em></strong>，比如根據用戶的瀏覽購買情況作為特征來計算它是否會購買這個商品，抑或是它是否會點擊這個商品。然後LR的最終值是根據一個線性和函數再通過一個<strong><em>sigmoid</em></strong>函數來求得，這個線性和函數權重與特征值的累加以及加上偏置求出來的，所以在訓練LR時也就是在訓練線性和函數的各個權重值w。<br><a href="https://www.codecogs.com/eqnedit.php?latex=h_{\theta}(x)&space;=&space;\frac{1}{1&space;&plus;&space;e^{-(w^{T}x&space;&plus;&space;b)}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?h_{\theta}(x)&space;=&space;\frac{1}{1&space;&plus;&space;e^{-(\theta^{T}x&space;&plus;&space;b)}}" title="h_{\theta}(x) = \frac{1}{1 + e^{-(\theta^{T}x + b)}}"></a><br>where<br><a href="https://www.codecogs.com/eqnedit.php?latex=g(z)&space;=&space;\frac{1}{1&space;&plus;&space;e^{-z}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?g(z)&space;=&space;\frac{1}{1&space;&plus;&space;e^{-z}}" title="g(z) = \frac{1}{1 + e^{-z}}"></a><br>其導數形式為：<br><a href="https://www.codecogs.com/eqnedit.php?latex=g'(z)&space;=&space;\frac{d}{dz}&space;\frac{1}{1&space;&plus;&space;e^{-z}}&space;\\&space;=&space;\frac{1}{(1&space;&plus;&space;e^{-z})^{2}}&space;(e^{-z})&space;\\&space;=&space;\frac{1}{1&space;&plus;&space;e^{-z}}&space;\cdot&space;(1&space;-&space;\frac{1}{1&space;&plus;&space;e^{-z}})&space;\\&space;=&space;g(z)(1-g(z))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?g'(z)&space;=&space;\frac{d}{dz}&space;\frac{1}{1&space;&plus;&space;e^{-z}}&space;\\&space;=&space;\frac{1}{(1&space;&plus;&space;e^{-z})^{2}}&space;(e^{-z})&space;\\&space;=&space;\frac{1}{1&space;&plus;&space;e^{-z}}&space;\cdot&space;(1&space;-&space;\frac{1}{1&space;&plus;&space;e^{-z}})&space;\\&space;=&space;g(z)(1-g(z))" title="g'(z) = \frac{d}{dz} \frac{1}{1 + e^{-z}} \\ = \frac{1}{(1 + e^{-z})^{2}} (e^{-z}) \\ = \frac{1}{1 + e^{-z}} \cdot (1 - \frac{1}{1 + e^{-z}}) \\ = g(z)(1-g(z))"></a>  </p>
+<p>邏輯回歸方法主要是用最大似然估計來學習的，所以單個樣本的後驗概率為：<br><a href="https://www.codecogs.com/eqnedit.php?latex=P(y|x;\theta&space;)&space;=&space;(h_{\theta&space;}(x))^{y}(1-h_{\theta&space;}(x))^{1-y}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(y|x;\theta&space;)&space;=&space;(h_{\theta&space;}(x))^{y}(1-h_{\theta&space;}(x))^{1-y}" title="P(y|x;\theta ) = (h_{\theta }(x))^{y}(1-h_{\theta }(x))^{1-y}"></a><br>到整個樣本的後驗概率為：<br><a href="https://www.codecogs.com/eqnedit.php?latex=L(\theta&space;)&space;=&space;P(\vec{y}|X;\theta&space;)&space;\\&space;=&space;\prod&space;_{i&space;=&space;1}^{m}P(y^{(i)}|x^{(i)};\theta&space;)&space;\\&space;=&space;\prod&space;_{i&space;=&space;1}^{m}(h_{\theta&space;}(x^{(i)}))^{y^{(i)}}(1-h_{\theta&space;}(x^{(i)}))^{1-y^{(i)}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?L(\theta&space;)&space;=&space;P(\vec{y}|X;\theta&space;)&space;\\&space;=&space;\prod&space;_{i&space;=&space;1}^{m}P(y^{(i)}|x^{(i)};\theta&space;)&space;\\&space;=&space;\prod&space;_{i&space;=&space;1}^{m}(h_{\theta&space;}(x^{(i)}))^{y^{(i)}}(1-h_{\theta&space;}(x^{(i)}))^{1-y^{(i)}}" title="L(\theta ) = P(\vec{y}|X;\theta ) \\ = \prod _{i = 1}^{m}P(y^{(i)}|x^{(i)};\theta ) \\ = \prod _{i = 1}^{m}(h_{\theta }(x^{(i)}))^{y^{(i)}}(1-h_{\theta }(x^{(i)}))^{1-y^{(i)}}"></a><br>其中：<br><a href="https://www.codecogs.com/eqnedit.php?latex=P(y&space;=&space;1|x;&space;\theta&space;)&space;=&space;h_{\theta&space;}(x)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(y&space;=&space;1|x;&space;\theta&space;)&space;=&space;h_{\theta&space;}(x)" title="P(y = 1|x; \theta ) = h_{\theta }(x)"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=P(y&space;=&space;0|x;&space;\theta&space;)&space;=&space;1&space;-&space;h_{\theta&space;}(x)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(y&space;=&space;0|x;&space;\theta&space;)&space;=&space;1&space;-&space;h_{\theta&space;}(x)" title="P(y = 0|x; \theta ) = 1 - h_{\theta }(x)"></a><br>通過對數進一步化簡為：<br><a href="https://www.codecogs.com/eqnedit.php?latex=l(\theta&space;)&space;=&space;logL(\theta&space;)&space;\\&space;=&space;\sum&space;_{i&space;=&space;1}^{m}y^{(i)}logh(x^{(i)})&space;&plus;&space;(1&space;-&space;y^{(i)})log(1&space;-&space;h(x^{(i)}))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?l(\theta&space;)&space;=&space;logL(\theta&space;)&space;\\&space;=&space;\sum&space;_{i&space;=&space;1}^{m}y^{(i)}logh(x^{(i)})&space;&plus;&space;(1&space;-&space;y^{(i)})log(1&space;-&space;h(x^{(i)}))" title="l(\theta ) = logL(\theta ) \\ = \sum _{i = 1}^{m}y^{(i)}logh(x^{(i)}) + (1 - y^{(i)})log(1 - h(x^{(i)}))"></a><br>其實它的損失函數(Loss Function)為<a href="https://www.codecogs.com/eqnedit.php?latex=-l(\theta&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?-l(\theta&space;)" title="-l(\theta )"></a>，因此我們需使Loss Function最小，可採用梯度下降法得到。梯度下降法公式為：<br><a href="https://www.codecogs.com/eqnedit.php?latex=\frac{\partial&space;}{\partial&space;\theta&space;_{j}}l(\theta&space;)&space;=&space;(y\frac{1}{g(\theta&space;^{T})x}&space;-&space;(1-y)\frac{1}{1-g(\theta&space;^{T}x)})\frac{\partial&space;}{\partial&space;\theta&space;_{j}}g(\theta&space;^{T}x)&space;\\&space;=&space;(y\frac{1}{g(\theta&space;^{T})x}&space;-&space;(1-y)\frac{1}{1-g(\theta&space;^{T}x)})\frac{\partial&space;}{\partial&space;\theta&space;_{j}}g(\theta&space;^{T}x)&space;g(\theta&space;^{T}x)(1-g(\theta&space;^{T}x))\frac{\partial&space;}{\partial&space;\theta&space;_{j}}\theta&space;^{T}x&space;\\&space;=&space;(y(1-g(\theta&space;^{T}x))-(1-y)g(\theta&space;^{T}x))x_{j}&space;\\&space;=(y-h_{\theta&space;}(x))x_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{\partial&space;}{\partial&space;\theta&space;_{j}}l(\theta&space;)&space;=&space;(y\frac{1}{g(\theta&space;^{T})x}&space;-&space;(1-y)\frac{1}{1-g(\theta&space;^{T}x)})\frac{\partial&space;}{\partial&space;\theta&space;_{j}}g(\theta&space;^{T}x)&space;\\&space;=&space;(y\frac{1}{g(\theta&space;^{T})x}&space;-&space;(1-y)\frac{1}{1-g(\theta&space;^{T}x)})\frac{\partial&space;}{\partial&space;\theta&space;_{j}}g(\theta&space;^{T}x)&space;g(\theta&space;^{T}x)(1-g(\theta&space;^{T}x))\frac{\partial&space;}{\partial&space;\theta&space;_{j}}\theta&space;^{T}x&space;\\&space;=&space;(y(1-g(\theta&space;^{T}x))-(1-y)g(\theta&space;^{T}x))x_{j}&space;\\&space;=(y-h_{\theta&space;}(x))x_{i}" title="\frac{\partial }{\partial \theta _{j}}l(\theta ) = (y\frac{1}{g(\theta ^{T})x} - (1-y)\frac{1}{1-g(\theta ^{T}x)})\frac{\partial }{\partial \theta _{j}}g(\theta ^{T}x) \\ = (y\frac{1}{g(\theta ^{T})x} - (1-y)\frac{1}{1-g(\theta ^{T}x)})\frac{\partial }{\partial \theta _{j}}g(\theta ^{T}x) g(\theta ^{T}x)(1-g(\theta ^{T}x))\frac{\partial }{\partial \theta _{j}}\theta ^{T}x \\ = (y(1-g(\theta ^{T}x))-(1-y)g(\theta ^{T}x))x_{j} \\ =(y-h_{\theta }(x))x_{i}"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=\theta&space;_{j}&space;:=&space;\theta&space;_{j}&space;&plus;&space;\alpha&space;(y^{(i)}-h_{\theta&space;}(x^{(i)}))x_{j}^{(i)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\theta&space;_{j}&space;:=&space;\theta&space;_{j}&space;&plus;&space;\alpha&space;(y^{(i)}-h_{\theta&space;}(x^{(i)}))x_{j}^{(i)}" title="\theta _{j} := \theta _{j} + \alpha (y^{(i)}-h_{\theta }(x^{(i)}))x_{j}^{(i)}"></a><br>其中α為步長，直到<a href="https://www.codecogs.com/eqnedit.php?latex=l(\theta)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?l(\theta)" title="l(\theta)"></a>不能再小時停止  </p>
+<p>梯度下降法的最大問題就是會陷入局部最優，並且每次在對當前樣本計算cost的時候都需要去遍歷全部樣本才能得到cost值，這樣計算速度就會慢很多（雖然在計算的時候可以轉為矩陣乘法去更新整個w值）<br>所以現在好多框架（mahout）中一般使用隨機梯度下降法，它在計算cost的時候只計算當前的代價，最終cost是在全部樣本迭代一遍之求和得出，還有他在更新當前的參數w的時候並不是依次遍歷樣本，而是從所有的樣本中隨機選擇一條進行計算，它方法收斂速度快（一般是使用最大迭代次數），並且還可以避免局部最優，並且還很容易並行（使用參數服務器的方式進行並行）</p>
+<h4 id="其他優化方法">其他優化方法</h4><ul>
+<li>擬牛頓法</li>
+<li>BFGS</li>
+<li>L-BFGS</li>
+</ul>
+<blockquote>
+<p>優缺點：無需選擇學習率α，更快，但是更複雜</p>
+</blockquote>
+<h4 id="優缺點-1">優缺點</h4><h5 id="優點-1">優點</h5><ol>
+<li>實現簡單；</li>
+<li>分類時計算量非常小，速度很快，存儲資源低；</li>
+<li>便利的觀測樣本概率分佈</li>
+<li>多重共線性問題可以結合L2正則化來解決。  </li>
+</ol>
+<h5 id="缺點-1">缺點</h5><ol>
+<li>容易欠擬合，一般準確度不太高；</li>
+<li>只能處理兩分類問題(在此基礎上衍生出來的softmax可以用於多分類)，且必須線性可分；</li>
+<li>不能很好的處理大量多類特徵或變量；</li>
+<li>對於非現性特徵，需要進行轉換。</li>
+</ol>
+<h3 id="3-_線性回歸(Linear_Regression)">3. 線性回歸(Linear Regression)</h3><hr>
+<p>線性回歸才是真正用於回歸的，而不像logistic回歸是用於分類，其基本思想是用梯度下降法對最小二乘法形式的誤差函數進行優化，當然也可以用normal equation直接求得參數的解，結果為：<br><a href="https://www.codecogs.com/eqnedit.php?latex=\hat{w}&space;=&space;(X^{T}X)^{-1}X^{T}y" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\hat{w}&space;=&space;(X^{T}X)^{-1}X^{T}y" title="\hat{w} = (X^{T}X)^{-1}X^{T}y"></a>  </p>
+<p>而在LWLR（局部加權線性回歸）中，參數的計算表達式為:<br><a href="https://www.codecogs.com/eqnedit.php?latex=\hat{w}&space;=&space;(X^{T}WX)^{-1}X^{T}Wy" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\hat{w}&space;=&space;(X^{T}WX)^{-1}X^{T}Wy" title="\hat{w} = (X^{T}WX)^{-1}X^{T}Wy"></a>  </p>
+<p>因為此時優化的是：<br><a href="https://www.codecogs.com/eqnedit.php?latex=1.\&space;Fit\&space;\theta&space;\&space;to\&space;minimize\&space;\sum&space;_{i}w^{(i)}(y^{(i)}-\theta&space;^{T}x^{(i)})^{2}." target="_blank"><img src="https://latex.codecogs.com/gif.latex?1.\&space;Fit\&space;\theta&space;\&space;to\&space;minimize\&space;\sum&space;_{i}w^{(i)}(y^{(i)}-\theta&space;^{T}x^{(i)})^{2}." title="1.\ Fit\ \theta \ to\ minimize\ \sum _{i}w^{(i)}(y^{(i)}-\theta ^{T}x^{(i)})^{2}."></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=2.\&space;Output\&space;\theta&space;^{T}x." target="_blank"><img src="https://latex.codecogs.com/gif.latex?2.\&space;Output\&space;\theta&space;^{T}x." title="2.\ Output\ \theta ^{T}x."></a>  </p>
+<p>由此可見LWLR與LR不同，LWLR是一個非參數模型，因為每次進行回歸計算都要遍歷訓練樣本至少一次。</p>
+<h4 id="優缺點-2">優缺點</h4><h5 id="優點-2">優點</h5><ol>
+<li>實現簡單，計算簡單。</li>
+</ol>
+<h5 id="缺點-2">缺點</h5><ol>
+<li>不能擬合非線性數據。  </li>
+</ol>
+<h3 id="4-_KNN算法">4. KNN算法</h3><hr>
+<p>KNN即最近鄰算法，其主要過程為：</p>
+<ol>
+<li>計算訓練樣本和測試樣本中每個樣本點的距離（常見的距離度量有歐式距離，馬氏距離等）；</li>
+<li>對上面所有的距離值進行排序；</li>
+<li>選前k個最小距離的樣本；</li>
+<li>根據這k個樣本的標簽進行投票，得到最後的分類類別。  </li>
+</ol>
+<p>如何選擇一個最佳的K值，這取決於數據。一般情況下，在分類時較大的K值能夠減小噪聲的影響。但會使類別之間的界限變得模糊。一個較好的K值可通過各種啟發式技術來獲取，比如，交叉驗證。另外噪聲和非相關性特征向量的存在會使K近鄰算法的准確性減小。</p>
+<p>近鄰算法具有較強的一致性結果。隨著數據趨於無限，算法保證錯誤率不會超過貝葉斯算法錯誤率的兩倍。對於一些好的K值，K近鄰保證錯誤率不會超過貝葉斯理論誤差率。</p>
+<h4 id="三要素">三要素</h4><ol>
+<li>K值的選擇；</li>
+<li>距離的度量(常見的距離度量有歐式距離，馬氏距離等)；</li>
+<li>分類決策規則(多數表決規則)。</li>
+</ol>
+<h4 id="K值的選擇">K值的選擇</h4><ol>
+<li>K值越小表明模型越複雜，更加容易過擬合；</li>
+<li>但是K值越大，模型越簡單，如果K = N的時候就表明無論什麼點都是訓練集中類別最多的那個類。</li>
+</ol>
+<blockquote>
+<p>所以一般k會取一個較小的值，然後用過交叉驗證來確定。<br>這裡所謂的交叉驗證就是將樣本劃分一部分出來為預測樣本，比如95%訓練，5%預測，然後K分別取1，2，3，4，5之類的，進行預測，計算最後的分類誤差，選擇誤差最小的K。</p>
+</blockquote>
+<h4 id="KNN的回歸">KNN的回歸</h4><p>在找到最近的k個實例之後，可以計算這k個實例的平均值作為預測值。或者還可以給這k個實例添加一個權重再求平均值，這個權重與度量距離成反比（越近權重越大）。</p>
+<h4 id="優缺點-3">優缺點</h4><h5 id="優點-3">優點</h5><ol>
+<li>思想簡單，理論成熟，即可以用來做分類也可以用來做回歸；</li>
+<li>可用於非線性分類；</li>
+<li>訓練時間複雜度為O(n)；</li>
+<li>準確度高，對數據沒有假設，對outliers不敏感。  </li>
+</ol>
+<h5 id="缺點-3">缺點</h5><ol>
+<li>計算量大；</li>
+<li>樣本不均衡問題；</li>
+<li>需要大量的內存。</li>
+</ol>
+<h4 id="KD樹">KD樹</h4><p>KD樹是一個二叉樹，表示對K維空間的一個劃分，可以進行快速檢索（那KNN計算的時候不需要對全樣本進行距離的計算了）。</p>
+<h5 id="構造KD樹">構造KD樹</h5><p>在k維的空間上循環找子區域的中位數進行劃分的過程。<br>假設現在有K維空間的數據集<a href="https://www.codecogs.com/eqnedit.php?latex=T&space;=&space;\{x_{1},&space;x_{2},&space;x_{3},&space;...x_{n}\},&space;x_{i&space;}&space;=&space;\{a_{1},&space;a_{2},&space;a_{3},...&space;a_{k}\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?T&space;=&space;\{x_{1},&space;x_{2},&space;x_{3},&space;...x_{n}\},&space;x_{i&space;}&space;=&space;\{a_{1},&space;a_{2},&space;a_{3},...&space;a_{k}\}" title="T = \{x_{1}, x_{2}, x_{3}, ...x_{n}\}, x_{i } = \{a_{1}, a_{2}, a_{3},... a_{k}\}"></a>  </p>
+<ol>
+<li>首先構造根節點，以坐標<a href="https://www.codecogs.com/eqnedit.php?latex=a_{1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a_{1}" title="a_{1}"></a>的中位數b為切分點，將根結點對應的矩形局域劃分為兩個區域，區域1中<a href="https://www.codecogs.com/eqnedit.php?latex=a_{1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a_{1}" title="a_{1}"></a>&gt;b，區域2中<a href="https://www.codecogs.com/eqnedit.php?latex=a_{1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a_{1}" title="a_{1}"></a>\&lt;b。    </li>
+<li>構造葉子節點，分別以上面兩個區域中<a href="https://www.codecogs.com/eqnedit.php?latex=a_{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a_{2}" title="a_{2}"></a>的中位數作為切分點，再次將他們兩兩劃分，作為深度1的葉子節點，（如果<a href="https://www.codecogs.com/eqnedit.php?latex=a_{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a_{2}" title="a_{2}"></a>=中位數，則<a href="https://www.codecogs.com/eqnedit.php?latex=a_{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a_{2}" title="a_{2}"></a>的實例落在切分面）  </li>
+<li>不斷重復2的操作，深度為j的葉子節點劃分的時候，索取的<a href="https://www.codecogs.com/eqnedit.php?latex=a_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a_{i}" title="a_{i}"></a>的i=j%k+1，直到兩個子區域沒有實例時停止。  <h5 id="KD樹的搜索">KD樹的搜索</h5></li>
+<li>首先從根節點開始遞歸往下找到包含x的葉子節點，每一層都是找對應的<a href="https://www.codecogs.com/eqnedit.php?latex=x_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_{i}" title="x_{i}"></a></li>
+<li>將這個葉子節點認為是當前的“近似最近點”</li>
+<li>遞歸向上回退，如果以x圓心，以“近似最近點”為半徑的球與根節點的另一半子區域邊界相交，則說明另一半子區域中存在與x更近的點，則進入另一個子區域中查找該點並且更新”近似最近點“</li>
+<li>重復3的步驟，直到另一子區域與球體不相交或者退回根節點</li>
+<li>最後更新的”近似最近點“與x真正的最近點</li>
+</ol>
+<h5 id="KD樹進行KNN查找">KD樹進行KNN查找</h5><p>通過KD樹的搜索找到與搜索目標最近的點，這樣KNN的搜索就可以被限制在空間的局部區域上了，可以大大增加效率。</p>
+<p>#####KD樹搜索的復雜度<br>當實例隨機分布的時候，搜索的復雜度為log(N)，N為實例的個數，KD樹更加適用於實例數量遠大於空間維度的KNN搜索，如果實例的空間維度與實例個數差不多時，它的效率基於等於線性掃描。</p>
+<h3 id="5-_SVM,_SMO">5. SVM, SMO</h3><hr>
+<p>對於樣本點<a href="https://www.codecogs.com/eqnedit.php?latex=(x_{i},&space;y_{i})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?(x_{i},&space;y_{i})" title="(x_{i}, y_{i})"></a>以及svm的超平面：<a href="https://www.codecogs.com/eqnedit.php?latex=w^{T}x_{i}&space;&plus;&space;b&space;=&space;0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?w^{T}x_{i}&space;&plus;&space;b&space;=&space;0" title="w^{T}x_{i} + b = 0"></a>  </p>
+<ul>
+<li>函數間隔：<a href="https://www.codecogs.com/eqnedit.php?latex=y_{i}(w^{T}x_{i}&space;&plus;&space;b)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y_{i}(w^{T}x_{i}&space;&plus;&space;b)" title="y_{i}(w^{T}x_{i} + b)"></a>  </li>
+<li>幾何間隔：<a href="https://www.codecogs.com/eqnedit.php?latex=\frac{y_{i}(w^{T}x_{i}&space;&plus;&space;b)}{||w||}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{y_{i}(w^{T}x_{i}&space;&plus;&space;b)}{||w||}" title="\frac{y_{i}(w^{T}x_{i} + b)}{||w||}"></a>,其中||w||為w的L2範數，幾何間隔不會因為參數比例的改變而改變  <blockquote>
+<p>svm的基本想法就是求解能正確劃分訓練樣本並且其幾何間隔最大化的超平面。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="線性SVM問題">線性SVM問題</h4><p>先來看svm的問題:<br><a href="https://www.codecogs.com/eqnedit.php?latex=\underset{w,&space;b}{arg&space;\max&space;}&space;\&space;\gamma&space;\\&space;st.&space;\frac{y_{i}(w^{T}x&space;&plus;&space;b)}{||w||}&space;\geq&space;\gamma" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\underset{w,&space;b}{arg&space;\max&space;}&space;\&space;\gamma&space;\\&space;st.&space;\&space;\frac{y_{i}(w^{T}x&space;&plus;&space;b)}{||w||}&space;\geq&space;\gamma" title="\underset{w, b}{arg \max } \ \gamma \\ st. \frac{y_{i}(w^{T}x + b)}{||w||} \geq \gamma"></a><br>那麼假設<a href="https://www.codecogs.com/eqnedit.php?latex=\hat{\gamma}&space;=&space;\gamma&space;*&space;||w||" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\hat{\gamma}&space;=&space;\gamma&space;*&space;||w||" title="\hat{\gamma} = \gamma * ||w||"></a><br>則將問題轉為：<br><a href="https://www.codecogs.com/eqnedit.php?latex=\underset{w,&space;b}{arg&space;\max&space;}&space;\&space;\frac{\hat{\gamma}}{||w||}&space;\\&space;st.&space;\&space;y_{i}(w^{T}x&space;&plus;&space;b)&space;\geq&space;1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\underset{w,&space;b}{arg&space;\max&space;}&space;\&space;\frac{\hat{\gamma}}{||w||}&space;\\&space;st.&space;\&space;y_{i}(w^{T}x&space;&plus;&space;b)&space;\geq&space;1" title="\underset{w, b}{arg \max } \ \frac{\hat{\gamma}}{||w||} \\ st. \ y_{i}(w^{T}x + b) \geq 1"></a><br>由於γ̂的成比例增減不會影響實際間距，所以這裡的取γ̂ =1，又因為<a href="https://www.codecogs.com/eqnedit.php?latex=max(\frac{1}{||w||})&space;=&space;min(\frac{1}{2}*||w||^{2})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?max(\frac{1}{||w||})&space;=&space;min(\frac{1}{2}*||w||^{2})" title="max(\frac{1}{||w||}) = min(\frac{1}{2}*||w||^{2})"></a><br>所以最終的問題就變為了<br><a href="https://www.codecogs.com/eqnedit.php?latex=\underset{w,&space;b}{arg&space;\min}&space;\&space;\frac{1}{2}*||w||^{2}&space;\\&space;st.&space;\&space;y_{i}(w^{T}x_{i}&space;&plus;&space;b)&space;\geq&space;1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\underset{w,&space;b}{arg&space;\min}&space;\&space;\frac{1}{2}*||w||^{2}&space;\\&space;st.&space;\&space;y_{i}(w^{T}x_{i}&space;&plus;&space;b)&space;\geq&space;1" title="\underset{w, b}{arg \min} \ \frac{1}{2}*||w||^{2} \\ st. \ y_{i}(w^{T}x_{i} + b) \geq 1"></a><br>這樣就變成了一個凸的二次規劃化，可以將其轉換為拉格朗日函數，然後使用對偶算法來求解</p>
+<h4 id="對偶求解">對偶求解</h4><p>引進拉格朗日乘子<a href="https://www.codecogs.com/eqnedit.php?latex=\alpha&space;=&space;\{\alpha&space;_{1},&space;\alpha&space;_{2},&space;\alpha&space;_{3},&space;...\alpha&space;_{n}\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\alpha&space;=&space;\{\alpha&space;_{1},&space;\alpha&space;_{2},&space;\alpha&space;_{3},&space;...\alpha&space;_{n}\}" title="\alpha = \{\alpha _{1}, \alpha _{2}, \alpha _{3}, ...\alpha _{n}\}"></a>,定義拉格朗日函數：<br><a href="https://www.codecogs.com/eqnedit.php?latex=L(w,&space;b,&space;a)&space;=&space;\frac{1}{2}&space;*||w||^{2}&space;-&space;\sum_{i=1}^{&space;}N(\alpha&space;_{i}*y_{i}(w^{T}x_{i}&plus;b))&plus;\sum&space;(\alpha&space;_{i})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?L(w,&space;b,&space;a)&space;=&space;\frac{1}{2}&space;*||w||^{2}&space;-&space;\sum_{i=1}^{&space;}N(\alpha&space;_{i}*y_{i}(w^{T}x_{i}&plus;b))&plus;\sum&space;(\alpha&space;_{i})" title="L(w, b, a) = \frac{1}{2} *||w||^{2} - \sum_{i=1}^{ }N(\alpha _{i}*y_{i}(w^{T}x_{i}+b))+\sum (\alpha _{i})"></a><br>根據對偶性質 原始問題就是求對偶問題的極大極小<br><a href="https://www.codecogs.com/eqnedit.php?latex=\underset{\alpha}{max}\underset{w,b}{min}L(w,b,\alpha)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\underset{\alpha}{max}\underset{w,b}{min}L(w,b,\alpha)" title="\underset{\alpha}{max}\underset{w,b}{min}L(w,b,\alpha)"></a><br>先求L對w,b的極小，再求對α的極大。<br>求<a href="https://www.codecogs.com/eqnedit.php?latex=\underset{w,b}{min}L(w,b,\alpha)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\underset{w,b}{min}L(w,b,\alpha)" title="\underset{w,b}{min}L(w,b,\alpha)"></a>，也就是相當於對w,b求偏導並且另其等於0<br><a href="https://www.codecogs.com/eqnedit.php?latex=\bigtriangledown&space;_{w}L(w,b,\alpha)&space;=&space;w&space;-&space;\sum_{i=1}^{&space;}N(\alpha&space;_{i}y_{i}x_{i})&space;=&space;0&space;\\&space;\bigtriangledown&space;_{w}L(w,b,\alpha)&space;=&space;\sum_{i=1}^{&space;}N(\alpha&space;_{i}y_{i})&space;=&space;0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\bigtriangledown&space;_{w}L(w,b,\alpha)&space;=&space;w&space;-&space;\sum_{i=1}^{&space;}N(\alpha&space;_{i}y_{i}x_{i})&space;=&space;0&space;\\&space;\bigtriangledown&space;_{w}L(w,b,\alpha)&space;=&space;\sum_{i=1}^{&space;}N(\alpha&space;_{i}y_{i})&space;=&space;0" title="\bigtriangledown _{w}L(w,b,\alpha) = w - \sum_{i=1}^{ }N(\alpha _{i}y_{i}x_{i}) = 0 \\ \bigtriangledown _{w}L(w,b,\alpha) = \sum_{i=1}^{ }N(\alpha _{i}y_{i}) = 0"></a><br>代入後可得<br><a href="https://www.codecogs.com/eqnedit.php?latex=\underset{w,b}{min}L(w,b,\alpha)&space;=&space;-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}(\alpha&space;_{i}\alpha&space;_{j}y_{i}y_{j}(x_{i}\cdot&space;x_{j}))&space;&plus;&space;\sum_{i=1}^{N}\alpha&space;_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\underset{w,b}{min}L(w,b,\alpha)&space;=&space;-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}(\alpha&space;_{i}\alpha&space;_{j}y_{i}y_{j}(x_{i}\cdot&space;x_{j}))&space;&plus;&space;\sum_{i=1}^{N}\alpha&space;_{i}" title="\underset{w,b}{min}L(w,b,\alpha) = -\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}(\alpha _{i}\alpha _{j}y_{i}y_{j}(x_{i}\cdot x_{j})) + \sum_{i=1}^{N}\alpha _{i}"></a><br>求<a href="https://www.codecogs.com/eqnedit.php?latex=\underset{w,b}{min}L(w,b,\alpha)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\underset{w,b}{min}L(w,b,\alpha)" title="\underset{w,b}{min}L(w,b,\alpha)"></a>對α的極大，即是對偶問題:<br><a href="https://www.codecogs.com/eqnedit.php?latex=\underset{\alpha}{max}&space;-&space;\frac{1}{2}*\sum_{i=1}^{N}\sum_{j=1}^{N}(\alpha&space;_{i}\alpha&space;_{j}y_{i}y_{j}(x_{i}\cdot&space;x_{j}))&plus;\sum_{i=1}^{N}\alpha_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\underset{\alpha}{max}&space;-&space;\frac{1}{2}*\sum_{i=1}^{N}\sum_{j=1}^{N}(\alpha&space;_{i}\alpha&space;_{j}y_{i}y_{j}(x_{i}\cdot&space;x_{j}))&plus;\sum_{i=1}^{N}\alpha_{i}" title="\underset{\alpha}{max} - \frac{1}{2}*\sum_{i=1}^{N}\sum_{j=1}^{N}(\alpha _{i}\alpha _{j}y_{i}y_{j}(x_{i}\cdot x_{j}))+\sum_{i=1}^{N}\alpha_{i}"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=st.&space;\&space;\sum_{i=1}^{&space;}N(\alpha_{i}y_{i})&space;=&space;0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?st.&space;\&space;\sum_{i=1}^{&space;}N(\alpha_{i}y_{i})&space;=&space;0" title="st. \ \sum_{i=1}^{ }N(\alpha_{i}y_{i}) = 0"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=\alpha\geq&space;0,&space;i&space;=&space;1,2,3,&space;...&space;N" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\alpha\geq&space;0,&space;i&space;=&space;1,2,3,&space;...&space;N" title="\alpha\geq 0, i = 1,2,3, ... N"></a><br>將求最大轉為求最小，得到等價的式子為：<br><a href="https://www.codecogs.com/eqnedit.php?latex=\underset{\alpha}{min}&space;\frac{1}{2}*\sum_{i=1}^{N}\sum_{j=1}^{N}(\alpha&space;_{i}\alpha&space;_{j}y_{i}y_{j}(x_{i}\cdot&space;x_{j}))-\sum_{i=1}^{N}\alpha_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\underset{\alpha}{min}&space;\frac{1}{2}*\sum_{i=1}^{N}\sum_{j=1}^{N}(\alpha&space;_{i}\alpha&space;_{j}y_{i}y_{j}(x_{i}\cdot&space;x_{j}))-\sum_{i=1}^{N}\alpha_{i}" title="\underset{\alpha}{min} \frac{1}{2}*\sum_{i=1}^{N}\sum_{j=1}^{N}(\alpha _{i}\alpha _{j}y_{i}y_{j}(x_{i}\cdot x_{j}))-\sum_{i=1}^{N}\alpha_{i}"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=st.&space;\&space;\sum_{i=1}^{&space;}N(\alpha_{i}y_{i})&space;=&space;0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?st.&space;\&space;\sum_{i=1}^{&space;}N(\alpha_{i}y_{i})&space;=&space;0" title="st. \ \sum_{i=1}^{ }N(\alpha_{i}y_{i}) = 0"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=\alpha\geq&space;0,&space;i&space;=&space;1,2,3,&space;...&space;N" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\alpha\geq&space;0,&space;i&space;=&space;1,2,3,&space;...&space;N" title="\alpha\geq 0, i = 1,2,3, ... N"></a><br>假如求解出來的α為<a href="https://www.codecogs.com/eqnedit.php?latex=\alpha^{*}&space;=&space;(\alpha&space;_{1}^{*},&space;\alpha&space;_{2}^{*},&space;\alpha&space;_{3}^{*},&space;...\alpha&space;_{n}^{*})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\alpha^{*}&space;=&space;(\alpha&space;_{1}^{*},&space;\alpha&space;_{2}^{*},&space;\alpha&space;_{3}^{*},&space;...\alpha&space;_{n}^{*})" title="\alpha^{*} = (\alpha _{1}^{*}, \alpha _{2}^{*}, \alpha _{3}^{*}, ...\alpha _{n}^{*})"></a><br>則得到最優的w,bw,b分別為<br><a href="https://www.codecogs.com/eqnedit.php?latex=w^{*}&space;=&space;\sum_{i=1}^{N}(\alpha&space;_{i}^{*}y_{i}x_{i})&space;\\&space;b^{*}&space;=&space;y_{i}&space;-&space;\sum_{i=1}^{N}(\alpha_{i}^{*}y_{i}(x_{i}\cdot&space;x_{j}))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?w^{*}&space;=&space;\sum_{i=1}^{N}(\alpha&space;_{i}^{*}y_{i}x_{i})&space;\\&space;b^{*}&space;=&space;y_{i}&space;-&space;\sum_{i=1}^{N}(\alpha_{i}^{*}y_{i}(x_{i}\cdot&space;x_{j}))" title="w^{*} = \sum_{i=1}^{N}(\alpha _{i}^{*}y_{i}x_{i}) \\ b^{*} = y_{i} - \sum_{i=1}^{N}(\alpha_{i}^{*}y_{i}(x_{i}\cdot x_{j}))"></a><br>所以，最終的決策分類面為<br><a href="https://www.codecogs.com/eqnedit.php?latex=f(x)&space;=&space;sign(\sum_{i=1}^{N}(\alpha_{i}^{*}y_{i}(x_{i}\cdot&space;x_{j})&plus;b^{*}))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(x)&space;=&space;sign(\sum_{i=1}^{N}(\alpha_{i}^{*}y_{i}(x_{i}\cdot&space;x_{j})&plus;b^{*}))" title="f(x) = sign(\sum_{i=1}^{N}(\alpha_{i}^{*}y_{i}(x_{i}\cdot x_{j})+b^{*}))"></a><br>也就是說，分類決策函數只依賴於輸入xx與訓練樣本的輸入的內積。  </p>
+<blockquote>
+<p>ps：上面介紹的是SVM的硬間距最大化，還有一種是軟間距最大化，引用了松弛變量ζ，則SVM問題變為:<br><a href="https://www.codecogs.com/eqnedit.php?latex=\underset{w,b}{arg&space;\min}&space;\&space;\frac{1}{2}*||w||^{2}&plus;C\sum_{i=1}^{N}\zeta&space;_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\underset{w,b}{arg&space;\min}&space;\&space;\frac{1}{2}*||w||^{2}&plus;C\sum_{i=1}^{N}\zeta&space;_{i}" title="\underset{w,b}{arg \min} \ \frac{1}{2}*||w||^{2}+C\sum_{i=1}^{N}\zeta _{i}"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=st.&space;\&space;y_{i}(w^{T}x_{i}&plus;b)&space;\geq&space;1&space;-&space;\zeta&space;_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?st.&space;\&space;y_{i}(w^{T}x_{i}&plus;b)&space;\geq&space;1&space;-&space;\zeta&space;_{i}" title="st. \ y_{i}(w^{T}x_{i}+b) \geq 1 - \zeta _{i}"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=\zeta&space;_{i}&space;\geq&space;0,&space;i&space;=&space;1,2,3,...N" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\zeta&space;_{i}&space;\geq&space;0,&space;i&space;=&space;1,2,3,...N" title="\zeta _{i} \geq 0, i = 1,2,3,...N"></a></p>
+<p>其余解決是與硬間距的一致。<br>還有：與分離超平面最近的樣本點稱為支持向量。  </p>
+</blockquote>
+<h4 id="損失函數">損失函數</h4><p>損失函數為（優化目標）:<br><a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i=1}^{N}[1-y(w^{T}x_{i}&plus;b)]_{&plus;}&plus;\lambda&space;||w||^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i=1}^{N}[1-y(w^{T}x_{i}&plus;b)]_{&plus;}&plus;\lambda&space;||w||^{2}" title="\sum_{i=1}^{N}[1-y(w^{T}x_{i}+b)]_{+}+\lambda ||w||^{2}"></a><br>其中<a href="https://www.codecogs.com/eqnedit.php?latex=[1-y(w^{T}x_{i}&plus;b)]_{&plus;}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?[1-y(w^{T}x_{i}&plus;b)]_{&plus;}" title="[1-y(w^{T}x_{i}+b)]_{+}"></a>稱為折頁損失函數，因為:<br><a href="https://www.codecogs.com/eqnedit.php?latex=[1-y(w^{T}x_{i}&plus;b)]_{&plus;}&space;=&space;\begin{Bmatrix}&space;0&space;&\&space;if&space;\&space;1-y_{i}(w^{T}x_{i}&plus;b)\leq&space;0\\&space;1-y_{i}(w^{T}x_{i}&plus;b)&space;&\&space;otherwise&space;\end{Bmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?[1-y(w^{T}x_{i}&plus;b)]_{&plus;}&space;=&space;\begin{Bmatrix}&space;0&space;&\&space;if&space;\&space;1-y_{i}(w^{T}x_{i}&plus;b)\leq&space;0\\&space;1-y_{i}(w^{T}x_{i}&plus;b)&space;&\&space;otherwise&space;\end{Bmatrix}" title="[1-y(w^{T}x_{i}+b)]_{+} = \begin{Bmatrix} 0 &\ if \ 1-y_{i}(w^{T}x_{i}+b)\leq 0\\ 1-y_{i}(w^{T}x_{i}+b) &\ otherwise \end{Bmatrix}"></a>  </p>
+<h4 id="為什麼要引入對偶算法">為什麼要引入對偶算法</h4><ol>
+<li>對偶問題往往更加容易求解(結合拉格朗日和kkt條件)</li>
+<li>可以很自然的引用核函數（拉格朗日表達式裡面有內積，而核函數也是通過內積進行映射的）</li>
+</ol>
+<h4 id="核函數">核函數</h4><p>將輸入特征x（線性不可分）映射到高維特征R空間，可以在R空間上讓SVM進行線性可以變，這就是核函數的作用  </p>
+<ul>
+<li>多項式核函數:<a href="https://www.codecogs.com/eqnedit.php?latex=K(x,z)&space;=&space;(x*z&plus;1)^{p}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?K(x,z)&space;=&space;(x*z&plus;1)^{p}" title="K(x,z) = (x*z+1)^{p}"></a>  </li>
+<li>高斯核函數:<a href="https://www.codecogs.com/eqnedit.php?latex=K(x,z)&space;=&space;exp(\frac{-(x-z)^{2}}{\sigma&space;^{2}})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?K(x,z)&space;=&space;exp(\frac{-(x-z)^{2}}{\sigma&space;^{2}})" title="K(x,z) = exp(\frac{-(x-z)^{2}}{\sigma ^{2}})"></a>  </li>
+<li>字符串核函數：貌似用於字符串處理等</li>
+</ul>
+<p>對於核函數的選擇也是有技巧的(libsvm中自帶了四種核函數：線性核、多項式核、RBF核以及Sigmoid核)：  </p>
+<ol>
+<li>如果樣本數量小於特征數，那麼就沒必要選擇非線性核，簡單的使用線性核就可以了；  </li>
+<li>如果樣本數量大於特征數目，這時可以使用非線性核，將樣本映射到更高維度，一般可以得到更好的結果；  </li>
+<li>如果樣本數目和特征數目相等，該情況可以使用非線性核，原理和第二種一樣。<br>對於第一種情況，也可以先對數據進行降維，然後使用非線性核，這也是一種方法。</li>
+</ol>
+<h4 id="優缺點-4">優缺點</h4><h5 id="優點-4">優點</h5><ol>
+<li>可用於線性、非線性分類，也可以用於回歸；</li>
+<li>低泛化誤差；</li>
+<li>容易解釋；</li>
+<li>計算複雜度較低；</li>
+<li>使用核函數可以向高維空間進行映射，解決高維問題，即大型特徵空間；</li>
+<li>使用核函數可以解決非線性的分類；</li>
+<li>分類思想很簡單，就是將樣本與決策面的間隔最大化；</li>
+<li>分類效果較好；</li>
+<li>無需依賴整個數據。</li>
+</ol>
+<h5 id="缺點-4">缺點</h5><ol>
+<li>對參數和核函數的選擇比較敏感，對非線性問題沒有通用解決方案，有時候很難找到一個合適的核函數；</li>
+<li>原始的SVM只比較擅長處理二分類問題，但是可以使用間接的方法來做；</li>
+<li>對大規模數據訓練比較困難；</li>
+<li>對確實數據敏感。</li>
+</ol>
+<h4 id="SMO">SMO</h4><p>SMO是用於快速求解SVM的。<br>它選擇凸二次規劃的兩個變量，其他的變量保持不變，然後根據這兩個變量構建一個二次規劃問題，這個二次規劃關於這兩個變量解會更加的接近原始二次規劃的解，通過這樣的子問題劃分可以大大增加整個算法的計算速度，關於這兩個變量：  </p>
+<ol>
+<li>其中一個是嚴重違反KKT條件的一個變量  </li>
+<li>另一個變量是根據自由約束確定，好像是求剩余變量的最大化來確定的。</li>
+</ol>
+<h4 id="SVM多分類問題">SVM多分類問題</h4><ol>
+<li><strong>直接法</strong><br>直接在目標函數上進行修改，將多個分類面的參數求解合並到一個最優化問題中，通過求解該優化就可以實現多分類（計算復雜度很高，實現起來較為困難）。</li>
+<li><strong>間接法</strong><br><strong>一對多</strong><br>其中某個類為一類，其余n-1個類為另一個類，比如A,B,C,D四個類，第一次A為一個類，{B,C,D}為一個類訓練一個分類器，第二次B為一個類,{A,C,D}為另一個類,按這方式共需要訓練4個分類器，最後在測試的時候將測試樣本經過這4個分類器<a href="https://www.codecogs.com/eqnedit.php?latex=f_{1}(x),&space;f_{2}(x),&space;f_{3}(x)&space;\and\&space;f_{4}(x)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_{1}(x),&space;f_{2}(x),&space;f_{3}(x)&space;\and\&space;f_{4}(x)" title="f_{1}(x), f_{2}(x), f_{3}(x) \and\ f_{4}(x)"></a>,取其最大值為分類器(這種方式由於是1對M分類，會存在偏置，很不實用)<br><strong>一對一(libsvm實現的方式)</strong><br>任意兩個類都訓練一個分類器，那麼n個類就需要n<em>(n-1)/2個svm分類器。<br>還是以A,B,C,D為例,那麼需要{A,B},{A,C},{A,D},{B,C},{B,D},{C,D}為目標共6個分類器，然後在預測的將測試樣本通過這6個分類器之後進行投票選擇最終結果。（這種方法雖好，但是需要n</em>(n-1)/2個分類器代價太大，不過有好像使用循環圖來進行改進）。 </li>
+</ol>
+<h3 id="6-_決策樹(Decision_Tree)">6. 決策樹(Decision Tree)</h3><hr>
+<p>決策樹是一顆依托決策而建立起來的樹。</p>
+<h4 id="ID3">ID3</h4><ol>
+<li>首先是針對當前的集合，計算每個特征的信息增益  </li>
+<li>然後選擇信息增益最大的特征作為當前節點的決策決策特征  </li>
+<li>根據特征不同的類別劃分到不同的子節點（比如年齡特征有青年，中年，老年，則劃分到3顆子樹）  </li>
+<li>然後繼續對子節點進行遞歸，直到所有特征都被劃分  </li>
+</ol>
+<p><a href="https://www.codecogs.com/eqnedit.php?latex=S(C,a_{i})&space;=&space;-\sum_{i}^{&space;}(p_{i}*log(p_{i}))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?S(C,a_{i})&space;=&space;-\sum_{i}^{&space;}(p_{i}*log(p_{i}))" title="S(C,a_{i}) = -\sum_{i}^{ }(p_{i}*log(p_{i}))"></a><br>一個屬性中某個類別的熵<a href="https://www.codecogs.com/eqnedit.php?latex=p_{i}=p(y_{i}|a_{i}),\&space;p_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p_{i}=p(y_{i}|a_{i}),\&space;p_{i}" title="p_{i}=p(y_{i}|a_{i}),\ p_{i}"></a>表示<a href="https://www.codecogs.com/eqnedit.php?latex=a_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a_{i}" title="a_{i}"></a>情況下發生<a href="https://www.codecogs.com/eqnedit.php?latex=y_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y_{i}" title="y_{i}"></a>的概率，也即是統計概率。<br><a href="https://www.codecogs.com/eqnedit.php?latex=S(C,A)&space;=&space;\sum_{i}^{&space;}(p(A&space;=&space;a_{i})*S(a_{i}))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?S(C,A)&space;=&space;\sum_{i}^{&space;}(p(A&space;=&space;a_{i})*S(a_{i}))" title="S(C,A) = \sum_{i}^{ }(p(A = a_{i})*S(a_{i}))"></a><br>整個屬性的熵，為各個類別的比例與各自熵的加權求和。<br>Gain(C,A)=S(C)−S(C,A)<br>增益表示分類目標的熵減去當前屬性的熵，增益越大，分類能力越強<br>(這裡前者叫做經驗熵，表示數據集分類C的不確定性，後者就是經驗條件熵，表示在給定A的條件下對數據集分類C的不確定性，兩者相減叫做互信息，決策樹的增益等價於互信息)。</p>
+<p>關於損失函數<br>設樹的葉子節點個數為T，t為其中一個葉子節點，該葉子節點有<a href="https://www.codecogs.com/eqnedit.php?latex=N_{t}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?N_{t}" title="N_{t}"></a>個樣本，其中k類的樣本有<a href="https://www.codecogs.com/eqnedit.php?latex=N_{tk}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?N_{tk}" title="N_{tk}"></a>個，H(t)為葉子節點上的經驗熵，則損失函數定義為<br><a href="https://www.codecogs.com/eqnedit.php?latex=C_{t}(T)&space;=&space;\sum&space;(N_{t}*H(t))&plus;\lambda&space;|T|" target="_blank"><img src="https://latex.codecogs.com/gif.latex?C_{t}(T)&space;=&space;\sum&space;(N_{t}*H(t))&plus;\lambda&space;|T|" title="C_{t}(T) = \sum (N_{t}*H(t))+\lambda |T|"></a><br>其中<br><a href="https://www.codecogs.com/eqnedit.php?latex=H(t)&space;=&space;\sum&space;(\frac{N_{tk}}{N_{t}}*log(\frac{N_{tk}}{N_{t}}))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?H(t)&space;=&space;\sum&space;(\frac{N_{tk}}{N_{t}}*log(\frac{N_{tk}}{N_{t}}))" title="H(t) = \sum (\frac{N_{tk}}{N_{t}}*log(\frac{N_{tk}}{N_{t}}))"></a><br>代入可以得到<br><a href="https://www.codecogs.com/eqnedit.php?latex=C_{t}(T)&space;=&space;\sum&space;(\sum&space;(N_{tk}*log\frac{N_{tk}}{N_{t}}))&space;&plus;&space;\lambda&space;|T|" target="_blank"><img src="https://latex.codecogs.com/gif.latex?C_{t}(T)&space;=&space;\sum&space;(\sum&space;(N_{tk}*log\frac{N_{tk}}{N_{t}}))&space;&plus;&space;\lambda&space;|T|" title="C_{t}(T) = \sum (\sum (N_{tk}*log\frac{N_{tk}}{N_{t}})) + \lambda |T|"></a><br>λ|T|為正則化項，λ是用於調節比率<br>決策樹的生成只考慮了信息增益</p>
+<h4 id="C4-5">C4.5</h4><p>它是ID3的一個改進算法，使用信息增益率來進行屬性的選擇<br><a href="https://www.codecogs.com/eqnedit.php?latex=splitInformation(S,A)&space;=&space;-\sum_{i}^{&space;}(\frac{|S_{i}|}{|S|}*log&space;\&space;2&space;(\frac{|S_{i}|}{|S|}))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?splitInformation(S,A)&space;=&space;-\sum_{i}^{&space;}(\frac{|S_{i}|}{|S|}*log&space;\&space;2&space;(\frac{|S_{i}|}{|S|}))" title="splitInformation(S,A) = -\sum_{i}^{ }(\frac{|S_{i}|}{|S|}*log \ 2 (\frac{|S_{i}|}{|S|}))"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=GainRation(S,A)&space;=\frac{Gain(S,A)}{splitInformation(S,A)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?GainRation(S,A)&space;=\frac{Gain(S,A)}{splitInformation(S,A)}" title="GainRation(S,A) =\frac{Gain(S,A)}{splitInformation(S,A)}"></a></p>
+<p>優缺點：<br>准確率高，但是子構造樹的過程中需要進行多次的掃描和排序，所以它的運算效率較低</p>
+<h4 id="Cart">Cart</h4><p>分類回歸樹(Classification And Regression Tree)是一個決策二叉樹，在通過遞歸的方式建立，每個節點在分裂的時候都是希望通過最好的方式將剩余的樣本劃分成兩類，這裡的分類指標：  </p>
+<ol>
+<li>分類樹：基尼指數最小化(gini_index)  </li>
+<li>回歸樹：平方誤差最小化  </li>
+</ol>
+<p>分類樹：  </p>
+<ol>
+<li>首先是根據當前特征計算他們的基尼增益  </li>
+<li>選擇基尼增益最小的特征作為劃分特征  </li>
+<li>從該特征中查找基尼指數最小的分類類別作為最優劃分點  </li>
+<li>將當前樣本劃分成兩類，一類是劃分特征的類別等於最優劃分點，另一類就是不等於  </li>
+<li>針對這兩類遞歸進行上述的劃分工作，直達所有葉子指向同一樣本目標或者葉子個數小於一定的閾值  </li>
+</ol>
+<p>gini用來度量分布不均勻性（或者說不純），總體的類別越雜亂，gini指數就越大（跟熵的概念很相似）<br><a href="https://www.codecogs.com/eqnedit.php?latex=gini(a_{i})&space;=&space;1&space;-&space;\sum_{i}^{&space;}(p_{i}^{2})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?gini(a_{i})&space;=&space;1&space;-&space;\sum_{i}^{&space;}(p_{i}^{2})" title="gini(a_{i}) = 1 - \sum_{i}^{ }(p_{i}^{2})"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=p_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p_{i}" title="p_{i}"></a>當前數據集中第i類樣本的比例<br>gini越小，表示樣本分布越均勻（0的時候就表示只有一類了），越大越不均勻<br>基尼增益<br><a href="https://www.codecogs.com/eqnedit.php?latex=gini\_gain&space;=&space;\sum_{i}^{&space;}(\frac{N_{i}}{N*gini(a_{i})})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?gini\_gain&space;=&space;\sum_{i}^{&space;}(\frac{N_{i}}{N*gini(a_{i})})" title="gini\_gain = \sum_{i}^{ }(\frac{N_{i}}{N*gini(a_{i})})"></a><br>表示當前屬性的一個混亂，<a href="https://www.codecogs.com/eqnedit.php?latex=\frac{N_{i}}{N}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{N_{i}}{N}" title="\frac{N_{i}}{N}"></a>表示當前類別占所有類別的概率。<br>最終Cart選擇GiniGain最小的特征作為劃分特征。</p>
+<p>回歸樹：</p>
+<blockquote>
+<p>回歸樹是以平方誤差最小化的准則劃分為兩塊區域  </p>
+</blockquote>
+<ol>
+<li>遍歷特征計算最優的劃分點s，<br>使其最小化的平方誤差是：<a href="https://www.codecogs.com/eqnedit.php?latex=min\{min(R1.sigma((y_{i}-c_{1})^{2}))&plus;min(R2.sigma((y_{i}-c_{2})^{2}))\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?min\{min(R1.sigma((y_{i}-c_{1})^{2}))&plus;min(R2.sigma((y_{i}-c_{2})^{2}))\}" title="min\{min(R1.sigma((y_{i}-c_{1})^{2}))+min(R2.sigma((y_{i}-c_{2})^{2}))\}"></a><br>計算根據s劃分到左側和右側子樹的目標值與預測值之差的平方和最小，這裡的預測值是兩個子樹上輸入<a href="https://www.codecogs.com/eqnedit.php?latex=x_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_{i}" title="x_{i}"></a>樣本對應<a href="https://www.codecogs.com/eqnedit.php?latex=y_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y_{i}" title="y_{i}"></a>的均值  </li>
+<li>找到最小的劃分特征j以及其最優的劃分點s,根據特征j以及劃分點s將現有的樣本劃分為兩個區域，一個是在特征j上小於等於s，另一個在在特征j上大於s<br><a href="https://www.codecogs.com/eqnedit.php?latex=R1(j)&space;=&space;{x|x(j)\leq&space;s}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?R1(j)&space;=&space;{x|x(j)\leq&space;s}" title="R1(j) = {x|x(j)\leq s}"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=R2(j)&space;=&space;{x|x(j)\geq&space;s}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?R2(j)&space;=&space;{x|x(j)\geq&space;s}" title="R2(j) = {x|x(j)\geq s}"></a>  </li>
+<li>進入兩個子區域按上述方法繼續劃分，直到到達停止條件。  </li>
+</ol>
+<blockquote>
+<p>這裡面的最小化我記得可以使用最小二乘法來求</p>
+</blockquote>
+<p>關於剪枝：用獨立的驗證數據集對訓練集生長的樹進行剪枝（事後剪枝）。</p>
+<h4 id="停止條件">停止條件</h4><ol>
+<li>直到每個葉子節點都只有一種類型的記錄時停止，（這種方式很容易過擬合）</li>
+<li>另一種時當葉子節點的記錄樹小於一定的閾值或者節點的信息增益小於一定的閾值時停止</li>
+</ol>
+<h4 id="關於特征與目標值">關於特征與目標值</h4><ol>
+<li>特征離散 目標值離散：可以使用ID3，cart</li>
+<li>特征連續 目標值離散：將連續的特征離散化 可以使用ID3，cart</li>
+<li>特征離散 目標值連續</li>
+</ol>
+<h4 id="決策樹的分類與回歸">決策樹的分類與回歸</h4><ul>
+<li>分類樹<br>輸出葉子節點中所屬類別最多的那一類</li>
+<li>回歸樹<br>輸出葉子節點中各個樣本值的平均值</li>
+</ul>
+<h4 id="理想的決策樹">理想的決策樹</h4><ol>
+<li>葉子節點數盡量少</li>
+<li>葉子節點的深度盡量小(太深可能會過擬合)</li>
+</ol>
+<h4 id="解決決策樹的過擬合">解決決策樹的過擬合</h4><ol>
+<li>剪枝<br><strong>前置剪枝</strong>：在分裂節點的時候設計比較苛刻的條件，如不滿足則直接停止分裂（這樣干決策樹無法到最優，也無法得到比較好的效果）<br><strong>後置剪枝</strong>：在樹建立完之後，用單個節點代替子樹，節點的分類采用子樹中主要的分類（這種方法比較浪費前面的建立過程）</li>
+<li>交叉驗證</li>
+<li>隨機森林</li>
+</ol>
+<h4 id="優缺點-5">優缺點</h4><h5 id="優點-5">優點</h5><ol>
+<li>計算量簡單，易於理解，可解釋性強；</li>
+<li>比較適合處理有缺失屬性值的樣本；</li>
+<li>能夠處理不相關的特征；</li>
+<li>在相對短的時間內能夠對大型數據源做出可行且效果良好的結果。</li>
+</ol>
+<h5 id="缺點-5">缺點</h5><ol>
+<li>單顆決策樹分類能力弱，並且對連續值變量難以處理；</li>
+<li>容易過擬合（後續出現了隨機森林，減小了過擬合現像）；</li>
+<li>忽略了數據之間的相關性；</li>
+<li>對於那些各類別樣本數量不一致的數據，在決策樹當中，信息增益的結果偏向於那些具有更多數值的特徵(只要是用了信息增益，都有這個缺點，如RF)。</li>
+</ol>
+<h3 id="7-_隨機森林(Random_Forest)">7. 隨機森林(Random Forest)</h3><hr>
+<p>隨機森林是有很多隨機得決策樹構成，它們之間沒有關聯。得到RF以後，在預測時分別對每一個決策樹進行判斷，最後使用Bagging的思想進行結果的輸出（也就是投票的思想）。<br>一般很多的決策樹算法都一個重要的步驟——剪枝，但隨機森林不這樣做，由於之前的兩個隨機采樣的過程保證了隨機性，所以就算不剪枝，也不會出現over-fitting。 按這種算法得到的隨機森林中的每一棵都是很弱的，但是大家組合起來就很厲害了。可以這樣比喻隨機森林算法：每一棵決策樹就是一個精通於某一個窄領域的專家（因為我們從M個feature中選擇m讓每一棵決策樹進行學習），這樣在隨機森林中就有了很多個精通不同領域的專家，對一個新的問題（新的輸入數據），可以用不同的角度去看待它，最終由各個專家，投票得到結果。  </p>
+<h4 id="學習過程">學習過程</h4><ol>
+<li>現在有N個訓練樣本，每個樣本的特征為M個，需要建K顆樹。</li>
+<li>從N個訓練樣本中有放回的取N個樣本作為一組訓練集（其余未取到的樣本作為預測分類，評估其誤差）,這樣使得在訓練的時候，每一棵樹的輸入樣本都不是全部的樣本，使得相對不容易出現over-fitting。</li>
+<li>從M個特征中取m個特征左右子集特征(m&lt;&lt;M)。</li>
+<li>對采樣的數據使用<strong><em>完全分裂</em></strong>的方式來建立決策樹，這樣的決策樹每個節點要麼無法分裂，要麼所有的樣本都指向同一個分類。</li>
+<li>重復2的過程K次，即可建立森林。</li>
+</ol>
+<h4 id="預測過程">預測過程</h4><ol>
+<li>將預測樣本輸入到K顆樹分別進行預測</li>
+<li>如果是分類問題，直接使用投票的方式選擇分類頻次最高的類別</li>
+<li>如果是回歸問題，使用分類之後的均值作為結果</li>
+</ol>
+<h4 id="參數問題">參數問題</h4><ol>
+<li>這裡的一般取m=sqrt(M)</li>
+<li>關於樹的個數K，一般都需要成百上千，但是也有具體的樣本有關（比如特征數量）</li>
+<li>樹的最大深度，（太深可能可能導致過擬合？？）</li>
+<li>節點上的最小樣本數、最小信息增益</li>
+</ol>
+<h4 id="泛化誤差估計">泛化誤差估計</h4><p>使用oob（out-of-bag）進行泛化誤差的估計，將各個樹的未采樣樣本作為預測樣本（大約有36.8%），使用已經建立好的森林對各個預測樣本進行預測，預測完之後最後統計誤分得個數占總預測樣本的比率作為RF的oob誤分率。</p>
+<h4 id="學習算法">學習算法</h4><ol>
+<li>ID3算法：處理離散值的量</li>
+<li>C45算法：處理連續值的量</li>
+<li>Cart算法：離散和連續 兩者都合適？</li>
+</ol>
+<h4 id="關於CART">關於CART</h4><p>Cart可以通過特征的選擇迭代建立一顆分類樹，使得每次的分類平面能最好的將剩余數據分為兩類<br><a href="https://www.codecogs.com/eqnedit.php?latex=gini&space;=&space;1&space;-&space;\sum&space;(p_{i}^{2})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?gini&space;=&space;1&space;-&space;\sum&space;(p_{i}^{2})" title="gini = 1 - \sum (p_{i}^{2})"></a>，表示每個類別出現的概率和與1的差值。<br>分類問題：argmax(Gini−GiniLeft−GiniRight)<br>回歸問題：argmax(Var−VarLeft−VarRight)<br>查找最佳特征f已經最佳屬性閾值th 小於th的在左邊，大於th的在右邊子樹</p>
+<h4 id="優缺點-6">優缺點</h4><ol>
+<li>能夠處理大量特征的分類，並且還不用做特征選擇；</li>
+<li>在訓練完成之後能給出哪些feature的比較重要；</li>
+<li>訓練速度很快；</li>
+<li>很容易並行；</li>
+<li>實現相對來說較為簡單。</li>
+</ol>
+<h3 id="8-_Bagging,_Boosting與Adaboost">8. Bagging, Boosting與Adaboost</h3><hr>
+<h4 id="Bagging算法描述">Bagging算法描述</h4><pre><code>模型生成
+令<span class="keyword">n</span>為訓練數據的實例數量
+對於t次循環中的每一次
+    從訓練數據中采樣<span class="keyword">n</span>個實例
+    將學習應用於所采樣本
+    保存結果模型
+分類
+對於t個模型的每一個
+    使用模型對實例進行預測
+返回被預測次數最多的一個
+</code></pre><p><strong>bagging</strong>：bootstrap aggregating的縮寫。讓該學習算法訓練多輪，每輪的訓練集由從初始的訓練集中隨機取出的n個訓練樣本組成，某個初始訓練樣本在某輪訓練集中可以出現多次或根本不出現，訓練之後可得到一個預測函數序列<br><a href="https://www.codecogs.com/eqnedit.php?latex=h_{1},&space;h_{2},&space;h_{3},&space;...h_{n}," target="_blank"><img src="https://latex.codecogs.com/gif.latex?h_{1},&space;h_{2},&space;h_{3},&space;...h_{n}," title="h_{1}, h_{2}, h_{3}, ...h_{n},"></a><br>最終的預測函數H對分類問題采用投票方式，對回歸問題采用簡單平均方法對新示例進行判別。</p>
+<p>[訓練R個分類器f_i，分類器之間其他相同就是參數不同。其中f_i是通過從訓練集合中(N篇文檔)隨機取(取後放回)N次文檔構成的訓練集合訓練得到的。對於新文檔d，用這R個分類器去分類，得到的最多的那個類別作為d的最終類別。]  </p>
+<h4 id="Boosting算法描述">Boosting算法描述</h4><pre><code>模型生成
+賦予每個訓練實例相同的權值
+t次循環中的每一次：
+    將學習算法應用於加了權的數據集上並保存結果模型
+    計算模型在加了權的數據上的誤差<span class="keyword">e</span>並保存這個誤差
+    結果<span class="keyword">e</span>等於0或者大於等於0.5：
+        終止模型
+    對於數據集中的每個實例：
+        如果模型將實例正確分類
+            將實例的權值乘以<span class="keyword">e</span>/(1-<span class="keyword">e</span>)
+    將所有的實例權重進行正常化
+分類
+賦予所有類權重為0
+對於t（或小於t）個模型中的每一個：
+    給模型預測的類加權 -<span class="literal">log</span>(<span class="keyword">e</span>/(1-<span class="keyword">e</span>))
+返回權重最高的類
+</code></pre><p><strong>boosting</strong>: 其中主要的是<strong>AdaBoost</strong>（Adaptive boosting，自適應boosting）。初始化時對每一個訓練例賦相等的權重1／N，然後用該學算法對訓練集訓練t輪，每次訓練後，對訓練失敗的訓練例賦以較大的權重，也就是讓學習算法在後續的學習中集中對比較難的訓練例進行學習，從而得到一個預測函數序列h1,⋯,hmh1,⋯,hm , 其中h_i也有一定的權重，預測效果好的預測函數權重較大，反之較小。最終的預測函數H對分類問題采用有權重的投票方式，對回歸問題采用加權平均的方法對新示例進行判別。  </p>
+<p>提升算法理想狀態是這些模型對於其他模型來說是一個補充，每個模型是這個領域的一個專家，而其他模型在這部分卻不能表現很好，就像執行官一樣要尋覓那些技能和經驗互補的顧問，而不是重復的。這與裝袋算法有所區分。</p>
+<h4 id="Adaboost算法描述">Adaboost算法描述</h4><pre><code>模型生成
+訓練數據中的每個樣本，並賦予一個權重，構成權重向量<span class="keyword">D</span>，初始值為1/<span class="keyword">N</span>
+t次循環中的每一次：
+    在訓練數據上訓練弱分類器並計算分類器的錯誤率<span class="literal">e</span>
+    如果<span class="keyword">e</span>等於0或者大於等於用戶指定的閾值：
+        終止模型，<span class="keyword">break</span>
+    重新調整每個樣本的權重，其中<span class="keyword">alpha</span>=0.5*<span class="literal">ln</span>((1-<span class="keyword">e</span>)/<span class="keyword">e</span>)
+    對權重向量<span class="keyword">D</span>進行更新，正確分類的樣本的權重降低而錯誤分類的樣本權重值升高
+    對於數據集中的每個樣例：
+        如果某個樣本正確分類：
+            權重改為<span class="keyword">D</span>^(t+1)_i = <span class="keyword">D</span>^(t)_i * <span class="keyword">e</span>^(-a)/<span class="literal">Sum</span>(<span class="keyword">D</span>)
+        如果某個樣本錯誤分類：
+            權重改為<span class="keyword">D</span>^(t+1)_i = <span class="keyword">D</span>^(t)_i * <span class="keyword">e</span>^(a)/<span class="literal">Sum</span>(<span class="keyword">D</span>)
+分類
+賦予所有類權重為0
+對於t（或小於t）個模型（基分類器）中的每一個：
+    給模型預測的類加權 -<span class="literal">log</span>(<span class="keyword">e</span>/(1-<span class="keyword">e</span>))
+返回權重最高的類
+</code></pre><p>（類似Bagging方法，但是訓練是串行進行的，第k個分類器訓練時關注對前k-1分類器中錯分的文檔，即不是隨機取，而是加大取這些文檔的概率。)</p>
+<h4 id="優缺點-7">優缺點</h4><h4 id="優點-6">優點</h4><ol>
+<li>低泛化誤差；</li>
+<li>容易實現，分類準確率較高，沒有太多參數可以調。</li>
+</ol>
+<h4 id="缺點-6">缺點</h4><ol>
+<li>對outliers比較敏感。</li>
+</ol>
+<h3 id="9-_Gradient_Boosting">9. Gradient Boosting</h3><hr>
+<blockquote>
+<p>GBDT的精髓在於訓練的時候都是以上一顆樹的殘差為目標，這個殘差就是上一個樹的預測值與真實值的差值。</p>
+</blockquote>
+<p>Gradient boosting（又叫Mart, Treenet)：Boosting是一種思想，Gradient Boosting是一種實現Boosting的方法，它主要的思想是，每一次建立模型是在之前建立模型損失函數的梯度下降方向。損失函數(loss function)描述的是模型的不靠譜程度，損失函數越大，則說明模型越容易出錯。如果我們的模型能夠讓損失函數持續的下降，則說明我們的模型在不停的改進，而最好的方式就是讓損失函數在其梯度（Gradient)的方向上下降。<br>Boosting的好處就是每一步的參加就是變相了增加了分錯instance的權重，而對已經對的instance趨向於0，這樣後面的樹就可以更加關注錯分的instance的訓練了</p>
+<h4 id="Shrinkage">Shrinkage</h4><p>Shrinkage認為，每次走一小步逐步逼近的結果要比每次邁一大步逼近結果更加容易避免過擬合。<br><a href="https://www.codecogs.com/eqnedit.php?latex=y(1&space;\sim&space;i)&space;=&space;y(1&space;\sim&space;i&space;-&space;1)&space;&plus;&space;step&space;*&space;y_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y(1&space;\sim&space;i)&space;=&space;y(1&space;\sim&space;i&space;-&space;1)&space;&plus;&space;step&space;*&space;y_{i}" title="y(1 \sim i) = y(1 \sim i - 1) + step * y_{i}"></a>  </p>
+<blockquote>
+<p>就像我們做互聯網，總是先解決60%用戶的需求湊合著，再解決35%用戶的需求，最後才關注那5%人的需求，這樣就能逐漸把產品做好。</p>
+</blockquote>
+<h4 id="調參">調參</h4><ol>
+<li>樹的個數 100~10000</li>
+<li>葉子的深度 3~8</li>
+<li>學習速率 0.01~1</li>
+<li>葉子上最大節點樹 20</li>
+<li>訓練采樣比例 0.5~1</li>
+<li>訓練特征采樣比例 sqrt(num)</li>
+</ol>
+<h4 id="優缺點-8">優缺點</h4><h5 id="優點-7">優點</h5><ol>
+<li>精度高；</li>
+<li>能處理非線性數據；</li>
+<li>能處理多特征類型；</li>
+<li>適合低維稠密數據。</li>
+</ol>
+<h4 id="缺點-7">缺點</h4><ol>
+<li>並行麻煩（因為上下兩顆樹有聯系）；</li>
+<li>多分類的時候 復雜度很大。</li>
+</ol>
+<h3 id="10-_人工神經網絡(Neural_Networks)">10. 人工神經網絡(Neural Networks)</h3><hr>
+<h5 id="優點-8">優點</h5><ol>
+<li>分類的準確度高；</li>
+<li>並行分佈處理能力強，分佈存儲及學習能力強；</li>
+<li>對噪聲神經有較強的魯棒性和容錯能力，能充分逼近複雜的非線性關係；</li>
+<li>具備聯想記憶功能。</li>
+</ol>
+<h4 id="缺點-8">缺點</h4><ol>
+<li>需要大量的參數，如網絡拓撲結構、權值和閾值的初始值；</li>
+<li>不能觀察之間的學習過程，輸出結果難以解釋，會影響到結果的可信度和可接受程度；</li>
+<li>學習時間過長，甚至可能達不到學習的目的。</li>
+</ol>
+<h3 id="11-_K-Means聚類">11. K-Means聚類</h3><hr>
+<p>k-Means算法是一種聚類算法，它是一種無監督學習算法，目的是將相似的對像歸到同一個蔟中。蔟內的對像越相似，聚類的效果就越好。聚類和分類最大的不同在於，分類的目標事先已知，而聚類則不一樣。其產生的結果和分類相同，而只是類別沒有預先定義。  </p>
+<h4 id="算法原理">算法原理</h4><p>設計的目的：<strong><em>使各個樣本與所在類均值的誤差平方和達到最小</em></strong>（這也是評價K-means算法最後聚類效果的評價標准）<br><a href="https://www.codecogs.com/eqnedit.php?latex=SSE&space;=&space;\sum_{i=1}^{k}\sum_{x\in&space;C_{i}}^{&space;}||x-\mu&space;_{i}||^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?SSE&space;=&space;\sum_{i=1}^{k}\sum_{x\in&space;C_{i}}^{&space;}||x-\mu&space;_{i}||^{2}" title="SSE = \sum_{i=1}^{k}\sum_{x\in C_{i}}^{ }||x-\mu _{i}||^{2}"></a>  </p>
+<pre><code>創建k個點作為<span class="keyword">K</span>個簇的起始質心（經常隨機選擇）
+當任意一個點的蔟分配結果發生變化時（初始化為<span class="keyword">True</span>）
+對數據集中的每個數據點，重新分配質心
+    對每個質心
+        計算質心到數據點之間的距離
+    將數據點分配到距其最近的蔟
+對每個蔟，計算蔟中所有點的均值並將均值作為新的質心
+</code></pre><h4 id="優缺點-9">優缺點</h4><h5 id="優點-9">優點</h5><ol>
+<li>算法簡單，容易實現 ；</li>
+<li>對處理大數據集，該算法是相對可伸縮的和高效率的，因為它的復雜度大約是O(nkt)，其中n是所有對像的數目，k是簇的數目,t是迭代的次數。通常k&lt;&lt;n。這個算法通常局部收斂；</li>
+<li>算法嘗試找出使平方誤差函數值最小的k個劃分。當簇是密集的、球狀或團狀的，且簇與簇之間區別明顯時，聚類效果較好。</li>
+</ol>
+<h5 id="缺點-9">缺點</h5><ol>
+<li>對數據類型要求較高，適合數值型數據；</li>
+<li>可能收斂到局部最小值，在大規模數據上收斂較慢；</li>
+<li>K值比較難以選取；</li>
+<li>對初值的簇心值敏感，對於不同的初始值，可能會導致不同的聚類結果，不能保證K-Means算法收斂於全局最優解；<br>針對此問題，在K-Means的基礎上提出了二分K-means算法。該算法首先將所有點看做是一個簇，然後一分為二，找到最小SSE的聚類質心。接著選擇其中一個簇繼續一分為二，此處哪一個簇需要根據劃分後的SSE值來判斷。  </li>
+<li>不適合於發現非凸面形狀的簇，或者大小差別很大的簇；</li>
+<li>對於”噪聲”和孤立點數據敏感，少量的該類數據能夠對平均值產生極大影響；</li>
+<li>結果不穩定(受輸入順序影響)；</li>
+<li>時間複雜度高O(nkt)，其中n是對象總數，k是簇數，t是迭代次數。</li>
+</ol>
+<h4 id="討論">討論</h4><ol>
+<li><p>K-Means算法K值如何選擇？<br>《大數據》中提到：給定一個合適的類簇指標，比如平均半徑或直徑，只要我們假設的類簇的數目等於或者高於真實的類簇的數目時，該指標上升會很緩慢，而一旦試圖得到少於真實數目的類簇時，該指標會急劇上升。<br>1) 簇的直徑是指簇內任意兩點之間的最大距離。<br>2) 簇的半徑是指簇內所有點到簇中心距離的最大值。  </p>
+</li>
+<li><p>如何優化K-Means算法搜索的時間復雜度？<br>可以使用K-D樹來縮短最近鄰的搜索時間（NN算法都可以使用K-D樹來優化時間復雜度）。</p>
+</li>
+<li><p>如何確定K個簇的初始質心？<br>1) 選擇批次距離盡可能遠的K個點<br>首先隨機選擇一個點作為第一個初始類簇中心點，然後選擇距離該點最遠的那個點作為第二個初始類簇中心點，然後再選擇距離前兩個點的最近距離最大的點作為第三個初始類簇的中心點，以此類推，直至選出K個初始類簇中心點。<br>2) 選用層次聚類或者Canopy算法進行初始聚類，然後利用這些類簇的中心點作為KMeans算法初始類簇中心點。  </p>
+</li>
+</ol>
+<p>聚類擴展：密度聚類、層次聚類。</p>
+<h3 id="12-_EM">12. EM</h3><hr>
+<p>EM用於隱含變量的概率模型的極大似然估計，它一般分為兩步：<br>第一步求期望(E)，選取一組參數，求出在該參數下隱含變量的條件概率值；<br>第二步求極大(M)，結合E步求出的隱含變量條件概率，求出似然函數下界函數（本質上是某個期望函數）的最大值。<br>重複上面2步直至收斂。  </p>
+<p>如果概率模型的變量都是觀測變量，那麼給定數據之後就可以直接使用極大似然法或者貝葉斯估計模型參數。<br>但是當模型含有隱含變量的時候就不能簡單的用這些方法來估計，EM就是一種含有隱含變量的概率模型參數的極大似然估計法。<br>應用到的地方：混合高斯模型、混合樸素貝葉斯模型、因子分析模型。  </p>
+<p>(E Step) For each i, set<br><a href="https://www.codecogs.com/eqnedit.php?latex=Q_{i}(z^{(i)})&space;:=&space;p(z^{(i)}|x^{(i)};&space;\theta&space;)." target="_blank"><img src="https://latex.codecogs.com/gif.latex?Q_{i}(z^{(i)})&space;:=&space;p(z^{(i)}|x^{(i)};&space;\theta&space;)." title="Q_{i}(z^{(i)}) := p(z^{(i)}|x^{(i)}; \theta )."></a><br>(M Step) set<br><a href="https://www.codecogs.com/eqnedit.php?latex=\theta&space;:=&space;arg&space;\&space;\underset{\theta}{max}&space;\sum_{i}^{&space;}\sum_{z^{(i)}}^{&space;}Q_{i}(z^{(i)})log&space;\frac{p(x^{(i)},z^{(i)};\theta)}{Q_{i}(z^{(i)})}." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\theta&space;:=&space;arg&space;\&space;\underset{\theta}{max}&space;\sum_{i}^{&space;}\sum_{z^{(i)}}^{&space;}Q_{i}(z^{(i)})log&space;\frac{p(x^{(i)},z^{(i)};\theta)}{Q_{i}(z^{(i)})}." title="\theta := arg \ \underset{\theta}{max} \sum_{i}^{ }\sum_{z^{(i)}}^{ }Q_{i}(z^{(i)})log \frac{p(x^{(i)},z^{(i)};\theta)}{Q_{i}(z^{(i)})}."></a><br>M步公式中下界函數的推倒過程：<br><a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i}^{&space;}log&space;\&space;p(x^{(i)};\theta)&space;=\sum_{i}^{&space;}log&space;\sum_{z^{(i)}}^{&space;}&space;p(x^{(i)},z^{(i)};\theta)&space;\&space;(1)\\&space;=\sum_{i}^{&space;}&space;\log&space;\sum_{z^{(i)}}^{&space;}&space;Q_{i}(z^{(i)})&space;\frac{p(x^{(i)},z^{(i)};\theta)}{Q_{i}(z^{(i)})}&space;\&space;(2)\\&space;\\\geq&space;\sum_{i}^{&space;}&space;\sum_{z^{(i)}}^{&space;}&space;Q_{i}(z^{(i)})&space;\frac{p(x^{(i)},z^{(i)};\theta)}{Q_{i}(z^{(i)})}&space;\&space;(3)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i}^{&space;}log&space;\&space;p(x^{(i)};\theta)&space;=\sum_{i}^{&space;}log&space;\sum_{z^{(i)}}^{&space;}&space;p(x^{(i)},z^{(i)};\theta)&space;\&space;(1)\\&space;=\sum_{i}^{&space;}&space;\log&space;\sum_{z^{(i)}}^{&space;}&space;Q_{i}(z^{(i)})&space;\frac{p(x^{(i)},z^{(i)};\theta)}{Q_{i}(z^{(i)})}&space;\&space;(2)\\&space;\\\geq&space;\sum_{i}^{&space;}&space;\sum_{z^{(i)}}^{&space;}&space;Q_{i}(z^{(i)})&space;\frac{p(x^{(i)},z^{(i)};\theta)}{Q_{i}(z^{(i)})}&space;\&space;(3)" title="\sum_{i}^{ }log \ p(x^{(i)};\theta) =\sum_{i}^{ }log \sum_{z^{(i)}}^{ } p(x^{(i)},z^{(i)};\theta) \ (1)\\ =\sum_{i}^{ } \log \sum_{z^{(i)}}^{ } Q_{i}(z^{(i)}) \frac{p(x^{(i)},z^{(i)};\theta)}{Q_{i}(z^{(i)})} \ (2)\\ \\\geq \sum_{i}^{ } \sum_{z^{(i)}}^{ } Q_{i}(z^{(i)}) \frac{p(x^{(i)},z^{(i)};\theta)}{Q_{i}(z^{(i)})} \ (3)"></a><br>EM算法一個常見的例子就是GMM模型，每個樣本都有可能由k個高斯產生，只不過由每個高斯產生的概率不同而已，因此每個樣本都有對應的高斯分布（k個中的某一個），此時的隱含變量就是每個樣本對應的某個高斯分布。<br>GMM的E步公式如下（計算每個樣本對應每個高斯的概率）：<br>(E Step) For each i, j, set<br><a href="https://www.codecogs.com/eqnedit.php?latex=w_{j}^{(i)}&space;:=&space;p(z^{(i)}&space;=&space;j|x^{(i)};&space;\phi&space;,&space;\mu&space;,\Sigma&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?w_{j}^{(i)}&space;:=&space;p(z^{(i)}&space;=&space;j|x^{(i)};&space;\phi&space;,&space;\mu&space;,\Sigma&space;)" title="w_{j}^{(i)} := p(z^{(i)} = j|x^{(i)}; \phi , \mu ,\Sigma )"></a><br>更具體的計算公式為：<br><a href="https://www.codecogs.com/eqnedit.php?latex=p(z^{(i)}&space;=j|x^{(i)};\phi&space;,\mu&space;,\Sigma&space;)=\frac{p(x^{(i)}|z^{(i)}=j;&space;\mu&space;,\Sigma&space;)p(z^{(i)}=j;\phi&space;)}{\sum_{l=1}^{k}p(x^{(i)}|z^{(i)}=l;\mu&space;,\Sigma&space;)p(z^{(i)}=l;\phi&space;)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p(z^{(i)}&space;=j|x^{(i)};\phi&space;,\mu&space;,\Sigma&space;)=\frac{p(x^{(i)}|z^{(i)}=j;&space;\mu&space;,\Sigma&space;)p(z^{(i)}=j;\phi&space;)}{\sum_{l=1}^{k}p(x^{(i)}|z^{(i)}=l;\mu&space;,\Sigma&space;)p(z^{(i)}=l;\phi&space;)}" title="p(z^{(i)} =j|x^{(i)};\phi ,\mu ,\Sigma )=\frac{p(x^{(i)}|z^{(i)}=j; \mu ,\Sigma )p(z^{(i)}=j;\phi )}{\sum_{l=1}^{k}p(x^{(i)}|z^{(i)}=l;\mu ,\Sigma )p(z^{(i)}=l;\phi )}"></a><br>M步公式如下(計算每個高斯的比重，均值，方差這3個參數)：<br>(M Step) Update the parameters:<br><a href="https://www.codecogs.com/eqnedit.php?latex=\phi&space;_{j}&space;:=&space;\frac{1}{m}\sum_{i=1}^{m}w_{j}^{(i)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi&space;_{j}&space;:=&space;\frac{1}{m}\sum_{i=1}^{m}w_{j}^{(i)}" title="\phi _{j} := \frac{1}{m}\sum_{i=1}^{m}w_{j}^{(i)}"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=\mu&space;_{i}&space;:=\frac{\sum_{i=1}^{m}w_{j}^{(i)}x^{(i)}}{\sum_{i=1}^{m}w_{j}^{(i)}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mu&space;_{i}&space;:=\frac{\sum_{i=1}^{m}w_{j}^{(i)}x^{(i)}}{\sum_{i=1}^{m}w_{j}^{(i)}}" title="\mu _{i} :=\frac{\sum_{i=1}^{m}w_{j}^{(i)}x^{(i)}}{\sum_{i=1}^{m}w_{j}^{(i)}}"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=\Sigma&space;_{j}&space;:=&space;\frac{\sum_{i=1}^{m}w_{j}^{(i)}(x^{(i)}-\mu&space;_{j})(x^{(i)}-\mu&space;_{j})^{T}}{\sum_{i=1}^{m}w_{j}^{(i)}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Sigma&space;_{j}&space;:=&space;\frac{\sum_{i=1}^{m}w_{j}^{(i)}(x^{(i)}-\mu&space;_{j})(x^{(i)}-\mu&space;_{j})^{T}}{\sum_{i=1}^{m}w_{j}^{(i)}}" title="\Sigma _{j} := \frac{\sum_{i=1}^{m}w_{j}^{(i)}(x^{(i)}-\mu _{j})(x^{(i)}-\mu _{j})^{T}}{\sum_{i=1}^{m}w_{j}^{(i)}}"></a><br>關於EM算法可以參考<a href="http://cs229.stanford.edu/" target="_blank" rel="external">Ng的CS229課程資料</a>或者<a href="http://v.163.com/special/opencourse/machinelearning.html" target="_blank" rel="external">斯坦福機器學習公開課</a>  </p>
+<h3 id="13-_Apriori與FP_Growth">13. Apriori與FP Growth</h3><hr>
+<h4 id="Apriori">Apriori</h4><p>Apriori是關聯分析中比較早的一種方法，主要用來挖掘那些頻繁項集合。其思想是：  </p>
+<ol>
+<li>如果一個項目集合不是頻繁集合，那麼任何包含它的項目集合也一定不是頻繁集合；  </li>
+<li>如果一個項目集合是頻繁集合，那麼它的任何非空子集也是頻繁集合。<br>Aprioir需要掃描項目表多遍，從一個項目開始掃描，舍去掉那些不是頻繁的項目，得到的集合稱為L，然後對L中的每個元素進行自組合，生成比上次掃描多一個項目的集合，該集合稱為C，接著又掃描去掉那些非頻繁的項目，重復…</li>
+</ol>
+<h4 id="FP_Growth">FP Growth</h4><p>FP Growth是一種比Apriori更高效的頻繁項挖掘方法，它只需要掃描項目表2次。其中第1次掃描獲得當個項目的頻率，去掉不符合支持度要求的項，並對剩下的項排序。第2遍掃描是建立一顆FP-Tree(frequent-patten tree)。</p>
+<h3 id="14-_凸優化">14. 凸優化</h3><hr>
+<p>在機器學習中往往是最終要求解某個函數的最優值，但是一般情況下，任意一個函數的最優值求解比較困難，但是對於凸函數來說就可以有效的求解出全局最優值。</p>
+<h4 id="凸集">凸集</h4><p>一個集合C是，當前僅當任意x,y屬於C且0≦Θ≦1，都有Θ∗x+(1−Θ)∗yΘ∗x+(1−Θ)∗y屬於C。<br>用通俗的話來說C集合線段上的任意兩點也在C集合中</p>
+<h4 id="凸函數">凸函數</h4><p>一個函數f其定義域(D(f))是凸集，並且對任意x,y屬於D(f)和0≦Θ≦1都有<br>f(Θ∗x+(1−Θ)∗y)≦Θ∗f(x)+(1−Θ)∗f(y)</p>
+<p>用通俗的話來說就是曲線上任意兩點的割線都在曲線的上方。  </p>
+<p>常見的凸函數有：  </p>
+<ul>
+<li>指數函數f(x) = a^x; a &gt; 1  </li>
+<li>負對數函數−logax</li>
+<li>開口向上的二次函數等</li>
+</ul>
+<p>凸函數的判定：</p>
+<ol>
+<li>如果f是一階可導，對於任意數據域內的x,y滿足<a href="https://www.codecogs.com/eqnedit.php?latex=f(y)&space;\geq&space;f(x)&space;&plus;{f}'(x)(y-x)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(y)&space;\geq&space;f(x)&space;&plus;{f}'(x)(y-x)" title="f(y) \geq f(x) +{f}'(x)(y-x)"></a>  </li>
+<li>如果f是二階可導，</li>
+</ol>
+<p>凸優化應用舉例  </p>
+<ul>
+<li>SVM：其中由max|w|轉向<a href="https://www.codecogs.com/eqnedit.php?latex=min(\frac{1}{2}*|w|^{2})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?min(\frac{1}{2}*|w|^{2})" title="min(\frac{1}{2}*|w|^{2})"></a>  </li>
+<li>最小二乘法？</li>
+<li>LR的損失函數<a href="https://www.codecogs.com/eqnedit.php?latex=\sum&space;(y_{i}*log(h_{w}(x_{i}))&plus;(1-y_{i})*(log(1-h_{w}(x_{i}))))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum&space;(y_{i}*log(h_{w}(x_{i}))&plus;(1-y_{i})*(log(1-h_{w}(x_{i}))))" title="\sum (y_{i}*log(h_{w}(x_{i}))+(1-y_{i})*(log(1-h_{w}(x_{i}))))"></a>  </li>
+</ul>
+<h3 id="15-_Regularization">15. Regularization</h3><hr>
+<ol>
+<li>數值上更容易求解；</li>
+<li>特征數目太大時更穩定；</li>
+<li>控制模型的復雜度，光滑性。復雜性越小且越光滑的目標函數泛化能力越強。而加入規則項能使目標函數復雜度減小，且更光滑。</li>
+<li>減小參數空間；參數空間越小，復雜度越低。</li>
+<li>系數越小，模型越簡單，而模型越簡單則泛化能力越強（Ng宏觀上給出的解釋）。</li>
+<li>可以看成是權值的高斯先驗。</li>
+</ol>
+<h3 id="16-_異常檢測">16. 異常檢測</h3><hr>
+<p>可以估計樣本的密度函數，對於新樣本直接計算其密度，如果密度值小於某一閾值，則表示該樣本異常。而密度函數一般采用多維的高斯分布。如果樣本有n維，則每一維的特征都可以看作是符合高斯分布的，即使這些特征可視化出來不太符合高斯分布，也可以對該特征進行數學轉換讓其看起來像高斯分布，比如說x=log(x+c), x=x^(1/c)等。異常檢測的算法流程如下：<br><strong>Anomaly detection algorithm</strong>  </p>
+<ol>
+<li>Choose features <a href="https://www.codecogs.com/eqnedit.php?latex=x_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_{i}" title="x_{i}"></a> that you think might be indicative of anomalous examples.  </li>
+<li>Fit parameters <a href="https://www.codecogs.com/eqnedit.php?latex=\mu&space;_{1},&space;\mu&space;_{2},&space;...\mu&space;_{n},&space;\sigma&space;_{1}^{2},&space;\sigma&space;_{2}^{2},&space;...&space;\sigma&space;_{n}^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mu&space;_{1},&space;\mu&space;_{2},&space;...\mu&space;_{n},&space;\sigma&space;_{1}^{2},&space;\sigma&space;_{2}^{2},&space;...&space;\sigma&space;_{n}^{2}" title="\mu _{1}, \mu _{2}, ...\mu _{n}, \sigma _{1}^{2}, \sigma _{2}^{2}, ... \sigma _{n}^{2}"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=\mu&space;_{j}&space;=&space;\frac{1}{m}\sum_{i=1}^{m}x_{j}^{(i)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mu&space;_{j}&space;=&space;\frac{1}{m}\sum_{i=1}^{m}x_{j}^{(i)}" title="\mu _{j} = \frac{1}{m}\sum_{i=1}^{m}x_{j}^{(i)}"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=\sigma&space;_{j}^{2}&space;=&space;\frac{1}{m}\sum_{i=1}^{m}(x_{j}^{(i)}-\mu&space;_{j})^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma&space;_{j}^{2}&space;=&space;\frac{1}{m}\sum_{i=1}^{m}(x_{j}^{(i)}-\mu&space;_{j})^{2}" title="\sigma _{j}^{2} = \frac{1}{m}\sum_{i=1}^{m}(x_{j}^{(i)}-\mu _{j})^{2}"></a>  </li>
+<li>Given new example x, compute p(x):<br><a href="https://www.codecogs.com/eqnedit.php?latex=p(x)=\prod_{j=1}^{n}p(x_{j};\mu&space;_{j,\sigma&space;_{j}^{2}})&space;=&space;\prod_{j=1}^{n}\frac{1}{\sqrt{2\pi&space;}\sigma&space;_{j}}exp(-\frac{(x_{j}-\mu&space;_{j})^{2}}{2\sigma&space;_{j}^{2}})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p(x)=\prod_{j=1}^{n}p(x_{j};\mu&space;_{j,\sigma&space;_{j}^{2}})&space;=&space;\prod_{j=1}^{n}\frac{1}{\sqrt{2\pi&space;}\sigma&space;_{j}}exp(-\frac{(x_{j}-\mu&space;_{j})^{2}}{2\sigma&space;_{j}^{2}})" title="p(x)=\prod_{j=1}^{n}p(x_{j};\mu _{j,\sigma _{j}^{2}}) = \prod_{j=1}^{n}\frac{1}{\sqrt{2\pi }\sigma _{j}}exp(-\frac{(x_{j}-\mu _{j})^{2}}{2\sigma _{j}^{2}})"></a><br>Anomaly if p(x) &lt; ε  </li>
+</ol>
+<p>其中的ε也是通過交叉驗證得到的，也就是說在進行異常檢測時，前面的p(x)的學習是用的無監督，後面的參數ε學習是用的有監督。那麼為什麼不全部使用普通有監督的方法來學習呢（即把它看做是一個普通的二分類問題）？主要是因為在異常檢測中，異常的樣本數量非常少而正常樣本數量非常多，因此不足以學習到好的異常行為模型的參數，因為後面新來的異常樣本可能完全是與訓練樣本中的模式不同。</p>
+<p>另外，上面是將特征的每一維看成是相互獨立的高斯分布，其實這樣的近似並不是最好的，但是它的計算量較小，因此也常被使用。更好的方法應該是將特征擬合成多維高斯分布，這時有特征之間的相關性，但隨之計算量會變復雜，且樣本的協方差矩陣還可能出現不可逆的情況（主要在樣本數比特征數小，或者樣本特征維數之間有線性關系時）。</p>
+<p>上面的內容可以參考<a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="external">Ng的斯坦福機器學習公開課</a></p>
+<h3 id="17-_算法選擇參考">17. 算法選擇參考</h3><hr>
+<p>之前翻譯過一些國外的文章，有一篇文章中給出了一個簡單的算法選擇技巧：  </p>
+<ol>
+<li>首當其衝應該選擇的就是邏輯回歸，如果它的效果不怎麼樣，那麼可以將它的結果作為基准來參考，在基礎上與其他算法進行比較；</li>
+<li>然後試試決策樹（隨機森林）看看是否可以大幅度提升你的模型性能。即便最後你並沒有把它當做為最終模型，你也可以使用隨機森林來移除噪聲變量，做特征選擇；</li>
+<li>如果特征的數量和觀測樣本特別多，那麼當資源和時間充足時（這個前提很重要），使用SVM不失為一種選擇。</li>
+</ol>
+<p>通常情況下：【GBDT&gt;=SVM&gt;=RF&gt;=Adaboost&gt;=Other…】，現在深度學習很熱門，很多領域都用到，它是以神經網絡為基礎的，目前我自己也在學習，只是理論知識不是很厚實，理解的不夠深，這裡就不做介紹了。</p>
+<p>算法固然重要，但<strong><em>好的數據卻要優於好的算法</em></strong>，設計優良特征是大有裨益的。假如你有一個超大數據集，那麼無論你使用哪種算法可能對分類性能都沒太大影響（此時就可以根據速度和易用性來進行抉擇）。</p>
+<p>Reference:</p>
+<ol>
+<li><a href="http://kubicode.me/2015/08/16/Machine%20Learning/Algorithm-Summary-for-Interview/#EM" target="_blank" rel="external">机器学习常见算法个人总结（面试用）</a>  </li>
+<li><a href="http://www.cnblogs.com/tornadomeet/p/3395593.html" target="_blank" rel="external">机器学习&amp;数据挖掘笔记_16（常见面试之机器学习算法思想简单梳理）</a>  </li>
+<li><a href="http://www.csuldw.com/2016/02/26/2016-02-26-choosing-a-machine-learning-classifier/" target="_blank" rel="external">机器学习算法比较</a>  </li>
+<li><a href="http://www.csuldw.com/2015/06/03/2015-06-03-ml-algorithm-K-means/" target="_blank" rel="external">机器学习算法-K-means聚类</a>  </li>
+<li><a href="http://www.csuldw.com/2015/07/22/2015-07-22%20%20ensemble/" target="_blank" rel="external">机器学习-组合算法总结</a></li>
+</ol>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/blog/07252016/Essentials-of-Machine-Learning-Algorithms-with-Python-and-R-Codes-FW/">
+        Essentials of Machine Learning Algorithms with Python and R Codes (FW) →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="blog/07282016/機器學習常用算法梳理/" data-title="機器學習常用算法梳理" data-url="http://www.aprilzephyr.com/blog/07282016/機器學習常用算法梳理/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Themis_Sword. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran.</a> Thanks!</p>
+            </div>
+<div align='right'>
+    <form class="navbar-form" action="/search/">
+        <input type="text" class="form-control" placeholder="Google Search" name="q">
+    </form>
+ </div>
+            
+            
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>

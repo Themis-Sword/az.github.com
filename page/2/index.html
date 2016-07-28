@@ -102,7 +102,7 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(10)</small></a></li>
+				    <li><a href="/categories/artificial-intelligence/" class="animsition-link">artificial-intelligence<small>(11)</small></a></li>
 				    
 				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
 				    
@@ -214,6 +214,48 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h4><a href="/blog/06262015/li-yong-amazonde-awsda-jian-zi-ji-de-vpn/">利用Amazon的AWS搭建自己的VPN</a></h4>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2015-06-26T05:21:35.000Z" itemprop="datePublished">
+          2015-06-26
+      </time>
+    
+    
+    | 
+    <a href='/categories/web/'>web</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <img src="/images/aws.jpg">
+<h4 id="預備">預備</h4><ol>
+<li>申請<a href="https://aws.amazon.com">Amazon AWS服務</a></li>
+<li>進入<a href="http://console.aws.amazon.com">AWS控制台</a>，選擇亞太區東京的數據中心</li>
+<li>在Compute下創建EC2實例，選擇Ubuntu-64位操作系統，下載SSH密鑰文件並保存好</li>
+<li>Security Group下除了默認的SSH的22端口打開，增加一個新的TCP端口1723，以建立PPTP服務</li>
+<li>啟動實例</li>
+<li>在Elastic IP下申請一個固定的IP地址，並與上述實例綁定(如果停止實例，一定要把Elastic IP解除綁定，否則將被計費)
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/blog/06262015/li-yong-amazonde-awsda-jian-zi-ji-de-vpn/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -476,41 +518,6 @@
                     
                     <p class="pull-right readMore">
                         <a href="/blog/05122015/excerpt-machine-learning-tom-mitchell/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h4><a href="/blog/05102015/data-science-resources/">Data Science Resources</a></h4>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-05-10T14:01:26.000Z" itemprop="datePublished">
-          2015-05-10
-      </time>
-    
-    
-    | 
-    <a href='/categories/artificial-intelligence/'>artificial-intelligence</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        <h3 id="Blogs">Blogs</h3><p><a href="http://simplystatistics.org/">Simply Statistics</a>: Written by the Biostatistics professors at Johns Hopkins University who also run Coursera’s <a href="https://www.coursera.org/specialization/jhudatascience/1">Data Science Specialization</a><br><a href="http://blog.yhathq.com/">yhat’s blog</a>: Beginner-friendly content, usually in Python<br><a href="http://blog.kaggle.com/">No Free Hunch (Kaggle’s blog)</a>: Mostly interviews with competition winners, or updates on their competitions<br><a href="http://fastml.com/">FastML</a>: Various machine learning content, often with code<br><a href="http://blog.echen.me/">Edwin Chen</a>: Infrequently updated, but long and thoughtful pieces<br><a href="http://fivethirtyeight.com/">FiveThirtyEight</a>: Tons of timely data-related content<br><a href="http://machinelearningmastery.com/blog/">Machine Learning Mastery</a>: Frequent posts on machine learning, very accessible<br><a href="http://www.dataschool.io/">Data School</a>: Kevin Markham’s blog! Beginner-focused, with reference guides and videos<br><a href="http://mlwave.com/">MLWave</a>: Detailed posts on Kaggle competitions, by a Kaggle Master<br><a href="http://101.datascience.community/">Data Science 101</a>: Short, frequent content about all aspects of data science<br><a href="http://ml.posthaven.com/">ML in the Valley</a>: Thoughtful pieces by the Director of Analytics at Codecademy
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/blog/05102015/data-science-resources/">Read More...</a>
                     </p>
                     
                 </div>
