@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>深入理解不平衡數據分類問題(轉) | Themis_Sword&#39;s Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Themis_Sword's Blog">
+    <meta name="author" content="Themis_Sword">
+    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Themis_Sword&#39;s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/Business/" class="animsition-link">Business<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/Inspiring/" class="animsition-link">Inspiring<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/Justice/" class="animsition-link">Justice<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/Machine-Learning-Data-Analysis/" class="animsition-link">Machine Learning &amp; Data Analysis<small>(15)</small></a></li>
+				    
+				    <li><a href="/categories/Mood/" class="animsition-link">Mood<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/Python/" class="animsition-link">Python<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/Software/" class="animsition-link">Software<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/Web/" class="animsition-link">Web<small>(4)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            <li><a href="/information" class="animsition-link" title="Information">Information</a></li>
+            <li><a href="/gallery" class="animsition-link" title="Gallery">Gallery</a></li>
+            <li><a href="/timeline" class="animsition-link" title="Timeline">Timeline</a></li>
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/author" class="animsition-link" title="Author">Author</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Themis_Sword's Blog</a></li>
+                            <li class="nolink">Reverence for Nature, and Life.</li>
+                            
+                            
+                            
+                            
+                            
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2><span>Love, and to be Loved.</span></h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>我愛你，你是自由的。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-07-30T08:09:35.000Z" itemprop="datePublished">
+          2016-07-30
+      </time>
+    
+    
+    | 
+    <a href='/categories/Machine-Learning-Data-Analysis/'>Machine Learning &amp; Data Analysis</a>
+    
+    
+</span>
+                <h1>深入理解不平衡數據分類問題(轉)</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="摘要">摘要</h3><p>數據類別分布不平衡一直是數據挖掘鄰域的一大問題，當人們所關注的類別的樣本遠少於其他類別的樣本時，就會產生這個問題。數據類別不平衡問題在現實生活中經常出現，已引起研究者的廣泛注意。在本文中，我們首先介紹在數據分布不平衡場景下，分類的一些特性，簡單的回顧了數據分布不平衡在機器學習及現實應用中所造成的一些問題。介紹了用來衡量不平衡數據分類性能的特定指標，並列舉了一些已提出的解決方法。特別地，我們將介紹：數據預處理，代價敏感學習和集成技術三種主要方法，並做實驗，在類內及類間，對這三種方法做了比較。<a id="more"></a><br>我們會深入地討論數據的內在特征，在數據不平衡分類時引起的一系列主要問題，這有助於提高現有模型的性能。這些內在特征包括：小析取項問題；訓練集密度不足問題；不同類別數據重疊問題；噪音數據的識別；邊界數據的重要意義；訓練集和測試集的數據分布偏移問題。最後，我們會介紹幾個處理這些與不平衡數據共同出現的問題的方法和建議，並在具有內在特征的數據集上，做相關的實驗來研究學習算法的表現。</p>
+<h3 id="1-_背景">1. 背景</h3><p>在許多監督學習的應用中，不同類別的先驗概率差別很大，比如分類問題中，一個樣本屬於不同類別的概率可能會非常不同，這就是我們常說的類別不平衡問題。這個問題在現實生活中是很常見的：電信業、網站、金融行業、生態學、生物學，醫學等等，這已經成為現今數據挖掘領域中的一個突出問題。而且需要特別指出的是，從學習觀點來看，少數類往往是人們最關注的，而且錯分少數類樣本往往會造成巨大的損失。<br>數據不平衡之所以會造成分類困難，是因為標准的分類算法往往會偏向多數類(也稱負類)，所以對少數類(也稱正類)而言，會造成很大的錯分率。基於此，最近幾年有許多針對標准學習算法和集成技術的方法被提出用來解決這個問題。這些方法主要可以分為以下三組：  </p>
+<ol>
+<li>數據采樣：通過對訓練集進行采樣，產生一個近似平衡的數據集，然後用標准的的分類器來處理。  </li>
+<li>算法改進：對基本的學習算法進行修改，使其能更好的處理類別不平衡數據。  </li>
+<li>代價敏感學習：這類解決方案，結合了數據層面或算法層面的處理方法，也有的把這兩個層面的方法都結合進來。考慮在懲罰錯分樣本時，對錯分正例樣本給予更大的懲罰因子，然後使算法盡量最小化具有大的懲罰因子的樣本的錯誤。  </li>
+</ol>
+<p>在本文中，我們第一個目的是回顧處理該問題的方法學，對每組方法進行分類。列舉並簡單描述一些被應用在該領域中，最重要的傳統的算法的性質。而且做了一系列實驗比較之前提到的各方法的性能。<br>大部分研究表明，標准分類器在處理不平衡數據集時，性能驟降的原因主要是類別分布的傾斜，可以用不平衡率IR(Imbalance Ratio)來表示，其定義為多數類樣本數對少數類樣本數的比率。不過也有些研究表明造成這種性能下降的原因還有其他一些因素。所以，我們的第二個目的是討論6個和數據內在特征相關的重要問題。為了能更好的識別問題的所有類，這些問題都分類時應該考慮到。  </p>
+<ol>
+<li>小析取項的識別。  </li>
+<li>訓練集密度不足，或信息缺失。  </li>
+<li>不同類別數據重疊問題。  </li>
+<li>噪音數據的影響。  </li>
+<li>邊界樣本在區分正負例樣本時的重要意義，及其與噪音樣本的關系。  </li>
+<li>訓練集和測試集分布不一致問題,也稱數據集偏移(Shift)  </li>
+</ol>
+<p>通過集中分析數據的這些重要內在特征，有助於徹底研究這個問題，以便我們更好地理解不平衡分類的困難源自何處。特別地，為了強調這些特征意義，對於每種情景，我們都會設計一個實驗來展示該特征是如何影響分類算法的表現的。</p>
+<h3 id="2-_分類問題中的不平衡數據">2. 分類問題中的不平衡數據</h3><p>在這節中，我們首先介紹不平衡數據問題，然後介紹在不平衡分類問題下的性能衡量指標，這些指標和分類中常用指標不一樣。</p>
+<h4 id="2-1_數據不平衡問題">2.1 數據不平衡問題</h4><p>在分類問題域中，數據分布不平衡情景經常出現，這類問題的主要特征是某一類的樣本數遠大於其他類別的樣本數。而少數類又往往是最需要學習的概念，並且也是難於識別的，因為這類數據可能和某一特殊、重要的情形相關，或者獲取這類樣本的代價是昂貴的。最大數的情況下，不平衡問題是二分類問題。多分類問題也有，而且因為可能存在多個少數類，使得這類問題更加復雜。<br>因為大多數標准的學習算法考慮的是一個平衡數據集，當這些算法用到不平衡數據時，可能會產生一個局部優化的分類模型。比如覆蓋大多數的多數類樣本，而經常錯分少數類樣本。所以這些在平衡數據框架下能取得很好表現的算法，在處理不平衡數據時，並不一定能取得最好的性能。產生這種現像的原因有以下幾點：  </p>
+<ol>
+<li>用以指導學習過程的，衡量全局性能的指標，比如標准正確率，可能會偏向多數類。  </li>
+<li>預測正例樣本的分類規則可能非常的特殊，其覆蓋率很低，所以為了支持更一般化的規則(比如那些預測負例樣本的規則)，這些特殊規則可能被遺棄。  </li>
+<li>規模非常小的小類別簇可能會被錯認為噪音數據，從而被分類器遺棄。相反，少數幾個真正的噪音數據可能會降低少數類的識別，因為用來訓練少數類的樣本數更少。  </li>
+</ol>
+<p>在最近幾年，不平衡學習問題已經受到機器學習領域越來越多的關注，在現實生活中，不平衡學習問題的重要性日漸凸顯，因為該問題在許多應用中重復出現。例如高分辨率的高空成像，臭氧層預測，面部識別，以及特殊的藥物測試。重要的是要記住，少數類數據往往代表我們感興趣的概念，而且是最難以從真實數據中獲得樣本的。</p>
+<h4 id="2-2_不平衡域裡的衡量指標">2.2 不平衡域裡的衡量指標</h4><p>評價指標是評估分類性能的一個重要因素，指導著分類器的建模。在一個二分類問題中，混淆矩陣(表1)記錄著每個類被正確和錯誤分類的樣本數。<br>傳統上，准確率(Eq1)是最經常使用的實驗指標。然而，在不平衡數據集框架下，准確率不再是一個合適的指標，因為它沒能區分不同類別之間被正確分類的樣本數，所以它可能導出錯誤的結論，比如在數據集的IR為9的情況下，在把所有樣本都分為負例的情況下，一個分類器的正確率仍能達到90%，但這顯然是不准確的。<br><a href="https://www.codecogs.com/eqnedit.php?latex=Acc&space;=&space;\frac{TP&space;&plus;&space;TN}{TP&space;&plus;&space;TN&space;&plus;&space;FP&space;&plus;&space;FN}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Acc&space;=&space;\frac{TP&space;&plus;&space;TN}{TP&space;&plus;&space;TN&space;&plus;&space;FP&space;&plus;&space;FN}" title="Acc = \frac{TP + TN}{TP + TN + FP + FN}"></a> (1)<br>在不平衡領域中，為了考慮類別的分布，必須使用特定的指標來衡量分類器的性能。具體地，我們可以從表1獲得四個類別獨立的，衡量正負類分類性能的指標：  </p>
+<ul>
+<li><strong>True Positive Rate</strong>: TP = TP / (TP + FN) is the percentage of positive instances correnctly classified.  </li>
+<li><strong>True Negative Rate</strong>: TN = TN / (TN + FP) is the percentage of negetive instances correctly classified.  </li>
+<li><strong>False Positive Rate</strong>: FP = FP / (FP + TN) is the percentage of negative instances misclassified.  </li>
+<li><strong>False Negative Rate</strong>: FN = FN / (FN + TP) is the percentage of positive instances misclassified.<br>在這種分類情景下，為了使每個類都能取得較好的分類結果，必須結合正負類各自的指標。因為任何的一個單獨指標都不足以完成任務。<br><strong>Table 1</strong>: Confusion matrix for a two-class problem.  </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Positive Prediction</th>
+<th>Negative Prediction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Positive Class</td>
+<td>True Positive (TP)</td>
+<td>False Negative (FN)</td>
+</tr>
+<tr>
+<td>Negative Class</td>
+<td>False Positive (FP)</td>
+<td>True Negative (TN)</td>
+</tr>
+</tbody>
+</table>
+<p>一個統一了這些指標的比較有名的的評價標准是受試者工作特征曲線(Receiver Operating Characteristic,ROC)，該曲線可視化了收益和代價之間的權衡，即表明了不可能在不增加錯分正例的情況下，一味地增加正分正例的數量。ROC曲線下面積(Area Under the ROC Curve,AUC)對應於正確識別刺激源是噪聲還是信號加噪聲的概率。AUC提供了一個單一的衡量分類器性能的指標，可以用來評價哪個模型的平均性能更好。圖1展示了如何在二維圖表上建立ROC空間，其中Y軸是TPrate，而X軸是FPrate。點（0，0）和點（1，1）對應分類器的兩個極端情況，一個把所有樣本都預測為負例，一個把所有樣本都預測為正例。相反，點(0,1)代表最佳的分類器。AUC的指標可以通過計算曲線下面積得到。<br><a href="https://www.codecogs.com/eqnedit.php?latex=AUC&space;=&space;\frac{1&space;&plus;&space;TP&space;-&space;FP}{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?AUC&space;=&space;\frac{1&space;&plus;&space;TP&space;-&space;FP}{2}" title="AUC = \frac{1 + TP - FP}{2}"></a><br>在[1]中強調了這些用圖形來衡量分類器預測性能的方法的重要意義，根據作者闡述，這類型方法的主要好處在於可以在一個多維的空間下，檢測不同衡量方面之間的權衡。而不是將這些不同的方面簡單地歸結到一個任意的，單一的標量指標。特別的，他們還列舉了幾個使用這些圖形方法的最佳場景。比如，在不平衡數據領域中，當我們對正類感興趣時，推薦使用查准-召回曲線。進一步地，如果想知道每個模型的期望代價或收益可以通過分析代價曲線，lift以及ROI圖來得到。<br>正確率的幾何均值也是該領域中比較受關注的一個指標，可以定義如下：<br><a href="https://www.codecogs.com/eqnedit.php?latex=GM&space;=&space;\sqrt{\frac{TP}{TP&space;&plus;&space;FN}\cdot&space;\frac{TN}{TN&space;&plus;&space;FP}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?GM&space;=&space;\sqrt{\frac{TP}{TP&space;&plus;&space;FN}\cdot&space;\frac{TN}{TN&space;&plus;&space;FP}}" title="GM = \sqrt{\frac{TP}{TP + FN}\cdot \frac{TN}{TN + FP}}"></a><br>這個指標嘗試在取得較好平衡的情況下最大化兩個類別的正確率，是一個結合了兩個類別的指標。然而，因為幾何均值在TPrate和FPrate分布的對稱性，這種方法難於根據每個類別的准確率來建立不同的模型。另外一個常用的重要指標是F值，定義如下：<br><a href="https://www.codecogs.com/eqnedit.php?latex=F_{m}&space;=&space;\frac{(1&space;&plus;&space;\beta&space;^{2})(PPV\cdot&space;TP)}{\beta&space;^{2}PPV&space;&plus;&space;TP}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?F_{m}&space;=&space;\frac{(1&space;&plus;&space;\beta&space;^{2})(PPV\cdot&space;TP)}{\beta&space;^{2}PPV&space;&plus;&space;TP}" title="F_{m} = \frac{(1 + \beta ^{2})(PPV\cdot TP)}{\beta ^{2}PPV + TP}"></a><br><a href="https://www.codecogs.com/eqnedit.php?latex=PPV&space;=&space;\frac{TP}{TP&space;&plus;&space;FP}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?PPV&space;=&space;\frac{TP}{TP&space;&plus;&space;FP}" title="PPV = \frac{TP}{TP + FP}"></a><br>其中beta值常被設為1，即賦予TPrate和PPV(positive predictive value)一樣的權重。這個指標對PPV的改變會比對TPrate的改變更敏感，可以用來選擇子優化模型。<br>綜上，有些作者嘗試提出一些能盡量多的結合關於每個類別的分布信息的指標，用來衡量不平衡數據領域中分類器的最終性能。並且考慮將數據集的IR作為困難程度的一個指標。<br><img src="/images/Imbalance/1.png"><br><em>圖1. ROC曲線</em>  </p>
+<h3 id="3-_處理不平衡數據分類的常用方法">3. 處理不平衡數據分類的常用方法</h3><p>有許多的方法被提出用來處理類別不平衡問題，這些方法可以被劃分為兩大類：內在方法，包括創建新的分類算法或者修改現有的算法使其能處理類別不平衡問題；外在方法，對數據進行預處理，消除類別不平衡的影響。進一步的，代價敏感學習，將數據層面(外在)的方法和算法層面(內在)的方法都結合了進來。它對小類別樣本賦予更大的錯分懲罰項，然後盡力的最小化具有大的懲罰代價的樣本的錯誤。集成方法在不平衡領域中也經常被采用，這類方法要麼在數據層面修改集成學習算法，在每個分類器學習之前先對數據預處理；要麼在集成學習過程中嵌入一個代價敏感的框架。關於這些，在這節裡，我們將首先介紹預處理方面的技術，然後介紹代價敏感學習方法，最後我們提出一些在不平衡數據集框架下的集成技術。  </p>
+<h4 id="3-1_數據預處理技術：重采樣">3.1 數據預處理技術：重采樣</h4><p>在專業文獻中，我們可以發現一些關於重采樣技術的論文研究了通過改變類別分布，來處理不平衡數據集的效果。這些工作實驗性地證明應用預處理步驟來平衡類別分布常常是一個有用的解決方案。而且，這些技術的主要優點是它們是和底層的分類器無關的。<br>重采樣技術可以分為以下三類：  </p>
+<ol>
+<li>降采樣方法，通過刪除實例（一般是大類別樣本）來獲得原數據集的一個子集。  </li>
+<li>過采樣方法，通過復制一些實例或從原有的實例中創建新的實例來構建原數據集的一個超集。  </li>
+<li>混合方法，結合了上面的降采樣和過采樣方法。  </li>
+</ol>
+<p>在這些方法中，最簡單的預處理技術是非啟發式方法，比如隨機降采樣和過采樣。在第一種情形下，主要問題是它可能拋棄了潛在的對學習過程來說很重要的有用數據。對於隨機過采樣，一些作者認為這種方法會增加過擬合的可能性，因為它只是對現有實例的精確復制。<br>為了處理上面提到的問題，一些更復雜的方法相繼被提出。在這些方法中SMOTE(Synthetic Minotity Oversampling TEchnique)是這個領域裡最著名的一個。簡單來講，它的主要思想是，通過在小類別樣本之間插值的方法產生新的小類別樣本，來對訓練集進行過采樣。<br>在該方法下，對於每個小類別樣本，在其同類中查找k個最近鄰樣本，然後根據過采樣數量的要求，隨機從中選擇N個樣本，然後在這個小類別樣本和被選擇的每個鄰近樣本之間進行隨機線性插值，構成新的人工樣本。整個過程如圖2所示，其中<a href="https://www.codecogs.com/eqnedit.php?latex=x_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_{i}" title="x_{i}"></a>是選擇的樣本點，<a href="https://www.codecogs.com/eqnedit.php?latex=x_{i1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_{i1}" title="x_{i1}"></a>到<a href="https://www.codecogs.com/eqnedit.php?latex=x_{i4}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x_{i4}" title="x_{i4}"></a>是一些選擇的近鄰樣本，而<a href="https://www.codecogs.com/eqnedit.php?latex=r_{1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?r_{1}" title="r_{1}"></a>到<a href="https://www.codecogs.com/eqnedit.php?latex=r_{4}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?r_{4}" title="r_{4}"></a>是通過隨機插值產生的人工數據點。<br><img src="/images/Imbalance/2.png"><br><em>Fig 2. Ann illustration of how to create the synthetic data points in the SMOTE algorithm.</em>   </p>
+<p>然而，在過采樣技術中，尤其是SMOTE算法，過度泛化的問題在很大程度上要歸因於人工樣本的合成方式。准確的說，SMOTE對每個原少數類樣本都產生相同數目的人工樣本，而沒有考慮近鄰樣本。從而增加了不同類別樣本的重疊。有鑒於此，許多變形算法被提出來克服這種缺陷。一些代表性的工作包括：Boderline-SMOTE，Adaptive Synthetic Sampling，Safe-Level-SMOTE以及SPIDER2算法。<br>對於降采樣，大多數方法都是基於數據清理技術。在該領域一些代表性工作包括：ENN(edited nearest neighbor)規則，如果樣本的三個最近鄰中有兩個是跟自己不一樣的，那麼這個樣本將被移除。OOS(one-sided selection)，基於ENN技術的算法，整合了condensed nearest neighbor rule，Tomek Links以及neighborhood cleaning rule。此外，NearMiss-2方法選擇刪去那些和三個最遠距離的小類別樣本的平均距離最小的大類別樣本。還有的作者提出移除那些遠離決策邊界的多數類樣本。進一步地，可以用支持向量機來移除那些多余的或不相關的多數類樣本。最後，將數據預處理和數據清理技術相結合可以減少因采樣而引入的類別重疊問題。比如SMOTE和ENN，或TOMEK links結合。<br>另外還有一些基於聚類的采樣算法，這類算法都是先根據一些顯著的特征把訓練集分成幾組，然後再運用降采樣或過采樣技術。一些重要的例子包括：CBO(Cluster-Based Oversampling)，Class Purity Maximization，Sampling-Based Clustering，agglomerative Hierachical Clustering以及基於DBSCAN聚類的DBSMOTE算法。<br>最後，遺傳算法或粒子群算法在尋找最有用實例的應用中，經常有不錯的表現。所以在不平衡數據領域中，同樣也可以用這些算法來選擇合適的訓練數據集。通過選擇最佳的數據集，來提高一些算法的性能。為此，必須采用適合不平衡數據的指標來衡量分類的性能。  </p>
+<h4 id="3-2_代價敏感學習">3.2 代價敏感學習</h4><p>   代價敏感學習考慮給不同類別的樣本賦予不同的錯分代價，作為一個例子，表2展示了一個代價矩陣，記錄了將類別i的樣本錯分為類別j的懲罰因子C(i,j)。<br><strong>Table 2</strong>: Example of a cost matrix for a fraud detection classification problem.  </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Fraudulent</th>
+<th>Legitimate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Refuse</td>
+<td>20USD</td>
+<td>-20USD</td>
+</tr>
+<tr>
+<td>Approve</td>
+<td>-100USD</td>
+<td>50USD</td>
+</tr>
+</tbody>
+</table>
+<p>這些錯分代價值可以由專家直接給出，也可以通過其他方法學習得到。特別的，在解決不平衡數據分類問題中，我們通常對正例樣本更感興趣，因此，錯分正例的代價必須比錯分負例的代價要高，即C(+,-)&gt;C(-,+)。<br>給定代價矩陣，根據最小期望代價原則，一個實例應該被分到具有最小期望代價的類別中。把實例x分到i類別的期望代價R(i|x)可以表示如下：<br><a href="https://www.codecogs.com/eqnedit.php?latex=R(i|x)&space;=&space;\sum_{j}^{&space;}P(j|x)\cdot&space;C(i,j)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?R(i|x)&space;=&space;\sum_{j}^{&space;}P(j|x)\cdot&space;C(i,j)" title="R(i|x) = \sum_{j}^{ }P(j|x)\cdot C(i,j)"></a><br>其中P(j|x)是將實例分到類別j的概率。也就是說，一個分類器會將一個實例劃分為正例，當且僅當：<br><a href="https://www.codecogs.com/eqnedit.php?latex=P(0|x)\cdot&space;C(1,0)&plus;P(1|x)\cdot&space;C(1,1)\leq&space;P(0|x)\cdot&space;C(0,0)&plus;P(1|x)\cdot&space;C(0,1)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(0|x)\cdot&space;C(1,0)&plus;P(1|x)\cdot&space;C(1,1)\leq&space;P(0|x)\cdot&space;C(0,0)&plus;P(1|x)\cdot&space;C(0,1)" title="P(0|x)\cdot C(1,0)+P(1|x)\cdot C(1,1)\leq P(0|x)\cdot C(0,0)+P(1|x)\cdot C(0,1)"></a><br>等價於：<br><a href="https://www.codecogs.com/eqnedit.php?latex=P(0|x)\cdot&space;(C(1,0)-C(0,0))&space;\leq&space;P(1|x)\cdot&space;(C(0,1)-&space;C(1,1))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(0|x)\cdot&space;(C(1,0)-C(0,0))&space;\leq&space;P(1|x)\cdot&space;(C(0,1)-&space;C(1,1))" title="P(0|x)\cdot (C(1,0)-C(0,0)) \leq P(1|x)\cdot (C(0,1)- C(1,1))"></a><br>所以，對任意給定的代價矩陣，如果假定C(0,0) = C(1,1) = 0，則分類器將一個實例劃分為正例當且僅當：<br><a href="https://www.codecogs.com/eqnedit.php?latex=P(0|x)\cdot&space;C(1,0)&space;\leq&space;P(1|x)\cdot&space;C(0,1)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(0|x)\cdot&space;C(1,0)&space;\leq&space;P(1|x)\cdot&space;C(0,1)" title="P(0|x)\cdot C(1,0) \leq P(1|x)\cdot C(0,1)"></a><br>又因為P(0|x) = 1 - P(1|x)，我們可以得到一個閾值<a href="https://www.codecogs.com/eqnedit.php?latex=P^{*}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P^{*}" title="P^{*}"></a>，當<a href="https://www.codecogs.com/eqnedit.php?latex=P(1|x)&space;\geq&space;P^{*}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(1|x)&space;\geq&space;P^{*}" title="P(1|x) \geq P^{*}"></a>時，將實例分為正例，其中：<br><a href="https://www.codecogs.com/eqnedit.php?latex=P^{*}&space;=&space;\frac{C(1,0)}{C(1,0)&space;&plus;&space;C(0,0)}&space;=&space;\frac{FP}{FP&space;&plus;&space;FN}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P^{*}&space;=&space;\frac{C(1,0)}{C(1,0)&space;&plus;&space;C(0,0)}&space;=&space;\frac{FP}{FP&space;&plus;&space;FN}" title="P^{*} = \frac{C(1,0)}{C(1,0) + C(0,0)} = \frac{FP}{FP + FN}"></a> (9)<br>另外一個可行的方法是重新平衡原訓練集，使其比率為：<br>P(1)FN : P(0)FP (10)<br>其中，P(1)和P(0)是原訓練集中正例和負例的先驗概率。  </p>
+<p>總結下，一共有兩種主流的處理代價敏感問題的方法：  </p>
+<ol>
+<li>直接法：直接的代價敏感學習算法是通過直接引入錯分代價到學習算法來實現的。比如在決策樹歸納中，建樹策略適合於最小化錯分代價。代價信息用於：(1)選擇最優的屬性來劃分數據；(2)決定某棵子樹是否需要被剪枝。另一方面，在其他基於遺傳算法的方法中，可以將錯分代價結合進適應性函數中。  </li>
+<li>元學習：這類的方法學    意味著，要麼對訓練集進行預處理，要麼對輸出結果進行後期加工處理。在這樣的一個方式中，原始的學習算法可以不需要改變。代價敏感元學習算法可以進一步分為兩大類：閾值和采樣。兩者分別基於上面的等式9和等式10。<br>閾值法是基於基本的決策理論，即將實例分到具有最小期望代價的類別中。例如在一棵典型的二分類判定樹中，將葉結點中實例數最大的類作為葉結點的類別。一個代價敏感算法賦予結點某一類別，使得在該類別下結點的錯分代價最小。<br>采樣法是基於對訓練數據的修改，最流行的技術是根據代價矩陣，對原始訓練集的類別分布進行重采樣。可通過降/過采樣，或者賦予實例不同的權重。這些修改被證明是有效的，並且可以被應用到任何的非代價敏感學習算法中。  </li>
+</ol>
+<h4 id="3-3_集成方法">3.3 集成方法</h4><p>集成分類器，也稱多分類器系統，嘗試提高單個分類器的性能，通過建立多個分類器並組合這些分類器來最終得到一個性能優於任一基分類器的集成分類器。因此，基本想法是從原數據集中學習多個分類器，然後對於一個未知的實例，集合這些分類器對該實例的預測結果得到最終結果。<br>在最近幾年來，集成分類器已經成為解決類別不平衡問題的一個可行方案。集成方法是基於集成學習算法和前面提到的一些相關技術的組合，這些技術包括數據層面或算法層面的方法，也可以是代價敏感學習方法。在組合數據層面方法和集成學習算法的情形中，新的混合方法通常在訓練每個分類器之前都對數據進行預處理。另一方面，代價敏感的集成方法，在學習的過程中，不再是通過修改基分類器，來接受不同的懲罰代價，而是通過集成的學習算法來指導代價最小化過程。這樣，可以避免對基分類器的修改，但是仍存在一個主要缺點，即代價成本的定義。<br>集成學習方法在不平衡數據的應用的分類可以見論文[2],我們將其總結在圖3中。作者將不平衡數據中的集成方法分為4大類，首先，他們劃分了一類代價敏感提升方法，這類方法和代價敏感方法很相似，只是代價最小化過程是由一個提升算法來指導的。然後，劃分了另外三類方法，這三類方法有一個相同的特征，都是將數據預處理過程和集成學習算法相結合，不同之處在於使用的集成算法不一樣，分為bossting，bagging，hybrid ensembles。在[2]的研究中，作者總結到集成算法是值得嘗試的，通過對數據進行預處理以及訓練單個分類器可以提高得到的結果。他們也強調了一些簡單的方法具有不錯的性能，比如：RUSBoot，或者UnderBagging。這些方法雖然簡單，但相對一些復雜的算法，性能卻更好。<br><img src="/images/Imbalance/3.png"><br><em>Fig 3. Galar et al.’s proposed taxonomy for ensembles to address class imbalance problem. (See above-mentioned references for further information.)</em>  </p>
+<h3 id="5-_不平衡分類中與數據內在特征相關的問題">5. 不平衡分類中與數據內在特征相關的問題</h3><p>正如我們在引言中提到的，類別分布的偏斜本身並不會阻礙學習任務，但會造成一系列和這個問題相關的困難。這個現像在圖8得到很好的闡述，我們將SBAG在不同數據集中的性能畫在圖8中，為了找到一些感興趣的好的或壞的區域，我們根據數據的IR進行排序。但觀察可以得到，性能的好壞和IR並不存在固定的模式。在高不平衡率或低不平衡率中都有性能差的結果。<br>和這個現像相關的，在這節中，我們將討論問題自身的本質，為了能更好地突出這個問題，我們強調幾個能深刻影響不平衡分類結果的數據內在特征。<br>帶著這個目的，我們集中分析C4.5分類器，通過展示行為的一系列模式，來建立一個基礎但寫實的研究(呵，可以無視這句話)。相對於前面的章節，我們以實驗的方式進行。在這部分的研究中，我們致力於枚舉那些在處理不平衡數據分類中會遇到的情景。強調它們的主要問題，可以使得我們設計一個更好的算法來適應不同生境下的問題。<br><img src="/images/Imbalance/4.png"><br><em>Fig 8. Performance in training and testing for the C4.5 decision tree with SBAG as a function of IR.</em><br>我們得承認這節描述的部分數據內在特征共享一些相同的特性，而且一個通常的情況是，給定一個數據集，可能會發現有幾個子問題同時出現。不過為了對這個話題有一個全局的介紹，我們只從簡化的角度來考慮這些情景。<br>首先，我們討論在不平衡數據集中的小析取項問題，然後分析數據集的大小問題以及訓練集密度不足問題。其次，我們關注類別重疊問題，展示其在不平衡領域裡的重要意義。接著討論噪音數據問題，分析它是如何影響數據預處理技術和分類算法的性能。緊接著，我們介紹邊界數據的概念以及其與噪音數據的關系。最後我們定義不平衡分類下的數據偏移問題。  </p>
+<h4 id="5-1_小析取項問題">5.1 小析取項問題</h4><p>類別不平衡問題的存在和小析取項問題是密切相關的，當一個概念是由一些子概念組成，而又存在未被充分代表的子概念時，就會出現小析取項問題。盡管大多數問題中都隱含有這些小析取項，但是在類別不平衡情形下，這些析取項的存在極大地增加了問題的復雜性。因為在該情形下，你很難知道某些樣本是代表一個實際的子概念還是僅僅只是噪音數據。這種情形可以從圖9得到直觀的理解，左部分我們人工地生成一個數據分布，其中少數類具有小析取項。右半部分是[3]“Subclus”問題中生成的數據集，裡面正負類都有小析取項，在中間正類的矩形區域內，負類的數量相對於正類是代表不足的。盡管在整個數據集中正類樣本只占很小的一部分，並且是分布在負類樣本裡面的。<br><img src="/images/Imbalance/5.png"><br><em>Fig 9. Example of small disjuncts on imbalanced data.</em>  </p>
+<p>對於那些基於分治策略的算法來說，小析取項問題變得更加嚴重。這類方法學會包含一個將原問題分解成子問題的步驟，像決策樹的生成過程，會導致數據殘片的產生，即將原數據集劃分成幾個子集，而每個子集都只有很少的一些代表性實例。如果數據集的IR很高，那麼明顯的，這種不利因素將更加嚴重。<br>Weiss 深入地研究了這個問題，並列舉了幾個處理小析取問題的技術：  </p>
+<ol>
+<li>獲取額外的訓練數據。數據集不足會引誘小析取項這個幽靈的出現，特別是對於少數類而言。而只要通過一個明智的采樣策略就能更好的覆蓋這些區域。  </li>
+<li>使用一個更合適的歸納偏置。如果我們的目標是能夠正確地檢測小析取項區域，則必須運用一些復雜的機制來避免算法對問題的大面積區域的偏向。例如，[3]修改CN2，使其對大析取項使用一般化的最大偏差，而對小析取項應用一個特殊的最大偏差。然而，這樣同樣會降低小析取項的性能(嗯，不是很明白)。因此有些作者提出改進搜索，並對大析取項和小析取項分別使用不同的學習方式。  </li>
+<li>使用更合適的指標。這在廣義上來說，和之前提到的問題是相關的。對不平衡數據來說，在數據挖掘過程中建議使用特別的衡量指標。在取得分類模型時，位於小析取項中的少數類在一定程度上能獲得正的加權。比如，分別使用多數類和少數類的精確率和召回率，可以產生對正類來說更精確的規則。  </li>
+<li>避免剪枝。剪枝通過對學習得到的規則的泛化，傾向與消除大多數的小析取項。所以這類方法是不推薦的。  </li>
+<li>應用提升方法。提升算法，像AdaBoost算法，是一類迭代算法，在每輪迭代中對訓練集的分布設置不同的權重，對於錯誤分類的樣本，其權重將被增大，而被正確分類的樣本，其權重將減小。因為在小析取項裡的實例是難於識別的，我們有理由相信，提升算法將會提高分類這些實例的性能。在這種想法下，有很多算法被提出，通過修改標准的提升算法的權重更新機制，來提高分類少數類和小析取項的性能。  </li>
+</ol>
+<p>最後，我們必須強調CBO方法的使用。CBO是一個重采樣策略，會同時消除類間和類內的不平衡。具體的，該方法在第一步使用K-means算法來檢測正負類的子簇。在第二步，算法隨機的復制每個子簇的樣本(除了最大的負類子簇)，來獲得一個在類間和類內都平衡的子簇分布。這些子簇可以看成數據集裡的小析取項，所以這個預處理機制的目的在於強調這些區域的重要性。<br>為了顯示這個方法的有效性，我們在之前提到的兩個人工數據集上做了簡單的分析，研究C4.5分類器在原數據集和預處理過的數據集上的性能，並分析每個情形下學習到的邊界。<br>表20展示了C4.5在每個情形下的結果，其中必須強調的是，CBO的應用增強了所有類的識別。在C4.5分類器的可視化輸出中(圖10)，對於第一種情形，原始的數據中沒有一個正例被識別出，存在對負例過度泛化的現像。而采用CBO方法，通過平均復制11.5個正例樣本(對原數據集裡的正例來說)和1.25個負例樣本(對原數據集的負例來說)，能正確地識別出數據集裡正例的4個子簇。對於另外一個問題，在原始的訓練集中同樣存在過度泛化的現像，不過在該情形下，是正例附近的負例樣本被錯分了。再次地，CBO方法的應用，使得所有的數據都能完美的被分類。在該情形下，每個數據點平均復制了7.8個正例和1.12個負例。<br><img src="/images/Imbalance/6.png"><br><em>Fig 10. Boundaries obtained by C4.5 with the original and preprocessed data using CBO for addressing the problem of small disjuncts. The new instances<br>for (b) and (d) are just replicates of the initial examples.</em>  </p>
+<h4 id="5-2_密度不足">5.2 密度不足</h4><p>在分類中可能出現的一個問題是樣本規模過小，這個和“密度不足”或者“信息缺乏”是密切相關的。這個問題會導致算法沒有足夠的數據來概括樣本的分布，並且在高維或者數據不平衡的情況下，會變得更加困難。對該問題的一個可視化展現見圖11，在左邊的散點圖展示了yeast4問題中原始實例的10%的訓練數據，而右圖展示了所有的數據。我們可以理解，當沒有足夠的數據來代表問題的邊界時，學習算法是難以獲得一個具有很好的泛化能力的模型的。最重要的是，當少數類樣本的密度太低時，它們可能會被簡單地看成噪音數據。<br><img src="/images/Imbalance/7.png"><br><em>Fig 11. Lack of density or small sample size on the yeast4 dataset</em>  </p>
+<p>不平衡數據和小規模樣本問題的結合給研究社區帶來了新的挑戰，在這種場景下，少數類不能很好地被代表，並且用來學習這種數據空間的知識模型變得太過具體，從而導致過擬合。進一步地，正如前面章節所闡述的，訓練數據的密度不足可能會引入小析取項問題。所以兩個具有同樣IR的數據集不能簡單地就認為它們代表相同的復雜性，因為訓練集中少數類樣本是如何代表也是很重要(小析取項的存在與否)。<br>在[4]中，作者研究了類別分布和訓練集規模對分類器性能的影響，並以C4.5作為基本的學習算法。他們分析了不同規模的訓練數據集和不同IR的不平衡數據集，並觀察在這些情形下的AUC值。<br>他們的第一個發現比較瑣細，即訓練集的數量越多，性能的結果越好，和類別的分布無關。他們強調的第二個重要事實是不同訓練集規模下，產生最好性能的IR有時是不同的，這支持了對於一個學習任務可能存在一個“最好”的類別邊際分布的觀點，也表明了一個漸進的采樣算法在定位，用於產生最好或接近最好分類性能的類別分布是有用的。<br>為了可視化實例的密度對學習過程的影響，在圖12，我們展示了C4.5在VOWE10問題中訓練集和測試集的AUC值。訓練集的數量從原數據集的10%到整個原數據集。這個簡短的實驗是采用5折交叉驗證，而且測試集數量不變，比如保持為原測試集的20%；圖中展示的結果5折交叉驗證的平均值。<br>從圖可以看出，分類性能基本是跟訓練集的實例數呈正相關的，這也反映了先前[4]中列舉的一些發現。<br><img src="/images/Imbalance/8.png"><br><em>Fig 12. AUC performance for the C4.5 classifier with respect to the proportion of examples in the training set for the vowel0 problem.</em>  </p>
+<h4 id="5-3_類別重疊">5.3 類別重疊</h4><p>當在數據空間的某個區域中，來自每個類別的訓練數據都差不多時，就會出現類別重疊問題。這種情形會導致在重疊區域中，每個類別的數據都有幾乎相同的先驗概率，使得區分兩個類別的數據變得非常困難甚至是不可能。事實上，任何”線性可分”問題都可以由任一簡單的分類器解決，而不管類別是如何分布的(不太明白這句話在這裡的意思)。<br>有許多工作致力於研究類別重疊與類別不平衡問題之間的關系，特別的，在[5]中，作者采用了幾個具有不同IR的，不同類別重疊程度的人工數據做實驗。他們得出結論：類別概率並不是影響分類性能的主要障礙，造成主要障礙的是類別的重疊程度。<br>為了重現這個情景，我們創建了一個具有1000個樣本，IR率為9的人工數據，即每10個樣本中只有一個正例。然後，我們讓個別特征值產生不同程度的重疊，從沒有重疊到100%重疊。我們使用C4.5分類器來研究在固定IR下類別重疊對分類的影響。表21展示了實驗結果，從中可以觀察到隨著重疊程度的增加，性能也急劇變差。另外，圖13也展示了這個問題，從圖可以看出當發生重疊時，決策樹不僅對兩個類別都不能正確的區分，而且是偏向多數類的，導致AUC值很低。<br>此外，在[6]中也做了類似的研究，作者提出了兩種框架，一方面，研究重疊區域的IR和全局的IR相似的情況下的聯系，另一方面研究重疊區域的IR和全局的IR相反的情況下的聯系(在重疊區域少數類的樣本密度要大於多數的樣本密度)。他們證明：當重疊區的數據是不平衡時，重疊區的IR會比重疊區的大小更重要。再者，使用更全局性的學習過程的分類器會取得較好的TP率，而使用局部性學習過程的模型先比前者會獲得更好的TN率。<br><strong>Table 21</strong>: Performance obtained by C4.5 with different degrees of overlapping. </p>
+<table>
+<thead>
+<tr>
+<th>Overlap degree (%)</th>
+<th>TP</th>
+<th>TN</th>
+<th>AUC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td>20</td>
+<td>.79.00</td>
+<td>1.000</td>
+<td>.8950</td>
+</tr>
+<tr>
+<td>40</td>
+<td>.4900</td>
+<td>1.000</td>
+<td>.7450</td>
+</tr>
+<tr>
+<td>50</td>
+<td>.4700</td>
+<td>1.000</td>
+<td>.7350</td>
+</tr>
+<tr>
+<td>60</td>
+<td>.4200</td>
+<td>1.000</td>
+<td>.7100</td>
+</tr>
+<tr>
+<td>80</td>
+<td>.2100</td>
+<td>.9989</td>
+<td>.6044</td>
+</tr>
+<tr>
+<td>100</td>
+<td>.0000</td>
+<td>1.000</td>
+<td>.5000</td>
+</tr>
+</tbody>
+</table>
+<img src="/images/Imbalance/9.png">  
+<p><em>Fig 13. Example of overlapping imbalanced datasets: boundaries detected by C4.5.</em>  </p>
+<p>另外還有作者研究重疊和類別不平衡對模型復雜性的影響，並證明相比於類別不平衡，類別重疊在模型復雜度方面是更嚴重的影響因素，而且如果這兩個因素一起出現，則造成的困難要比任一單獨的因素造成的問題嚴重得多。為了證明，他們也同樣使用了人工數據，並且用SVM來分類。他們測試了不同的不平衡率，類別的重疊程度，以及不平衡和重疊共同出現的情況。他們的結果表明，當訓練集規模小時，高不平衡率會造成性能的急劇下降，可以歸因於小析取項的出現。而重疊造成的性能損失較一貫，和訓練集的大小無關。然而當兩者共同出現時，分類的性能將顯著地退化。<br>在最近的一個研究中，作者從現實數據中提取了幾個有趣的發現。特別的，研究了不同數據集的性能，並根據不同的數據復雜性指標(包括IR)排序，以期發現性能好或差的有趣區域。然而沒有發現任何有趣的區域是和IR相關的。不過對於那些衡量重疊程度的指標，確有發現相關的有趣區域。<br>最後，在[6]中，提出一個結合了數據預處理和特征選擇(嚴格按照這個順序)的方法，在該方法下，數據預處理步驟可以解決類別分布和小析取項的問題，而特征選擇在一定程度上減小了重疊程度。從更一般的角度來說，這種方法背後的思想在於用不同的方法去解決數據的不同復雜性問題，包括類別重疊，特征不相關或特征冗余，噪音數據，類別不平衡，數據規模相對特征維度比率過小等等。  </p>
+<h4 id="5-4_噪音數據">5.4 噪音數據</h4><p>噪音數據對任一數據挖掘系統的表現都會造成影響是眾所周知的，在不平衡數據場景下，噪音數據的存在對少數類的影響要比在正常情況下深遠得多。因為初始的正例樣本較少，只要很少的“噪音”數據就會影響子概念的學習。這個問題從圖14可以得到描述，從中我們可以觀察到在Subclus問題中，采用SMOTE+C4.5算法，在沒有噪音數據的情況下可以獲得的較好的決策邊界，而在引入20%服從高斯分布的噪音數據後便生成錯誤的決策邊界。<br><img src="/images/Imbalance/10.png"><br><em>Fig 14. Example of the effect of noise in imbalanced datasets for SMOTE+C4.5 in the Subclus dataset.</em>  </p>
+<p>根據[7],“噪音區域”在一定程度上可以被看成“小析取項”，為了避免錯誤地對這些樣本生成判別函數，必須運用一些過擬合控制技術，如剪枝技術。然而，這種方法的障礙在於一些正確的少數類將被忽略。在這種方式下，為了對問題的所有類能有一個全局的好的表現，應該注意調整學習器的偏差。<br>例如，Batuwita和Palade設計了FSVM-CIL算法，融合了支持向量機和模糊邏輯，意在反映不同訓練樣本的類內重要性，抑制異常點和噪音的影響。主要思想是對正負例分別賦予不同的模糊隸屬度值，將這個信息結合進SVM學習算法中，想在尋找分界面的時候減少異常點和噪音的影響。<br>有作者研究了類別不平衡以及噪音對不同分類算法和數據采樣技術的影響。在這個研究中，作者提取了3個重要的教訓：  </p>
+<ol>
+<li>相比於類別不平衡，分類算法對噪音數據更敏感。然而，當不平衡率急劇增大時，它在對分類算法的性能以及采樣技術的影響中扮演更重要的角色。  </li>
+<li>關於數據預處理機制，簡單的降采樣，比如隨機降采樣或ENN在所有程度的噪音數據和類別不平衡下，整體上表現最佳。特別的，隨著不平衡程度的增加，ENN對噪音數據更具魯棒性(這個可能理解有誤)。另外OSS對噪音程度的增加相對不受影響。其他技術，像隨機過采樣，SMOTE或者Borderline-SMOTE在平均上取得不錯的結果，但沒有降采樣一樣的表現。  </li>
+<li>最後，在不平衡和噪音數據上的測試算法中，最具魯棒性的算法是貝葉斯分類器和支持向量機。平均性能要優於規則歸納算法和基於實例的算法。再者，雖然大多數算法在不平衡率增加時，AUC值只有很小的變化。Radial Basis Functions的性能在不平衡率增加時，將嚴重受阻。對於規則學習算法，相比於其他算法，性能更容易受噪音數據的影響。  </li>
+</ol>
+<p>另外，在[8]中作者提出了一個相似的研究，探索噪音數據和不平衡在Bagging和Boosting技術中的影響。他們的結果顯示，沒有發生替換的Bagging方法的優勢(這個也不是很理解)，並且他們推薦在采用Boosting過程之前先運用降噪技術處理數據。<br>作為最後的備注，我們簡單地介紹一個研究噪音數據對特定的不平衡數據問題的影響的實驗，比如subclus數據集。表22總結了C4.5在沒有任何預處理及其他四種不同預處理方法下的結果，這些方法包括：隨機降采樣，SMOTE，SMOTE+ENN以及SPRIDER2，一種被設計用來突出噪音和邊界樣本的方法，將在下節仔細介紹。<br>這個表分成兩個部分，左半部分顯示的是原始數據集，而右半部分是增加了20%服從高斯分布的噪音數據。從這個表，我們可以得出結論：在所有情形下，噪音數據的存在都會降低分類器的性能。特別是對於正例樣本(TPrate)。至於預處理技術，表現最好的是SMOTE+ENN和SPIDER2，兩者都包含了一個清理機制，來減輕噪音數據的問題，不過後者對邊界的少數類樣本會存在過采樣問題。<br><img src="/images/Imbalance/11.png">  </p>
+<h4 id="5-5_邊界樣本">5.5 邊界樣本</h4><p>受[9]啟示，我們將區分樣本為安全樣本，噪音樣本和邊界樣本。所謂的安全樣本是位於和類別標簽同一類的區域的樣本。而噪音數據，就像之前章節介紹的那樣，是一類樣本位於另一類區域裡的樣本(比較拗口，不過大家應該懂的)。最後，邊界樣本則是位於類別邊界附近的樣本，該區域少數類和多數類樣本會發生重疊。圖15展示了兩個數據集，分別叫做”Paw”和“Clover”，前一個數據集的少數類被分為3個橢圓子區域，其中兩個相互緊挨，剩下的較小的一個被隔開。後面一個也是一個線性不可分數據集，其中少數類的分布像一朵花的橢圓花瓣，使得通過檢測邊界樣本來獲得一個對類別的正確判別，變得很困難。<br>噪音數據問題和邊界樣本的控制是緊密相關的，在3.1節簡單介紹的清理技術可以用到這邊，或做為檢測和強調那些邊界樣本的基礎，而且最重要的是為了將它們從噪音數據中區分開，可能會降低分類器的整體性能。簡單來說，邊界區域定義的越好，正負類的區分也將越精確。<br>在[10]提出了SPIDER家族方法，用來緩解在標准清理技術中用降低特異度的代價下提升敏感度的問題。SPIDER技術通過結合一個對多數類的清理和對邊界少數類的局部過采樣來工作。<br>我們也發現其他類似的相關技術，如Borderline-SMOTE，它力圖對邊界區域的少數類樣本進行過采樣。通過定義一系列“危險”數據，比如那些出現在邊界區域容易被錯分的樣本。采用SMOTE在邊界附近生成人工的少數類樣本。<br>其他的像Safe-Level-SMOTE和ADASYN等方法也是以類似的方式工作的。前者是基於如下的前提假設：前面提到的方法如，SMOTE, Borderline-SMOTE可能會在不合適的地方，如重疊區域或噪音區域生成人工數據。所以，作者在生成人工實例之前，為每個正例樣本計算一個“安全級別”的值，然後在安全級別最大的樣本附近生成人工數據。在另一方面，ASASYN算法的關鍵思想是使用密度分布作為標准來自動決定每個少數類樣本需要生成的人工樣本數。通過自適應地改變不同少數類樣本的權重來抵消分布的傾斜。<br>在[11]中，作者使用一個層次的模糊規則學習方法，對邊界區域的問題子空間定義一個更大的粒度。結果表明該算法在高度不平衡數據集中顯示了很好的競爭性。<br>最後，在[12]作者提出了一系列實驗表明，邊界樣本的數量會嚴重地影響分類器的性能。他們表明，集中重采樣機制(比如Neighborhood Cleaning Rule或者SPIDER2)在邊界數據足夠多的情況下，表現良好。然而，當數據較少的時候，過采樣方法會提升少數類的准確率。<br><img src="/images/Imbalance/12.png">  </p>
+<p>SPIDER2方法在Paw和Clover問題的性能列於表15。根據樣本的數量和IR(600-5或800-7)以及干擾率(定義為邊界數據中，來著少數類子區域的樣本的比例(這個也可能理解有誤))的不同，每個數據集中都有10個不同的問題。從這些結果中，我們必須強調：使用SPIDER2的預處理步驟，能帶來一定的好處，特別是對於那些有高干擾率的問題，這些問題一般都是更難處理的。<br>另外，作為這個方法的一個可視化例子，圖16，17展示了用C4.5來處理Paw和Clover問題，所檢測到的分界區域。其中分別展示了在原數據集上和用SPIDER2處理後的結果。從這些結果，我們可以得出結論：使用一種方法學來強調邊界區域對於正確識別少數類樣本很有好處(見表23)。<br><img src="/images/Imbalance/13.png">  </p>
+<h4 id="5-6_數據偏移">5.6 數據偏移</h4><p>數據集偏移問題定義為訓練集和測試集服從不同的分布。這是一個會影響所有類型的分類器性能的共同問題。並且因為采樣選擇偏差的原因，這個問題經常出現。輕度的數據偏移在大多數的現實問題都有出現過，不過一般的分類器都可以在不嚴重損失性能的前提下解決這個問題。<br>然而，在處理不平衡分類問題時數據偏移變得特別重要。因為在高度不平衡域中，少數類因代表樣本特別少，對單個分類錯誤特別敏感。在最極端的情況下，一個單個的少數類樣本的錯分，會導致性能的顯著下降。<br><img src="/images/Imbalance/14.png">  </p>
+<p>為了有個清晰的理解，圖18，19展示了兩個數據偏移影響不平衡分類的例子。在第一種情況下(圖18)，很容易地看出在訓練集的劃分很完美地移到了測試集。然而，在第二種情況下(圖19)，應該注意到，在訓練集中，少數類裡位於底端及最右邊的樣本，在測試集中是位於多數類的區域中的，導致訓練集和測試集在性能上的差異。<br>因為數據偏移問題和不平衡分類是高度相關的，所以在未來的研究中關注這個話題將是一個有趣的視角。研究在不平衡域裡的數據偏移有兩種潛在的不同方法。  </p>
+<ol>
+<li>第一種是關注數據偏移的內在本質，即感興趣的數據存在一定程度的偏移，導致性能下降。在這種情況下，我們可以設計技術，來發現並衡量數據偏移，並且集中關注少數類樣本。再者，我們可以設計能在數據偏移條件下工作的算法，可以通過預處理技術或設計特別的算法。在兩種情況下，我們都沒發現有任何文獻是，關注在數據偏移的情況下，對不平衡數據分類的問題。  </li>
+<li>第二種關於處理不平衡分類情況下的數據偏移的方法是和引起數據偏移原因相關的。目前驗證的最先進技術是通過分層的交差驗證技術，而該技術是學習過程中一個會產生數據偏移的潛在源頭。需要設計一個更合適的驗證技術，來避免人工的引入數據偏移。  </li>
+</ol>
+<h3 id="6-_總結">6. 總結</h3><hr>
+<p>在這篇論文中我們回顧了不平衡數據下的分類問題，主要集中在兩個方面：1. 展現了一些處理該問題的主要方法，即：數據預處理，代價敏感學習和集成技術。  </p>
+<ol>
+<li>深入地討論了數據內在特征對不平衡數據學習過程的影響。  </li>
+</ol>
+<p>主要地，我們指出數據自身的不平衡率對分類器性能的影響並不是最重要的，還有其他一些因素需要考慮。我們提出了6種不同的情形，這些情形和分布傾斜的數據集相結合，對分類器取得良好性能帶來了很大的障礙。比如小析取項的存在，密度不足或者小規模樣本數據，類別重疊，噪音數據，對邊界數據的正確管理以及數據偏移。<br>對於上面提到的每個問題，我們指出使學習算法發生錯誤偏差的主要特征，並且展現了近幾年來在專門文獻裡提出的一些解決方案。這篇回顧性論文強調現在有必要研究前面提到的那些數據的內在特征，使得未來在不平衡數據分類的研究中，能集中在數據的最重要屬性的檢測和衡量中，以便能定義好的解決方案來克服問題。  </p>
+<p><a href="http://bbs.malab.cn/home.php?mod=space&amp;uid=19&amp;do=blog&amp;id=294" target="_blank" rel="external">Origin</a><br><a href="http://sci2s.ugr.es/sites/default/files/files/ComplementaryMaterial/imbalanced/2013-Lopez-INS.pdf" target="_blank" rel="external">An insight into classification with imbalanced data:Empirical results and current trends on using data intrinsic characteristics</a></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/blog/07282016/機器學習常用算法梳理/">
+        機器學習常用算法梳理 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="blog/07302016/深入理解不平衡數據分類問題-轉/" data-title="深入理解不平衡數據分類問題(轉)" data-url="http://www.aprilzephyr.com/blog/07302016/深入理解不平衡數據分類問題-轉/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Themis_Sword. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran.</a> Thanks!</p>
+            </div>
+<div align='right'>
+    <form class="navbar-form" action="/search/">
+        <input type="text" class="form-control" placeholder="Google Search" name="q">
+    </form>
+ </div>
+            
+            
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>

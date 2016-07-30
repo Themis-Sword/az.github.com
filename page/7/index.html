@@ -108,7 +108,7 @@
 				    
 				    <li><a href="/categories/Justice/" class="animsition-link">Justice<small>(3)</small></a></li>
 				    
-				    <li><a href="/categories/Machine-Learning-Data-Analysis/" class="animsition-link">Machine Learning &amp; Data Analysis<small>(14)</small></a></li>
+				    <li><a href="/categories/Machine-Learning-Data-Analysis/" class="animsition-link">Machine Learning &amp; Data Analysis<small>(15)</small></a></li>
 				    
 				    <li><a href="/categories/Mood/" class="animsition-link">Mood<small>(18)</small></a></li>
 				    
@@ -212,6 +212,58 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h4><a href="/blog/03062014/fibonacci-cheng-fa-biao-primes/">Fibonacci序列, 乘法表與求素數的算法</a></h4>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2014-03-06T09:07:25.000Z" itemprop="datePublished">
+          2014-03-06
+      </time>
+    
+    
+    | 
+    <a href='/categories/Python/'>Python</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <h3 id="1-_不同算法實現Fibonacci數列">1. 不同算法實現Fibonacci數列</h3><p>1) 遞歸：  </p>
+<pre><code class="python">fib=<span class="keyword">lambda</span> n:<span class="number">1</span> <span class="keyword">if</span> n&lt;=<span class="number">2</span> <span class="keyword">else</span> fib(n-<span class="number">1</span>)+fib(n-<span class="number">2</span>)
+</code></pre>
+<p>2) 迭代：  </p>
+<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>
+ x,y=<span class="number">0</span>,<span class="number">1</span>
+ <span class="keyword">while</span>(n):
+  x,y,n=y,x+y,n-<span class="number">1</span>
+ <span class="keyword">return</span> x
+</code></pre>
+<p>3) 尾遞歸(SICP)：  </p>
+<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>
+ <span class="function"><span class="keyword">def</span> <span class="title">fib_iter</span><span class="params">(n,x,y)</span>:</span>
+  <span class="keyword">if</span> n==<span class="number">0</span> : <span class="keyword">return</span> x
+  <span class="keyword">else</span> : <span class="keyword">return</span> fib_iter(n-<span class="number">1</span>,y,x+y)
+ <span class="keyword">return</span> fib_iter(n,<span class="number">0</span>,<span class="number">1</span>)
+</code></pre>
+<p><a href="http://www.cnblogs.com/figure9/archive/2010/08/30/1812927.html">Origin</a>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/blog/03062014/fibonacci-cheng-fa-biao-primes/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -490,45 +542,6 @@
                     
                     <p class="pull-right readMore">
                         <a href="/blog/02182014/range-xrange-random/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h4><a href="/blog/02172014/destiny/">Destiny</a></h4>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2014-02-17T14:21:48.000Z" itemprop="datePublished">
-          2014-02-17
-      </time>
-    
-    
-    | 
-    <a href='/categories/Mood/'>Mood</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        <img src="/images/plumbossom.jpg">
-<p>If it’s meant to be, it will be.  </p>
-<p>Most things in the life seem to be predestined. Emotion, fortunes, jobs… No idea when it would burst into your life rather than when it would be going to vanish.  </p>
-<p>You are always desperate and hopeless when you are insulated from love or career you urgently desired days and nights.  </p>
-<p>Hallucination comes then, talks to yourself you are abandoned. Your doubt the Lord leaves you uncared even omitted.
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/blog/02172014/destiny/">Read More...</a>
                     </p>
                     
                 </div>
