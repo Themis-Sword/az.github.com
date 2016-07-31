@@ -229,148 +229,134 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
       		<h3 id="1-_不同算法實現Fibonacci數列">1. 不同算法實現Fibonacci數列</h3><p>1) 遞歸：  </p>
-<pre><code class="python">fib=<span class="keyword">lambda</span> n:<span class="number">1</span> <span class="keyword">if</span> n&lt;=<span class="number">2</span> <span class="keyword">else</span> fib(n-<span class="number">1</span>)+fib(n-<span class="number">2</span>)
-</code></pre>
-<p>2) 迭代：  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>
- x,y=<span class="number">0</span>,<span class="number">1</span>
- <span class="keyword">while</span>(n):
-  x,y,n=y,x+y,n-<span class="number">1</span>
- <span class="keyword">return</span> x
-</code></pre>
-<p>3) 尾遞歸(SICP)：  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>
- <span class="function"><span class="keyword">def</span> <span class="title">fib_iter</span><span class="params">(n,x,y)</span>:</span>
-  <span class="keyword">if</span> n==<span class="number">0</span> : <span class="keyword">return</span> x
-  <span class="keyword">else</span> : <span class="keyword">return</span> fib_iter(n-<span class="number">1</span>,y,x+y)
- <span class="keyword">return</span> fib_iter(n,<span class="number">0</span>,<span class="number">1</span>)
-</code></pre>
-<p><a href="http://www.cnblogs.com/figure9/archive/2010/08/30/1812927.html" target="_blank" rel="external">Origin</a><a id="more"></a>  </p>
+<pre><code>fib=lambda n:<span class="number">1</span> <span class="keyword">if</span> n&lt;=<span class="number">2</span> <span class="keyword">else</span> <span class="function"><span class="title">fib</span><span class="params">(n-<span class="number">1</span>)</span></span>+<span class="function"><span class="title">fib</span><span class="params">(n-<span class="number">2</span>)</span></span>  
+</code></pre><p>2) 迭代：  </p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>
+    x,y=<span class="number">0</span>,<span class="number">1</span>
+     <span class="keyword">while</span>(n):
+        x,y,n=y,x+y,n-<span class="number">1</span>
+    <span class="keyword">return</span> x
+</code></pre><p>3) 尾遞歸(SICP)：  </p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">fib_iter</span><span class="params">(n,x,y)</span>:</span>
+        <span class="keyword">if</span> n==<span class="number">0</span> : <span class="keyword">return</span> x
+        <span class="keyword">else</span> : <span class="keyword">return</span> fib_iter(n-<span class="number">1</span>,y,x+y)
+    <span class="keyword">return</span> fib_iter(n,<span class="number">0</span>,<span class="number">1</span>)
+</code></pre><p><a href="http://www.cnblogs.com/figure9/archive/2010/08/30/1812927.html" target="_blank" rel="external">Origin</a><a id="more"></a>  </p>
 <p>4-1) yield生成器(尾數不大於1000的序列):  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">fibonacci</span><span class="params">()</span>:</span>
-    a, b = <span class="number">0</span>, <span class="number">1</span>
-    <span class="keyword">while</span> <span class="keyword">True</span>:
-        <span class="keyword">yield</span> a
-        a,b = b,a+b
+<pre><code>def <span class="function"><span class="title">fibonacci</span><span class="params">()</span></span>:
+<span class="tag">a</span>, <span class="tag">b</span> = <span class="number">0</span>, <span class="number">1</span>
+while True:
+    yield <span class="tag">a</span>
+    <span class="tag">a</span>,<span class="tag">b</span> = <span class="tag">b</span>,a+<span class="tag">b</span>
 
-<span class="keyword">for</span> i <span class="keyword">in</span> fibonacci():
-    <span class="keyword">if</span> i &gt; <span class="number">1000</span>:
-        <span class="keyword">break</span>
-    <span class="keyword">print</span> i
-</code></pre>
-<p>4-2) yield生成器(生成10個元素的序列):  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">fibonacci</span><span class="params">(max)</span>:</span>
-    a, b, n = <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>
-    <span class="keyword">while</span> n &lt; max:
-        <span class="keyword">yield</span> a
-        a, b = b, a + b
-        n += <span class="number">1</span>
+<span class="keyword">for</span> <span class="tag">i</span> <span class="keyword">in</span> <span class="function"><span class="title">fibonacci</span><span class="params">()</span></span>:
+<span class="keyword">if</span> <span class="tag">i</span> &gt; <span class="number">1000</span>:
+    break
+print i
+</code></pre><p>4-2) yield生成器(生成10個元素的序列):  </p>
+<pre><code>def <span class="function"><span class="title">fibonacci</span><span class="params">(max)</span></span>:
+<span class="tag">a</span>, <span class="tag">b</span>, n = <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>
+while n &lt; max:
+    yield <span class="tag">a</span>
+    <span class="tag">a</span>, <span class="tag">b</span> = <span class="tag">b</span>, <span class="tag">a</span> + <span class="tag">b</span>
+    n += <span class="number">1</span>
 
-<span class="keyword">for</span> i <span class="keyword">in</span> fibonacci(<span class="number">10</span>):
-    <span class="keyword">print</span> i
-</code></pre>
-<h3 id="2-_九九乘法表">2. 九九乘法表</h3><pre><code class="python"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):
-　　<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,i+<span class="number">1</span>):
-　　　　print(<span class="string">" %d*%d=%d"</span> % (j,i,i*j)),
-　　<span class="keyword">print</span> <span class="string">'\n'</span>
-</code></pre>
-<h3 id="3-_求素數">3. 求素數</h3><p>01)  </p>
-<pre><code class="python">lis = []
-<span class="keyword">for</span> obj <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):
-    <span class="keyword">if</span> obj&gt;<span class="number">2</span>:
-        <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">2</span>,obj):
-            <span class="keyword">if</span> obj % x == <span class="number">0</span>:
-                lis.append(obj)
-lis = list(set(lis))
-primes = [obj <span class="keyword">for</span> obj <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>) <span class="keyword">if</span> obj <span class="keyword">not</span> <span class="keyword">in</span> lis]
+<span class="keyword">for</span> <span class="tag">i</span> <span class="keyword">in</span> <span class="function"><span class="title">fibonacci</span><span class="params">(<span class="number">10</span>)</span></span>:
+print i
+</code></pre><h3 id="2-_九九乘法表">2. 九九乘法表</h3><pre><code><span class="keyword">for</span> <span class="tag">i</span> <span class="keyword">in</span> <span class="function"><span class="title">range</span><span class="params">(<span class="number">1</span>,<span class="number">10</span>)</span></span>:
+　　<span class="keyword">for</span> j <span class="keyword">in</span> <span class="function"><span class="title">range</span><span class="params">(<span class="number">1</span>,i+<span class="number">1</span>)</span></span>:
+　　　　<span class="function"><span class="title">print</span><span class="params">(<span class="string">" %d*%d=%d"</span> % (j,i,i*j)</span></span>),
+　　print <span class="string">'\n'</span>
+</code></pre><h3 id="3-_求素數">3. 求素數</h3><p>01)  </p>
+<pre><code><span class="keyword">lis</span> = []
+<span class="keyword">for</span> obj <span class="keyword">in</span> <span class="keyword">range</span>(1,10):
+<span class="keyword">if</span> obj&gt;2:
+    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="keyword">range</span>(2,obj):
+        <span class="keyword">if</span> obj % x == 0:
+            <span class="keyword">lis</span>.<span class="keyword">append</span>(obj)
+<span class="keyword">lis</span> = <span class="keyword">list</span>(<span class="keyword">set</span>(<span class="keyword">lis</span>))
+primes = [obj <span class="keyword">for</span> obj <span class="keyword">in</span> <span class="keyword">range</span>(1,10) <span class="keyword">if</span> obj not <span class="keyword">in</span> <span class="keyword">lis</span>]
 <span class="keyword">print</span> primes
-</code></pre>
-<p>02)  利用python的數學函數  </p>
-<pre><code class="python"><span class="keyword">import</span> math  
+</code></pre><p>02)  利用python的數學函數  </p>
+<pre><code><span class="keyword">import</span> math  
 
 <span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n)</span>:</span>  
-    <span class="keyword">if</span> n &lt;= <span class="number">1</span>:  
+<span class="keyword">if</span> n &lt;= <span class="number">1</span>:  
+<span class="keyword">return</span> <span class="keyword">False</span> 
+<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, int(math.sqrt(n)) + <span class="number">1</span>):  
+<span class="keyword">if</span> n % i == <span class="number">0</span>:  
     <span class="keyword">return</span> <span class="keyword">False</span> 
-    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, int(math.sqrt(n)) + <span class="number">1</span>):  
+<span class="keyword">return</span> <span class="keyword">True</span> 
+</code></pre><p>03) 單行程序掃描素數  </p>
+<pre><code>from math import sqrt  
+<span class="keyword">N</span> = 100 
+[ p <span class="keyword">for</span> p <span class="keyword">in</span>   <span class="keyword">range</span>(2, <span class="keyword">N</span>) <span class="keyword">if</span> 0 not <span class="keyword">in</span> [ p% <span class="keyword">d</span> <span class="keyword">for</span> <span class="keyword">d</span> <span class="keyword">in</span> <span class="keyword">range</span>(2, int(<span class="literal">sqrt</span>(p))+1)] ]  
+</code></pre><p>04) 運用python的itertools模塊  </p>
+<pre><code><span class="keyword">from</span> itertools <span class="keyword">import</span> count  
+<span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n)</span>:</span>  
+<span class="keyword">if</span> n &lt;= <span class="number">1</span>:  
+    <span class="keyword">return</span> <span class="keyword">False</span> 
+<span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">2</span>):  
+    <span class="keyword">if</span> i * i &gt; n:  
+        <span class="keyword">return</span> <span class="keyword">True</span> 
+    <span class="keyword">if</span> n % i == <span class="number">0</span>:  
+        <span class="keyword">return</span> <span class="keyword">False</span>
+</code></pre><p>05)  </p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n)</span>:</span>  
+<span class="keyword">if</span> n &lt;= <span class="number">1</span>:  
+    <span class="keyword">return</span> <span class="keyword">False</span> 
+i = <span class="number">2</span> 
+<span class="keyword">while</span> i*i &lt;= n:  
     <span class="keyword">if</span> n % i == <span class="number">0</span>:  
         <span class="keyword">return</span> <span class="keyword">False</span> 
-    <span class="keyword">return</span> <span class="keyword">True</span>
-</code></pre>
-<p>03) 單行程序掃描素數  </p>
-<pre><code class="python"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt  
-N = <span class="number">100</span> 
-[ p <span class="keyword">for</span> p <span class="keyword">in</span>   range(<span class="number">2</span>, N) <span class="keyword">if</span> <span class="number">0</span> <span class="keyword">not</span> <span class="keyword">in</span> [ p% d <span class="keyword">for</span> d <span class="keyword">in</span> range(<span class="number">2</span>, int(sqrt(p))+<span class="number">1</span>)] ]
-</code></pre>
-<p>04) 運用python的itertools模塊  </p>
-<pre><code class="python"><span class="keyword">from</span> itertools <span class="keyword">import</span> count  
-<span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n)</span>:</span>  
-    <span class="keyword">if</span> n &lt;= <span class="number">1</span>:  
-        <span class="keyword">return</span> <span class="keyword">False</span> 
-    <span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">2</span>):  
-        <span class="keyword">if</span> i * i &gt; n:  
-            <span class="keyword">return</span> <span class="keyword">True</span> 
-        <span class="keyword">if</span> n % i == <span class="number">0</span>:  
-            <span class="keyword">return</span> <span class="keyword">False</span>
-</code></pre>
-<p>05)  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n)</span>:</span>  
-    <span class="keyword">if</span> n &lt;= <span class="number">1</span>:  
-        <span class="keyword">return</span> <span class="keyword">False</span> 
-    i = <span class="number">2</span> 
-    <span class="keyword">while</span> i*i &lt;= n:  
-        <span class="keyword">if</span> n % i == <span class="number">0</span>:  
-            <span class="keyword">return</span> <span class="keyword">False</span> 
-        i += <span class="number">1</span> 
-    <span class="keyword">return</span> <span class="keyword">True</span>
-</code></pre>
-<h3 id="4-_從Python求素數到list與dict的比較(轉)">4. 從Python求素數到list與dict的比較(轉)</h3><p><strong>原理:</strong><br>素數，指在一個大於1的自然數中，除了1和此整數自身外，不能被其他自然數整除的數。在加密應用中起重要的位置，比如廣為人知的RSA算法中，就是基於大整數的因式分解難題，尋找兩個超大的素數然後相乘作為密鑰的。一個比較常見的求素數的辦法是<a href="http://zh.wikipedia.org/wiki/%E5%9F%83%E6%8B%89%E6%89%98%E6%96%AF%E7%89%B9%E5%B0%BC%E7%AD%9B%E6%B3%95" target="_blank" rel="external">埃拉托斯特尼篩法(the Sieve of Eratosthenes)</a>，說簡單一點就是畫表格，然後刪表格，如圖所示：<br><img src="/images/sieve.gif"><br>從2開始依次往後面數，如果當前數字一個素數，那麽就將所有其倍數的數從表中刪除或者標記，然後最終得到所有的素數。  </p>
+    i += <span class="number">1</span> 
+<span class="keyword">return</span> <span class="keyword">True</span> 
+</code></pre><h3 id="4-_從Python求素數到list與dict的比較(轉)">4. 從Python求素數到list與dict的比較(轉)</h3><p><strong>原理:</strong><br>素數，指在一個大於1的自然數中，除了1和此整數自身外，不能被其他自然數整除的數。在加密應用中起重要的位置，比如廣為人知的RSA算法中，就是基於大整數的因式分解難題，尋找兩個超大的素數然後相乘作為密鑰的。一個比較常見的求素數的辦法是<a href="http://zh.wikipedia.org/wiki/%E5%9F%83%E6%8B%89%E6%89%98%E6%96%AF%E7%89%B9%E5%B0%BC%E7%AD%9B%E6%B3%95" target="_blank" rel="external">埃拉托斯特尼篩法(the Sieve of Eratosthenes)</a>，說簡單一點就是畫表格，然後刪表格，如圖所示：<br><img src="/images/sieve.gif"><br>從2開始依次往後面數，如果當前數字一個素數，那麽就將所有其倍數的數從表中刪除或者標記，然後最終得到所有的素數。  </p>
 <p><strong>實現:</strong><br>01)<br>首先用dic存儲n範圍內的元素，然後依次標記，最後從頭掃描一次dic，把合適的元素放在list中返回結果  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">prime</span><span class="params">(n)</span>:</span>
-    lis = {}
-    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">2</span>,n+<span class="number">1</span>):     
-        <span class="keyword">if</span> <span class="keyword">not</span> i <span class="keyword">in</span> lis:
-            lis[i] = <span class="number">1</span>
-            k = i*<span class="number">2</span>
-            <span class="keyword">while</span> k &lt;= n:
-                lis[k] = <span class="number">0</span>
-                k = k+i
-    ans = []    
-    <span class="keyword">for</span> i <span class="keyword">in</span> lis:
-        <span class="keyword">if</span> lis[i] == <span class="number">1</span>:
-            ans.append(i)
-    <span class="keyword">return</span> ans
-</code></pre>
-<p>測試以後得到的結果是：求一千萬以內的素數用了9.68秒。<br>可是我覺得使用1個dict和1個list存會很浪費空間（其實不然，一千萬以內的素數只有66萬個，相對一千萬來說可以忽略不計），所以想改進一下算法。  </p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">prime</span><span class="params">(n)</span>:</span>
+lis = {}
+<span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">2</span>,n+<span class="number">1</span>):     
+    <span class="keyword">if</span> <span class="keyword">not</span> i <span class="keyword">in</span> lis:
+        lis[i] = <span class="number">1</span>
+        k = i*<span class="number">2</span>
+        <span class="keyword">while</span> k &lt;= n:
+            lis[k] = <span class="number">0</span>
+            k = k+i
+ans = []    
+<span class="keyword">for</span> i <span class="keyword">in</span> lis:
+    <span class="keyword">if</span> lis[i] == <span class="number">1</span>:
+        ans.append(i)
+<span class="keyword">return</span> ans
+</code></pre><p>測試以後得到的結果是：求一千萬以內的素數用了9.68秒。<br>可是我覺得使用1個dict和1個list存會很浪費空間（其實不然，一千萬以內的素數只有66萬個，相對一千萬來說可以忽略不計），所以想改進一下算法。  </p>
 <p>02)<br>這次只用一個list存數字，然後遍歷刪除  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">primeC</span><span class="params">(n)</span>:</span>
-    lis = range(<span class="number">2</span>,n+<span class="number">1</span>)
-    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">2</span>,n+<span class="number">1</span>):
-        <span class="keyword">if</span> i <span class="keyword">in</span> lis:
-            k = i+i
-            <span class="keyword">while</span> k&lt;=n:
-                <span class="keyword">if</span> k <span class="keyword">in</span> lis:
-                    lis.remove(k)
-                k = k+i
-    <span class="keyword">return</span> lis
-</code></pre>
-<p>因為無法在for中刪除list，所以使用一個xrange，然後每次判斷k是否在lis中再做刪除，結果：求十萬以內的素數一共花了186.79秒。  </p>
+<pre><code>def <span class="function"><span class="title">primeC</span><span class="params">(n)</span></span>:
+lis = <span class="function"><span class="title">range</span><span class="params">(<span class="number">2</span>,n+<span class="number">1</span>)</span></span>
+<span class="keyword">for</span> <span class="tag">i</span> <span class="keyword">in</span> <span class="function"><span class="title">xrange</span><span class="params">(<span class="number">2</span>,n+<span class="number">1</span>)</span></span>:
+    <span class="keyword">if</span> <span class="tag">i</span> <span class="keyword">in</span> lis:
+        k = i+<span class="tag">i</span>
+        while k&lt;=n:
+            <span class="keyword">if</span> k <span class="keyword">in</span> lis:
+                lis.<span class="function"><span class="title">remove</span><span class="params">(k)</span></span>
+            k = k+<span class="tag">i</span>
+return lis
+</code></pre><p>因為無法在for中刪除list，所以使用一個xrange，然後每次判斷k是否在lis中再做刪除，結果：求十萬以內的素數一共花了186.79秒。  </p>
 <p><strong>比較:</strong><br>在時間上，第一個方法遠遠比第二個辦法有效率，dict是哈希實現，查詢的速度是常數級的，所以在標記合數的時候所花費的時間非常少，但是list是順序表，不知道內部是怎麽實現in 和 remove的，從時間上可以大概推測出應該是順序查找實現的，所以用如下代碼做了測試:  </p>
-<pre><code class="python"><span class="keyword">import</span> random
+<pre><code><span class="keyword">import</span> random
 <span class="keyword">import</span> time
 <span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">(source,test)</span>:</span>
-    <span class="keyword">for</span> each <span class="keyword">in</span> test:
-        each <span class="keyword">in</span> source
+<span class="keyword">for</span> each <span class="keyword">in</span> test:
+    each <span class="keyword">in</span> source
 
 <span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(liss,test)</span>:</span>
-    <span class="keyword">for</span> each <span class="keyword">in</span> test:
-        <span class="keyword">if</span> each <span class="keyword">in</span> liss:
-            liss.remove(each)
-
+<span class="keyword">for</span> each <span class="keyword">in</span> test:
+    <span class="keyword">if</span> each <span class="keyword">in</span> liss:
+        liss.remove(each)
 
 <span class="function"><span class="keyword">def</span> <span class="title">removeDic</span><span class="params">(dicc,test)</span>:</span>
-    <span class="keyword">for</span> each <span class="keyword">in</span> test:
-        <span class="keyword">if</span> each <span class="keyword">in</span> dicc:
-            dicc[each] = <span class="number">1</span>
+<span class="keyword">for</span> each <span class="keyword">in</span> test:
+    <span class="keyword">if</span> each <span class="keyword">in</span> dicc:
+        dicc[each] = <span class="number">1</span>
 
 n = <span class="number">100000</span>
 m = <span class="number">1000</span>
@@ -378,14 +364,11 @@ liss = range(n)
 dicc = {i:<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> xrange(n)}
 test = []
 <span class="keyword">for</span> i <span class="keyword">in</span> xrange(m):
-    test.append(random.randint(<span class="number">0</span>,n))
-
-
+test.append(random.randint(<span class="number">0</span>,n))
 
 s = time.clock()
 find(liss,test)
 <span class="keyword">print</span> time.clock()-s
-
 
 s = time.clock()
 find(dicc,test)
@@ -398,15 +381,13 @@ remove(liss,test)
 s = time.clock()
 removeDic(dicc,test)
 <span class="keyword">print</span> time.clock()-s
-</code></pre>
-<p>結果是:  </p>
-<pre><code class="python"><span class="number">1.10526960281</span>
-<span class="number">0.00036479383832</span>
+</code></pre><p>結果是:  </p>
+<pre><code><span class="number">1.105269602</span>81
+<span class="number">0.00036479</span>383832
 
-<span class="number">2.11714318396</span>
-<span class="number">0.000374692766596</span>
-</code></pre>
-<p>可以看出，在查找方面list是遠遠不如dict的，說明list不應該是哈希查找，而remove的時間也遠遠大於哈希的賦值時間。<br>不過由此判斷第二種方法是一無是處的話未免言之過早了。因為第二種方法裏面的實現是先申請了一段空間，然後再運算，而實現一的空間是動態增長的(在給哈希表賦值的那邊體現)，所以如果漲到一半發現內存不夠用的話就會報錯（測試1億數據的時候就出現了這個問題），而實現二一開始就會報錯，而不用做前面的一系列無用功。<br>總之就是空間換時間，時間換空間的那些戲碼。不過挺有意思。  </p>
+<span class="number">2.117143183</span>96
+<span class="number">0.00037469</span><span class="number">2766596</span>
+</code></pre><p>可以看出，在查找方面list是遠遠不如dict的，說明list不應該是哈希查找，而remove的時間也遠遠大於哈希的賦值時間。<br>不過由此判斷第二種方法是一無是處的話未免言之過早了。因為第二種方法裏面的實現是先申請了一段空間，然後再運算，而實現一的空間是動態增長的(在給哈希表賦值的那邊體現)，所以如果漲到一半發現內存不夠用的話就會報錯（測試1億數據的時候就出現了這個問題），而實現二一開始就會報錯，而不用做前面的一系列無用功。<br>總之就是空間換時間，時間換空間的那些戲碼。不過挺有意思。  </p>
 <p><a href="http://www.cnblogs.com/liga/archive/2012/08/31/2665811.html" target="_blank" rel="external">Origin</a></p>
 
             <div class="clearfix"></div>

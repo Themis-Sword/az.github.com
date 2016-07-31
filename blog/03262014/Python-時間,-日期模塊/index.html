@@ -229,47 +229,44 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
       		<p>Python提供了time/datetime/calendar等模塊來處理日期和時間。<br><strong>1.time模塊常用的函數</strong><br><em>A. time.time()</em><br>1970年1月1日以來的秒數，是一個浮點數。<br><em>B. time.sleep()</em><br>可以通過調用time.sleep來挂起當前的進程。time.sleep接收一个浮點型參數，表示進程挂起的時間。<br><em>C. time.clock()</em><br>time.clock()返回第一次调用该方法到现在的秒數，其精確度高於1微秒。可以使用该函數來記錄程序執行的時間。<br><em>D. time.gmtime()</em><br>該函數原型為time.gmtime([sec])，可選參數sec表示從1970-01-01以來的秒數，默認值為time.time()，函數返回time.struct_time類型的對象。(struct_time是在time模塊中定義的表示時間的對象)，下面是一個簡單的例子：<a id="more"></a>  </p>
-<pre><code class="python"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> time.gmtime()                        <span class="comment">#獲取當前時間的struct_time對象   </span>
+<pre><code>&gt;&gt;&gt; print time.gmtime()                        <span class="preprocessor">#獲取當前時間的struct_time對象   </span>
 (<span class="number">2013</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">28</span>, <span class="number">30</span>, <span class="number">0</span>, <span class="number">98</span>, <span class="number">0</span>)
-<span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> time.gmtime(time.time())
+&gt;&gt;&gt; print time.gmtime(time.time())
 (<span class="number">2013</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">28</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="number">98</span>, <span class="number">0</span>)
-<span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> time.gmtime(time.time()-<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>)    <span class="comment">#獲取昨天這個時間的struct_time對象</span>
+&gt;&gt;&gt; print time.gmtime(time.time()-<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>)    <span class="preprocessor">#獲取昨天這個時間的struct_time對象</span>
 (<span class="number">2013</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">10</span>, <span class="number">6</span>, <span class="number">97</span>, <span class="number">0</span>)
-</code></pre>
-<p><em>E. time.localtime()</em><br>與time.gmtime()非常類似，也返回一個struct_time對象，可以看作是gmtime()的本地化版本。<br><em>F. time.mktime()</em><br>time.mktime執行與gmtime(), localtime()相反的操作，它接收struct_time對象作為參數，返回用秒數來表示時間的浮點數。<br><em>G. time.strftime()</em><br>time.strftime將日期轉換為字符串表示，它的函數原型為：time.strftime(format[, t])。參數format是格式字符串（格式字符串的知識可以參考：<a href="http://docs.python.org/2/library/time.html" target="_blank" rel="external">time.strftime</a> ），可選的參數t是一个struct_time對象。  </p>
-<pre><code class="python">time.strftime參數:
+</code></pre><p><em>E. time.localtime()</em><br>與time.gmtime()非常類似，也返回一個struct_time對象，可以看作是gmtime()的本地化版本。<br><em>F. time.mktime()</em><br>time.mktime執行與gmtime(), localtime()相反的操作，它接收struct_time對象作為參數，返回用秒數來表示時間的浮點數。<br><em>G. time.strftime()</em><br>time.strftime將日期轉換為字符串表示，它的函數原型為：time.strftime(format[, t])。參數format是格式字符串（格式字符串的知識可以參考：<a href="http://docs.python.org/2/library/time.html" target="_blank" rel="external">time.strftime</a> ），可選的參數t是一个struct_time對象。  </p>
+<pre><code>time.strftime參數:
 strftime(format[, tuple]) -&gt; string
 將指定的struct_time(默認為當前時間)，根據指定的格式化字符串輸出
 python中時間日期格式化符號：
-%y 两位數的年份表示（00-99）
-%Y 四位數的年份表示（000-9999）
-%m 月份（01-12）
-%d 月内中的一天（0-31）
-%H 24小時製小時數（0-23）
-%I 12小時製小時數（01-12）
-%M 分鐘數（00=59）
-%S 秒（00-59）
-%a 本地簡化星期名稱
-%A 本地完整星期名稱
-%b 本地簡化的月份名稱
-%B 本地完整的月份名稱
-%c 本地相應的日期表示和時間表示
-%j 年内的一天（001-366）
-%p 本地A.M.或P.M.的等價符
-%U 一年中的星期數（00-53），星期天為星期的開始
-%w 星期（0-6），星期天為星期的開始
-%W 一年中的星期數（00-53）星期一為星期的開始
-%x 本地相應的日期表示
-%X 本地相應的時間表示
-%Z 當前時區的名稱
-%% %號本身
-</code></pre>
-<p><em>H. time.strptime()</em><br>按指定格式解析一個表示时间的字符串，返回struct_time對象。該函數原型為：time.strptime(string, format)，两個參數都是字符串。  </p>
-<pre><code class="python"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> time.strptime(<span class="string">'2013-04-09 12:30:25'</span>,<span class="string">'%Y-%m-%d %H:%M:%S'</span>)
+<span class="tag">%<span class="title">y</span></span> 两位數的年份表示（00-99）
+<span class="tag">%<span class="title">Y</span></span> 四位數的年份表示（000-9999）
+<span class="tag">%<span class="title">m</span></span> 月份（01-12）
+<span class="tag">%<span class="title">d</span></span> 月内中的一天（0-31）
+<span class="tag">%<span class="title">H</span></span> 24小時製小時數（0-23）
+<span class="tag">%<span class="title">I</span></span> 12小時製小時數（01-12）
+<span class="tag">%<span class="title">M</span></span> 分鐘數（00=59）
+<span class="tag">%<span class="title">S</span></span> 秒（00-59）
+<span class="tag">%<span class="title">a</span></span> 本地簡化星期名稱
+<span class="tag">%<span class="title">A</span></span> 本地完整星期名稱
+<span class="tag">%<span class="title">b</span></span> 本地簡化的月份名稱
+<span class="tag">%<span class="title">B</span></span> 本地完整的月份名稱
+<span class="tag">%<span class="title">c</span></span> 本地相應的日期表示和時間表示
+<span class="tag">%<span class="title">j</span></span> 年内的一天（001-366）
+<span class="tag">%<span class="title">p</span></span> 本地A.M.或P.M.的等價符
+<span class="tag">%<span class="title">U</span></span> 一年中的星期數（00-53），星期天為星期的開始
+<span class="tag">%<span class="title">w</span></span> 星期（0-6），星期天為星期的開始
+<span class="tag">%<span class="title">W</span></span> 一年中的星期數（00-53）星期一為星期的開始
+<span class="tag">%<span class="title">x</span></span> 本地相應的日期表示
+<span class="tag">%<span class="title">X</span></span> 本地相應的時間表示
+<span class="tag">%<span class="title">Z</span></span> 當前時區的名稱
+<span class="tag">%</span>% %號本身 
+</code></pre><p><em>H. time.strptime()</em><br>按指定格式解析一個表示时间的字符串，返回struct_time對象。該函數原型為：time.strptime(string, format)，两個參數都是字符串。  </p>
+<pre><code>&gt;&gt;&gt; print <span class="tag">time</span>.<span class="function"><span class="title">strptime</span><span class="params">(<span class="string">'2013-04-09 12:30:25'</span>,<span class="string">'%Y-%m-%d %H:%M:%S'</span>)</span></span>
 (<span class="number">2013</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">30</span>, <span class="number">25</span>, <span class="number">1</span>, <span class="number">99</span>, -<span class="number">1</span>)
-</code></pre>
-<p><strong>2. datetime模塊</strong><br><em>A. 兩個常量</em><br>datetime.MINYEAR和datetime.MAXYEAR，分別表示datetime所能表示的最小、最大年份。其中，MINYEAR=1,MAXYEAR=0000。<br><em>B. 幾個重要的類</em><br>1) datetime.date:表示日期的類，常用的屬性有tear, month, day:<br>year的返回在兩個常量之間；<br>month的範圍是[1,12]，月份是從1開始；<br>day依據month來決定。<br>2) date類提供了常用的類方法和類屬性：<br>date.max, date.min：date對象所能表示的最大、最小日期；<br>date.today()：返回一個表示當前本地日期的date對象。  </p>
-<pre><code class="python"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> *
+</code></pre><p><strong>2. datetime模塊</strong><br><em>A. 兩個常量</em><br>datetime.MINYEAR和datetime.MAXYEAR，分別表示datetime所能表示的最小、最大年份。其中，MINYEAR=1,MAXYEAR=0000。<br><em>B. 幾個重要的類</em><br>1) datetime.date:表示日期的類，常用的屬性有tear, month, day:<br>year的返回在兩個常量之間；<br>month的範圍是[1,12]，月份是從1開始；<br>day依據month來決定。<br>2) date類提供了常用的類方法和類屬性：<br>date.max, date.min：date對象所能表示的最大、最小日期；<br>date.today()：返回一個表示當前本地日期的date對象。  </p>
+<pre><code><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> *
 <span class="prompt">&gt;&gt;&gt; </span><span class="keyword">import</span> time
 <span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> date.today()
 <span class="number">2014</span>-<span class="number">03</span>-<span class="number">26</span>
@@ -277,40 +274,37 @@ python中時間日期格式化符號：
 <span class="number">9999</span>-<span class="number">12</span>-<span class="number">31</span>
 <span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> date.min
 <span class="number">0001</span>-<span class="number">01</span>-<span class="number">01</span>
-</code></pre>
-<p>3) date提供的實例方法和屬性<br>date.year、date.month、date.day：年、月、日；<br>date.replace(year, month, day)：生成一个新的日期對象，用參數指定的年，月，日代替原有對象中的屬性。（原有對象仍保持不變）；<br>date.timetuple()：返回日期對應的time.struct_time對象；<br>date.weekday()：返回weekday，如果是星期一，返回0；如果是星期2，返回1，以此類推；<br>data.isoweekday()：返回weekday，如果是星期一，返回1；如果是星期2，返回2，以此類推；<br>date.isocalendar()：返回格式如(year，month，day)的元組；<br>date.isoformat()：返回格式如’YYYY-MM-DD’的字符串；<br>date.strftime(fmt)：自定義格式化字符串。  </p>
-<pre><code class="python"><span class="prompt">&gt;&gt;&gt; </span>now=date(<span class="number">2014</span>,<span class="number">03</span>,<span class="number">26</span>)
-<span class="prompt">&gt;&gt;&gt; </span>tomorrow=now.replace(day=<span class="number">27</span>)
-<span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> <span class="string">'now:'</span>,now
+</code></pre><p>3) date提供的實例方法和屬性<br>date.year、date.month、date.day：年、月、日；<br>date.replace(year, month, day)：生成一个新的日期對象，用參數指定的年，月，日代替原有對象中的屬性。（原有對象仍保持不變）；<br>date.timetuple()：返回日期對應的time.struct_time對象；<br>date.weekday()：返回weekday，如果是星期一，返回0；如果是星期2，返回1，以此類推；<br>data.isoweekday()：返回weekday，如果是星期一，返回1；如果是星期2，返回2，以此類推；<br>date.isocalendar()：返回格式如(year，month，day)的元組；<br>date.isoformat()：返回格式如’YYYY-MM-DD’的字符串；<br>date.strftime(fmt)：自定義格式化字符串。  </p>
+<pre><code>&gt;&gt;&gt; now=<span class="function"><span class="title">date</span><span class="params">(<span class="number">2014</span>,<span class="number">03</span>,<span class="number">26</span>)</span></span>
+&gt;&gt;&gt; tomorrow=now.<span class="function"><span class="title">replace</span><span class="params">(day=<span class="number">27</span>)</span></span>
+&gt;&gt;&gt; print <span class="string">'now:'</span>,now
 now: <span class="number">2014</span>-<span class="number">03</span>-<span class="number">26</span>
-<span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> <span class="string">'tomorrow:'</span>,tomorrow
+&gt;&gt;&gt; print <span class="string">'tomorrow:'</span>,tomorrow
 tomorrow: <span class="number">2014</span>-<span class="number">03</span>-<span class="number">27</span>
-<span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> <span class="string">'timetuple():'</span>,now.timetuple()
-timetuple(): (<span class="number">2013</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">85</span>, -<span class="number">1</span>)
-<span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> <span class="string">'weekday():'</span>,now.weekday()
-weekday(): <span class="number">2</span>
-<span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> <span class="string">'isoweekday():'</span>,now.isoweekday()
-isoweekday(): <span class="number">3</span>
-<span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> <span class="string">'isocalendar():'</span>,now.isocalendar()
-isocalendar(): (<span class="number">2014</span>, <span class="number">13</span>, <span class="number">3</span>)
-<span class="prompt">&gt;&gt;&gt; </span><span class="keyword">print</span> <span class="string">'isoformat():'</span>,now.isoformat()
-isoformat(): <span class="number">2014</span>-<span class="number">03</span>-<span class="number">26</span>
-</code></pre>
-<p>4) date還對某些操作進行了重載，它允許我們對日期進行如下一些操作：<br>date2 = date1 + timedelta  # 日期加上一個間隔，返回一個新的日期對象（timedelta將在下面介紹，表示時間間隔）<br>date2 = date1 - timedelta   # 日期隔去間隔，返回一個新的日期對象<br>timedelta = date1 - date2   # 两個日期相減，返回一個時間間隔對象<br>date1 &lt; date2  # 两個日期進行比較  </p>
-<pre><code class="python">now = date.today()  
-tomorrow = now.replace(day = <span class="number">7</span> )  
-delta = tomorrow - now  
-<span class="keyword">print</span>   <span class="string">'now:'</span> , now,  <span class="string">' tomorrow:'</span> , tomorrow  
-<span class="keyword">print</span>   <span class="string">'timedelta:'</span> , delta  
-<span class="keyword">print</span>  now + delta  
-<span class="keyword">print</span>  tomorrow &gt; now  
-<span class="comment"># # ---- output ----   </span>
-<span class="comment"># now: 2010-04-06  tomorrow: 2010-04-07   </span>
-<span class="comment"># timedelta: 1 day, 0:00:00   </span>
-<span class="comment"># 2010-04-07   </span>
-<span class="comment"># True</span>
-</code></pre>
-<p><a href="http://www.cnblogs.com/BeginMan/archive/2013/04/08/3007403.html" target="_blank" rel="external">Origin</a></p>
+&gt;&gt;&gt; print <span class="string">'timetuple():'</span>,now.<span class="function"><span class="title">timetuple</span><span class="params">()</span></span>
+<span class="function"><span class="title">timetuple</span><span class="params">()</span></span>: (<span class="number">2013</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">85</span>, -<span class="number">1</span>)
+&gt;&gt;&gt; print <span class="string">'weekday():'</span>,now.<span class="function"><span class="title">weekday</span><span class="params">()</span></span>
+<span class="function"><span class="title">weekday</span><span class="params">()</span></span>: <span class="number">2</span>
+&gt;&gt;&gt; print <span class="string">'isoweekday():'</span>,now.<span class="function"><span class="title">isoweekday</span><span class="params">()</span></span>
+<span class="function"><span class="title">isoweekday</span><span class="params">()</span></span>: <span class="number">3</span>
+&gt;&gt;&gt; print <span class="string">'isocalendar():'</span>,now.<span class="function"><span class="title">isocalendar</span><span class="params">()</span></span>
+<span class="function"><span class="title">isocalendar</span><span class="params">()</span></span>: (<span class="number">2014</span>, <span class="number">13</span>, <span class="number">3</span>)
+&gt;&gt;&gt; print <span class="string">'isoformat():'</span>,now.<span class="function"><span class="title">isoformat</span><span class="params">()</span></span>
+<span class="function"><span class="title">isoformat</span><span class="params">()</span></span>: <span class="number">2014</span>-<span class="number">03</span>-<span class="number">26</span>
+</code></pre><p>4) date還對某些操作進行了重載，它允許我們對日期進行如下一些操作：<br>date2 = date1 + timedelta  # 日期加上一個間隔，返回一個新的日期對象（timedelta將在下面介紹，表示時間間隔）<br>date2 = date1 - timedelta   # 日期隔去間隔，返回一個新的日期對象<br>timedelta = date1 - date2   # 两個日期相減，返回一個時間間隔對象<br>date1 &lt; date2  # 两個日期進行比較  </p>
+<pre><code><span class="built_in">now</span> = date.today()  
+tomorrow = <span class="built_in">now</span>.replace(day = <span class="number">7</span> )  
+delta = tomorrow - <span class="built_in">now</span>  
+print   <span class="string">'now:'</span> , <span class="built_in">now</span>,  <span class="string">' tomorrow:'</span> , tomorrow  
+print   <span class="string">'timedelta:'</span> , delta  
+print  <span class="built_in">now</span> + delta  
+print  tomorrow &gt; <span class="built_in">now</span>  
+<span class="preprocessor"># # ---- output ----   </span>
+<span class="preprocessor"># now: 2010-04-06  tomorrow: 2010-04-07   </span>
+<span class="preprocessor"># timedelta: 1 day, 0:00:00   </span>
+<span class="preprocessor"># 2010-04-07   </span>
+<span class="preprocessor"># True</span>
+</code></pre><p><a href="http://www.cnblogs.com/BeginMan/archive/2013/04/08/3007403.html" target="_blank" rel="external">Origin</a></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

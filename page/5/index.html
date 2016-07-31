@@ -490,8 +490,13 @@ Fortunately trees’ remaining vigor, notwithstanding in months’ hibernation, 
                 <div class="col-md-8">
                     <p>
                       
-                        1. 使用HTTP通訊協定301 Moved Permanently來完成轉導網址(永久轉址)建議使用，不會對SEO有不良影響  
-PHP程式範例:12345678910111213141516171819202122232425262728293031323334353637&lt;?php    header(“HTTP/1.1 301 Moved Permanently");    header(“Location: http:/
+                        <h4 id="1-_使用HTTP通訊協定301_Moved_Permanently來完成轉導網址(永久轉址)">1. 使用HTTP通訊協定301 Moved Permanently來完成轉導網址(永久轉址)</h4><p><em>建議使用，不會對SEO有不良影響</em>  </p>
+<h5 id="PHP程式範例:">PHP程式範例:</h5><pre><code><span class="php"><span class="preprocessor">&lt;?php</span>
+header(“HTTP/<span class="number">1.1</span> <span class="number">301</span> Moved Permanently<span class="string">");
+header(“Location: http://www.new-url.com/"</span>);
+<span class="preprocessor">?&gt;</span></span>
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>The document has moved <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.new-url.com/"</span>&gt;</span>here<span class="tag">&lt;/<span class="title">a</span>&gt;</span>.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</code></pre><p>註<br>1) 使用者的瀏覽器必須根據HTTP header的Location欄位值(稱做URI)來轉導網址。<br>2) 除非Request Method是HEAD，不然伺服器端回覆的訊息內必須包含一短的新網址的連結(hyperlink)資訊。
                       
                     </p>
                     

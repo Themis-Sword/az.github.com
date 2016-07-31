@@ -240,19 +240,142 @@
 </ul>
 <p>每一個對象都用兩個標準的頭部信息：一個類型標誌符去標識這個對象的類型，以及一個引用的計數器，用來決定是不是可以回收這個對象。  </p>
 <p><strong>B 類型屬於對象，而不是變量</strong><br>Python中的類型是與對象相關聯的，而不是和變量關聯。<br>變量沒有類型，變量指向對象。對象有類型，知道自己的類型，每個對象都包含了一個頭部信息，其中標記了這個對象的類型。  </p>
-<p><strong>C 對象的垃圾收集</strong><br>對象生命結束時發生了什麽變化？<br>每當一個變量名被賦與了一個新的對象，之前的那個對象占用的空間就會被收回（如果它沒有被其他變量名和對象所引用).這種自動回收對象空間的技術稱作垃圾收集。<br>在內部，Python是通過保持用每個對象中的計數器記錄引用指到這個對象上的次數來完成這一功能。一旦（並精確在同一時間）這個計數器被設置為零，這個對象的內存空間就會自動收回。垃圾收集最直接的，可感受到的好處就是這意味著可以在腳本中任意使用對象而不需要考慮釋放內存空間。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;</span>&gt; x=<span class="number">42</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; id(x)</span><br><span class="line"><span class="number">674748828</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; x=<span class="string">"cli"</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; id(x)    </span><br><span class="line"><span class="number">676367648</span></span><br><span class="line"><span class="string">``</span><span class="string">`  </span><br><span class="line">  </span><br><span class="line">#### 2. 共享引用  </span><br><span class="line">上面所講都是單個變量被賦值引用了多個對象的情況。現在，在交互模式下，引入另一個變量，並看一下變量名和對象的變化。  </span><br><span class="line">`</span><span class="string">``</span> </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; a=<span class="number">10</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; b=a </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; id(a)</span><br><span class="line"><span class="number">674749212</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; id(b)</span><br><span class="line"><span class="number">674749212</span></span><br><span class="line"><span class="string">``</span><span class="string">`  </span><br><span class="line">第二行會使用python創建變量b。使用的是變量a,並且它在這裏沒有被賦值，所以它被替換成其應用的對象10，從而b也成為這個對象的一個引用。實際效果就是變量a和b都引用相同的對象（也就是說指向了相同的內存空間。在Python中稱作是共享引用--多個變量名應用了同一個對象。)  </span><br><span class="line">  </span><br><span class="line">`</span><span class="string">``</span> </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; a=<span class="number">10</span> </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; b=a  </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; a=<span class="string">'cli'</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; id(a) </span><br><span class="line"><span class="number">676367648</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; id(b)</span><br><span class="line"><span class="number">674749212</span></span><br><span class="line"><span class="string">``</span><span class="string">`  </span><br><span class="line">變量a改變了，但是不影響變量b.這完全可以說明變量b是指向對象10內存空間的。  </span><br><span class="line">  </span><br><span class="line">在ptyhon中，變量總是一個指向對象的指針，而不是可以改變的內存區域的標簽。給一變量賦一個新的值，並不是替換了原始的對象，而是讓這個變量去引用完全不同的一個對象。實際的效果就是對一個變量賦值，僅僅會影響那個被賦值的變量。  </span><br><span class="line">  </span><br><span class="line">**A 共享引用和在原處修改**  </span><br><span class="line">有一些對象和類型確實會在實地改變對象。例如，在一個列表中對一個偏移進行賦值確實會改變這個列表對象，而不是生成一個新的列表對象。  </span><br><span class="line">`</span><span class="string">``</span> </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span>=[<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span>=<span class="constant">T1</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span></span><br><span class="line">[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span></span><br><span class="line">[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span>=<span class="number">22</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span></span><br><span class="line"><span class="number">22</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span></span><br><span class="line">[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="string">``</span><span class="string">`  </span><br><span class="line">  </span><br><span class="line">這個和先前一樣T1改變了T2沒有改變，T2改變也不影響T1  </span><br><span class="line">`</span><span class="string">``</span> </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span>=[<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span>=<span class="constant">T1</span></span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span></span><br><span class="line">[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span></span><br><span class="line">[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span>[<span class="number">1</span>]=<span class="number">33</span>     </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span></span><br><span class="line">[<span class="number">33</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span></span><br><span class="line">[<span class="number">33</span>, <span class="number">12</span>, <span class="number">13</span>]</span><br><span class="line"><span class="string">``</span><span class="string">`  </span><br><span class="line">發現T2改變了，T1也跟這改變了  </span><br><span class="line">同樣T1改變了，T2也改變了  </span><br><span class="line">`</span><span class="string">``</span> </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span>[<span class="number">1</span>]=<span class="number">99</span>  </span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T2</span></span><br><span class="line">[<span class="number">33</span>, <span class="number">99</span>, <span class="number">13</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">T1</span></span><br><span class="line">[<span class="number">33</span>, <span class="number">99</span>, <span class="number">13</span>]</span><br><span class="line"><span class="string">``</span><span class="string">`  </span><br><span class="line">這裏T1沒有改變，改變了T1所引用對象的一個元素。這類修改會覆蓋列表對象中的某部分。因為這個列表對象是與其他對象共享的（被其他對象引用），那麽一個像這樣在原處的改變不僅僅會對T1有影響。必須意識到當做了這樣的修改，它會影響程序的其他部分。  </span><br><span class="line">  </span><br><span class="line">如果不想要這樣的現象發生，需要Python拷貝對象，而不是創建引用。方法包括內置列表函數以及標準庫的copy模塊，最常用的辦法就是從頭到尾的分片T1[:]</span></span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>T1=[11,12,13]<br>T2=T1[:]<br>T1<br>[11, 12, 13]<br>T2<br>[11, 12, 13]<br>T1[0]=99<br>T1<br>[99, 12, 13]<br>T2<br>[11, 12, 13]<br>id(T1)<br>676366604<br>id(T2)<br>675542060<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T1和T2指向不同的對象，所以不會相互影響。  </span><br><span class="line">註意：這種分片技術不會引用在其他的可變的核心類型上（字典，因為它們不是序列），對字典應該使用<span class="keyword">D</span>.<span class="keyword">copy</span>（）方法.而且，註意標準庫中的<span class="keyword">copy</span>模塊有一個通用的拷貝任意對象的調用，也有一個拷貝嵌套對象的結構的調用.</span><br></pre></td></tr></table></figure></p>
-<p>X={‘name’:’cli’,’age’:27}<br>import copy<br>Y=copy.copy(X)<br>X<br>{‘age’: 27, ‘name’: ‘cli’}<br>Y<br>{‘age’: 27, ‘name’: ‘cli’}<br>id(X)<br>676370468<br>id(Y)<br>676414436<br>X={‘name’:{‘FirstName’:’cli’,’LastName’:’cli’},’age’:27}<br>X<br>{‘age’: 27, ‘name’: {‘LastName’: ‘cli’, ‘FirstName’: ‘cli’}}<br>Y=copy.copy(X)<br>Y<br>{‘age’: 27, ‘name’: {‘LastName’: ‘cli’, ‘FirstName’: ‘cli’}}<br>Z=copy.deepcopy(X)<br>Z<br>{‘age’: 27, ‘name’: {‘LastName’: ‘cli’, ‘FirstName’: ‘cli’}}<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span>B 共享引用和相等<span class="keyword">*</span><span class="keyword">*</span></span><br></pre></td></tr></table></figure></p>
-<p>x=33<br>x=’cli’<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">因為Python緩存並復用了小的整數和小的字符串，就像前文提到的那樣，這裏對象<span class="number">33</span>也許不像前期所說的被收回，相反，它將可能仍保持在一個系統表中，等待下一次你的代碼生成另一個<span class="number">33</span>來利用。盡快如此，大多數種類的對象都會在不再引用時馬上回收。對於那些不會被回收的，緩沖機制與代碼並沒有什麽關系。  </span><br><span class="line">  </span><br><span class="line">判斷是否相等</span><br></pre></td></tr></table></figure></p>
-<p>L=[1,2,3]<br>M=L<br>L==M<br>True<br>L is M<br>True<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">==檢查對象是否有相同的值。 <span class="keyword">is</span>操作符，檢查對象的同一性。如果兩個變量名精準地指向同一個對象，它會返回<span class="keyword">True</span>。所以這是一種更嚴格的相等測試。  </span><br><span class="line">實際上,<span class="keyword">is</span>只是比較現實引用的指針。所以如果必要的話是代碼中檢測共享引用的一種方法。如果變量名引用值相等。但是為不同的對象，它的返回值將是<span class="keyword">False</span>.  </span><br><span class="line">``` </span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>L=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>M=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>L==M</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>L <span class="keyword">is</span> M</span><br><span class="line"><span class="keyword">False</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>id(L)</span><br><span class="line"><span class="number">676367788</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>id(M)</span><br><span class="line"><span class="number">676367724</span></span><br><span class="line">```  </span><br><span class="line">通過id()函數可以看到兩個變量指向不同的對象。  </span><br><span class="line">  </span><br><span class="line">``` </span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>X=<span class="number">33</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>Y=<span class="number">33</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>X==Y</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>X <span class="keyword">is</span> Y</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>id(X)</span><br><span class="line"><span class="number">674748936</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>id(Y)</span><br><span class="line"><span class="number">674748936</span></span><br><span class="line">```  </span><br><span class="line">這個<span class="keyword">is</span>測試返回<span class="keyword">True</span>因為小的整數和字符串被緩存被復用了。</span><br><span class="line">如果想更進一步了解，可以向Python查詢一個對象應用的次數：在sys模塊中的getrefcount函數返回對象應用的次數。</span><br></pre></td></tr></table></figure></p>
-<p>import sys<br>sys.getrefcount(33)<br>13<br>sys.getrefcount(1)<br>427<br>sys.getrefcount(00)<br>296<br>sys.getrefcount(99)<br>6<br>```  </p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p><a href="http://ipseek.blog.51cto.com/1041109/786518" target="_blank" rel="external">Origin</a></p>
+<p><strong>C 對象的垃圾收集</strong><br>對象生命結束時發生了什麽變化？<br>每當一個變量名被賦與了一個新的對象，之前的那個對象占用的空間就會被收回（如果它沒有被其他變量名和對象所引用).這種自動回收對象空間的技術稱作垃圾收集。<br>在內部，Python是通過保持用每個對象中的計數器記錄引用指到這個對象上的次數來完成這一功能。一旦（並精確在同一時間）這個計數器被設置為零，這個對象的內存空間就會自動收回。垃圾收集最直接的，可感受到的好處就是這意味著可以在腳本中任意使用對象而不需要考慮釋放內存空間。  </p>
+<pre><code><span class="prompt">&gt;&gt;</span>&gt; x=<span class="number">42</span>
+<span class="prompt">&gt;&gt;</span>&gt; id(x)
+<span class="number">674748828</span>
+<span class="prompt">&gt;&gt;</span>&gt; x=<span class="string">"cli"</span>
+<span class="prompt">&gt;&gt;</span>&gt; id(x)    
+<span class="number">676367648</span>
+</code></pre><h4 id="2-_共享引用">2. 共享引用</h4><p>上面所講都是單個變量被賦值引用了多個對象的情況。現在，在交互模式下，引入另一個變量，並看一下變量名和對象的變化。  </p>
+<pre><code><span class="prompt">&gt;&gt;</span>&gt; a=<span class="number">10</span>
+<span class="prompt">&gt;&gt;</span>&gt; b=a 
+<span class="prompt">&gt;&gt;</span>&gt; id(a)
+<span class="number">674749212</span>
+<span class="prompt">&gt;&gt;</span>&gt; id(b)
+<span class="number">674749212</span>
+</code></pre><p>第二行會使用python創建變量b。使用的是變量a,並且它在這裏沒有被賦值，所以它被替換成其應用的對象10，從而b也成為這個對象的一個引用。實際效果就是變量a和b都引用相同的對象（也就是說指向了相同的內存空間。在Python中稱作是共享引用–多個變量名應用了同一個對象。)  </p>
+<pre><code><span class="prompt">&gt;&gt;</span>&gt; a=<span class="number">10</span> 
+<span class="prompt">&gt;&gt;</span>&gt; b=a  
+<span class="prompt">&gt;&gt;</span>&gt; a=<span class="string">'cli'</span>
+<span class="prompt">&gt;&gt;</span>&gt; id(a) 
+<span class="number">676367648</span>
+<span class="prompt">&gt;&gt;</span>&gt; id(b)
+<span class="number">674749212</span>
+</code></pre><p>變量a改變了，但是不影響變量b.這完全可以說明變量b是指向對象10內存空間的。  </p>
+<p>在ptyhon中，變量總是一個指向對象的指針，而不是可以改變的內存區域的標簽。給一變量賦一個新的值，並不是替換了原始的對象，而是讓這個變量去引用完全不同的一個對象。實際的效果就是對一個變量賦值，僅僅會影響那個被賦值的變量。  </p>
+<p><strong>A 共享引用和在原處修改</strong><br>有一些對象和類型確實會在實地改變對象。例如，在一個列表中對一個偏移進行賦值確實會改變這個列表對象，而不是生成一個新的列表對象。  </p>
+<pre><code>&gt;&gt;&gt; T1=[<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>]
+&gt;&gt;&gt; T2=T1
+&gt;&gt;&gt; T1
+[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]
+&gt;&gt;&gt; T2
+[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]
+&gt;&gt;&gt; T1=<span class="number">22</span>
+&gt;&gt;&gt; T1
+<span class="number">22</span>
+&gt;&gt;&gt; T2
+[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]
+</code></pre><p>這個和先前一樣T1改變了T2沒有改變，T2改變也不影響T1  </p>
+<pre><code>&gt;&gt;&gt; T1=[<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>]
+&gt;&gt;&gt; T2=T1
+&gt;&gt;&gt; T1
+[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]
+&gt;&gt;&gt; T2
+[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]
+&gt;&gt;&gt; T2[<span class="number">1</span>]=<span class="number">33</span>     
+&gt;&gt;&gt; T1
+[<span class="number">33</span>, <span class="number">12</span>, <span class="number">13</span>]
+&gt;&gt;&gt; T2
+[<span class="number">33</span>, <span class="number">12</span>, <span class="number">13</span>]
+</code></pre><p>發現T2改變了，T1也跟這改變了<br>同樣T1改變了，T2也改變了  </p>
+<pre><code>&gt;&gt;&gt; T1[<span class="number">1</span>]=<span class="number">99</span>  
+&gt;&gt;&gt; T2
+[<span class="number">33</span>, <span class="number">99</span>, <span class="number">13</span>]
+&gt;&gt;&gt; T1
+[<span class="number">33</span>, <span class="number">99</span>, <span class="number">13</span>]
+</code></pre><p>這裏T1沒有改變，改變了T1所引用對象的一個元素。這類修改會覆蓋列表對象中的某部分。因為這個列表對象是與其他對象共享的（被其他對象引用），那麽一個像這樣在原處的改變不僅僅會對T1有影響。必須意識到當做了這樣的修改，它會影響程序的其他部分。  </p>
+<p>如果不想要這樣的現象發生，需要Python拷貝對象，而不是創建引用。方法包括內置列表函數以及標準庫的copy模塊，最常用的辦法就是從頭到尾的分片T1[:]  </p>
+<pre><code>&gt;&gt;&gt; T1=[<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>]
+&gt;&gt;&gt; T2=T1[:]
+&gt;&gt;&gt; T1
+[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]
+&gt;&gt;&gt; T2
+[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]
+&gt;&gt;&gt; T1[<span class="number">0</span>]=<span class="number">99</span>
+&gt;&gt;&gt; T1
+[<span class="number">99</span>, <span class="number">12</span>, <span class="number">13</span>]
+&gt;&gt;&gt; T2
+[<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>]
+&gt;&gt;&gt; id(T1)
+<span class="number">676366604</span>
+&gt;&gt;&gt; id(T2)
+<span class="number">675542060</span>
+</code></pre><p>T1和T2指向不同的對象，所以不會相互影響。<br>註意：這種分片技術不會引用在其他的可變的核心類型上（字典，因為它們不是序列），對字典應該使用D.copy（）方法.而且，註意標準庫中的copy模塊有一個通用的拷貝任意對象的調用，也有一個拷貝嵌套對象的結構的調用.  </p>
+<pre><code><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">X</span>={<span class="string">'name'</span><span class="symbol">:<span class="string">'cli'</span></span>,<span class="string">'age'</span><span class="symbol">:</span><span class="number">27</span>}  
+<span class="prompt">&gt;&gt;</span>&gt; import copy
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">Y</span>=copy.copy(<span class="constant">X</span>)
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">X</span>
+{<span class="string">'age'</span><span class="symbol">:</span> <span class="number">27</span>, <span class="string">'name'</span><span class="symbol">:</span> <span class="string">'cli'</span>}
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">Y</span>
+{<span class="string">'age'</span><span class="symbol">:</span> <span class="number">27</span>, <span class="string">'name'</span><span class="symbol">:</span> <span class="string">'cli'</span>}
+<span class="prompt">&gt;&gt;</span>&gt; id(<span class="constant">X</span>)
+<span class="number">676370468</span>
+<span class="prompt">&gt;&gt;</span>&gt; id(<span class="constant">Y</span>)
+<span class="number">676414436</span>
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">X</span>={<span class="string">'name'</span><span class="symbol">:</span>{<span class="string">'FirstName'</span><span class="symbol">:<span class="string">'cli'</span></span>,<span class="string">'LastName'</span><span class="symbol">:<span class="string">'cli'</span></span>},<span class="string">'age'</span><span class="symbol">:</span><span class="number">27</span>}    
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">X</span>
+{<span class="string">'age'</span><span class="symbol">:</span> <span class="number">27</span>, <span class="string">'name'</span><span class="symbol">:</span> {<span class="string">'LastName'</span><span class="symbol">:</span> <span class="string">'cli'</span>, <span class="string">'FirstName'</span><span class="symbol">:</span> <span class="string">'cli'</span>}}
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">Y</span>=copy.copy(<span class="constant">X</span>)
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">Y</span>
+{<span class="string">'age'</span><span class="symbol">:</span> <span class="number">27</span>, <span class="string">'name'</span><span class="symbol">:</span> {<span class="string">'LastName'</span><span class="symbol">:</span> <span class="string">'cli'</span>, <span class="string">'FirstName'</span><span class="symbol">:</span> <span class="string">'cli'</span>}}
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">Z</span>=copy.deepcopy(<span class="constant">X</span>) 
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">Z</span>
+{<span class="string">'age'</span><span class="symbol">:</span> <span class="number">27</span>, <span class="string">'name'</span><span class="symbol">:</span> {<span class="string">'LastName'</span><span class="symbol">:</span> <span class="string">'cli'</span>, <span class="string">'FirstName'</span><span class="symbol">:</span> <span class="string">'cli'</span>}}
+</code></pre><p><strong>B 共享引用和相等</strong> </p>
+<pre><code><span class="prompt">&gt;&gt;</span>&gt; x=<span class="number">33</span>
+<span class="prompt">&gt;&gt;</span>&gt; x=<span class="string">'cli'</span>
+</code></pre><p>因為Python緩存並復用了小的整數和小的字符串，就像前文提到的那樣，這裏對象33也許不像前期所說的被收回，相反，它將可能仍保持在一個系統表中，等待下一次你的代碼生成另一個33來利用。盡快如此，大多數種類的對象都會在不再引用時馬上回收。對於那些不會被回收的，緩沖機制與代碼並沒有什麽關系。  </p>
+<p>判斷是否相等  </p>
+<pre><code><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">L</span>=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">M</span>=<span class="constant">L</span>
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">L</span>==<span class="constant">M</span>
+<span class="constant">True</span>
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">L</span> is <span class="constant">M</span>
+<span class="constant">True</span>
+</code></pre><p>檢查對象是否有相同的值。 is操作符，檢查對象的同一性。如果兩個變量名精準地指向同一個對象，它會返回True。所以這是一種更嚴格的相等測試。<br>實際上,is只是比較現實引用的指針。所以如果必要的話是代碼中檢測共享引用的一種方法。如果變量名引用值相等。但是為不同的對象，它的返回值將是False.  </p>
+<pre><code><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">L</span>=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">M</span>=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">L</span>==<span class="constant">M</span>
+<span class="constant">True</span>
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">L</span> is <span class="constant">M</span>
+<span class="constant">False</span>
+<span class="prompt">&gt;&gt;</span>&gt; id(<span class="constant">L</span>)
+<span class="number">676367788</span>
+<span class="prompt">&gt;&gt;</span>&gt; id(<span class="constant">M</span>)
+<span class="number">676367724</span>
+</code></pre><p>通過id()函數可以看到兩個變量指向不同的對象。  </p>
+<pre><code><span class="prompt">&gt;&gt;</span>&gt; <span class="constant">X</span>=<span class="number">33</span>
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">Y</span>=<span class="number">33</span>
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">X</span>==<span class="constant">Y</span>
+<span class="constant">True</span>
+<span class="prompt">&gt;&gt;</span>&gt; <span class="constant">X</span> is <span class="constant">Y</span>
+<span class="constant">True</span>
+<span class="prompt">&gt;&gt;</span>&gt; id(<span class="constant">X</span>)
+<span class="number">674748936</span>
+<span class="prompt">&gt;&gt;</span>&gt; id(<span class="constant">Y</span>)
+<span class="number">674748936</span>
+</code></pre><p>這個is測試返回True因為小的整數和字符串被緩存被復用了。<br>如果想更進一步了解，可以向Python查詢一個對象應用的次數：在sys模塊中的getrefcount函數返回對象應用的次數。  </p>
+<pre><code>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.<span class="function"><span class="title">getrefcount</span><span class="params">(<span class="number">33</span>)</span></span>
+<span class="number">13</span>
+&gt;&gt;&gt; sys.<span class="function"><span class="title">getrefcount</span><span class="params">(<span class="number">1</span>)</span></span> 
+<span class="number">427</span>
+&gt;&gt;&gt; sys.<span class="function"><span class="title">getrefcount</span><span class="params">(<span class="number">00</span>)</span></span>
+<span class="number">296</span>
+&gt;&gt;&gt; sys.<span class="function"><span class="title">getrefcount</span><span class="params">(<span class="number">99</span>)</span></span>
+<span class="number">6</span>
+</code></pre><p><a href="http://ipseek.blog.51cto.com/1041109/786518" target="_blank" rel="external">Origin</a></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

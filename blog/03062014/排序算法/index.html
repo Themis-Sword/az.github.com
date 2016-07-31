@@ -229,7 +229,7 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
       		<p><strong>1. 冒泡排序</strong>  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">bubble</span><span class="params">(x,n)</span>:</span>  
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">bubble</span><span class="params">(x,n)</span>:</span>  
 \冒泡排序，x是列表，n是列表長度  
 <span class="keyword">for</span> i <span class="keyword">in</span> range(n):  
  <span class="keyword">for</span> j <span class="keyword">in</span> range(n-<span class="number">1</span>):  
@@ -238,60 +238,56 @@
    x[j] = x[j+<span class="number">1</span>]  
    x[j+<span class="number">1</span>] = t  
 <span class="keyword">return</span> x                  
-<span class="keyword">print</span> bubble([<span class="number">1</span>,<span class="number">10</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">41</span>,<span class="number">25</span>,<span class="number">3</span>,<span class="number">48</span>], <span class="number">8</span>)
-</code></pre>
-<p><br><a id="more"></a><br><strong>2. 插入排序</strong>  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(x,n)</span>:</span>
-     i = <span class="number">1</span>
-     <span class="keyword">while</span> i&lt;n-<span class="number">1</span>:
-         key = x[i]
-         j = i-<span class="number">1</span>
-         <span class="keyword">while</span> j&gt;=<span class="number">0</span> <span class="keyword">and</span> key&lt;x[j]:
-             x[j+<span class="number">1</span>]= x[j]
-             j -= <span class="number">1</span>
-         x[j+<span class="number">1</span>] = key
-         i += <span class="number">1</span>
-     <span class="keyword">return</span> x
+<span class="keyword">print</span> bubble([<span class="number">1</span>,<span class="number">10</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">41</span>,<span class="number">25</span>,<span class="number">3</span>,<span class="number">48</span>], <span class="number">8</span>)    
+</code></pre><p><br><a id="more"></a><br><strong>2. 插入排序</strong>  </p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(x,n)</span>:</span>
+ i = <span class="number">1</span>
+ <span class="keyword">while</span> i&lt;n-<span class="number">1</span>:
+     key = x[i]
+     j = i-<span class="number">1</span>
+     <span class="keyword">while</span> j&gt;=<span class="number">0</span> <span class="keyword">and</span> key&lt;x[j]:
+         x[j+<span class="number">1</span>]= x[j]
+         j -= <span class="number">1</span>
+     x[j+<span class="number">1</span>] = key
+     i += <span class="number">1</span>
+ <span class="keyword">return</span> x
 <span class="keyword">print</span> insert([<span class="number">1</span>,<span class="number">10</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">41</span>,<span class="number">25</span>,<span class="number">3</span>,<span class="number">48</span>],<span class="number">8</span>)
-</code></pre>
-<p><br><br><strong>3. 選擇排序</strong>  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">select</span><span class="params">(x,n)</span>:</span>
-    <span class="keyword">for</span> i <span class="keyword">in</span> range(n-<span class="number">1</span>):
-        key = i
-        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,n):
-            <span class="keyword">if</span> x[j] &lt; x[key]:
-                 key = j
-        <span class="keyword">if</span> key!=i:
-            t = x[i]
-            x[i] = x[key]
-            x[key] = t
-    <span class="keyword">return</span> x
-<span class="keyword">print</span> select([<span class="number">1</span>,<span class="number">10</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">41</span>,<span class="number">25</span>,<span class="number">3</span>,<span class="number">48</span>],<span class="number">8</span>)
-</code></pre>
-<p><br><br><strong>4. 快速排序</strong></p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">partition</span><span class="params">(x,low,high)</span>:</span>
-    key = x[low]
-    <span class="keyword">while</span> low&lt;high:
-        <span class="keyword">while</span> low&lt;high <span class="keyword">and</span> x[high]&gt;=key:
-            high -= <span class="number">1</span>
-        <span class="keyword">if</span> low &lt; high:
-            x[low]= x[high]
-            low += <span class="number">1</span>
-        <span class="keyword">while</span> low &lt;high <span class="keyword">and</span> x[low]&lt;=key:
-            low += <span class="number">1</span>
-        <span class="keyword">if</span> low &lt; high:
-            x[high] = x[low]
-            high -= <span class="number">1</span>
-    x[low] = key
-    <span class="keyword">return</span> low
-<span class="function"><span class="keyword">def</span> <span class="title">quick</span><span class="params">(x,low,high)</span>:</span>
+</code></pre><p><br><br><strong>3. 選擇排序</strong>  </p>
+<pre><code>def <span class="operator"><span class="keyword">select</span>(x,<span class="keyword">n</span>):
+<span class="keyword">for</span> <span class="keyword">i</span> <span class="keyword">in</span> <span class="keyword">range</span>(<span class="keyword">n</span>-<span class="number">1</span>):
+    <span class="keyword">key</span> = <span class="keyword">i</span>
+    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="keyword">range</span>(<span class="keyword">i</span>+<span class="number">1</span>,<span class="keyword">n</span>):
+        <span class="keyword">if</span> x[j] &lt; x[<span class="keyword">key</span>]:
+             <span class="keyword">key</span> = j
+    <span class="keyword">if</span> <span class="keyword">key</span>!=<span class="keyword">i</span>:
+        <span class="keyword">t</span> = x[<span class="keyword">i</span>]
+        x[<span class="keyword">i</span>] = x[<span class="keyword">key</span>]
+        x[<span class="keyword">key</span>] = <span class="keyword">t</span>
+<span class="keyword">return</span> x
+print <span class="keyword">select</span>([<span class="number">1</span>,<span class="number">10</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">41</span>,<span class="number">25</span>,<span class="number">3</span>,<span class="number">48</span>],<span class="number">8</span>)</span>
+</code></pre><p><br><br><strong>4. 快速排序</strong></p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">partition</span><span class="params">(x,low,high)</span>:</span>
+key = x[low]
+<span class="keyword">while</span> low&lt;high:
+    <span class="keyword">while</span> low&lt;high <span class="keyword">and</span> x[high]&gt;=key:
+        high -= <span class="number">1</span>
     <span class="keyword">if</span> low &lt; high:
-       p = partition(x,low,high)
-       quick(x,low,p-<span class="number">1</span>)
-       quick(x,p+<span class="number">1</span>,high)
-    <span class="keyword">return</span> x
-</code></pre>
-<p><br><br><strong>5. 利用函數排序</strong><br>1) cmp()<br>Compare the two objects x and y and return an integer according to the outcome. The return value is negative if x &lt; y, zero if x == y and strictly positive if x &gt; y.<br>2) reversed()<br>3) sort()<br>4) sorted()  </p>
+        x[low]= x[high]
+        low += <span class="number">1</span>
+    <span class="keyword">while</span> low &lt;high <span class="keyword">and</span> x[low]&lt;=key:
+        low += <span class="number">1</span>
+    <span class="keyword">if</span> low &lt; high:
+        x[high] = x[low]
+        high -= <span class="number">1</span>
+x[low] = key
+<span class="keyword">return</span> low
+<span class="function"><span class="keyword">def</span> <span class="title">quick</span><span class="params">(x,low,high)</span>:</span>
+<span class="keyword">if</span> low &lt; high:
+   p = partition(x,low,high)
+   quick(x,low,p-<span class="number">1</span>)
+   quick(x,p+<span class="number">1</span>,high)
+<span class="keyword">return</span> x
+</code></pre><p><br><br><strong>5. 利用函數排序</strong><br>1) cmp()<br>Compare the two objects x and y and return an integer according to the outcome. The return value is negative if x &lt; y, zero if x == y and strictly positive if x &gt; y.<br>2) reversed()<br>3) sort()<br>4) sorted()  </p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

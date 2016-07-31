@@ -248,7 +248,7 @@
 &gt;&gt;&gt; range(<span class="number">0</span>)  
 []  
 &gt;&gt;&gt; range(<span class="number">1</span>, <span class="number">0</span>)  
-[]
+[]  
 </code></pre>
                       
                     </p>
@@ -323,14 +323,18 @@
                 <div class="col-md-8">
                     <p>
                       
-                        方法一：使用列表對象的sort()方法對列表進行排序，從最後一個元素開始循環迭代列表，判斷相鄰的兩個元素是否相同。  
-def methodONE(list):
-    list.sort()
-    lenList = len(list)
-    lastItem = list[lenList-1]
-    for i in range(lenList-2,-1,-1):
-     if list[i] == lastItem:
-  
+                        <h4 id="方法一：">方法一：</h4><p>使用列表對象的sort()方法對列表進行排序，從最後一個元素開始循環迭代列表，判斷相鄰的兩個元素是否相同。  </p>
+<pre><code>def <span class="function"><span class="title">methodONE</span><span class="params">(list)</span></span>:
+list.<span class="function"><span class="title">sort</span><span class="params">()</span></span>
+lenList = <span class="function"><span class="title">len</span><span class="params">(list)</span></span>
+lastItem = list[lenList-<span class="number">1</span>]
+<span class="keyword">for</span> <span class="tag">i</span> <span class="keyword">in</span> <span class="function"><span class="title">range</span><span class="params">(lenList-<span class="number">2</span>,-<span class="number">1</span>,-<span class="number">1</span>)</span></span>:
+ <span class="keyword">if</span> list[i] == lastItem:
+  list.<span class="function"><span class="title">remove</span><span class="params">(list[i])</span></span>
+ <span class="keyword">else</span>:
+  lastItem = list[i]
+return list
+</code></pre>
                       
                     </p>
                     

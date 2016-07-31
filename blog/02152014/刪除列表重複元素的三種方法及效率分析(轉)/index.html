@@ -229,44 +229,40 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
       		<h4 id="方法一：">方法一：</h4><p>使用列表對象的sort()方法對列表進行排序，從最後一個元素開始循環迭代列表，判斷相鄰的兩個元素是否相同。  </p>
-<pre><code class="python">def methodONE(list):
-    list.sort()
-    lenList = len(list)
-    lastItem = list[lenList-1]
-    for i in range(lenList-2,-1,-1):
-     if list[i] == lastItem:
-      list.remove(list[i])
-     else:
-      lastItem = list[i]
-    return list
-```    &lt;!--more--&gt;
-#### 方法二：  
-定義一個臨時列表，循環迭代出的元素如果不在循環列表中，則加入，最後返回列表。  
-``` python
-def methodTWO(list):
-    templist = []
-    for i in list:
-     if not i in temp list:
-      templist.addend(i)
-    return templist
-</code></pre>
-<h4 id="方法三：">方法三：</h4><pre><code class="python">list = [<span class="number">20</span>,<span class="number">12</span>,<span class="number">34</span>,<span class="number">12</span>,<span class="number">24</span>,<span class="number">34</span>,<span class="number">55</span>,<span class="number">27</span>]
-<span class="keyword">print</span> list(set(lists))
-</code></pre>
-<h4 id="分析：">分析：</h4><ol>
+<pre><code>def <span class="function"><span class="title">methodONE</span><span class="params">(list)</span></span>:
+list.<span class="function"><span class="title">sort</span><span class="params">()</span></span>
+lenList = <span class="function"><span class="title">len</span><span class="params">(list)</span></span>
+lastItem = list[lenList-<span class="number">1</span>]
+<span class="keyword">for</span> <span class="tag">i</span> <span class="keyword">in</span> <span class="function"><span class="title">range</span><span class="params">(lenList-<span class="number">2</span>,-<span class="number">1</span>,-<span class="number">1</span>)</span></span>:
+ <span class="keyword">if</span> list[i] == lastItem:
+  list.<span class="function"><span class="title">remove</span><span class="params">(list[i])</span></span>
+ <span class="keyword">else</span>:
+  lastItem = list[i]
+return list
+</code></pre><a id="more"></a>
+<h4 id="方法二：">方法二：</h4><p>定義一個臨時列表，循環迭代出的元素如果不在循環列表中，則加入，最後返回列表。  </p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">methodTWO</span><span class="params">(list)</span>:</span>
+templist = []
+<span class="keyword">for</span> i <span class="keyword">in</span> list:
+ <span class="keyword">if</span> <span class="keyword">not</span> i <span class="keyword">in</span> temp list:
+  templist.addend(i)
+<span class="keyword">return</span> templist
+</code></pre><h4 id="方法三：">方法三：</h4><pre><code><span class="typename">list</span> = [<span class="number">20</span>,<span class="number">12</span>,<span class="number">34</span>,<span class="number">12</span>,<span class="number">24</span>,<span class="number">34</span>,<span class="number">55</span>,<span class="number">27</span>]
+<span class="keyword">print</span> <span class="typename">list</span>(<span class="typename">set</span>(lists))
+</code></pre><h4 id="分析：">分析：</h4><ol>
 <li>方法一相對方法二來說，有更多的額外操作如：排序、賦值。因爲在Python中，變量是不可變的，每迭代出一个元素比較不相等後的操作都是新建立一个局部變量、賦值並丟棄原變量，這需要消耗更多的内存!同時因爲排序操作，破壞了相對位置。  </li>
 <li>方法二建立一个臨時列表進行操作，而列表是可變的，每次追加元素都只是在原列表上增加一个索引及值,因而相對方法一來說效率會更高!  </li>
-<li>方法三无疑是效率最好的(無論是代碼的簡潔還是運行效率)。set()是內置的數據類型“集合類型”，它是無序的且值是唯一的！所以set()執行的结果就是轉為集合且直接去除了重複的元素，list()則將集合轉回列表類型。<br>但是，set()會破壞排列順序，如果要保留排序，list(set(lists))可改為sorted(set(lists), key=lists.index)  </li>
+<li>方法三无疑是效率最好的(無論是代碼的簡潔還是運行效率)。set()是內置的數據類型“集合類型”，它是無序的且值是唯一的！所以set()執行的结果就是轉為集合且直接去除了重複的元素，list()則將集合轉回列表類型。  </li>
 </ol>
+<p>但是，set()會破壞排列順序，如果要保留排序，list(set(lists))可改為sorted(set(lists), key=lists.index)  </p>
 <p>在itertools有个强大的函数groupby可以很快捷的实现:  </p>
-<pre><code class="python"><span class="keyword">from</span> itertools <span class="keyword">import</span> *
+<pre><code><span class="built_in">from</span> itertools import *
 
-a = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">11</span>]
-a.sort()
-b = [k <span class="keyword">for</span> k, g <span class="keyword">in</span> groupby(a)]
-<span class="keyword">print</span> b
-</code></pre>
-<p><a href="https://github.com/bluescorpio/mydocuments/blob/master/Todo/%E5%88%A0%E9%99%A4%E5%88%97%E8%A1%A8%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E5%85%83%E7%B4%A0%E5%8F%8A%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90.txt" target="_blank" rel="external">Origin</a></p>
+<span class="operator">a</span> = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">11</span>]
+<span class="operator">a</span>.<span class="built_in">sort</span>()
+b = [k <span class="keyword">for</span> k, g <span class="operator">in</span> groupby(<span class="operator">a</span>)]
+print b
+</code></pre><p><a href="https://github.com/bluescorpio/mydocuments/blob/master/Todo/%E5%88%A0%E9%99%A4%E5%88%97%E8%A1%A8%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E5%85%83%E7%B4%A0%E5%8F%8A%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90.txt" target="_blank" rel="external">Origin</a></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

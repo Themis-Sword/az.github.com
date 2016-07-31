@@ -274,23 +274,20 @@
                     <p>
                       
                         <h3 id="1-_不同算法實現Fibonacci數列">1. 不同算法實現Fibonacci數列</h3><p>1) 遞歸：  </p>
-<pre><code class="python">fib=<span class="keyword">lambda</span> n:<span class="number">1</span> <span class="keyword">if</span> n&lt;=<span class="number">2</span> <span class="keyword">else</span> fib(n-<span class="number">1</span>)+fib(n-<span class="number">2</span>)
-</code></pre>
-<p>2) 迭代：  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>
- x,y=<span class="number">0</span>,<span class="number">1</span>
- <span class="keyword">while</span>(n):
-  x,y,n=y,x+y,n-<span class="number">1</span>
- <span class="keyword">return</span> x
-</code></pre>
-<p>3) 尾遞歸(SICP)：  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>
- <span class="function"><span class="keyword">def</span> <span class="title">fib_iter</span><span class="params">(n,x,y)</span>:</span>
-  <span class="keyword">if</span> n==<span class="number">0</span> : <span class="keyword">return</span> x
-  <span class="keyword">else</span> : <span class="keyword">return</span> fib_iter(n-<span class="number">1</span>,y,x+y)
- <span class="keyword">return</span> fib_iter(n,<span class="number">0</span>,<span class="number">1</span>)
-</code></pre>
-<p><a href="http://www.cnblogs.com/figure9/archive/2010/08/30/1812927.html">Origin</a>
+<pre><code>fib=lambda n:<span class="number">1</span> <span class="keyword">if</span> n&lt;=<span class="number">2</span> <span class="keyword">else</span> <span class="function"><span class="title">fib</span><span class="params">(n-<span class="number">1</span>)</span></span>+<span class="function"><span class="title">fib</span><span class="params">(n-<span class="number">2</span>)</span></span>  
+</code></pre><p>2) 迭代：  </p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>
+    x,y=<span class="number">0</span>,<span class="number">1</span>
+     <span class="keyword">while</span>(n):
+        x,y,n=y,x+y,n-<span class="number">1</span>
+    <span class="keyword">return</span> x
+</code></pre><p>3) 尾遞歸(SICP)：  </p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">fib_iter</span><span class="params">(n,x,y)</span>:</span>
+        <span class="keyword">if</span> n==<span class="number">0</span> : <span class="keyword">return</span> x
+        <span class="keyword">else</span> : <span class="keyword">return</span> fib_iter(n-<span class="number">1</span>,y,x+y)
+    <span class="keyword">return</span> fib_iter(n,<span class="number">0</span>,<span class="number">1</span>)
+</code></pre><p><a href="http://www.cnblogs.com/figure9/archive/2010/08/30/1812927.html">Origin</a>
                       
                     </p>
                     
@@ -326,7 +323,7 @@
                     <p>
                       
                         <p><strong>1. 冒泡排序</strong>  </p>
-<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">bubble</span><span class="params">(x,n)</span>:</span>  
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">bubble</span><span class="params">(x,n)</span>:</span>  
 \冒泡排序，x是列表，n是列表長度  
 <span class="keyword">for</span> i <span class="keyword">in</span> range(n):  
  <span class="keyword">for</span> j <span class="keyword">in</span> range(n-<span class="number">1</span>):  
@@ -335,9 +332,8 @@
    x[j] = x[j+<span class="number">1</span>]  
    x[j+<span class="number">1</span>] = t  
 <span class="keyword">return</span> x                  
-<span class="keyword">print</span> bubble([<span class="number">1</span>,<span class="number">10</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">41</span>,<span class="number">25</span>,<span class="number">3</span>,<span class="number">48</span>], <span class="number">8</span>)
-</code></pre>
-<p></br>
+<span class="keyword">print</span> bubble([<span class="number">1</span>,<span class="number">10</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">41</span>,<span class="number">25</span>,<span class="number">3</span>,<span class="number">48</span>], <span class="number">8</span>)    
+</code></pre><p></br>
                       
                     </p>
                     
@@ -525,7 +521,7 @@
                 <div class="col-md-8">
                     <p>
                       
-                        <p><strong>1. 平衡點問題</strong><br>平衡點：比如int[] numbers = {1,3,5,7,8,25,4,20}; 25前面的總和爲24，25後面的總和也是24，25這個點就是平衡點；假如一個數組中的元素，其前面的部分等於後面的部分，那麼這個點的位序就是平衡點。<br>要求：返回任何一個平衡點<br>使用sum函数累加所有的数。<br>使用一个变量fore来累加序列的前部。直到满足条件fore&lt;(total-number)/2;
+                        <h4 id="1-_平衡點問題">1. 平衡點問題</h4><p>平衡點：比如int[] numbers = {1,3,5,7,8,25,4,20}; 25前面的總和爲24，25後面的總和也是24，25這個點就是平衡點；假如一個數組中的元素，其前面的部分等於後面的部分，那麼這個點的位序就是平衡點。<br>要求：返回任何一個平衡點<br>使用sum函数累加所有的数。<br>使用一个变量fore来累加序列的前部。直到满足条件fore&lt;(total-number)/2;<br>
                       
                     </p>
                     

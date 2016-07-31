@@ -238,7 +238,7 @@
 <h5 id="1-3-_反斜杠的困擾">1.3. 反斜杠的困擾</h5><p>與大多數編程語言相同，正則表達式裏使用”\”作為轉義字符，這就可能造成反斜杠困擾。假如你需要匹配文本中的字符”\”，那麽使用編程語言表示的正則表達式裏將需要4個反斜杠”\\\\”：前兩個和後兩個分別用於在編程語言裏轉義成反斜杠，轉換成兩個反斜杠後再在正則表達式裏轉義成一個反斜杠。Python裏的原生字符串很好地解決了這個問題，這個例子中的正則表達式可以使用r”\\”表示。同樣，匹配一個數字的”\\d”可以寫成r”\d”。有了原生字符串，你再也不用擔心是不是漏寫了反斜杠，寫出來的表達式也更直觀。  </p>
 <h5 id="1-4-_匹配模式">1.4. 匹配模式</h5><p>正則表達式提供了一些可用的匹配模式，比如忽略大小寫、多行匹配等，這部分內容將在Pattern類的工廠方法re.compile(pattern[, flags])中一起介紹。  </p>
 <h4 id="2-_re模塊">2. re模塊</h4><h5 id="2-1_開始使用re">2.1 開始使用re</h5><p>Python通過re模塊提供對正則表達式的支持。使用re的一般步驟是先將正則表達式的字符串形式編譯為Pattern實例，然後使用Pattern實例處理文本並獲得匹配結果（一個Match實例），最後使用Match實例獲得信息，進行其他的操作。  </p>
-<pre><code class="python"><span class="comment"># encoding: UTF-8</span>
+<pre><code><span class="comment"># encoding: UTF-8</span>
 <span class="keyword">import</span> re
 
 <span class="comment"># 将正则表达式编译成Pattern对象</span>
@@ -248,33 +248,33 @@ pattern = re.compile(<span class="string">r'hello'</span>)
 match = pattern.match(<span class="string">'hello world!'</span>)
 
 <span class="keyword">if</span> match:
-    <span class="comment"># 使用Match获得分组信息</span>
-    <span class="keyword">print</span> match.group()
+<span class="comment"># 使用Match获得分组信息</span>
+<span class="keyword">print</span> match.group()
 
 <span class="comment">### 输出 ###</span>
 <span class="comment"># hello</span>
-</code></pre>
-<p><strong>re.compile(strPattern[, flag]):</strong><br>這個方法是Pattern類的工廠方法，用於將字符串形式的正則表達式編譯為Pattern對象。 第二個參數flag是匹配模式，取值可以使用按位或運算符’|’表示同時生效，比如re.I | re.M。另外，你也可以在regex字符串中指定模式，比如re.compile(‘pattern’, re.I | re.M)與re.compile(‘(?im)pattern’)是等價的。<br>可選值有：  </p>
+</code></pre><p><strong>re.compile(strPattern[, flag]):</strong><br>這個方法是Pattern類的工廠方法，用於將字符串形式的正則表達式編譯為Pattern對象。 第二個參數flag是匹配模式，取值可以使用按位或運算符’|’表示同時生效，比如re.I | re.M。另外，你也可以在regex字符串中指定模式，比如re.compile(‘pattern’, re.I | re.M)與re.compile(‘(?im)pattern’)是等價的。<br>可選值有：  </p>
 <ul>
 <li>re.I(re.IGNORECASE): 忽略大小寫（括號內是完整寫法，下同）  </li>
 <li>M(MULTILINE): 多行模式，改變’^’和’$’的行為（參見上圖）  </li>
 <li>S(DOTALL): 點任意匹配模式，改變’.’的行為  </li>
 <li>L(LOCALE): 使預定字符類 \w \W \b \B \s \S 取決於當前區域設定  </li>
 <li>U(UNICODE): 使預定字符類 \w \W \b \B \s \S \d \D 取決於unicode定義的字符屬性  </li>
-<li>X(VERBOSE): 詳細模式。這個模式下正則表達式可以是多行，忽略空白字符，並可以加入註釋。以下兩個正則表達式是等價的：  <pre><code class="python">a = re.compile(<span class="string">r"""\d +  # the integral part
-                 \.    # the decimal point
-                 \d *  # some fractional digits"""</span>, re.X)
+<li><p>X(VERBOSE): 詳細模式。這個模式下正則表達式可以是多行，忽略空白字符，並可以加入註釋。以下兩個正則表達式是等價的：  </p>
+<pre><code>a = re.compile(<span class="string">r"""\d +  # the integral part
+           \.    # the decimal point
+           \d *  # some fractional digits"""</span>, re.X)
 b = re.compile(<span class="string">r"\d+\.\d*"</span>)
-</code></pre>
-re提供了眾多模塊方法用於完成正則表達式的功能。這些方法可以使用Pattern實例的相應方法替代，唯一的好處是少寫一行re.compile()代碼，但同時也無法復用編譯後的Pattern對象。這些方法將在Pattern類的實例方法部分一起介紹。如上面這個例子可以簡寫為：  <pre><code class="python">m = re.match(<span class="string">r'hello'</span>, <span class="string">'hello world!'</span>)
-<span class="keyword">print</span> m.group()
-</code></pre>
-re模塊還提供了一個方法escape(string)，用於將string中的正則表達式元字符如*/+/?等之前加上轉義符再返回，在需要大量匹配元字符時有那麽一點用。  </li>
+</code></pre></li>
 </ul>
+<p>re提供了眾多模塊方法用於完成正則表達式的功能。這些方法可以使用Pattern實例的相應方法替代，唯一的好處是少寫一行re.compile()代碼，但同時也無法復用編譯後的Pattern對象。這些方法將在Pattern類的實例方法部分一起介紹。如上面這個例子可以簡寫為：  </p>
+<pre><code>m = re.match(<span class="string">r'hello'</span>, <span class="string">'hello world!'</span>)
+<span class="keyword">print</span> m.group()
+</code></pre><p>re模塊還提供了一個方法escape(string)，用於將string中的正則表達式元字符如*/+/?等之前加上轉義符再返回，在需要大量匹配元字符時有那麽一點用。  </p>
 <h5 id="2-2_Match">2.2 Match</h5><p>Match对象是一次匹配的结果，包含了很多关于此次匹配的信息，可以使用Match提供的可读属性或方法来获取这些信息。  </p>
 <p>属性：<br>1) string: 匹配时使用的文本。<br>2) re: 匹配时使用的Pattern对象。<br>3) pos: 文本中正则表达式开始搜索的索引。值与Pattern.match()和Pattern.seach()方法的同名参数相同。<br>4) endpos: 文本中正则表达式结束搜索的索引。值与Pattern.match()和Pattern.seach()方法的同名参数相同。<br>5) lastindex: 最后一个被捕获的分组在文本中的索引。如果没有被捕获的分组，将为None。<br>6) lastgroup: 最后一个被捕获的分组的别名。如果这个分组没有别名或者没有被捕获的分组，将为None。  </p>
 <p>方法：<br>1) <strong>group([group1, …]):</strong><br>获得一个或多个分组截获的字符串；指定多个参数时将以元组形式返回。group1可以使用编号也可以使用别名；编号0代表整个匹配的子串；不填写参数时，返回group(0)；没有截获字符串的组返回None；截获了多次的组返回最后一次截获的子串。<br>2) <strong>groups([default]):</strong><br>以元组形式返回全部分组截获的字符串。相当于调用group(1,2,…last)。default表示没有截获字符串的组以这个值替代，默认为None。<br>3) <strong>groupdict([default]):</strong><br>返回以有别名的组的别名为键、以该组截获的子串为值的字典，没有别名的组不包含在内。default含义同上。<br>4) <strong>start([group]):</strong><br>返回指定的组截获的子串在string中的起始索引（子串第一个字符的索引）。group默认值为0。<br>5) <strong>end([group]):</strong><br>返回指定的组截获的子串在string中的结束索引（子串最后一个字符的索引+1）。group默认值为0。<br>6) <strong>span([group]):</strong><br>返回(start(group), end(group))。<br>7) <strong>expand(template):</strong><br>将匹配到的分组代入template中然后返回。template中可以使用\id或\g<id>、\g<name>引用分组，但不能使用编号0。\id与\g<id>是等价的；但\10将被认为是第10个分组，如果你想表达\1之后是字符’0’，只能使用\g<1>0。  </1></id></name></id></p>
-<pre><code class="python"><span class="keyword">import</span> re
+<pre><code><span class="keyword">import</span> re
 m = re.match(<span class="string">r'(\w+) (\w+)(?P&lt;sign&gt;.*)'</span>, <span class="string">'hello world!'</span>)
 
 <span class="keyword">print</span> <span class="string">"m.string:"</span>, m.string
@@ -306,9 +306,8 @@ m = re.match(<span class="string">r'(\w+) (\w+)(?P&lt;sign&gt;.*)'</span>, <span
 <span class="comment"># m.end(2): 11</span>
 <span class="comment"># m.span(2): (6, 11)</span>
 <span class="comment"># m.expand(r'\2 \1\3'): world hello!</span>
-</code></pre>
-<h5 id="2-3_Pattern">2.3 Pattern</h5><p>Pattern對象是一個編譯好的正則表達式，通過Pattern提供的一系列方法可以對文本進行匹配查找。<br>Pattern不能直接實例化，必須使用re.compile()進行構造。<br>Pattern提供了幾個可讀屬性用於獲取表達式的相關信息：<br>1) pattern: 編譯時用的表達式字符串。<br>2) flags: 編譯時用的匹配模式。數字形式。<br>3) groups: 表達式中分組的數量。<br>4) groupindex: 以表達式中有別名的組的別名為鍵、以該組對應的編號為值的字典，沒有別名的組不包含在內。  </p>
-<pre><code class="python"><span class="keyword">import</span> re
+</code></pre><h5 id="2-3_Pattern">2.3 Pattern</h5><p>Pattern對象是一個編譯好的正則表達式，通過Pattern提供的一系列方法可以對文本進行匹配查找。<br>Pattern不能直接實例化，必須使用re.compile()進行構造。<br>Pattern提供了幾個可讀屬性用於獲取表達式的相關信息：<br>1) pattern: 編譯時用的表達式字符串。<br>2) flags: 編譯時用的匹配模式。數字形式。<br>3) groups: 表達式中分組的數量。<br>4) groupindex: 以表達式中有別名的組的別名為鍵、以該組對應的編號為值的字典，沒有別名的組不包含在內。  </p>
+<pre><code><span class="keyword">import</span> re
 p = re.compile(<span class="string">r'(\w+) (\w+)(?P&lt;sign&gt;.*)'</span>, re.DOTALL)
 
 <span class="keyword">print</span> <span class="string">"p.pattern:"</span>, p.pattern
@@ -321,9 +320,8 @@ p = re.compile(<span class="string">r'(\w+) (\w+)(?P&lt;sign&gt;.*)'</span>, re.
 <span class="comment"># p.flags: 16</span>
 <span class="comment"># p.groups: 3</span>
 <span class="comment"># p.groupindex: {'sign': 3}</span>
-</code></pre>
-<p>实例方法[ | re模块方法]：<br>1) <strong>match(string[, pos[, endpos]]) | re.match(pattern, string[, flags]):</strong><br>这个方法将从string的pos下标处起尝试匹配pattern；如果pattern结束时仍可匹配，则返回一个Match对象；如果匹配过程中pattern无法匹配，或者匹配未结束就已到达endpos，则返回None。<br>pos和endpos的默认值分别为0和len(string)；re.match()无法指定这两个参数，参数flags用于编译pattern时指定匹配模式。<br>注意：这个方法并不是完全匹配。当pattern结束时若string还有剩余字符，仍然视为成功。想要完全匹配，可以在表达式末尾加上边界匹配符’$’。<br>示例参见2.1小节。<br>2) <strong>search(string[, pos[, endpos]]) | re.search(pattern, string[, flags]):</strong><br>这个方法用于查找字符串中可以匹配成功的子串。从string的pos下标处起尝试匹配pattern，如果pattern结束时仍可匹配，则返回一个Match对象；若无法匹配，则将pos加1后重新尝试匹配；直到pos=endpos时仍无法匹配则返回None。<br>pos和endpos的默认值分别为0和len(string))；re.search()无法指定这两个参数，参数flags用于编译pattern时指定匹配模式。  </p>
-<pre><code class="python"><span class="comment"># encoding: UTF-8 </span>
+</code></pre><p>实例方法[ | re模块方法]：<br>1) <strong>match(string[, pos[, endpos]]) | re.match(pattern, string[, flags]):</strong><br>这个方法将从string的pos下标处起尝试匹配pattern；如果pattern结束时仍可匹配，则返回一个Match对象；如果匹配过程中pattern无法匹配，或者匹配未结束就已到达endpos，则返回None。<br>pos和endpos的默认值分别为0和len(string)；re.match()无法指定这两个参数，参数flags用于编译pattern时指定匹配模式。<br>注意：这个方法并不是完全匹配。当pattern结束时若string还有剩余字符，仍然视为成功。想要完全匹配，可以在表达式末尾加上边界匹配符’$’。<br>示例参见2.1小节。<br>2) <strong>search(string[, pos[, endpos]]) | re.search(pattern, string[, flags]):</strong><br>这个方法用于查找字符串中可以匹配成功的子串。从string的pos下标处起尝试匹配pattern，如果pattern结束时仍可匹配，则返回一个Match对象；若无法匹配，则将pos加1后重新尝试匹配；直到pos=endpos时仍无法匹配则返回None。<br>pos和endpos的默认值分别为0和len(string))；re.search()无法指定这两个参数，参数flags用于编译pattern时指定匹配模式。  </p>
+<pre><code><span class="comment"># encoding: UTF-8 </span>
 <span class="keyword">import</span> re 
 
 <span class="comment"># 将正则表达式编译成Pattern对象 </span>
@@ -334,42 +332,38 @@ pattern = re.compile(<span class="string">r'world'</span>)
 match = pattern.search(<span class="string">'hello world!'</span>) 
 
 <span class="keyword">if</span> match: 
-    <span class="comment"># 使用Match获得分组信息 </span>
-    <span class="keyword">print</span> match.group() 
+<span class="comment"># 使用Match获得分组信息 </span>
+<span class="keyword">print</span> match.group() 
 
 <span class="comment">### 输出 ### </span>
 <span class="comment"># world</span>
-</code></pre>
-<p>3) <strong>split(string[, maxsplit]) | re.split(pattern, string[, maxsplit]):</strong><br>按照能夠匹配的子串將string分割後返回列表。maxsplit用於指定最大分割次數，不指定將全部分割。  </p>
-<pre><code class="python"><span class="keyword">import</span> re
+</code></pre><p>3) <strong>split(string[, maxsplit]) | re.split(pattern, string[, maxsplit]):</strong><br>按照能夠匹配的子串將string分割後返回列表。maxsplit用於指定最大分割次數，不指定將全部分割。  </p>
+<pre><code><span class="keyword">import</span> re
 
 p = re.compile(<span class="string">r'\d+'</span>)
 <span class="keyword">print</span> p.split(<span class="string">'one1two2three3four4'</span>)
 
 <span class="comment">### output ###</span>
 <span class="comment"># ['one', 'two', 'three', 'four', '']</span>
-</code></pre>
-<p>4) <strong>findall(string[, pos[, endpos]]) | re.findall(pattern, string[, flags]):</strong><br>搜索string，以列表形式返回全部能匹配的子串。  </p>
-<pre><code class="python"><span class="keyword">import</span> re
+</code></pre><p>4) <strong>findall(string[, pos[, endpos]]) | re.findall(pattern, string[, flags]):</strong><br>搜索string，以列表形式返回全部能匹配的子串。  </p>
+<pre><code><span class="keyword">import</span> re
 
 p = re.compile(<span class="string">r'\d+'</span>)
 <span class="keyword">print</span> p.findall(<span class="string">'one1two2three3four4'</span>)
 
 <span class="comment">### output ###</span>
 <span class="comment"># ['1', '2', '3', '4']</span>
-</code></pre>
-<p>5) <strong>finditer(string[, pos[, endpos]]) | re.finditer(pattern, string[, flags]):</strong><br>搜索string，返回一個順序訪問每一個匹配結果（Match對象）的叠代器。  </p>
-<pre><code class="python"><span class="keyword">import</span> re
+</code></pre><p>5) <strong>finditer(string[, pos[, endpos]]) | re.finditer(pattern, string[, flags]):</strong><br>搜索string，返回一個順序訪問每一個匹配結果（Match對象）的叠代器。  </p>
+<pre><code><span class="keyword">import</span> re
 
 p = re.compile(<span class="string">r'\d+'</span>)
 <span class="keyword">for</span> m <span class="keyword">in</span> p.finditer(<span class="string">'one1two2three3four4'</span>):
-    <span class="keyword">print</span> m.group(),
+<span class="keyword">print</span> m.group(),
 
 <span class="comment">### output ###</span>
 <span class="comment"># 1 2 3 4</span>
-</code></pre>
-<p>6) <strong>sub(repl, string[, count]) | re.sub(pattern, repl, string[, count]):</strong><br>使用repl替換string中每一個匹配的子串後返回替換後的字符串。<br>當repl是一個字符串時，可以使用\id或\g<id>、\g<name>引用分組，但不能使用編號0。<br>當repl是一個方法時，這個方法應當只接受一個參數（Match對象），並返回一個字符串用於替換（返回的字符串中不能再引用分組）。<br>count用於指定最多替換次數，不指定時全部替換。  </name></id></p>
-<pre><code class="python"><span class="keyword">import</span> re
+</code></pre><p>6) <strong>sub(repl, string[, count]) | re.sub(pattern, repl, string[, count]):</strong><br>使用repl替換string中每一個匹配的子串後返回替換後的字符串。<br>當repl是一個字符串時，可以使用\id或\g<id>、\g<name>引用分組，但不能使用編號0。<br>當repl是一個方法時，這個方法應當只接受一個參數（Match對象），並返回一個字符串用於替換（返回的字符串中不能再引用分組）。<br>count用於指定最多替換次數，不指定時全部替換。  </name></id></p>
+<pre><code><span class="keyword">import</span> re
 
 p = re.compile(<span class="string">r'(\w+) (\w+)'</span>)
 s = <span class="string">'i say, hello world!'</span>
@@ -377,16 +371,15 @@ s = <span class="string">'i say, hello world!'</span>
 <span class="keyword">print</span> p.sub(<span class="string">r'\2 \1'</span>, s)
 
 <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(m)</span>:</span>
-    <span class="keyword">return</span> m.group(<span class="number">1</span>).title() + <span class="string">' '</span> + m.group(<span class="number">2</span>).title()
+<span class="keyword">return</span> m.group(<span class="number">1</span>).title() + <span class="string">' '</span> + m.group(<span class="number">2</span>).title()
 
 <span class="keyword">print</span> p.sub(func, s)
 
 <span class="comment">### output ###</span>
 <span class="comment"># say i, world hello!</span>
 <span class="comment"># I Say, Hello World!</span>
-</code></pre>
-<p>7) <strong>subn(repl, string[, count]) |re.sub(pattern, repl, string[, count]):</strong><br>返回 (sub(repl, string[, count]), 替換次數)。  </p>
-<pre><code class="python"><span class="keyword">import</span> re
+</code></pre><p>7) <strong>subn(repl, string[, count]) |re.sub(pattern, repl, string[, count]):</strong><br>返回 (sub(repl, string[, count]), 替換次數)。  </p>
+<pre><code><span class="keyword">import</span> re
 
 p = re.compile(<span class="string">r'(\w+) (\w+)'</span>)
 s = <span class="string">'i say, hello world!'</span>
@@ -394,15 +387,14 @@ s = <span class="string">'i say, hello world!'</span>
 <span class="keyword">print</span> p.subn(<span class="string">r'\2 \1'</span>, s)
 
 <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(m)</span>:</span>
-    <span class="keyword">return</span> m.group(<span class="number">1</span>).title() + <span class="string">' '</span> + m.group(<span class="number">2</span>).title()
+<span class="keyword">return</span> m.group(<span class="number">1</span>).title() + <span class="string">' '</span> + m.group(<span class="number">2</span>).title()
 
 <span class="keyword">print</span> p.subn(func, s)
 
 <span class="comment">### output ###</span>
 <span class="comment"># ('say i, world hello!', 2)</span>
 <span class="comment"># ('I Say, Hello World!', 2)</span>
-</code></pre>
-<p><a href="http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html" target="_blank" rel="external">Origin</a></p>
+</code></pre><p><a href="http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html" target="_blank" rel="external">Origin</a></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

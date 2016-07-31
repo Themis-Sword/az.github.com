@@ -230,33 +230,30 @@
         <div class="col-md-8 col-md-offset-2">
       		<p><strong>1. 簡單說說python import與from…import….(python模塊)</strong></p>
 <p>在python用import或者from…import來導入相應的模塊。模塊其實就一些函數和類的集合文件，它能實現一些相應的功能，當我們需要使用這些功能的時候，直接把相應的模塊導入到我們的程序中，我們就可以使用了。這類似於C語言中的include頭文件，Python中我們用import導入我們需要的模塊。 <a id="more"></a> </p>
-<pre><code class="python"><span class="keyword">import</span> sys
-print(<span class="string">'================Python import mode=========================='</span>);
-<span class="keyword">print</span> (<span class="string">'The command line arguments are:'</span>)
-<span class="keyword">for</span> i <span class="keyword">in</span> sys.argv:
-    <span class="keyword">print</span> (i)
-<span class="keyword">print</span> (<span class="string">'\n The python path'</span>,sys.path)
+<pre><code><span class="keyword">import</span> sys
+<span class="built_in">print</span>(<span class="string">'================Python import mode=========================='</span>);
+<span class="built_in">print</span> (<span class="string">'The command line arguments are:'</span>)
+<span class="keyword">for</span> i <span class="keyword">in</span> sys.<span class="attribute">argv</span>:
+<span class="built_in">print</span> (i)
+<span class="built_in">print</span> (<span class="string">'\n The python path'</span>,sys.path)
 
 <span class="keyword">from</span> sys <span class="keyword">import</span> argv,path <span class="comment">#導入特定的成員</span>
-print(<span class="string">'================python from import==================================='</span>)
-print(<span class="string">'path:'</span>,path)
-
-如果你要使用所有sys模塊使用的名字，你可以這樣：
-
-<span class="keyword">from</span> sys <span class="keyword">import</span> *
-print(<span class="string">'path:'</span>,path)
-</code></pre>
-<p>從以上我們可以簡單看出：</p>
+<span class="built_in">print</span>(<span class="string">'================python from import==================================='</span>)
+<span class="built_in">print</span>(<span class="string">'path:'</span>,path)
+</code></pre><p>如果你要使用所有sys模塊使用的名字，你可以這樣：</p>
+<pre><code><span class="keyword">from</span> sys <span class="keyword">import</span> *
+<span class="keyword">print</span>(<span class="string">'path:'</span>,path)
+</code></pre><p>從以上我們可以簡單看出：</p>
 <p>\==========<br>導入mode，import與from…import的不同之處在於，簡單說：<br>如果你想要直接輸入argv變量到你的程序中而每次使用它時又不想打sys，則可使用：from sys import argv。<br>一般說來，應該避免使用from..import而使用import語句，因為這樣可以使你的程序更加易讀，也可以避免名稱的沖突。<br>\==========  </p>
 <p>在使用 from xxx import * 時，如果想精準的控制模塊導入的內容，可以使用 <strong>all</strong> = [xxx,xxx] 來實現，例如：  </p>
-<pre><code class="python">__all__ = [<span class="string">'a'</span>,<span class="string">'b'</span>] <span class="comment">#__為雙橫線</span>
+<pre><code>__all__ = [<span class="string">'a'</span>,<span class="string">'b'</span>] <span class="comment">#__為雙橫線</span>
 <span class="class"><span class="keyword">class</span> <span class="title">two</span><span class="params">()</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span>
-        print(<span class="string">'this is two'</span>)
+<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span>
+    print(<span class="string">'this is two'</span>)
 a = <span class="string">'this is two a'</span>
 b = <span class="string">'this is two b'</span>
 <span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:
-    t = two()
+t = two()
 
 one.py
 
@@ -264,125 +261,109 @@ one.py
 <span class="keyword">print</span> a
 <span class="keyword">print</span> b
 t = two()
-
-這時，類two()將不會被 <span class="keyword">import</span> *導入進來
-</code></pre>
+</code></pre><p>這時，類two()將不會被 import *導入進來</p>
 <p><strong>2. 關於import中的路徑搜索問題</strong><br>類似於頭文件，模塊也是需要系統的搜索路徑的，下面的命令即是系統默認的搜索路徑，當你導入一個模塊時，系統就會在下面的路徑列表中搜索相應的文件。  </p>
-<pre><code class="python"><span class="prompt">&gt;&gt;&gt; </span>print(sys.path)
+<pre><code>&gt;&gt;&gt; <span class="function"><span class="title">print</span><span class="params">(sys.path)</span></span>
 
 [<span class="string">''</span>, <span class="string">'/usr/lib64/python26.zip'</span>, <span class="string">'/usr/lib64/python2.6'</span>, <span class="string">'/usr/lib64/python2.6/plat-linux2'</span>, <span class="string">'/usr/lib64/python2.6/lib-tk'</span>, <span class="string">'/usr/lib64/python2.6/lib-old'</span>, <span class="string">'/usr/lib64/python2.6/lib-dynload'</span>, <span class="string">'/usr/lib64/python2.6/site-packages'</span>, <span class="string">'/usr/lib64/python2.6/site-packages/gst-0.10'</span>, <span class="string">'/usr/lib64/python2.6/site-packages/gtk-2.0'</span>, <span class="string">'/usr/lib64/python2.6/site-packages/webkit-1.0'</span>, <span class="string">'/usr/lib/python2.6/site-packages'</span>]
-
-(從例中，我們可以看到python會首先在當前工作目錄裏去找)
-</code></pre>
+</code></pre><p>(從例中，我們可以看到python會首先在當前工作目錄裏去找)</p>
 <p>如果沒有找導相應的內容，則報錯：  </p>
-<pre><code class="python"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">import</span> syss
-Traceback (most recent call last):
-  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;
-ImportError: No module named syss
-
-當然，我們也可以自行添加要搜索的路徑，調用列表的append方法即可：
-<span class="keyword">import</span> sys
-sys.path.append(<span class="string">'/usr/xx/python2.6'</span>)
-</code></pre>
-<p><strong>3. 創建自己的模塊</strong><br>在創建之前，有一點需要說明一下：每個Python模塊都有它的__name__（就每個對象都自己的__doc__一樣）。通過<strong>name</strong>我們可以找出每一個模塊的名稱，一般__name__的值有種：1 一是主模塊名稱為：”__main__“(可以理解為直接運行的那個文件)，2 那些被主模塊導入的模塊名稱為：文件名字（不加後面的.py）。有__name__是很有用的，因為我們可以通過 if __name__  == ‘xxx’ 判斷來執行那些模塊，那些模塊不被執行。另外：每個Python程序也是一個模塊。它擴展名為：.py擴展名。  </p>
+<pre><code><span class="prompt">&gt;&gt;</span>&gt; import syss
+<span class="constant">Traceback</span> (most recent call last)<span class="symbol">:</span>
+  <span class="constant">File</span> <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;<span class="class"><span class="keyword">module</span>&gt;</span>
+<span class="constant">ImportError</span><span class="symbol">:</span> <span class="constant">No</span> <span class="class"><span class="keyword">module</span> <span class="title">named</span> <span class="title">syss</span></span>
+</code></pre><p>當然，我們也可以自行添加要搜索的路徑，調用列表的append方法即可：</p>
+<pre><code>import sys
+sys<span class="class">.path</span><span class="class">.append</span>(<span class="string">'/usr/xx/python2.6'</span>)
+</code></pre><p><strong>3. 創建自己的模塊</strong><br>在創建之前，有一點需要說明一下：每個Python模塊都有它的__name__（就每個對象都自己的__doc__一樣）。通過<strong>name</strong>我們可以找出每一個模塊的名稱，一般__name__的值有種：1 一是主模塊名稱為：”__main__“(可以理解為直接運行的那個文件)，2 那些被主模塊導入的模塊名稱為：文件名字（不加後面的.py）。有__name__是很有用的，因為我們可以通過 if __name__  == ‘xxx’ 判斷來執行那些模塊，那些模塊不被執行。另外：每個Python程序也是一個模塊。它擴展名為：.py擴展名。  </p>
 <p>下面，我們通過例子來說明：<br>首先：我們創建模塊：mymodel.py  </p>
-<pre><code class="python"><span class="comment">#!/user/bin/python</span>
+<pre><code><span class="comment">#!/user/bin/python</span>
 <span class="comment">#Filename:mymodel.py</span>
 version = <span class="string">'1.0'</span>
 <span class="function"><span class="keyword">def</span> <span class="title">sayHello</span><span class="params">()</span>:</span>
-    <span class="keyword">print</span> (<span class="string">'Hello world'</span>)
+<span class="keyword">print</span> (<span class="string">'Hello world'</span>)
 
 <span class="function"><span class="keyword">def</span> <span class="title">modelName</span><span class="params">()</span>:</span>
-    <span class="keyword">return</span> __name__<span class="comment">#返回它自己的名稱</span>
+<span class="keyword">return</span> __name__<span class="comment">#返回它自己的名稱</span>
 <span class="comment">#end of model</span>
-</code></pre>
-<p>以上語句注意：<br>1) 這個模塊應該被放置在我們輸入它的程序的同一個目錄中，或者在sys.path所列目錄之一。<br>2) 你已經看到，它與我們普通的Python程序相比並沒有什麽特別之處。<br>然後：我們在test.py中來調用此模塊：test.py  </p>
-<pre><code class="python"><span class="keyword">import</span> sys,mymodel
-sys.path.append(<span class="string">'D:/xx/PythonSERVER/python31/Code'</span>)<span class="comment">#提供搜索路径</span>
-print(__name__) <span class="comment">#此處打印主模塊的名稱：__main__</span>
-mymodel.sayHello()
-print(<span class="string">'Version'</span>,mymodel.version)
-print(<span class="string">'Model Name'</span>,mymodel.modelName())<span class="comment">#打印被導入模塊的名稱: mymodel</span>
-
-我們使用<span class="keyword">from</span>..<span class="keyword">import</span>...
-
-print(<span class="string">'======================from.....import====================================='</span>)
+</code></pre><p>以上語句注意：<br>1) 這個模塊應該被放置在我們輸入它的程序的同一個目錄中，或者在sys.path所列目錄之一。<br>2) 你已經看到，它與我們普通的Python程序相比並沒有什麽特別之處。<br>然後：我們在test.py中來調用此模塊：test.py  </p>
+<pre><code>import sys,mymodel
+sys<span class="class">.path</span><span class="class">.append</span>(<span class="string">'D:/xx/PythonSERVER/python31/Code'</span>)#提供搜索路径
+<span class="function"><span class="title">print</span><span class="params">(__name__)</span></span> #此處打印主模塊的名稱：__main__
+mymodel.<span class="function"><span class="title">sayHello</span><span class="params">()</span></span>
+<span class="function"><span class="title">print</span><span class="params">(<span class="string">'Version'</span>,mymodel.version)</span></span>
+<span class="function"><span class="title">print</span><span class="params">(<span class="string">'Model Name'</span>,mymodel.modelName()</span></span>)#打印被導入模塊的名稱: mymodel
+</code></pre><p>我們使用from..import…</p>
+<pre><code><span class="built_in">print</span>(<span class="string">'======================from.....import====================================='</span>)
 <span class="keyword">from</span> mymodel <span class="keyword">import</span> *
-print(__name__)<span class="comment">#此處打印主模塊的名稱：__main__</span>
+<span class="built_in">print</span>(__name__)<span class="comment">#此處打印主模塊的名稱：__main__</span>
 sayHello()
-print(<span class="string">'Version'</span>,version)
-print(<span class="string">'Model Name'</span>,modelName()) <span class="comment">#打印被導入模塊的名稱: mymodel</span>
-</code></pre>
-<p>以上語句註意：<br>1) 我們可以通過import來導入多個模塊，用“,”（逗號）分隔。<br>2) 註意import與from..import…..  </p>
+<span class="built_in">print</span>(<span class="string">'Version'</span>,version)
+<span class="built_in">print</span>(<span class="string">'Model Name'</span>,modelName()) <span class="comment">#打印被導入模塊的名稱:     mymodel</span>
+</code></pre><p>以上語句註意：<br>1) 我們可以通過import來導入多個模塊，用“,”（逗號）分隔。<br>2) 註意import與from..import…..  </p>
 <p><strong>4. 創建自己的包</strong><br><em>A 一個包的基本組織如下：</em>  </p>
-<pre><code class="python">FC/
-  __init__.py
+<pre><code>FC/
+  __init__<span class="class">.py</span>
   Libr/
-    __init__.py
-    one.py
-    two.py
-    ....
+__init__<span class="class">.py</span>
+one<span class="class">.py</span>
+two<span class="class">.py</span>
+....
   Model/
-    __init__.py
-    one.py
-    ....
-
-
-在外部加載調用時，有以下方式：
-<span class="comment">#coding:utf-8</span>
+__init__<span class="class">.py</span>
+one<span class="class">.py</span>
+....
+</code></pre><p>在外部加載調用時，有以下方式：</p>
+<pre><code><span class="comment">#coding:utf-8</span>
 <span class="comment">#加載方式一</span>
-<span class="keyword">import</span> Fc.Libr.one
-<span class="keyword">print</span> Fc.Libr.one.a
+import Fc.Libr.<span class="constant">one</span>
+print Fc.Libr.<span class="constant">one</span>.<span class="operator">a</span>
 <span class="comment">#加載方式二</span>
-<span class="keyword">from</span> Fc.Libr <span class="keyword">import</span> one
-<span class="keyword">print</span> one.a
+<span class="built_in">from</span> Fc.Libr import <span class="constant">one</span>
+print <span class="constant">one</span>.<span class="operator">a</span>
 <span class="comment">#加載方式三</span>
-<span class="keyword">from</span> Fc.Libr.one <span class="keyword">import</span> a
-<span class="keyword">print</span> a
+<span class="built_in">from</span> Fc.Libr.<span class="constant">one</span> import <span class="operator">a</span>
+print <span class="operator">a</span>
 <span class="comment">#加載方式四</span>
-<span class="keyword">from</span> Fc.Libr <span class="keyword">import</span> *
-<span class="keyword">print</span> one.a
-註意直接使用第四種方式是不能正確導入Libr下的one子模塊的，這就需要在Fc目錄下的__init__.py文件中定義好需要加載子模塊的名稱
-Fc/Libr/__init__.py
-__all__=[<span class="string">'one'</span>,<span class="string">'two'</span>] <span class="comment">#定義加載子模塊的名稱</span>
-</code></pre>
-<p>在加載包模塊時，在import語句執行期時，遇到的所有__init__.py文件都會被執行，在上面代碼中<br>首先會執行Fc目錄中的__int__.py，然後執行Libr目錄中的__init__.py  </p>
+<span class="built_in">from</span> Fc.Libr import *
+print <span class="constant">one</span>.<span class="operator">a</span>
+</code></pre><p>註意直接使用第四種方式是不能正確導入Libr下的one子模塊的，這就需要在Fc目錄下的<strong>init</strong>.py文件中定義好需要加載子模塊的名稱</p>
+<pre><code>Fc/Libr/__init__<span class="class">.py</span>
+__all__=[<span class="string">'one'</span>,<span class="string">'two'</span>] #定義加載子模塊的名稱
+</code></pre><p>在加載包模塊時，在import語句執行期時，遇到的所有__init__.py文件都會被執行，在上面代碼中<br>首先會執行Fc目錄中的__int__.py，然後執行Libr目錄中的__init__.py  </p>
 <p><em>B 子模塊加子模塊問題</em><br>同一包的相同目錄中：  </p>
-<pre><code class="python"><span class="comment">#coding:utf-8</span>
+<pre><code><span class="comment">#coding:utf-8</span>
 <span class="comment">#加載方式一:使用完全限定名稱</span>
-<span class="keyword">from</span> Fc.Libr <span class="keyword">import</span> one
-aa = <span class="string">'libr two load one---'</span>+one.a
+<span class="built_in">from</span> Fc.Libr import <span class="constant">one</span>
+aa = <span class="string">'libr two load one---'</span>+<span class="constant">one</span>.<span class="operator">a</span>
 
 <span class="comment">#加載方式二:使用相對導入</span>
-<span class="keyword">from</span> . <span class="keyword">import</span> one
-bb = <span class="string">'libr two load one----'</span>+one.b
+<span class="built_in">from</span> . import <span class="constant">one</span>
+bb = <span class="string">'libr two load one----'</span>+<span class="constant">one</span>.b
 方二中使用.來表示在同一級目錄中。
 
-
 <span class="comment">#加載方式三:(這種方式應當避免:最後找不到會轉移到標準庫)</span>
-<span class="keyword">import</span> Fc.Libr.one
-cc = <span class="string">'libr two load one---'</span>+Fc.Libr.one.a
+import Fc.Libr.<span class="constant">one</span>
+cc = <span class="string">'libr two load one---'</span>+Fc.Libr.<span class="constant">one</span>.<span class="operator">a</span>
 
 在外部使用時：
 <span class="comment">#coding:utf-8</span>
-<span class="keyword">from</span> Fc.Libr <span class="keyword">import</span> *
-<span class="keyword">print</span> two.aa
-<span class="keyword">print</span> two.bb
-
+<span class="built_in">from</span> Fc.Libr import *
+print <span class="constant">two</span>.aa
+print <span class="constant">two</span>.bb
 
 同一包的不同目錄中：
 
 <span class="comment">#coding:utf-8</span>
-<span class="keyword">from</span> ..Model <span class="keyword">import</span> one
-a = <span class="string">'libr two load mode one---'</span>+one.a
+<span class="built_in">from</span> ..Model import <span class="constant">one</span>
+<span class="operator">a</span> = <span class="string">'libr two load mode one---'</span>+<span class="constant">one</span>.<span class="operator">a</span>
 
 使用時：
 <span class="comment">#coding:utf-8</span>
-<span class="keyword">from</span> Fc.Libr <span class="keyword">import</span> *
-<span class="keyword">print</span> two.a
-將輸出：libr two load mode one---fc model one
-</code></pre>
-<p>另外在導入一個包時，會定義一個特殊的變量__path__，該變量包含一個目錄列表。<br>__path__可通過__init__.py文件中包含的代碼訪問，最初包含的一項具有包的目錄名稱。我們可以向__path__列表提供更多的目錄，以更改查找子模塊時使用的搜索路徑，大型項目中這個很有用。  </p>
+<span class="built_in">from</span> Fc.Libr import *
+print <span class="constant">two</span>.<span class="operator">a</span>
+將輸出：libr <span class="constant">two</span> <span class="built_in">load</span> mode <span class="constant">one</span><span class="comment">---fc model one</span>
+</code></pre><p>另外在導入一個包時，會定義一個特殊的變量__path__，該變量包含一個目錄列表。<br>__path__可通過__init__.py文件中包含的代碼訪問，最初包含的一項具有包的目錄名稱。我們可以向__path__列表提供更多的目錄，以更改查找子模塊時使用的搜索路徑，大型項目中這個很有用。  </p>
 <p><strong>5. 特別說明</strong><br>1) import執行加載源文件中所有語名（所以模塊是一個文件）。<br>2) import語句可以出現在程序中的任何位置。但是有一點是：無論import語句被使用了多少次，每個模塊中的代碼僅加載和執行一次，後續的import語句僅將模塊名稱綁定到前一次導入所創建的模塊對象上。<br>3) 使用sys.modules可查看當前加載的所有模塊。  </p>
 <p><a href="http://www.cnblogs.com/ptfblog/archive/2012/07/15/2592122.html" target="_blank" rel="external">Origin</a></p>
 
