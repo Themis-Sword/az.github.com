@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.aprilzephyr.com/blog/05122015/Excerpt_Artificial%20Intelligence%20A%20Modern%20Approach%203rd%20Edition/</loc>
+    
+    <lastmod>2016-07-31T04:05:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/04302015/%E7%A5%9E%E7%B6%93%E7%B6%B2%E7%B5%A1(%E6%9B%B8%E6%91%98)/</loc>
+    
+    <lastmod>2016-07-31T04:03:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/04302015/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92,%20%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%E8%B3%87%E6%96%99/</loc>
+    
+    <lastmod>2016-07-31T04:03:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/04272015/I%20Am%20a%20Nerd:Weirdo:Crackpot/</loc>
+    
+    <lastmod>2016-07-31T04:03:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/03262014/Python%20%E6%99%82%E9%96%93,%20%E6%97%A5%E6%9C%9F%E6%A8%A1%E5%A1%8A/</loc>
+    
+    <lastmod>2016-07-31T03:57:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/02202014/100-interview-questions/</loc>
+    
+    <lastmod>2016-07-31T03:55:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.aprilzephyr.com/blog/07302016/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B8%8D%E5%B9%B3%E8%A1%A1%E6%95%B8%E6%93%9A%E5%88%86%E9%A1%9E%E5%95%8F%E9%A1%8C-%E8%BD%89/</loc>
     
     <lastmod>2016-07-31T03:48:36.000Z</lastmod>
@@ -9,7 +51,7 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/03312014/python-os-sys/</loc>
+    <loc>http://www.aprilzephyr.com/blog/03312014/Python%20os,%20sys%E6%A8%A1%E5%A1%8A/</loc>
     
     <lastmod>2016-07-31T03:47:00.000Z</lastmod>
     
@@ -93,14 +135,14 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02182014/ping-heng-dian-he-zhi-pei-dian-wen-ti/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02182014/%E5%B9%B3%E8%A1%A1%E9%BB%9E%E5%95%8F%E9%A1%8C%E5%92%8C%E6%94%AF%E9%85%8D%E9%BB%9E%E5%95%8F%E9%A1%8C(%E8%BD%89)/</loc>
     
     <lastmod>2016-07-31T03:29:19.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02182014/range-xrange-random/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02182014/Python%20range(),%20xrange(),%20random()%E8%88%87%E6%B1%82%E5%85%A9%E5%80%8B%E5%BA%8F%E5%88%97%E7%9A%84%E5%92%8C%E7%9A%84%E5%B7%AE%E6%9C%80%E5%B0%8F/</loc>
     
     <lastmod>2016-07-31T03:29:14.000Z</lastmod>
     
@@ -114,35 +156,28 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02202014/100-interview-questions/</loc>
-    
-    <lastmod>2016-07-31T03:29:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/02222014/si-wei-dian-di/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02222014/%E6%80%9D%E7%B6%AD%E9%BB%9E%E6%BB%B4_%E9%97%9C%E6%96%BC%E6%9C%AA%E4%BE%86/</loc>
     
     <lastmod>2016-07-31T03:28:59.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/02252014/shu-zhai-tan-pan-li/</loc>
+    <loc>http://www.aprilzephyr.com/blog/02252014/%E6%9B%B8%E6%91%98_%E8%AB%87%E5%88%A4%E5%8A%9B/</loc>
     
     <lastmod>2016-07-31T03:28:54.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/03062014/fibonacci-cheng-fa-biao-primes/</loc>
+    <loc>http://www.aprilzephyr.com/blog/03062014/Fibonacci%E5%BA%8F%E5%88%97,%20%E4%B9%98%E6%B3%95%E8%A1%A8%E8%88%87%E6%B1%82%E7%B4%A0%E6%95%B8%E7%9A%84%E7%AE%97%E6%B3%95/</loc>
     
     <lastmod>2016-07-31T03:28:49.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/03062014/pai-xu-suan-fa/</loc>
+    <loc>http://www.aprilzephyr.com/blog/03062014/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
     
     <lastmod>2016-07-31T03:28:45.000Z</lastmod>
     
@@ -163,35 +198,28 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/03262014/join-split-zip-map-reduce-filter/</loc>
+    <loc>http://www.aprilzephyr.com/blog/03262014/Python%20%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B8%E4%B9%8BJoin,%20Split,%20Zip,%20Map,%20Reduce,%20Filter/</loc>
     
     <lastmod>2016-07-31T03:28:29.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/03262014/python-time-datetime/</loc>
-    
-    <lastmod>2016-07-31T03:28:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/03272014/python-import-from-import/</loc>
+    <loc>http://www.aprilzephyr.com/blog/03272014/Python%20import%E8%88%87from...import...(%E8%BD%89)/</loc>
     
     <lastmod>2016-07-31T03:28:20.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/03282014/python-string/</loc>
+    <loc>http://www.aprilzephyr.com/blog/03282014/Python%20%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
     
     <lastmod>2016-07-31T03:28:15.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/03312014/python-wen-jian-chu-li/</loc>
+    <loc>http://www.aprilzephyr.com/blog/03312014/Python%20%E6%96%87%E4%BB%B6%E8%99%95%E7%90%86/</loc>
     
     <lastmod>2016-07-31T03:28:04.000Z</lastmod>
     
@@ -212,77 +240,77 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04022014/python-dong-tai-lei-xing/</loc>
+    <loc>http://www.aprilzephyr.com/blog/04022014/Python%20%E5%8B%95%E6%85%8B%E9%A1%9E%E5%9E%8B(%E8%BD%89)/</loc>
     
     <lastmod>2016-07-31T03:27:48.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04022014/wang-ye-zhong-ding-xiang-de-fang-fa/</loc>
+    <loc>http://www.aprilzephyr.com/blog/04022014/%E7%B6%B2%E9%A0%81%E9%87%8D%E5%AE%9A%E5%90%91%E7%9A%84%E6%96%B9%E6%B3%95(%E8%BD%89)/</loc>
     
     <lastmod>2016-07-31T03:27:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04062014/python-with-yu-ju/</loc>
+    <loc>http://www.aprilzephyr.com/blog/04062014/Python%20with%E8%AA%9E%E5%8F%A5(%E8%BD%89)/</loc>
     
     <lastmod>2016-07-31T03:27:38.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04082014/stay-hungry/</loc>
+    <loc>http://www.aprilzephyr.com/blog/04082014/Stay%20Hungry,%20Stay%20Foolish/</loc>
     
     <lastmod>2016-07-31T03:27:33.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04172014/zhe-yang-xie-ying-wen-email/</loc>
+    <loc>http://www.aprilzephyr.com/blog/04172014/%E9%80%99%E6%A8%A3%E5%AF%AB%E8%8B%B1%E6%96%87Email/</loc>
     
     <lastmod>2016-07-31T03:27:28.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/05022014/tips-on-writing/</loc>
+    <loc>http://www.aprilzephyr.com/blog/05022014/Tips%20on%20Writing/</loc>
     
     <lastmod>2016-07-31T03:27:22.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/05042014/python-zheng-ze-biao-da-shi-zhi-nan-zhuan/</loc>
+    <loc>http://www.aprilzephyr.com/blog/05042014/Python%20%E6%AD%A3%E5%89%87%E8%A1%A8%E9%81%94%E5%BC%8F%E6%8C%87%E5%8D%97(%E8%BD%89)/</loc>
     
     <lastmod>2016-07-31T03:27:17.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/05042014/you-are-alive/</loc>
+    <loc>http://www.aprilzephyr.com/blog/05042014/You%20Are%20Alive/</loc>
     
     <lastmod>2016-07-31T03:27:12.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/06142014/new-job/</loc>
+    <loc>http://www.aprilzephyr.com/blog/06142014/New%20Job,%20New%20Way/</loc>
     
     <lastmod>2016-07-31T03:27:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/07102014/hurt/</loc>
+    <loc>http://www.aprilzephyr.com/blog/07102014/Hurt/</loc>
     
     <lastmod>2016-07-31T03:27:02.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/08302014/pieces/</loc>
+    <loc>http://www.aprilzephyr.com/blog/08302014/Pieces/</loc>
     
     <lastmod>2016-07-31T03:26:57.000Z</lastmod>
     
@@ -296,119 +324,91 @@
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04032015/the-20-most-popular-ted-talks-of-all-time/</loc>
+    <loc>http://www.aprilzephyr.com/blog/04032015/The%2020%20Most%20Popular%20TED%20Talks%20of%20All%20Time/</loc>
     
     <lastmod>2016-07-31T03:26:46.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04182015/the-eve-of-another-birthday/</loc>
+    <loc>http://www.aprilzephyr.com/blog/04182015/The%20Eve%20of%20Another%20Birthday/</loc>
     
     <lastmod>2016-07-31T03:26:41.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04212015/about-love/</loc>
+    <loc>http://www.aprilzephyr.com/blog/04212015/About-Love/</loc>
     
     <lastmod>2016-07-31T03:26:36.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04272015/i-am-a-nerd-slash-weirdo-slash-crackpot/</loc>
-    
-    <lastmod>2016-07-31T03:26:31.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/04302015/ji-qi-xue-xi-and-shen-du-xue-xi-zi-liao/</loc>
-    
-    <lastmod>2016-07-31T03:26:26.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/04302015/machine-learning-is-fun/</loc>
+    <loc>http://www.aprilzephyr.com/blog/04302015/Machine%20Learning%20is%20Fun!(FW)/</loc>
     
     <lastmod>2016-07-31T03:26:15.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04302015/shen-jing-wang-luo-shu-zhai/</loc>
-    
-    <lastmod>2016-07-31T03:26:05.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/05052015/python-infrequently-answered-questions/</loc>
+    <loc>http://www.aprilzephyr.com/blog/05052015/The%20Python%20IAQ%20Infrequently%20Answered%20Questions/</loc>
     
     <lastmod>2016-07-31T03:25:54.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/05102015/data-science-resources/</loc>
+    <loc>http://www.aprilzephyr.com/blog/05102015/Data%20Science%20Resources/</loc>
     
     <lastmod>2016-07-31T03:25:49.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/05122015/excerpt-artificial-intelligence-a-modern-approach-3rd-edition-russell-and-norvig/</loc>
-    
-    <lastmod>2016-07-31T03:25:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/05122015/excerpt-machine-learning-tom-mitchell/</loc>
+    <loc>http://www.aprilzephyr.com/blog/05122015/Excerpt_Machine%20Learning(Tom%20Mitchell)/</loc>
     
     <lastmod>2016-07-31T03:25:29.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/05142015/potential-pythonic-pitfalls-fw/</loc>
+    <loc>http://www.aprilzephyr.com/blog/05142015/Potential%20Pythonic%20Pitfalls(FW)/</loc>
     
     <lastmod>2016-07-31T03:25:18.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/05142015/python-tools-for-machine-learning-fw/</loc>
+    <loc>http://www.aprilzephyr.com/blog/05142015/Python%20Tools%20for%20Machine%20Learning(FW)/</loc>
     
     <lastmod>2016-07-31T03:25:12.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/05142015/pythonshu-ju-fen-xi-ru-men-zhuan/</loc>
+    <loc>http://www.aprilzephyr.com/blog/05142015/Python%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E5%85%A5%E9%96%80(%E8%BD%89)/</loc>
     
     <lastmod>2016-07-31T03:25:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/05292015/nifty-python-tricks-fw/</loc>
+    <loc>http://www.aprilzephyr.com/blog/05292015/Nifty%20Python%20tricks(FW)/</loc>
     
     <lastmod>2016-07-31T03:24:50.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/06022015/shu-ju-xin-wen-jing-xuan-ke-shi-hua-te-ji-zhuan/</loc>
+    <loc>http://www.aprilzephyr.com/blog/06022015/%E6%95%B8%E6%93%9A%E6%96%B0%E8%81%9E%E7%B2%BE%E9%81%B8(%E5%8F%AF%E8%A6%96%E5%8C%96%E7%89%B9%E8%BC%AF)%E8%BD%89/</loc>
     
     <lastmod>2016-07-31T03:24:45.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.aprilzephyr.com/blog/06262015/li-yong-amazonde-awsda-jian-zi-ji-de-vpn/</loc>
+    <loc>http://www.aprilzephyr.com/blog/06262015/%E5%88%A9%E7%94%A8Amazon%E7%9A%84AWS%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84VPN/</loc>
     
     <lastmod>2016-07-31T03:24:32.000Z</lastmod>
     
