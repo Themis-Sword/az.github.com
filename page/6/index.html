@@ -219,15 +219,15 @@
                     <h4><a href="/blog/04082014/Stay Hungry,-Stay Foolish/">Stay Hungry, Stay Foolish</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-04-08T06:43:38.000Z" itemprop="datePublished">
-          2014-04-08
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/mood/'>mood</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -256,15 +256,15 @@
                     <h4><a href="/blog/04062014/Python-with語句(轉)/">Python with語句(轉)</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-04-06T08:37:46.000Z" itemprop="datePublished">
-          2014-04-06
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/python/'>python</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -292,15 +292,15 @@
                     <h4><a href="/blog/04022014/fading-away/">Fading away</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-04-02T12:21:50.000Z" itemprop="datePublished">
-          2014-04-02
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/mood/'>mood</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -329,15 +329,15 @@ Fortunately trees’ remaining vigor, notwithstanding in months’ hibernation, 
                     <h4><a href="/blog/04022014/Python-動態類型(轉)/">Python 動態類型(轉)</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-04-02T07:15:39.000Z" itemprop="datePublished">
-          2014-04-02
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/python/'>python</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -366,15 +366,15 @@ Fortunately trees’ remaining vigor, notwithstanding in months’ hibernation, 
                     <h4><a href="/blog/04022014/網頁重定向的方法(轉)/">網頁重定向的方法(轉)</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-04-02T02:58:43.000Z" itemprop="datePublished">
-          2014-04-02
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/web/'>web</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -407,15 +407,15 @@ header(“Location: http://www.new-url.com/"</span>);
                     <h4><a href="/blog/04012014/software-testing/">Software Testing</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-04-01T08:24:56.000Z" itemprop="datePublished">
-          2014-04-01
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/software/'>software</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -447,15 +447,15 @@ header(“Location: http://www.new-url.com/"</span>);
                     <h4><a href="/blog/03312014/Python-文件處理/">Python 文件處理</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-03-31T09:48:17.000Z" itemprop="datePublished">
-          2014-03-31
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/python/'>python</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -482,15 +482,15 @@ header(“Location: http://www.new-url.com/"</span>);
                     <h4><a href="/blog/03312014/Python-os,-sys模塊/">Python os, sys模塊</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-03-31T08:06:01.000Z" itemprop="datePublished">
-          2014-03-31
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/python/'>python</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>

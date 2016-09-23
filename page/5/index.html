@@ -219,15 +219,15 @@
                     <h4><a href="/blog/07042014/declaration-of-independence/">Declaration of Independence</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-07-04T04:00:00.000Z" itemprop="datePublished">
-          2014-07-04
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/justice/'>justice</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -255,15 +255,15 @@
                     <h4><a href="/blog/07042014/constitution-of-the-united-states/">Constitution of the United States</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-07-04T04:00:00.000Z" itemprop="datePublished">
-          2014-07-04
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/justice/'>justice</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -291,15 +291,15 @@
                     <h4><a href="/blog/07042014/bill-of-rights/">Bill of Rights and the Constitution Amendments 11-27</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-07-04T04:00:00.000Z" itemprop="datePublished">
-          2014-07-04
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/justice/'>justice</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -328,15 +328,15 @@
                     <h4><a href="/blog/06142014/New-Job,-New-Way/">New Job, New Way</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-06-14T02:04:25.000Z" itemprop="datePublished">
-          2014-06-14
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/mood/'>mood</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -366,15 +366,15 @@
                     <h4><a href="/blog/05042014/You-Are-Alive/">You Are Alive</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-05-04T12:21:19.000Z" itemprop="datePublished">
-          2014-05-04
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/inspiring/'>inspiring</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -402,15 +402,15 @@
                     <h4><a href="/blog/05042014/Python-正則表達式指南(轉)/">Python 正則表達式指南(轉)</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-05-04T06:49:04.000Z" itemprop="datePublished">
-          2014-05-04
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/python/'>python</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -438,15 +438,15 @@
                     <h4><a href="/blog/05022014/Tips-on-Writing/">Tips on Writing(Fw)</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-05-02T08:41:00.000Z" itemprop="datePublished">
-          2014-05-02
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/business/'>business</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>
@@ -473,15 +473,15 @@
                     <h4><a href="/blog/04172014/這樣寫英文Email/">這樣寫英文Email</a></h4>
                     <span>
                         <span class="post-meta">
-      <time datetime="2014-04-17T09:15:01.000Z" itemprop="datePublished">
-          2014-04-17
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/business/'>business</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                     </span>
                 </div>

@@ -214,15 +214,15 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2014-03-27T17:15:00.000Z" itemprop="datePublished">
-          2014-03-28
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/python/'>python</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                 <h1>Python 字符串</h1>
             </div>

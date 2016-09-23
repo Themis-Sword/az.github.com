@@ -214,15 +214,15 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-04-24T10:11:56.000Z" itemprop="datePublished">
-          2016-04-24
+      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+          <%= date(post.date, null) %>
       </time>
-    
-    
-    | 
-    <a href='/categories/machine-learning-data-analysis/'>machine learning &amp; data analysis</a>
-    
-    
+    <% if (post.categories && post.categories.length){ %>
+    <% count = post.categories.length %>
+    | <% post.categories.forEach(function(category, index) { %>
+    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
+    <% }); %>
+    <% } %>
 </span>
                 <h1>我是如何向老婆解釋MapReduce的？(轉)</h1>
             </div>
