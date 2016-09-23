@@ -214,15 +214,15 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
-          <%= date(post.date, null) %>
+      <time datetime="2016-07-12T06:21:27.000Z" itemprop="datePublished">
+          2016-07-12
       </time>
-    <% if (post.categories && post.categories.length){ %>
-    <% count = post.categories.length %>
-    | <% post.categories.forEach(function(category, index) { %>
-    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
-    <% }); %>
-    <% } %>
+    
+    
+    | 
+    <a href='/categories/machine-learning-data-analysis/'>machine learning &amp; data analysis</a>
+    
+    
 </span>
                 <h1>8個經過證實的方法：提高機器學習模型的準確率 (轉)</h1>
             </div>

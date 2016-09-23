@@ -214,15 +214,15 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
-          <%= date(post.date, null) %>
+      <time datetime="2014-02-25T11:36:09.000Z" itemprop="datePublished">
+          2014-02-25
       </time>
-    <% if (post.categories && post.categories.length){ %>
-    <% count = post.categories.length %>
-    | <% post.categories.forEach(function(category, index) { %>
-    <a href='<%= config.root + category.path %>'><%= category.name %></a><% if (count !== index+1) { %>,<% } %>
-    <% }); %>
-    <% } %>
+    
+    
+    | 
+    <a href='/categories/business/'>business</a>
+    
+    
 </span>
                 <h1>書摘_談判力</h1>
             </div>
