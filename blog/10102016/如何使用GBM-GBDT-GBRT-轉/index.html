@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>如何使用GBM/GBDT/GBRT(轉) | Themis_Sword&#39;s Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Themis_Sword's Blog">
+    <meta name="author" content="Themis_Sword">
+    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Themis_Sword&#39;s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/inspiring/" class="animsition-link">inspiring<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/machine-learning-data-analysis/" class="animsition-link">machine learning &amp; data analysis<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/software/" class="animsition-link">software<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/web/" class="animsition-link">web<small>(5)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            <li><a href="/information" class="animsition-link" title="Information">Information</a></li>
+            <li><a href="/gallery" class="animsition-link" title="Gallery">Gallery</a></li>
+            <li><a href="/timeline" class="animsition-link" title="Timeline">Timeline</a></li>
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/author" class="animsition-link" title="Author">Author</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Themis_Sword's Blog</a></li>
+                            <li class="nolink">Reverence for Nature, and Life.</li>
+                            
+                            
+                            
+                            
+                            
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2><span>Love, and to be Loved.</span></h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>我愛你，你是自由的。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-10-10T12:03:34.000Z" itemprop="datePublished">
+          2016-10-10
+      </time>
+    
+    
+    | 
+    <a href='/categories/machine-learning-data-analysis/'>machine learning &amp; data analysis</a>
+    
+    
+</span>
+                <h1>如何使用GBM/GBDT/GBRT(轉)</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>Gradient Boosted Regression Trees (GBRT,名稱就不用翻譯了吧，後面直接用簡稱)或Gradient Boosting， 是一種用於分類和回歸靈活的非指數統計學習方法。 <a id="more"></a></p>
+<h2 id="Scikit-learn及Gradient_Boosting簡介">Scikit-learn及Gradient Boosting簡介</h2><p>Scikit-learn提供了包含有監督學習和無監督學習一系列機器學習技術，也包含了常見的模型選擇，特徵提取，特徵選擇的常見機器學習工作任務。<br>Scikit-learn以Estimator的概念為中心，提供了一種面向對象的交互。根據<a href="http://scikit-learn.org/stable/tutorial/statistical_inference/settings.html#estimators-objects" target="_blank" rel="external">scikit-learn tutorial</a>介紹：“Estimator是從數據中學習到的任意的對象，可能是分類算法、回歸算法或者聚類算法，亦或是一個提取、過濾有用特徵的轉換算法。”Estimator的API如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Estimator</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, X, y=None)</span>:</span></span><br><span class="line">        <span class="string">"""Fits estimator to data. """</span></span><br><span class="line">        <span class="comment"># set state of ``self``</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, X)</span>:</span></span><br><span class="line">        <span class="string">"""Predict response of ``X``. """</span></span><br><span class="line">        <span class="comment"># compute predictions ``pred``</span></span><br><span class="line">        <span class="keyword">return</span> pred</span><br></pre></td></tr></table></figure>
+<p>Estimator.fit方法聲明estimato基於訓練數據建立。通常，數據是二維的numpy數組（n_samples, n_predictors）構造方式，包含了特徵矩陣及一維的numpy數組y響應變量（類別標識或者回歸數值）。</p>
+<p>Estimator通過Estimator.predict方法提供生成預測結果。如果是回歸的案例，Estimator.predict返回預測的回歸數值；若是分類案例，则返回預測的類別標識。當然，分類器也可以預測類別的概率，可以通過Estimator.predict_proba方法返回結果。</p>
+<p>Scikit-learn中的gradient boosting提供了两個estimator：GradientBoostingClassifier和GradientBoostingRegressor，都可以從sklearn.ensemble裡調用。</p>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> GradientBoostingClassifier, GradientBoostingRegressor</span><br></pre></td></tr></table></figure>
+<p>Estimators提供了一系列參數來控制擬合，GBRT裡重要的參數如下：</p>
+<ul>
+<li>回歸樹的數量（n_estimators）</li>
+<li>每棵獨立樹的深度(max_depth)</li>
+<li>損失函數(loss)</li>
+<li>學習速率(learning_rate)</li>
+</ul>
+<p>例如，如果你想得到一個模型，使用100棵樹，每棵樹深度為3，使用最小二乘法函數作為損失函數，代碼如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">est = <span class="function"><span class="title">GradientBoostingRegressor</span><span class="params">(n_estimators=<span class="number">100</span>, max_depth=<span class="number">3</span>, loss=<span class="string">'ls'</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>我们用Scikit-learn自帶的數據集來舉例如何擬合GradientBoostingClassifier模型：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.datasets import make_hastie_10_2</span><br><span class="line">from sklearn.cross_validation import train_test_split</span><br><span class="line"># <span class="keyword">generate</span> synthetic data from ESLII - Example 10.2</span><br><span class="line">X, y = make_hastie_10_2(n_samples=5000)</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y)</span><br><span class="line"></span><br><span class="line"># <span class="keyword">fit</span> estimator</span><br><span class="line"><span class="keyword">est</span> = GradientBoostingClassifier(n_estimators=200, max_depth=3)</span><br><span class="line"><span class="keyword">est</span>.<span class="keyword">fit</span>(X_train, y_train)</span><br><span class="line"></span><br><span class="line"># <span class="keyword">predict</span> <span class="keyword">class</span> labels</span><br><span class="line">pred = <span class="keyword">est</span>.<span class="keyword">predict</span>(X_test)</span><br><span class="line"></span><br><span class="line"># <span class="keyword">score</span> <span class="keyword">on</span> <span class="keyword">test</span> data (accuracy)</span><br><span class="line">acc = <span class="keyword">est</span>.<span class="keyword">score</span>(X_test, y_test)</span><br><span class="line"><span class="keyword">print</span>('ACC: %.4f' % acc)</span><br><span class="line"></span><br><span class="line"># <span class="keyword">predict</span> <span class="keyword">class</span> probabilities</span><br><span class="line"><span class="keyword">est</span>.predict_proba(X_test)[0]</span><br><span class="line">ACC: 0.9240</span><br><span class="line"><span class="keyword">Out</span>[4]:</span><br><span class="line">array([ 0.26442503,  0.73557497])</span><br></pre></td></tr></table></figure>
+<h2 id="Gradient_Boosting實戰">Gradient Boosting實戰</h2><p>大多數的GBRT的應用效果可以用一條簡单的擬合曲線來展示，如下圖中用一個只有一個特徵x和相應變量y的回歸問題來舉例。我們隨機從數據集中均匀抽取100個訓練數據，用ground truth (sinoid函數; 淡藍色線) 擬合，加入一些隨機噪音。100個訓練數據之外（藍色），再用100個測試數據（紅色）來評估模型的效果。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ground_truth</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="string">"""Ground truth -- function to approximate"""</span></span><br><span class="line">    <span class="keyword">return</span> x * np.sin(x) + np.sin(<span class="number">2</span> * x)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gen_data</span><span class="params">(n_samples=<span class="number">200</span>)</span>:</span></span><br><span class="line">    <span class="string">"""generate training and testing data"""</span></span><br><span class="line">    np.random.seed(<span class="number">13</span>)</span><br><span class="line">    x = np.random.uniform(<span class="number">0</span>, <span class="number">10</span>, size=n_samples)</span><br><span class="line">    x.sort()</span><br><span class="line">    y = ground_truth(x) + <span class="number">0.75</span> * np.random.normal(size=n_samples)</span><br><span class="line">    train_mask = np.random.randint(<span class="number">0</span>, <span class="number">2</span>, size=n_samples).astype(np.bool)</span><br><span class="line">    x_train, y_train = x[train_mask, np.newaxis], y[train_mask]</span><br><span class="line">    x_test, y_test = x[~train_mask, np.newaxis], y[~train_mask]</span><br><span class="line">    <span class="keyword">return</span> x_train, x_test, y_train, y_test</span><br><span class="line"></span><br><span class="line">X_train, X_test, y_train, y_test = gen_data(<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># plot ground truth</span></span><br><span class="line">x_plot = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">500</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_data</span><span class="params">(figsize=<span class="params">(<span class="number">8</span>, <span class="number">5</span>)</span>)</span>:</span></span><br><span class="line">    fig = plt.figure(figsize=figsize)</span><br><span class="line">    gt = plt.plot(x_plot, ground_truth(x_plot), alpha=<span class="number">0.4</span>, label=<span class="string">'ground truth'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># plot training and testing data</span></span><br><span class="line">    plt.scatter(X_train, y_train, s=<span class="number">10</span>, alpha=<span class="number">0.4</span>)</span><br><span class="line">    plt.scatter(X_test, y_test, s=<span class="number">10</span>, alpha=<span class="number">0.4</span>, color=<span class="string">'red'</span>)</span><br><span class="line">    plt.xlim((<span class="number">0</span>, <span class="number">10</span>))</span><br><span class="line">    plt.ylabel(<span class="string">'y'</span>)</span><br><span class="line">    plt.xlabel(<span class="string">'x'</span>)</span><br><span class="line"></span><br><span class="line">plot_data(figsize=(<span class="number">8</span>, <span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<img src="/images/GBM/1.png">
+<p>如果對以上數據僅使用一棵獨立的回歸樹，就只能得到區域内穩定的近似。數的深度越深，數據分割的越細緻，那麼能够解决的差異就越多。如下所示：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from sklearn<span class="class">.tree</span> import DecisionTreeRegressor</span><br><span class="line"><span class="function"><span class="title">plot_data</span><span class="params">()</span></span></span><br><span class="line">est = <span class="function"><span class="title">DecisionTreeRegressor</span><span class="params">(max_depth=<span class="number">1</span>)</span></span>.<span class="function"><span class="title">fit</span><span class="params">(X_train, y_train)</span></span></span><br><span class="line">plt.<span class="function"><span class="title">plot</span><span class="params">(x_plot, est.predict(x_plot[:, np.newaxis])</span></span>,</span><br><span class="line">     label=<span class="string">'RT max_depth=1'</span>, <span class="attribute">color</span>=<span class="string">'g'</span>, alpha=<span class="number">0.9</span>, linewidth=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">est = <span class="function"><span class="title">DecisionTreeRegressor</span><span class="params">(max_depth=<span class="number">3</span>)</span></span>.<span class="function"><span class="title">fit</span><span class="params">(X_train, y_train)</span></span></span><br><span class="line">plt.<span class="function"><span class="title">plot</span><span class="params">(x_plot, est.predict(x_plot[:, np.newaxis])</span></span>,</span><br><span class="line">     label=<span class="string">'RT max_depth=3'</span>, <span class="attribute">color</span>=<span class="string">'g'</span>, alpha=<span class="number">0.7</span>, linewidth=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">plt.<span class="function"><span class="title">legend</span><span class="params">(loc=<span class="string">'upper left'</span>)</span></span></span><br><span class="line">Out[<span class="number">6</span>]:</span><br><span class="line">&lt;matplotlib<span class="class">.legend</span><span class="class">.Legend</span> at <span class="number">0</span>x5706590&gt;</span><br></pre></td></tr></table></figure>
+<img src="/images/GBM/2.png">
+<p>接下來，我們可以使用gradient boosting模型來擬合訓練數據，然後看著随著添加更多的樹，預測值與實際值的近似度是如何提升的。Scikit-learn的gradient boosting Estimator可以通過staged_(predict|predict_proba) 方法，評估模型預測效果，该方法返回一個生成器可以随著添加越来越多的树，迭代評估預測結果。</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="atom">from</span> <span class="atom">itertools</span> <span class="atom">import</span> <span class="atom">islice</span></span><br><span class="line"></span><br><span class="line"><span class="atom">plot_data</span>()</span><br><span class="line"></span><br><span class="line"><span class="atom">est</span> = <span class="name">GradientBoostingRegressor</span>(<span class="atom">n_estimators</span>=<span class="number">1000</span>,     <span class="atom">max_depth</span>=<span class="number">1</span>, <span class="atom">learning_rate</span>=<span class="number">1.0</span>)</span><br><span class="line"><span class="atom">est</span>.<span class="atom">fit</span>(<span class="name">X_train</span>, <span class="atom">y_train</span>)</span><br><span class="line"></span><br><span class="line"><span class="atom">ax</span> = <span class="atom">plt</span>.<span class="atom">gca</span>()</span><br><span class="line"><span class="atom">first</span> = <span class="name">True</span></span><br><span class="line"></span><br><span class="line"># <span class="atom">step</span> <span class="atom">over</span> <span class="atom">prediction</span> <span class="atom">as</span> <span class="atom">we</span> <span class="atom">added</span> <span class="number">20</span> <span class="atom">more</span> <span class="atom">trees</span>.</span><br><span class="line"><span class="atom">for</span> <span class="atom">pred</span> <span class="atom">in</span> <span class="atom">islice</span>(<span class="atom">est</span>.<span class="atom">staged_predict</span>(<span class="atom">x_plot</span>[:,     <span class="atom">np</span>.<span class="atom">newaxis</span>]), <span class="number">0</span>, <span class="number">1000</span>, <span class="number">10</span>):</span><br><span class="line">    <span class="atom">plt</span>.<span class="atom">plot</span>(<span class="atom">x_plot</span>, <span class="atom">pred</span>, <span class="atom">color</span>=<span class="string">'r'</span>, <span class="atom">alpha</span>=<span class="number">0.2</span>)</span><br><span class="line">    <span class="atom">if</span> <span class="atom">first</span>:</span><br><span class="line">        <span class="atom">ax</span>.<span class="atom">annotate</span>(<span class="string">'High bias - low variance'</span>,                         <span class="atom">xy</span>=(<span class="atom">x_plot</span>[<span class="atom">x_plot</span>.<span class="atom">shape</span>[<span class="number">0</span>] // <span class="number">2</span>],                                                <span class="atom">pred</span>[<span class="atom">x_plot</span>.<span class="atom">shape</span>[<span class="number">0</span>] // <span class="number">2</span>]),                                                     <span class="atom">xycoords</span>=<span class="string">'data'</span>,                                    <span class="atom">xytext</span>=(<span class="number">3</span>, <span class="number">4</span>), <span class="atom">textcoords</span>=<span class="string">'data'</span>,</span><br><span class="line">                    <span class="atom">arrowprops</span>=<span class="atom">dict</span>(<span class="atom">arrowstyle</span>=<span class="string">"-&gt;"</span>,</span><br><span class="line">                             <span class="atom">connectionstyle</span>=<span class="string">"arc"</span>))</span><br><span class="line">        <span class="atom">first</span> = <span class="name">False</span></span><br><span class="line"></span><br><span class="line"><span class="atom">pred</span> = <span class="atom">est</span>.<span class="atom">predict</span>(<span class="atom">x_plot</span>[:, <span class="atom">np</span>.<span class="atom">newaxis</span>])</span><br><span class="line"><span class="atom">plt</span>.<span class="atom">plot</span>(<span class="atom">x_plot</span>, <span class="atom">pred</span>, <span class="atom">color</span>=<span class="string">'r'</span>, <span class="atom">label</span>=<span class="string">'GBRT max_depth=1'</span>)</span><br><span class="line"><span class="atom">ax</span>.<span class="atom">annotate</span>(<span class="string">'Low bias - high variance'</span>,                     <span class="atom">xy</span>=(<span class="atom">x_plot</span>[<span class="atom">x_plot</span>.<span class="atom">shape</span>[<span class="number">0</span>] // <span class="number">2</span>],</span><br><span class="line">            <span class="atom">pred</span>[<span class="atom">x_plot</span>.<span class="atom">shape</span>[<span class="number">0</span>] // <span class="number">2</span>]),</span><br><span class="line">            <span class="atom">xycoords</span>=<span class="string">'data'</span>, <span class="atom">xytext</span>=(<span class="number">6.25</span>, -<span class="number">6</span>),</span><br><span class="line">            <span class="atom">textcoords</span>=<span class="string">'data'</span>,                                 <span class="atom">arrowprops</span>=<span class="atom">dict</span>(<span class="atom">arrowstyle</span>=<span class="string">"-&gt;"</span>,</span><br><span class="line">                  <span class="atom">connectionstyle</span>=<span class="string">"arc"</span>))</span><br><span class="line"><span class="atom">plt</span>.<span class="atom">legend</span>(<span class="atom">loc</span>=<span class="string">'upper left'</span>)</span><br><span class="line"><span class="name">Out</span>[<span class="number">7</span>]:</span><br><span class="line">&lt;<span class="atom">matplotlib</span>.<span class="atom">legend</span>.<span class="name">Legend</span> <span class="atom">at</span> <span class="number">0x5d72f10</span>&gt;</span><br></pre></td></tr></table></figure>
+<img src="/images/GBM/3.png">
+<p>上圖中50條紅線，每條代表GBRT模型增加20棵樹後的效果。可以看到，剛开始預測近似度非常粗，但随著添加更多的樹，模型可以覆盖到更多的偏差，最終產生紧密的紅線。</p>
+<p>可以看到，向GBRT添加的更多的樹以及更深的深度，可以捕获更多的偏差，因此我們模型也更複雜。但和以往一樣，機器學習模型的複雜度是以“过擬合”為代價的。</p>
+<p>GBRT實戰中重要的診斷方法是使用異常座標圖來展示訓練集/測試集的錯誤（或異常），以樹的數量為横座標。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">n_estimators = len(est.estimators_)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deviance_plot</span><span class="params">(est, X_test, y_test, ax=None, label=<span class="string">''</span>, train_color=<span class="string">'#2c7bb6'</span>,</span><br><span class="line">              test_color=<span class="string">'#d7191c'</span>, alpha=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">              <span class="string">"""Deviance plot for ``est``, use ``X_test`` and ``y_test`` for test error. """</span></span><br><span class="line">test_dev = np.empty(n_estimators)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, pred <span class="keyword">in</span> enumerate(est.staged_predict(X_test)):</span><br><span class="line">   test_dev[i] = est.loss_(y_test, pred)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ax <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">    fig = plt.figure(figsize=(<span class="number">8</span>, <span class="number">5</span>))</span><br><span class="line">    ax = plt.gca()</span><br><span class="line"></span><br><span class="line">ax.plot(np.arange(n_estimators) + <span class="number">1</span>, test_dev, color=test_color, label=<span class="string">'Test %s'</span> % label,</span><br><span class="line">         linewidth=<span class="number">2</span>, alpha=alpha)</span><br><span class="line">ax.plot(np.arange(n_estimators) + <span class="number">1</span>, est.train_score_, color=train_color,</span><br><span class="line">         label=<span class="string">'Train %s'</span> % label, linewidth=<span class="number">2</span>, alpha=alpha)</span><br><span class="line">ax.set_ylabel(<span class="string">'Error'</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">'n_estimators'</span>)</span><br><span class="line">ax.set_ylim((<span class="number">0</span>, <span class="number">2</span>))</span><br><span class="line"><span class="keyword">return</span> test_dev, ax</span><br><span class="line"></span><br><span class="line">test_dev, ax = deviance_plot(est, X_test, y_test)</span><br><span class="line">ax.legend(loc=<span class="string">'upper right'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># add some annotations</span></span><br><span class="line">ax.annotate(<span class="string">'Lowest test error'</span>, xy=(test_dev.argmin() + <span class="number">1</span>, test_dev.min() + <span class="number">0.02</span>), xycoords=<span class="string">'data'</span>,</span><br><span class="line">        xytext=(<span class="number">150</span>, <span class="number">1.0</span>), textcoords=<span class="string">'data'</span>,</span><br><span class="line">        arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc"</span>),</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">ann = ax.annotate(<span class="string">''</span>, xy=(<span class="number">800</span>, test_dev[<span class="number">799</span>]),  xycoords=<span class="string">'data'</span>,</span><br><span class="line">              xytext=(<span class="number">800</span>, est.train_score_[<span class="number">799</span>]), textcoords=<span class="string">'data'</span>,</span><br><span class="line">              arrowprops=dict(arrowstyle=<span class="string">"&lt;-&gt;"</span>))</span><br><span class="line">ax.text(<span class="number">810</span>, <span class="number">0.25</span>, <span class="string">'train-test gap'</span>)</span><br><span class="line">Out[<span class="number">8</span>]:</span><br><span class="line">&lt;matplotlib.text.Text at <span class="number">0x5f10a90</span>&gt;</span><br></pre></td></tr></table></figure>
+<img src="/images/GBM/4.png">
+<p>上圖中藍線是指訓練集的預測偏差：可以看到開始階段快速下降，之後随著添加更多的樹而逐步降低。測試集預測偏差（紅線）同樣在開始階段快速下降，但是之後速度降低很快達到了最小值（50棵樹左右），之後甚至開始上升。這就是我们所指的“过擬合”：在一定階段，模型能够非常好的擬合訓練數據的特點（這個例子裡是我們隨機生成的噪音）但是對於新的未知數據其能力受到限制。圖中在訓練數據與測試數據的預測偏差中存在的巨大的差異，就是“过擬合”的一個信号。</p>
+<p>Gradient boosting很棒的一點，是提供了一系列“把手”來控制過擬合，又被稱為“regularization”。</p>
+<h2 id="Regularization">Regularization</h2><p>GBRT提供三個“把手”來控制“過擬合”：樹結構（tree structure），收斂（shrinkage）， 隨機性（randomization）。</p>
+<p>### 樹結構（tree structure）</p>
+<p>單棵樹的深度是模型複雜度的一方面。樹的深度基本上控制了特征相互作用的成都。例如，如果想覆蓋維度特征和精度特征之間的交叉關系特征，需要深度至少為2的樹來覆蓋。不幸的是，特征相互作用的程度是預先未知的，但通常設置的比較低較好–實戰中，深度4-6常得到最佳結果。在scikit-learn中，可以通過max_depth參數來限制樹的深度。</p>
+<p>另一個控制樹的深度的方法是在葉節點的樣例數量上使用較低的邊界：這樣可以避免不均衡的劃分，出現一個葉節點僅有一個數據點構成。在scikit-learn中可以使用min_samples_leaf參數來實現。這是一個有效的方法來減少偏差，如下例所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fmt_params</span><span class="params">(params)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">", "</span>.join(<span class="string">"&#123;0&#125;=&#123;1&#125;"</span>.format(key, val) <span class="keyword">for</span> key, val <span class="keyword">in</span> params.iteritems())</span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">8</span>, <span class="number">5</span>))</span><br><span class="line">ax = plt.gca()</span><br><span class="line"><span class="keyword">for</span> params, (test_color, train_color) <span class="keyword">in</span> [(&#123;&#125;, (<span class="string">'#d7191c'</span>, <span class="string">'#2c7bb6'</span>)),</span><br><span class="line">                                      (&#123;<span class="string">'min_samples_leaf'</span>: <span class="number">3</span>&#125;,</span><br><span class="line">                                       (<span class="string">'#fdae61'</span>, <span class="string">'#abd9e9'</span>))]:</span><br><span class="line">    est = GradientBoostingRegressor(n_estimators=n_estimators, max_depth=<span class="number">1</span>, learning_rate=<span class="number">1.0</span>)</span><br><span class="line">    est.set_params(**params)</span><br><span class="line">    est.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">    test_dev, ax = deviance_plot(est, X_test, y_test, ax=ax, label=fmt_params(params),</span><br><span class="line">                             train_color=train_color, test_color=test_color)</span><br><span class="line"></span><br><span class="line">ax.annotate(<span class="string">'Higher bias'</span>, xy=(<span class="number">900</span>, est.train_score_[<span class="number">899</span>]), xycoords=<span class="string">'data'</span>,</span><br><span class="line">        xytext=(<span class="number">600</span>, <span class="number">0.3</span>), textcoords=<span class="string">'data'</span>,</span><br><span class="line">        arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc"</span>),</span><br><span class="line">        )</span><br><span class="line">ax.annotate(<span class="string">'Lower variance'</span>, xy=(<span class="number">900</span>, test_dev[<span class="number">899</span>]), xycoords=<span class="string">'data'</span>,</span><br><span class="line">        xytext=(<span class="number">600</span>, <span class="number">0.4</span>), textcoords=<span class="string">'data'</span>,</span><br><span class="line">        arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc"</span>),</span><br><span class="line">        )</span><br><span class="line">plt.legend(loc=<span class="string">'upper right'</span>)</span><br><span class="line">Out[<span class="number">9</span>]:</span><br><span class="line">&lt;matplotlib.legend.Legend at <span class="number">0x5893a90</span>&gt;</span><br></pre></td></tr></table></figure>
+<img src="/images/GBM/5.png">
+<p>### 收斂（Shrinkage）</p>
+<p>GBRT調參的技術最重要的就是收斂：基本想法是進行通過收斂每棵樹預測值進行緩慢學習，通過learning_rage來控制。較低的學習速率需要更高數量的n_estimators，以達到相同程度的訓練集誤差–用時間換準確度的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure(figsize=(<span class="number">8</span>, <span class="number">5</span>))</span><br><span class="line">ax = plt.gca()</span><br><span class="line"><span class="keyword">for</span> params, (<span class="built_in">test</span>_color, train_color) <span class="keyword">in</span> [(&#123;&#125;,     (<span class="string">'#d7191c'</span>, <span class="string">'#2c7bb6'</span>)),</span><br><span class="line">                                                  (&#123;<span class="string">'learning_rate'</span>: <span class="number">0.1</span>&#125;,</span><br><span class="line">                                       (<span class="string">'#fdae61'</span>, <span class="string">'#abd9e9'</span>))]:</span><br><span class="line">    est = GradientBoostingRegressor(n_estimators=n_estimators, max_depth=<span class="number">1</span>, learning_rate=<span class="number">1.0</span>)</span><br><span class="line">    est.set_params(**params)</span><br><span class="line">    est.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">test</span>_dev, ax = deviance_plot(est, X_<span class="built_in">test</span>, y_<span class="built_in">test</span>, ax=ax, label=fmt_params(params),</span><br><span class="line">                             train_color=train_color, <span class="built_in">test</span>_color=<span class="built_in">test</span>_color)</span><br><span class="line"></span><br><span class="line">ax.annotate(<span class="string">'Requires more trees'</span>, xy=(<span class="number">200</span>,     est.train_score_[<span class="number">199</span>]), xycoords=<span class="string">'data'</span>,</span><br><span class="line">        xytext=(<span class="number">300</span>, <span class="number">1.0</span>), textcoords=<span class="string">'data'</span>,</span><br><span class="line">        arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc"</span>),</span><br><span class="line">        )</span><br><span class="line">ax.annotate(<span class="string">'Lower test error'</span>, xy=(<span class="number">900</span>, <span class="built_in">test</span>_dev[<span class="number">899</span>]), xycoords=<span class="string">'data'</span>,</span><br><span class="line">        xytext=(<span class="number">600</span>, <span class="number">0.5</span>), textcoords=<span class="string">'data'</span>,</span><br><span class="line">        arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc"</span>),</span><br><span class="line">        )</span><br><span class="line">plt.legend(loc=<span class="string">'upper right'</span>)</span><br><span class="line">Out[<span class="number">10</span>]:</span><br><span class="line">&lt;matplotlib.legend.Legend at <span class="number">0</span>x587b210&gt;</span><br></pre></td></tr></table></figure>
+<img src="/images/GBM/6.png">
+<p>### 隨機梯度推進（Stochastic Gradient Boosting）</p>
+<p>與隨機森林相似，在構建樹的過程中引入隨機性導致更高的準確率。Scikit-learn提供了兩種方法引入隨機性：a)在構建樹之前對訓練集進行隨機取樣（subsample）；b)在找到最佳劃分節點前對所有特征取樣(max_features)。經驗表明，如果有充足的特征（大於30個）後者效果更佳。值得強調的是兩種選擇都會降低運算時間。</p>
+<p>下文以subsample=0.5來展示效果，即使用50%的訓練集來訓練每棵樹：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure(figsize=(<span class="number">8</span>, <span class="number">5</span>))</span><br><span class="line">ax = plt.gca()</span><br><span class="line"><span class="keyword">for</span> params, (<span class="built_in">test</span>_color, train_color) <span class="keyword">in</span> [(&#123;&#125;, (<span class="string">'#d7191c'</span>, <span class="string">'#2c7bb6'</span>)),</span><br><span class="line">                                      (&#123;<span class="string">'learning_rate'</span>: <span class="number">0.1</span>, <span class="string">'subsample'</span>: <span class="number">0.5</span>&#125;,</span><br><span class="line">                                       (<span class="string">'#fdae61'</span>, <span class="string">'#abd9e9'</span>))]:</span><br><span class="line">    est = GradientBoostingRegressor(n_estimators=n_estimators, max_depth=<span class="number">1</span>, learning_rate=<span class="number">1.0</span>,</span><br><span class="line">                                random_state=<span class="number">1</span>)</span><br><span class="line">    est.set_params(**params)</span><br><span class="line">    est.fit(X_train, y_train)</span><br><span class="line">    <span class="built_in">test</span>_dev, ax = deviance_plot(est, X_<span class="built_in">test</span>, y_<span class="built_in">test</span>, ax=ax, label=fmt_params(params),</span><br><span class="line">                             train_color=train_color, <span class="built_in">test</span>_color=<span class="built_in">test</span>_color)</span><br><span class="line"></span><br><span class="line">ax.annotate(<span class="string">'Even lower test error'</span>, xy=(<span class="number">400</span>, <span class="built_in">test</span>_dev[<span class="number">399</span>]), xycoords=<span class="string">'data'</span>,</span><br><span class="line">        xytext=(<span class="number">500</span>, <span class="number">0.5</span>), textcoords=<span class="string">'data'</span>,</span><br><span class="line">        arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc"</span>),</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">est = GradientBoostingRegressor(n_estimators=n_estimators, max_depth=<span class="number">1</span>, learning_rate=<span class="number">1.0</span>,</span><br><span class="line">                            subsample=<span class="number">0.5</span>)</span><br><span class="line">est.fit(X_train, y_train)</span><br><span class="line"><span class="built_in">test</span>_dev, ax = deviance_plot(est, X_<span class="built_in">test</span>, y_<span class="built_in">test</span>, ax=ax, label=fmt_params(&#123;<span class="string">'subsample'</span>: <span class="number">0.5</span>&#125;),</span><br><span class="line">                         train_color=<span class="string">'#abd9e9'</span>,     <span class="built_in">test</span>_color=<span class="string">'#fdae61'</span>, alpha=<span class="number">0.5</span>)</span><br><span class="line">ax.annotate(<span class="string">'Subsample alone does poorly'</span>, xy=(<span class="number">300</span>, <span class="built_in">test</span>_dev[<span class="number">299</span>]), xycoords=<span class="string">'data'</span>,</span><br><span class="line">        xytext=(<span class="number">250</span>, <span class="number">1.0</span>), textcoords=<span class="string">'data'</span>,</span><br><span class="line">        arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc"</span>),</span><br><span class="line">        )</span><br><span class="line">plt.legend(loc=<span class="string">'upper right'</span>, fontsize=<span class="string">'small'</span>)</span><br><span class="line">Out[<span class="number">11</span>]:</span><br><span class="line">&lt;matplotlib.legend.Legend at <span class="number">0</span>x5889f10&gt;</span><br></pre></td></tr></table></figure>
+<img src="/images/GBM/7.png">
+<p>### 超參數調優（Hyperparameter tuning）</p>
+<p>我們已經介紹了一系列參數，在機器學習中參數優化工作非常單調，尤其是參數之間相互影響，比如learning_rate和n_estimators， learning_rate和subsample， max_depth和max_features）。</p>
+<p>對於gradient boosting模型我們通常使用以下“秘方”來優化參數：</p>
+<p>1.根據要解決的問題選擇損失函數</p>
+<p>2.n_estimators盡可能大（如3000）</p>
+<p>3.通過grid search方法對max_depth, learning_rate, min_samples_leaf, 及max_features進行尋優</p>
+<p>4.增加n_estimators，保持其它參數不變，再次對learning_rate調優</p>
+<p>Scikit-learn提供了方便的API進行參數調優及grid search:</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="atom">from</span> <span class="atom">sklearn</span>.<span class="atom">grid_search</span> <span class="atom">import</span> <span class="name">GridSearchCV</span></span><br><span class="line"></span><br><span class="line"><span class="atom">param_grid</span> = &#123;<span class="string">'learning_rate'</span>: [<span class="number">0.1</span>, <span class="number">0.05</span>, <span class="number">0.02</span>, <span class="number">0.01</span>],</span><br><span class="line">          <span class="string">'max_depth'</span>: [<span class="number">4</span>, <span class="number">6</span>],</span><br><span class="line">          <span class="string">'min_samples_leaf'</span>: [<span class="number">3</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">17</span>],</span><br><span class="line">          # <span class="string">'max_features'</span>: [<span class="number">1.0</span>, <span class="number">0.3</span>, <span class="number">0.1</span>] ## <span class="atom">not</span>         <span class="atom">possible</span> <span class="atom">in</span> <span class="atom">our</span> <span class="atom">example</span> (<span class="atom">only</span> <span class="number">1</span> <span class="atom">fx</span>)</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line"><span class="atom">est</span> = <span class="name">GradientBoostingRegressor</span>(<span class="atom">n_estimators</span>=<span class="number">3000</span>)</span><br><span class="line"># <span class="atom">this</span> <span class="atom">may</span> <span class="atom">take</span> <span class="atom">some</span> <span class="atom">minutes</span></span><br><span class="line"><span class="atom">gs_cv</span> = <span class="name">GridSearchCV</span>(<span class="atom">est</span>, <span class="atom">param_grid</span>, <span class="atom">n_jobs</span>=<span class="number">4</span>).<span class="atom">fit</span>(<span class="name">X_train</span>, <span class="atom">y_train</span>)</span><br><span class="line"></span><br><span class="line"># <span class="atom">best</span> <span class="atom">hyperparameter</span> <span class="atom">setting</span></span><br><span class="line"><span class="atom">gs_cv</span>.<span class="atom">best_params_</span></span><br><span class="line"><span class="name">Out</span>[<span class="number">12</span>]:</span><br><span class="line">&#123;<span class="string">'learning_rate'</span>: <span class="number">0.05</span>, <span class="string">'max_depth'</span>: <span class="number">6</span>,     <span class="string">'min_samples_leaf'</span>: <span class="number">5</span>&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://zwang1986.github.io/2016/04/24/%E5%A6%82%E4%BD%95%E7%94%A8%E5%A5%BDgbdt%EF%BC%88gradient_boosted_regression_trees%EF%BC%89/" target="_blank" rel="external">Origin</a></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/blog/10102016/A-Dramatic-Tour-through-Python’s-Data-Visualization-Landscape-including-ggplot-and-Altair-FW/">
+        A Dramatic Tour through Python’s Data Visualization Landscape (including ggplot and Altair)(FW) →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="blog/10102016/如何使用GBM-GBDT-GBRT-轉/" data-title="如何使用GBM/GBDT/GBRT(轉)" data-url="http://www.aprilzephyr.com/blog/10102016/如何使用GBM-GBDT-GBRT-轉/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Themis_Sword. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran.</a> Thanks!</p>
+            </div>
+<div align='right'>
+    <form class="navbar-form" action="/search/">
+        <input type="text" class="form-control" placeholder="Google Search" name="q">
+    </form>
+ </div>
+            
+            
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
