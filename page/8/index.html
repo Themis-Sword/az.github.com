@@ -108,7 +108,7 @@
 				    
 				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(4)</small></a></li>
 				    
-				    <li><a href="/categories/machine-learning-data-analysis/" class="animsition-link">machine learning &amp; data analysis<small>(16)</small></a></li>
+				    <li><a href="/categories/machine-learning-data-analysis/" class="animsition-link">machine learning &amp; data analysis<small>(17)</small></a></li>
 				    
 				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(18)</small></a></li>
 				    
@@ -212,6 +212,52 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h4><a href="/blog/03062014/排序算法/">排序算法</a></h4>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2014-03-06T07:53:21.000Z" itemprop="datePublished">
+          2014-03-06
+      </time>
+    
+    
+    | 
+    <a href='/categories/python/'>python</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p><strong>1. 冒泡排序</strong>  </p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">bubble</span><span class="params">(x,n)</span>:</span>  
+\冒泡排序，x是列表，n是列表長度  
+<span class="keyword">for</span> i <span class="keyword">in</span> range(n):  
+ <span class="keyword">for</span> j <span class="keyword">in</span> range(n-<span class="number">1</span>):  
+  <span class="keyword">if</span> x[j]&gt;x[j+<span class="number">1</span>]:  
+   t = x[j]  
+   x[j] = x[j+<span class="number">1</span>]  
+   x[j+<span class="number">1</span>] = t  
+<span class="keyword">return</span> x                  
+<span class="keyword">print</span> bubble([<span class="number">1</span>,<span class="number">10</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">41</span>,<span class="number">25</span>,<span class="number">3</span>,<span class="number">48</span>], <span class="number">8</span>)    
+</code></pre><p></br>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/blog/03062014/排序算法/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -482,52 +528,6 @@
                     
                     <p class="pull-right readMore">
                         <a href="/blog/02172014/destiny/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h4><a href="/blog/02152014/刪除列表重複元素的三種方法及效率分析(轉)/">刪除列表重複元素的三種方法及效率分析(轉)</a></h4>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2014-02-15T09:53:01.000Z" itemprop="datePublished">
-          2014-02-15
-      </time>
-    
-    
-    | 
-    <a href='/categories/python/'>python</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        <h4 id="方法一：">方法一：</h4><p>使用列表對象的sort()方法對列表進行排序，從最後一個元素開始循環迭代列表，判斷相鄰的兩個元素是否相同。  </p>
-<pre><code>def <span class="function"><span class="title">methodONE</span><span class="params">(list)</span></span>:
-list.<span class="function"><span class="title">sort</span><span class="params">()</span></span>
-lenList = <span class="function"><span class="title">len</span><span class="params">(list)</span></span>
-lastItem = list[lenList-<span class="number">1</span>]
-<span class="keyword">for</span> <span class="tag">i</span> <span class="keyword">in</span> <span class="function"><span class="title">range</span><span class="params">(lenList-<span class="number">2</span>,-<span class="number">1</span>,-<span class="number">1</span>)</span></span>:
- <span class="keyword">if</span> list[i] == lastItem:
-  list.<span class="function"><span class="title">remove</span><span class="params">(list[i])</span></span>
- <span class="keyword">else</span>:
-  lastItem = list[i]
-return list
-</code></pre>
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/blog/02152014/刪除列表重複元素的三種方法及效率分析(轉)/">Read More...</a>
                     </p>
                     
                 </div>

@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>A Dramatic Tour through Python’s Data Visualization Landscape (including ggplot and Altair)(FW) | Themis_Sword&#39;s Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Themis_Sword's Blog">
+    <meta name="author" content="Themis_Sword">
+    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Themis_Sword&#39;s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/inspiring/" class="animsition-link">inspiring<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/machine-learning-data-analysis/" class="animsition-link">machine learning &amp; data analysis<small>(17)</small></a></li>
+				    
+				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/software/" class="animsition-link">software<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/web/" class="animsition-link">web<small>(5)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            <li><a href="/information" class="animsition-link" title="Information">Information</a></li>
+            <li><a href="/gallery" class="animsition-link" title="Gallery">Gallery</a></li>
+            <li><a href="/timeline" class="animsition-link" title="Timeline">Timeline</a></li>
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/author" class="animsition-link" title="Author">Author</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Themis_Sword's Blog</a></li>
+                            <li class="nolink">Reverence for Nature, and Life.</li>
+                            
+                            
+                            
+                            
+                            
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2><span>Love, and to be Loved.</span></h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>我愛你，你是自由的。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-10-10T08:12:02.000Z" itemprop="datePublished">
+          2016-10-10
+      </time>
+    
+    
+    | 
+    <a href='/categories/machine-learning-data-analysis/'>machine learning &amp; data analysis</a>
+    
+    
+</span>
+                <h1>A Dramatic Tour through Python’s Data Visualization Landscape (including ggplot and Altair)(FW)</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="Why_Even_Try,_Man?"><em>Why Even Try, Man?</em></h3><hr>
+<img src="/images/ADramatic/1.png">
+<h3 id="Why_Even_Try,_Man?-1"><em>Why Even Try, Man?</em></h3><hr>
+<p>I recently came upon Brian Granger and Jake VanderPlas’s Altair, a promising young visualization library. Altair seems well-suited to addressing Python’s ggplot envy, and its tie-in with JavaScript’s Vega-Lite grammar means that as the latter develops new functionality (e.g., tooltips and zooming), Altair benefits — seemingly for free!</p>
+<p>Indeed, I was so impressed by Altair that the original thesis of my post was going to be: <em>“Yo, use Altair.”</em> <a id="more"></a></p>
+<p>But then I began ruminating on my own Pythonic visualization habits, and — in a painful moment of self-reflection — realized I’m all over the place: I use a hodgepodge of tools and disjointed techniques depending on the task at hand (usually whichever library I first used to accomplish that task1).</p>
+<p>This is no good. As the old saying goes: <em>“The unexamined plot is not worth exporting to a</em> <em>PNG.”** </em></p>
+<p>Thus, I’m using my discovery of Altair as an opportunity to step back — to investigate how Python’s statistical visualization options hang together. I hope this investigation proves helpful for you as well.</p>
+<h3 id="How’s_This_Gonna_Go?"><em>How’s This Gonna Go?</em></h3><hr>
+<p>The conceit of this post will be: <em>“You need to do Thing X. How would you do Thing X in matplotlib? pandas? Seaborn? ggplot? Altair?”  </em>By doing many different Thing X’s, we’ll develop a reasonable list of pros, cons, and takeaways — or at least a whole bunch of code that might be somehow useful.</p>
+<p>(Warning: this all may happen in the form of a two-act play.)</p>
+<h3 id="The_Options_(in_~Descending_Order_of_Subjective_Complexity)"><em>The Options (in ~Descending Order of Subjective Complexity)</em></h3><hr>
+<p>First, let’s welcome our friends2:</p>
+<p><strong>*matplotlib*</strong></p>
+<p>The 800-pound gorilla — and like most 800-pound gorillas, this one should probably be avoided unless you genuinely need its power, e.g., to make a custom plot or produce a publication-ready graphic.</p>
+<p><strong>*pandas*</strong></p>
+<p><em>“Come for the DataFrames; stay for the plotting convenience functions that are arguably more pleasant than the matplotlib code they supplant.” </em>— rejected pandas taglines</p>
+<p>(Bonus tidbit: the pandas team must include a few visualization nerds, as the library includes things like RadViz plots and Andrews Curves that I haven’t seen elsewhere.)</p>
+<p><strong>*Seaborn*</strong></p>
+<p>Seaborn has long been my go-to library for statistical visualization; it summarizes itself thusly:</p>
+<p><em>“If matplotlib ‘tries to make easy things easy and hard things possible,’ seaborn tries to make a well-defined set of hard things easy too”</em></p>
+<p><strong>*yhat’s ggplot*</strong></p>
+<p>A Python implementation of the wonderfully declarative grammar of graphics. This isn’t a “feature-for-feature port of ggplot2,” but there’s strong feature overlap. (And speaking as a part-time R user, the main geoms seem to be in place.)</p>
+<p><strong>*Altair*</strong></p>
+<p>The new guy, Altair is a “declarative statistical visualization library” with an exceedingly pleasant API.</p>
+<p>Wonderful. Now that our guests have arrived and checked their coats, let’s settle in for our very awkward dinner conversation. Our show is entitled…</p>
+<h2 id="*Little_Shop_of_Python_Visualization_Libraries_(starring_all_libraries_as_themselves)_*"><strong>*Little Shop of Python Visualization Libraries (starring all libraries as themselves) *</strong></h2><hr>
+<h3 id="ACT_I:_LINES_AND_DOTS"><em>ACT I: LINES AND DOTS</em></h3><hr>
+<p>(In Scene 1, we’ll be dealing with a tidy data set named “ts.” It consists of three columns: a “dt” column (for dates); a “value” column (for values); and a “kind” column, which has four unique levels: A, B, C, and D. Here’s a preview…)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>dt</th>
+<th>kind</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>2000-01-01</td>
+<td>A</td>
+<td>1.442521</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2000-01-02</td>
+<td>A</td>
+<td>1.981290</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2000-01-03</td>
+<td>A</td>
+<td>1.586494</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2000-01-04</td>
+<td>A</td>
+<td>1.378969</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2000-01-05</td>
+<td>A</td>
+<td>-0.277937</td>
+</tr>
+</tbody>
+</table>
+<h4 id="*Scene_1:_How_would_you_plot_multiple_time_series_on_the_same_graph?*"><strong>*Scene 1: How would you plot multiple time series on the same graph?*</strong></h4><hr>
+<p><strong>*matplotlib: *</strong>Ha! Haha! <em>Beyond </em>simple. While I <em>could </em>and <em>would </em>accomplish this task in any number of complex ways, I know your feeble brains would crumble under the weight of their ingenuity. Hence, I dumb it down, showing you two simple methods. In the first, I loop through your trumped-up matrix — I believe you peons call it a “Data” “Frame” — and subset it to the relevant time series. Next, I invoke my “plot” method and pass in the relevant columns from that subset.</p>
+<pre><code><span class="preprocessor"># MATPLOTLIB</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>,
+                   figsize=(<span class="number">7.5</span>, <span class="number">5</span>))
+
+<span class="keyword">for</span> k <span class="keyword">in</span> ts.kind.unique():
+tmp = ts[ts.kind == k]
+ax.plot(tmp.dt, tmp.<span class="keyword">value</span>, label=k)
+
+ax.<span class="keyword">set</span>(xlabel=<span class="string">'Date'</span>,
+   ylabel=<span class="string">'Value'</span>,
+   title=<span class="string">'Random Timeseries'</span>)    
+
+ax.legend(loc=<span class="number">2</span>)
+fig.autofmt_xdate()
+</code></pre><img src="/images/ADramatic/2.png">
+<p><strong>*MPL: *</strong>Next, I enlist this chump <em>(\</em>motions to pandas<em>)</em>, and have him pivot this “Data” “Frame” so that it looks like this…</p>
+<pre><code><span class="comment"># the notion of a tidy dataframe matters not here</span>
+dfp = ts.pivot(<span class="keyword">index</span>=<span class="string">'dt'</span>, columns=<span class="string">'kind'</span>, <span class="keyword">values</span>=<span class="string">'value'</span>)
+dfp.head()
+</code></pre><table>
+<thead>
+<tr>
+<th>kind</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dt</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2000-01-01</td>
+<td>1.442521</td>
+<td>1.808741</td>
+<td>0.437415</td>
+<td>0.096980</td>
+</tr>
+<tr>
+<td>2000-01-02</td>
+<td>1.981290</td>
+<td>2.277020</td>
+<td>0.706127</td>
+<td>-1.523108</td>
+</tr>
+<tr>
+<td>2000-01-03</td>
+<td>1.586494</td>
+<td>3.474392</td>
+<td>1.358063</td>
+<td>-3.100735</td>
+</tr>
+<tr>
+<td>2000-01-04</td>
+<td>1.378969</td>
+<td>2.906132</td>
+<td>0.262223</td>
+<td>-2.660599</td>
+</tr>
+<tr>
+<td>2000-01-05</td>
+<td>-0.277937</td>
+<td>3.489553</td>
+<td>0.796743</td>
+<td>-3.417402</td>
+</tr>
+</tbody>
+</table>
+<p><strong>*MPL: *</strong>By transforming the data into an index with four columns — one for each line I want to plot — I can do the whole thing in one fell swoop (i.e., a single call of my “plot” function).</p>
+<pre><code><span class="preprocessor"># MATPLOTLIB</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>,
+                   figsize=(<span class="number">7.5</span>, <span class="number">5</span>))
+
+ax.plot(dfp)
+
+ax.<span class="keyword">set</span>(xlabel=<span class="string">'Date'</span>,
+   ylabel=<span class="string">'Value'</span>,
+   title=<span class="string">'Random Timeseries'</span>)
+
+ax.legend(dfp.columns, loc=<span class="number">2</span>)
+fig.autofmt_xdate()
+</code></pre><img src="/images/ADramatic/3.png">
+<p><strong>*pandas (*looking timid<em>):</em></strong>  That was great, Mat. Really great. Thanks for including me. I do the same thing — hopefully as good? <em>(\</em>smiles weakly<em>)</em></p>
+<pre><code><span class="preprocessor"># PANDAS</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>,
+                   figsize=(<span class="number">7.5</span>, <span class="number">5</span>))
+
+dfp.plot(ax=ax)
+
+ax.<span class="keyword">set</span>(xlabel=<span class="string">'Date'</span>,
+   ylabel=<span class="string">'Value'</span>,
+   title=<span class="string">'Random Timeseries'</span>)
+
+ax.legend(loc=<span class="number">2</span>)
+fig.autofmt_xdate()
+</code></pre><p><strong>*pandas: *</strong>It looks exactly the same, so I just won’t show it.</p>
+<p><strong>*Seaborn (*smoking a cigarette and adjusting her beret<em>):</em></strong> Hmmm. Seems like an awful lot of data manipulation for a silly line graph. I mean, for loops and pivoting? This isn’t the 90’s or Microsoft Excel. I have this thing called a FacetGrid I picked up when I went abroad. You’ve probably never heard of it…</p>
+<pre><code># SEABORN
+g = sns.FacetGrid(ts, <span class="built_in">hue</span>=<span class="string">'kind'</span>, <span class="built_in">size</span>=<span class="number">5</span>, aspect=<span class="number">1.5</span>)
+g.<span class="built_in">map</span>(plt.plot, <span class="string">'dt'</span>, <span class="string">'value'</span>).add_legend()
+g.ax.<span class="built_in">set</span>(xlabel=<span class="string">'Date'</span>,
+      ylabel=<span class="string">'Value'</span>,
+     title=<span class="string">'Random Timeseries'</span>)
+g.fig.autofmt_xdate()
+</code></pre><img src="/images/ADramatic/4.png">
+<p><strong>*SB:*</strong> See? You hand FacetGrid your un-manipulated tidy data. At that point, passing in “kind” to the “hue” parameter means you’ll plot four different lines — one for each level in the “kind” field. The way you actually realize these four different lines is by mapping my FacetGrid to this Philistine’s <em>(\</em>motions to matplotlib<em>)</em> plot function, and passing in “x” and “y” arguments. There are some things you need to keep in mind, obviously, like manually adding a legend, but nothing too challenging. Well, nothing too challenging for some of us…</p>
+<p><strong>*ggplot: *</strong>Wow, neat! I do something similar, but <strong>*I</strong> *do it like my big bro. Have you heard of him? He’s so coo–</p>
+<p><strong>SB: </strong>Who invited the kid?</p>
+<p><strong>*GG: *</strong>Check it out!</p>
+<pre><code><span class="comment"># GGPLOT</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, figsize=(<span class="number">7.5</span>, <span class="number">5</span>))
+
+g = ggplot(ts, aes(x=<span class="string">'dt'</span>, y=<span class="string">'value'</span>, color=<span class="string">'kind'</span>)) + <span class="string">\</span>
+    geom_line(size=<span class="number">2.0</span>) + <span class="string">\</span>
+    xlab(<span class="string">'Date'</span>) + <span class="string">\</span>
+    ylab(<span class="string">'Value'</span>) + <span class="string">\</span>
+    ggtitle(<span class="string">'Random Timeseries'</span>)
+g
+</code></pre><img src="/images/ADramatic/5.png"> 
+<p><strong>*GG (*picks up ggpot2 by Hadley Wickham and sounds out words<em>): </em></strong>Every plot is com — com — com-<em>prised</em> of data (e.g., “ts”), aesthetic mappings (e.g, “x”, “y”, “color”), and the geometric shapes that turn our data and aesthetic mappings into a real visualization (e.g., “geom_line”)!</p>
+<p><strong>*Altair: *</strong>Yup, I do that, too.</p>
+<pre><code><span class="comment"># ALTAIR</span>
+<span class="constant">c</span> = Chart(ts).mark_line().encode(
+<span class="constant">x</span>='dt',
+<span class="constant">y</span>='value',
+<span class="constant">color</span>='kind'
+)
+c
+</code></pre><img src="/images/ADramatic/6.png">
+<p><strong>*ALT: *</strong>You give my Chart class some data and tell it what kind of visualization you want: in this case, it’s “mark_line”. Next, you specify your aesthetic mappings: our x-axis needs to be “date”; our y-axis needs to be “value”; and we want to split by kind, so we pass “kind” to “color.” Just like you, GG<em>(\</em>tousles GG’s hair<em>)</em>. Oh, and by the way, using the same color scheme y’all use isn’t a problem, either:</p>
+<pre><code><span class="comment"># ALTAIR</span>
+
+<span class="comment"># cp corresponds to Seaborn's standard color palette</span>
+c = Chart(ts).mark_line().encode(
+x=<span class="string">'dt'</span>,
+y=<span class="string">'value'</span>,
+color=<span class="keyword">Color</span>(<span class="string">'kind'</span>, scale=<span class="keyword">Scale</span>(range=cp.as_hex()))
+)
+c
+</code></pre><img src="/images/ADramatic/7.png">
+<p><strong>\</strong>MPL stares in terrified wonder*<em>*</em></p>
+<h4 id="*Analyzing_Scene_1*"><strong>*Analyzing Scene 1*</strong></h4><hr>
+<p>Aside from matplotlib being a jerk3, a few themes emerged:</p>
+<ul>
+<li>In matplotlib and pandas, you must either make multiple calls to the “plot” function (e.g., once-per-for loop), or you must manipulate your data to make it optimally fit the plot function (e.g., pivoting). (That said, there’s another technique we’ll see in Scene 2.)</li>
+</ul>
+<ul>
+<li>(To be frank, I never used to think this was a big deal, but then I met people who use R. They looked at me aghast.)</li>
+</ul>
+<ul>
+<li>Conversely, ggplot and Altair implement similar and declarative “grammar of graphics”-approved ways to handle our simple case: you give their “main” function– “ggplot” in ggplot and “Chart” in Altair” — a tidy data set. Next, you define a set of aesthetic mappings — x, y, and color — that explain how the data will map to our geoms (i.e., the visual marks that do the hard work of conveying information to the reader). Once you actually invoke said geom (“geom_line” in ggplot and “mark_line” in Altair), the data and aesthetic mappings are transformed into visual ticks that a human can understand — and thus, an angel gets its wings.</li>
+</ul>
+<ul>
+<li>Intellectually, you can — and probably should — view Seaborn’s FacetGrid through the same lens; however, it’s not 100% identical. FacetGrid needs a hue argument <em>upfront </em>— <em>alongside </em>your data — but wants the x and y arguments <em>later</em>. At that point, your mapping isn’t an aesthetic one, but a functional one: for each “hue” in your data set, you’re simply calling matplotlib’s plot function using “dt” and “value” as its x and y arguments. The for loop is simply hidden from you.</li>
+</ul>
+<ul>
+<li>That said, even though the aesthetic maps happen in two separate steps, I prefer the aesthetic mapping mindset to the imperative mindset (at least when it comes to plotting). </li>
+</ul>
+<p><strong>*Data Aside*</strong></p>
+<p>(In Scenes 2-4, we’ll be dealing with the famous “iris” data set [though we refer to it as “df” in our code]. It consists of four numeric columns corresponding to various measurements, and a categorical column corresponding to one of three species of iris. Here’s a preview…)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>petalLength</th>
+<th>petalWidth</th>
+<th>sepalLength</th>
+<th>sepalWidth</th>
+<th>species</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>5.1</td>
+<td>3.5</td>
+<td>setosa</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>4.9</td>
+<td>3.0</td>
+<td>setosa</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1.3</td>
+<td>0.2</td>
+<td>4.7</td>
+<td>3.2</td>
+<td>setosa</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1.5</td>
+<td>0.2</td>
+<td>4.6</td>
+<td>3.1</td>
+<td>setosa</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>5.0</td>
+<td>3.6</td>
+<td>setosa</td>
+</tr>
+</tbody>
+</table>
+<h4 id="*Scene_2:_How_would_you_make_a_scatter_plot?*"><strong>*Scene 2: How would you make a scatter plot?*</strong></h4><hr>
+<p><strong>*MPL (*looking shaken<em>): </em></strong>I mean, you could do the for loop thing again. Of course. And that would be fine. Of course. See? <em>(\</em>lowers voice to a whisper<em>) </em>Just remember to set the color argument explicitly or else the dots will all be blue…</p>
+<pre><code><span class="preprocessor"># MATPLOTLIB</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, figsize=(<span class="number">7.5</span>, <span class="number">7.5</span>))
+
+<span class="keyword">for</span> i, <span class="function">s <span class="keyword">in</span> <span class="title">enumerate</span>(<span class="params">df.species.unique(</span>)):
+tmp </span>= df[df.species == s]
+ax.scatter(tmp.petalLength, tmp.petalWidth,
+           label=s, color=cp[i])
+
+ax.<span class="keyword">set</span>(xlabel=<span class="string">'Petal Length'</span>,
+   ylabel=<span class="string">'Petal Width'</span>,
+   title=<span class="string">'Petal Width v. Length -- by Species'</span>)
+
+ax.legend(loc=<span class="number">2</span>)
+</code></pre><img src="/images/ADramatic/8.png"> 
+<p><strong>*MPL: *</strong>But, uh, <em>(\</em>feigning confidence<em>) </em>I have a <strong>better</strong> way! Look at this:</p>
+<pre><code><span class="comment"># MATPLOTLIB</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, figsize=(<span class="number">7.5</span>, <span class="number">7.5</span>))
+
+<span class="function"><span class="keyword">def</span> <span class="title">scatter</span><span class="params">(group)</span>:</span>
+plt.plot(group[<span class="string">'petalLength'</span>],
+         group[<span class="string">'petalWidth'</span>],
+         <span class="string">'o'</span>, label=group.name)
+
+df.groupby(<span class="string">'species'</span>).apply(scatter)
+
+ax.set(xlabel=<span class="string">'Petal Length'</span>,
+   ylabel=<span class="string">'Petal Width'</span>,
+   title=<span class="string">'Petal Width v. Length -- by Species'</span>)
+
+ax.legend(loc=<span class="number">2</span>)
+</code></pre><img src="/images/ADramatic/9.png"> 
+<p><strong>*MPL: *</strong>Here, I define a function named “scatter.” It will take groups from a pandas groupby object and plot petal length on the x-axis and petal width on the y-axis. Once per group! Powerful!</p>
+<p><strong>*P: *</strong>Wonderful, Mat! Wonderful! Essentially what I would have done, so I will sit this one out.</p>
+<p><strong>*SB (*grinning<em>): </em></strong>No pivoting this time?</p>
+<p><strong>*P: *</strong>Well, in this case, pivoting is complex. We can’t have a common index like we could with our time series data set, and so —</p>
+<p><strong>*MPL: </strong>SHHHHH! WE DON’T HAVE TO EXPLAIN OURSELVES TO HER.*</p>
+<p><strong>*SB: *</strong>Whatever. Anyway, in my mind, this problem is the same as the last one. Build another FacetGrid but borrow plt.scatter rather than plt.plot.</p>
+<pre><code># SEABORN
+g = sns.FacetGrid(df, <span class="built_in">hue</span>=<span class="string">'species'</span>, <span class="built_in">size</span>=<span class="number">7.5</span>)
+g.<span class="built_in">map</span>(plt.scatter, <span class="string">'petalLength'</span>, <span class="string">'petalWidth'</span>).add_legend()
+g.ax.set_title(<span class="string">'Petal Width v. Length -- by Species'</span>)
+</code></pre><img src="/images/ADramatic/10.png"> 
+<p><strong>*GG: *</strong>Yes! Yes! Same! You just gotta swap out geom_line for geom_point!</p>
+<pre><code><span class="comment"># GGPLOT</span>
+g = ggplot(df, aes(x=<span class="string">'petalLength'</span>,
+               y=<span class="string">'petalWidth'</span>,
+               color=<span class="string">'species'</span>)) + <span class="string">\</span>
+    geom_point(size=<span class="number">40.0</span>) + <span class="string">\</span>
+    ggtitle(<span class="string">'Petal Width v. Length -- by Species'</span>)
+g
+</code></pre><img src="/images/ADramatic/11.png"> 
+<p><strong>*ALT (*looking bemused<em>): </em></strong>Yup — just swap our mark_line for mark_point.</p>
+<pre><code><span class="preprocessor"># ALTAIR</span>
+c = Chart(df).mark_point(filled=<span class="literal">True</span>).encode(
+x=<span class="string">'petalLength'</span>,
+y=<span class="string">'petalWidth'</span>,
+color=<span class="string">'species'</span>
+)
+c
+</code></pre><img src="/images/ADramatic/12.png">
+<h4 id="*Analyzing_Scene_2*"><strong>*Analyzing Scene 2*</strong></h4><hr>
+<ul>
+<li>Here, the potential complications that emerge from building up the API from your data become clearer. While the pandas pivoting trick was extremely convenient for time series, it doesn’t translate so well to this case.</li>
+</ul>
+<ul>
+<li>To be fair, the “group by” method is somewhat generalizable, and the “for loop” method is very generalizable; however, they require more custom logic, and custom logic requires custom work, as it necessitates reinventing a wheel that Seaborn has already made for you.</li>
+</ul>
+<ul>
+<li>Conversely, Seaborn, ggplot, and Altair all realize that scatter plots are in many ways line plots without the assumptions (however innocuous those assumptions may be). As such, our code from Scene 1 can largely be reused, but with a new geom (geom_point/mark_point in the case of ggplot/Altair) or a new method (plt.scatter in the case of Seaborn). At this junction, none of these options seems to emerge as particularly more convenient than the other, though I love Altair’s elegant simplicity.</li>
+</ul>
+<h4 id="*Scene_3:_How_would_you_facet_your_scatter_plot?*"><strong>*Scene 3: How would you facet your scatter plot?*</strong></h4><hr>
+<p><strong>*MPL: *</strong>Well, uh, once you’ve mastered the for loop — as I have, obviously — this is a simple adjustment to my earlier example. Rather than build a single Axes using my subplots method, I build three. Next, I loop through as before, but in the same way I subset my data, I subset to the relevant Axes object.</p>
+<p><em>(\</em>confidence returning<em>) <strong>AND I WOULD CHALLENGE ANY AMONG YOU TO COME UP WITH AN EASIER WAY!</strong> (</em>raises arms, nearly hitting pandas in the process<em>)</em></p>
+<pre><code><span class="preprocessor"># MATPLOTLIB</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">3</span>, figsize=(<span class="number">15</span>, <span class="number">5</span>))
+
+<span class="keyword">for</span> i, <span class="function">s <span class="keyword">in</span> <span class="title">enumerate</span>(<span class="params">df.species.unique(</span>)):
+tmp </span>= df[df.species == s]
+
+ax[i].scatter(tmp.petalLength, tmp.petalWidth, c=cp[i])
+
+ax[i].<span class="keyword">set</span>(xlabel=<span class="string">'Petal Length'</span>,
+          ylabel=<span class="string">'Petal Width'</span>,
+          title=s)
+
+fig.tight_layout()
+</code></pre><img src="/images/ADramatic/13.png"> 
+<p><strong>\</strong>SB shares a look with ALT, who starts laughing; GG starts laughing to appear in on the joke*<em>*</em></p>
+<p><strong>*MPL: **</strong>What is it?!*</p>
+<p><strong>*Altair: *</strong>Check your x- and y-axes, man. All your plots have different limits.</p>
+<p><strong>*MPL (*goes red<em>): </em></strong>Ah, yes, of course. <em>A TEST TO ENSURE YOU WERE PAYING ATTENTION. </em>You can, uh, ensure that all subplots share the same limits by specifying this in the subplots function.</p>
+<pre><code><span class="preprocessor"># MATPLOTLIB</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">3</span>, figsize=(<span class="number">15</span>, <span class="number">5</span>),
+                   sharex=<span class="literal">True</span>, sharey=<span class="literal">True</span>)
+
+<span class="keyword">for</span> i, s <span class="keyword">in</span> enumerate(df.species.unique()):
+tmp = df[df.species == s]
+
+ax[i].scatter(tmp.petalLength,
+              tmp.petalWidth,
+              c=cp[i])
+
+ax[i].<span class="keyword">set</span>(xlabel=<span class="comment">'Petal Length',</span>
+          ylabel=<span class="comment">'Petal Width',</span>
+          title=s)
+
+fig.tight_layout()
+</code></pre><img src="/images/ADramatic/14.png"> 
+<p><strong>*P (*sighs<em>):</em></strong> I would do the same. Pass.</p>
+<p><strong>*SB: *</strong>Adapting FacetGrid to this case is simple. In the same way we have a “hue” argument, we can simply add a “col” (i.e., column) argument. This tells FacetGrid to not only assign each species a unique color, but also to assign each species a unique subplot, arranged column-wise. (We could have arranged them row-wise by passing in a “row” argument rather than a “col” argument.)</p>
+<pre><code># SEABORN
+g = sns.FacetGrid(df, col=<span class="string">'species'</span>, <span class="built_in">hue</span>=<span class="string">'species'</span>, <span class="built_in">size</span>=<span class="number">5</span>)
+g.<span class="built_in">map</span>(plt.scatter, <span class="string">'petalLength'</span>, <span class="string">'petalWidth'</span>)
+</code></pre><img src="/images/ADramatic/15.png"> 
+<p><strong>*GG:*</strong> Oooo — this is different from how I do it. <em>(\</em>again picks up ggplot2 and starts sounding out words<em>) </em>See, faceting and aesthetic mapping are two fundamentally different steps, and we don’t want to in-ad-vert-ent-ly conflate the two. As such, we need to take our code from before but add a “facet_grid” layer that explicitly says to facet by species. <em>(\</em>shuts book happily<em>) </em>At least, that’s what my big bro says! Have you heard of him, by the way? He’s so cool–4</p>
+<pre><code><span class="comment"># GGPLOT</span>
+g = ggplot(df, aes(x=<span class="string">'petalLength'</span>,
+               y=<span class="string">'petalWidth'</span>,
+               color=<span class="string">'species'</span>)) + <span class="string">\</span>
+    facet_grid(y=<span class="string">'species'</span>) + <span class="string">\</span>
+    geom_point(size=<span class="number">40.0</span>)
+g
+</code></pre><img src="/images/ADramatic/16.png"> 
+<p><strong>*ALT**</strong>:<em>*</em> I take a more Seaborn-esque approach here. Specifically, I just add a column argument to the encode function. That said, I’m doing a couple of new things here, too: (A) While the column parameter could accept a simple string argument, I actually use a Column object instead — this lets me set a title; (B) I use my configure_cell method, since without it, the subplots would have been way too big.</p>
+<pre><code># ALTAIR
+c = Chart(df).mark_point().encode(
+x=<span class="string">'petalLength'</span>,
+y=<span class="string">'petalWidth'</span>,
+<span class="built_in">color</span>=<span class="string">'species'</span>,
+column=Column(<span class="string">'species'</span>,
+              title=<span class="string">'Petal Width v. Length by Species'</span>)
+)
+c.configure_cell(<span class="variable">height</span>=<span class="number">300</span>, <span class="variable">width</span>=<span class="number">300</span>)
+</code></pre><img src="/images/ADramatic/17.png">
+<h4 id="*Analyzing_Scene_3*"><strong>*Analyzing Scene 3*</strong></h4><hr>
+<ul>
+<li>matplotlib made a really good point: in this case, his code to facet by species is nearly identical to what we saw above; assuming you can wrap your head around the previous for loops, you can wrap your head around this one. However, I didn’t ask him to do anything more complicated — say, a 2 x 3 grid. In that case, he might have had to do something like this:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MATPLOTLIB</span></span><br><span class="line">fig, ax = plt.subplots(<span class="number">2</span>, <span class="number">3</span>, figsize=(<span class="number">15</span>, <span class="number">10</span>), sharex=<span class="keyword">True</span>, sharey=<span class="keyword">True</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># this is preposterous -- don't do this</span></span><br><span class="line"><span class="keyword">for</span> i, s <span class="keyword">in</span> enumerate(df.species.unique()):</span><br><span class="line">    <span class="keyword">for</span> j, r <span class="keyword">in</span> enumerate(df.random_factor.sort_values().unique()):</span><br><span class="line">        tmp = df[(df.species == s) &amp; (df.random_factor == r)]</span><br><span class="line"> </span><br><span class="line">        ax[j][i].scatter(tmp.petalLength,</span><br><span class="line">                         tmp.petalWidth,</span><br><span class="line">                         c=cp[i+j])</span><br><span class="line"> </span><br><span class="line">        ax[j][i].set(xlabel=<span class="string">'Petal Length'</span>,</span><br><span class="line">                     ylabel=<span class="string">'Petal Width'</span>,</span><br><span class="line">                     title=s + <span class="string">'--'</span> + r)</span><br><span class="line"> </span><br><span class="line">fig.tight_layout()</span><br></pre></td></tr></table></figure>
+<img src="/images/ADramatic/18.png"> 
+<ul>
+<li>To use the formal visualization expression: <em>Yeesh. </em>Meanwhile, in Altair, this would have been wonderfully simple:</li>
+</ul>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># ALTAIR</span><br><span class="line">c = Chart(df).mark_point().encode(</span><br><span class="line">    x=<span class="string">'petalLength'</span>,</span><br><span class="line">    y=<span class="string">'petalWidth'</span>,</span><br><span class="line">    <span class="built_in">color</span>=<span class="string">'species'</span>,</span><br><span class="line">    column=Column(<span class="string">'species'</span>,</span><br><span class="line">                  title=<span class="string">'Petal Width v. Length by Species'</span>),</span><br><span class="line">    row=<span class="string">'random_factor'</span></span><br><span class="line">)</span><br><span class="line">c.configure_cell(<span class="variable">height</span>=<span class="number">200</span>, <span class="variable">width</span>=<span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+<img src="/images/ADramatic/19.png"> 
+<ul>
+<li>Just one more argument to the “encode” function than we had above!</li>
+</ul>
+<ul>
+<li>Hopefully, the advantages of having faceting built into your visualization library’s framework are clear.</li>
+</ul>
+<h3 id="ACT_2:_DISTRIBUTIONS_AND_BARS"><em>ACT 2: DISTRIBUTIONS AND BARS</em></h3><hr>
+<h4 id="*Scene_4:_How_would_you_visualize_distributions?*"><strong>*Scene 4: How would you visualize distributions?*</strong></h4><hr>
+<p><strong>*MPL (*confidence visibly shaken<em>): </em></strong>Well, if we wanted a boxplot — do we want a boxplot? — I have a way of doing it. It’s stupid; you’d hate it. But I pass an array of arrays to my boxplot method, and this produces a boxplot for each subarray. You’ll need to manually label the x-ticks yourself.</p>
+<pre><code><span class="header"># MATPLOTLIB</span>
+fig, ax = plt.subplots(1, 1, figsize=(10, 10))
+
+ax.boxplot([<span class="link_label">df[df.species == s</span>][<span class="link_reference">'petalWidth'</span>].values
+<span class="code">            for s in df.species.unique()])</span>
+
+ax.set(xticklabels=df.species.unique(),
+   xlabel='Species',
+   ylabel='Petal Width',
+   title='Distribution of Petal Width by Species')
+</code></pre><img src="/images/ADramatic/20.png">
+<p><strong>*MPL:*</strong> And if we wanted a histogram — do we want a histogram? — I have a method for that, too, which you can produce using either the for loop or group by methods from before.</p>
+<pre><code><span class="preprocessor"># MATPLOTLIB</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, figsize=(<span class="number">10</span>, <span class="number">10</span>))
+
+<span class="keyword">for</span> i, <span class="function">s <span class="keyword">in</span> <span class="title">enumerate</span>(<span class="params">df.species.unique(</span>)):
+tmp </span>= df[df.species == s]
+ax.hist(tmp.petalWidth, label=s, alpha=<span class="number">.8</span>)
+
+ax.<span class="keyword">set</span>(xlabel=<span class="string">'Petal Width'</span>,
+   ylabel=<span class="string">'Frequency'</span>,
+   title=<span class="string">'Distribution of Petal Width by Species'</span>)    
+
+ax.legend(loc=<span class="number">1</span>)
+</code></pre><img src="/images/ADramatic/21.png"> 
+<p><strong>*P (*looking uncharacteristically proud<em>):</em></strong> Ha! Hahahaha! This is my moment! You all thought I was nothing but matplotlib’s patsy, and although I’ve so far been nothing but a wrapper around his plot method, I possess special functions for both boxplots <strong>*and*</strong> histograms — these make visualizing distributions a snap. You only need two things: (A) The column name by which you’d like to stratify; and (B) The column name for which you’d like distributions. These go to the “by” and “column” parameters, respectively, resulting in instant plots!</p>
+<pre><code><span class="preprocessor"># PANDAS</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, figsize=(<span class="number">10</span>, <span class="number">10</span>))
+
+df.boxplot(column=<span class="string">'petalWidth'</span>, <span class="keyword">by</span>=<span class="string">'species'</span>, ax=ax)
+</code></pre><img src="/images/ADramatic/22.png"> 
+<pre><code><span class="preprocessor"># PANDAS</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, figsize=(<span class="number">10</span>, <span class="number">10</span>))
+
+df.hist(column=<span class="string">'petalWidth'</span>, <span class="keyword">by</span>=<span class="string">'species'</span>, grid=None, ax=ax)
+</code></pre><img src="/images/ADramatic/23.png"> 
+<p><strong>\</strong>GG and ALT high five and congratulate P; shouts of “awesome!”, “way to be!”, “let’s go!” audible*<em>*</em></p>
+<p><strong>*SB (*feigning enthusiasm<em>): </em></strong>Wooooow. Greeeeat. Meanwhile, in my world, distributions are exceedingly important, so I maintain special methods for them. For example, my boxplot method needs an x argument, a y argument, and data, resulting in this:</p>
+<pre><code><span class="preprocessor"># SEABORN</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, figsize=(<span class="number">10</span>, <span class="number">10</span>))
+
+g = sns.boxplot(<span class="string">'species'</span>, <span class="string">'petalWidth'</span>, data=df, ax=ax)
+g.<span class="keyword">set</span>(title=<span class="string">'Distribution of Petal Width by Species'</span>)
+</code></pre><img src="/images/ADramatic/24.png">  
+<p><strong>*SB:</strong> <em>Which, I mean, some people have told me is beautiful… but whatever. I </em>also <em>have a special distribution method named “distplot” that goes beyond histograms </em>(*looks at pandas haughtily<em>)</em>. You can use it for histograms, KDEs, and rugplots — even plotting them simultaneously. For example, by combining this method with FacetGrid, I can produce a histo-rugplot for every species of iris:</p>
+<pre><code># SEABORN
+g = sns.FacetGrid(df, <span class="built_in">hue</span>=<span class="string">'species'</span>, <span class="built_in">size</span>=<span class="number">7.5</span>)
+
+g.<span class="built_in">map</span>(sns.distplot, <span class="string">'petalWidth'</span>, bins=<span class="number">10</span>,
+  kde=False, rug=True).add_legend()
+
+g.<span class="built_in">set</span>(xlabel=<span class="string">'Petal Width'</span>,
+  ylabel=<span class="string">'Frequency'</span>,
+  title=<span class="string">'Distribution of Petal Width by Species'</span>)
+</code></pre><img src="/images/ADramatic/25.png">  
+<p><strong>*SB: *</strong>But again… whatever.</p>
+<p><strong>*GG:*</strong> THESE ARE BOTH JUST NEW GEOMS! GEOM_BOXPLOT FOR BOXPLOTS AND GEOM_HISTOGRAM FOR HISTOGRAMS! JUST SWAP THEM IN! <em>(\</em>starts running around the dinner table<em>)</em></p>
+<pre><code><span class="comment"># GGPLOT</span>
+g = ggplot(df, aes(x=<span class="string">'species'</span>,
+               y=<span class="string">'petalWidth'</span>,
+               fill=<span class="string">'species'</span>)) + <span class="string">\</span>
+    geom_boxplot() + <span class="string">\</span>
+    ggtitle(<span class="string">'Distribution of Petal Width by Species'</span>)
+g
+</code></pre><img src="/images/ADramatic/26.png">  
+<pre><code><span class="comment"># GGPLOT</span>
+g = ggplot(df, aes(x=<span class="string">'petalWidth'</span>,
+               fill=<span class="string">'species'</span>)) + <span class="string">\</span>
+    geom_histogram() + <span class="string">\</span>
+    ylab(<span class="string">'Frequency'</span>) + <span class="string">\</span>
+    ggtitle(<span class="string">'Distribution of Petal Width by Species'</span>)
+g
+</code></pre><img src="/images/ADramatic/27.png">  
+<p><strong>*ALT (*looking steely-eyed and confident<em>): </em></strong>I… I have a confession…</p>
+<p><strong>\</strong>silence falls — GG stops running and lets plate fall to the floor*<em>*</em></p>
+<p><strong>*ALT: **</strong>(*breathing deeply<em>) </em>I… I… I can’t do boxplots. Never really learned how, but I trust the JavaScript grammar out of which I grew has a good reason for this. I can make a mean histogram, though…</p>
+<pre><code><span class="comment"># ALTAIR</span>
+c = Chart(df).mark_bar(opacity=<span class="number">.75</span>).encode(
+x=X(<span class="string">'petalWidth'</span>, bin=Bin(maxbins=<span class="number">30</span>)),
+y=<span class="string">'count(*)'</span>,
+color=<span class="keyword">Color</span>(<span class="string">'species'</span>, scale=<span class="keyword">Scale</span>(range=cp.as_hex()))
+)
+c
+</code></pre><img src="/images/ADramatic/28.png">  
+<p><strong>*ALT: *</strong>The code may look weird at first glance, but don’t be alarmed. All we’re saying here is: “Hey, histograms are effectively bar charts.” Their x-axes correspond to bins, which we can define with my Bin class; meanwhile, their y-axes correspond to the number of items in the data set which fall into those bins, which we can explain using a SQL-esque “count(*)” as our argument for y.</p>
+<h4 id="*Analyzing_Scene_4*"><strong>*Analyzing Scene 4*</strong></h4><hr>
+<ul>
+<li>In my work, I actually find pandas’ convenience functions very convenient; however, I’ll admit that there’s some cognitive overhead in remembering that pandas has implemented a “by” parameter for boxplots and histograms but not for lines.</li>
+</ul>
+<ul>
+<li>I separate Act 1 from Act 2 for a few reasons, and a big one is this: Act 2 is when using matplotlib gets particularly hairy. Remembering a totally separate interface when you want a boxplot, for example, doesn’t work for me.</li>
+</ul>
+<ul>
+<li>Speaking of Act 1 v. Act 2, a fun story: I actually came to Seaborn from matplotlib/pandas for its rich set of “proprietary” visualization functions (e.g., distplot, violin plots, regression plots, etc.). While I later learned to love FacetGrid, I maintain that it’s these Act 2 functions which are Seaborn’s killer app. They’ll keep me a Seaborn fan as long as I plot.</li>
+</ul>
+<ul>
+<li>These examples are really when you begin to grok the power of ggplot’s geom system. Using mostly the same code (and more importantly, mostly the same thought process), we create a wildly different graph. We do this not by calling an entirely separate function, but by changing how our aesthetic mappings get presented to the viewer, i.e., by swapping out one geom for another.</li>
+</ul>
+<ul>
+<li>Similarly, even in the world of Act 2, Altair’s API remains remarkably consistent. Even for what feels like a different operation, Altair’s API is simple, elegant, and expressive.</li>
+</ul>
+<p><strong>*Data Aside*</strong></p>
+<p>(In the final scene, we’ll be dealing with “titanic,” another famous tidy dataset [although again, we refer to it as “df” in our code]. Here’s a preview…)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>survived</th>
+<th>pclass</th>
+<th>sex</th>
+<th>age</th>
+<th>fare</th>
+<th>class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>male</td>
+<td>22.0</td>
+<td>7.2500</td>
+<td>Third</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>female</td>
+<td>38.0</td>
+<td>71.2833</td>
+<td>First</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+<td>female</td>
+<td>26.0</td>
+<td>7.9250</td>
+<td>Third</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>female</td>
+<td>35.0</td>
+<td>53.1000</td>
+<td>First</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>3</td>
+<td>male</td>
+<td>35.0</td>
+<td>8.0500</td>
+<td>Third</td>
+</tr>
+</tbody>
+</table>
+<p>In this example, we’ll be interested in looking at the average fare paid by class and by whether or not somebody survived. Obviously, you could do this in pandas…</p>
+<pre><code>dfg = df.<span class="function"><span class="title">groupby</span><span class="params">([<span class="string">'survived'</span>, <span class="string">'pclass'</span>])</span></span>.<span class="function"><span class="title">agg</span><span class="params">({<span class="string">'fare'</span>: <span class="string">'mean'</span>})</span></span>
+dfg
+</code></pre><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>fare</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>survived</td>
+<td>pclass</td>
+<td></td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>64.684008</td>
+</tr>
+<tr>
+<td>2</td>
+<td>19.412328</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>13.669364</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>95.608029</td>
+</tr>
+<tr>
+<td>2</td>
+<td>22.055700</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>13.694887</td>
+</tr>
+</tbody>
+</table>
+<p>…but what fun is that? This is a post on visualization, so let’s do it in the form of a bar chart!)</p>
+<h4 id="*Scene_5:_How_would_you_create_a_bar_chart?*"><strong>*Scene 5: How would you create a bar chart?*</strong></h4><hr>
+<p><strong>*MPL (*looking grim<em>): </em></strong>No comment.</p>
+<pre><code><span class="comment"># MATPLOTLIB</span>
+
+died = dfg.loc[<span class="number">0</span>, :]
+survived = dfg.loc[<span class="number">1</span>, :]
+
+<span class="comment"># more or less copied from matplotlib's own</span>
+<span class="comment"># api example</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, figsize=(<span class="number">12.5</span>, <span class="number">7</span>))
+
+N = <span class="number">3</span>
+
+ind = np.arange(N)  <span class="comment"># the x locations for the groups</span>
+width = <span class="number">0.35</span>        <span class="comment"># the width of the bars</span>
+
+rects1 = ax.bar(ind, died.fare, width, color=<span class="string">'r'</span>)
+rects2 = ax.bar(ind + width, survived.fare, width, color=<span class="string">'y'</span>)
+
+<span class="comment"># add some text for labels, title and axes ticks</span>
+ax.set_ylabel(<span class="string">'Fare'</span>)
+ax.set_title(<span class="string">'Fare by survival and class'</span>)
+ax.set_xticks(ind + width)
+ax.set_xticklabels((<span class="string">'First'</span>, <span class="string">'Second'</span>, <span class="string">'Third'</span>))
+
+ax.legend((rects1[<span class="number">0</span>], rects2[<span class="number">0</span>]), (<span class="string">'Died'</span>, <span class="string">'Survived'</span>))
+
+<span class="function"><span class="keyword">def</span> <span class="title">autolabel</span><span class="params">(rects)</span>:</span>
+<span class="comment"># attach some text labels</span>
+<span class="keyword">for</span> rect <span class="keyword">in</span> rects:
+    height = rect.get_height()
+    ax.text(rect.get_x() + rect.get_width()/<span class="number">2.</span>, <span class="number">1.05</span>*height,
+            <span class="string">'%d'</span> % int(height),
+            ha=<span class="string">'center'</span>, va=<span class="string">'bottom'</span>)
+
+ax.set_ylim(<span class="number">0</span>, <span class="number">110</span>)        
+
+autolabel(rects1)
+autolabel(rects2)
+
+plt.show()
+</code></pre><img src="/images/ADramatic/29.png">  
+<p><strong>\</strong>everyone else shakes their head*<em>*</em></p>
+<p><strong>*P: *</strong>I need to do some data manipulation first — namely, a group by and a pivot — but once I do, I have a really cool bar chart method — much simpler than that mess above! Wow, I’m feeling so much more confident — who knew all I had to was put someone else down!?5</p>
+<pre><code><span class="preprocessor"># PANDAS</span>
+fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, figsize=(<span class="number">12.5</span>, <span class="number">7</span>))
+<span class="preprocessor"># note: dfg refers to grouped by</span>
+<span class="preprocessor"># version of df, presented above</span>
+dfg.reset_index().\
+pivot(index=<span class="string">'pclass'</span>,
+      columns=<span class="string">'survived'</span>,
+      values=<span class="string">'fare'</span>).plot.bar(ax=ax)
+
+ax.<span class="keyword">set</span>(xlabel=<span class="string">'Class'</span>,
+   ylabel=<span class="string">'Fare'</span>,
+   title=<span class="string">'Fare by survival and class'</span>)
+</code></pre><img src="/images/ADramatic/30.png">  
+<p><strong>*SB:</strong> *Again, I happen to think tasks such as this are extremely important. As such, I implement a special function named “factorplot” to help out:</p>
+<pre><code># SEABORN
+g = sns.factorplot(x='<span class="class"><span class="keyword">class</span>', <span class="typename">y='fare'</span>, <span class="typename">hue='survived'</span>,
+               <span class="typename">data=df</span>, <span class="typename">kind='bar'</span>,
+               <span class="typename">order=['First'</span>, <span class="typename">'Second'</span>, <span class="typename">'Third']</span>,
+               <span class="typename">size=7.5</span>, <span class="typename">aspect=1.5)</span></span>
+g.ax.set_title('Fare by survival and <span class="class"><span class="keyword">class</span>')</span>
+</code></pre><img src="/images/ADramatic/31.png">  
+<p><strong>*SB: *</strong>As ever, you pass in your <em>un</em>-manipulated data frame. Next, you explain what you would like to group by — in this case, it’s “class” and “survived,” so these become our “x” and “hue” arguments. Next, you explain what numeric field you would like summaries for — in this case, it’s “fare,” so this becomes our “y” argument. The default summary statistic is mean, but factorplot possesses a parameter named “estimator,” where you can specify any function you want, e.g., sum, standard deviation, median, etc. The function you choose will determine the height of each bar.</p>
+<p>Of course, there are many ways to visualize this information, only <em>one </em>of which is a bar. As such, I also have a “kind” parameter where you can specify different visualizations.</p>
+<p>Finally, <em>some </em>of us still care about statistical certainty, so by default, I bootstrap you some error bars so you can see if the differences in average fair between classes and survivorship are meaningful.</p>
+<p><em>(\</em>under her breath<em>) </em>Would like to see any of you top that…</p>
+<p><strong>\</strong>ggplot2 pulls up in his Lamborghini and walks through the door*<em>*</em></p>
+<p><strong>*ggplo2: *</strong>Hey, have y’all see–</p>
+<p><strong>*GG: *</strong>HEY BRO.</p>
+<p><strong>*GG2: *</strong>Hey, little man. We gotta go.</p>
+<p><strong>*GG: *</strong>Wait, one sec — I gotta make this bar plot real quick, but I’m having a hard time. How would you do it?</p>
+<p><strong>*GG2 (*reading instructions<em>)</em></strong>: Ah, like this:</p>
+<pre><code><span class="comment"># GGPLOT2</span>
+
+<span class="comment"># in R, I believe you'd do something like this:</span>
+
+ggplot(df, aes(x=factor(survived), y=fare)) +
+stat_summary_bin(aes(fill=factor(survived)),
+                 <span class="function"><span class="keyword">fun</span>.<span class="title">y=</span></span>mean) +
+facet_wrap(~<span class="class"><span class="keyword">class</span>)</span>
+
+<span class="comment"># damn ggplot2 is awesome...</span>
+</code></pre><img src="/images/ADramatic/32.png">  
+<p><strong>*GG2: *</strong>See? You define your aesthetic mappings like we always talk about, but you need to turn your “y” mapping into average fare. To do so, I get my pal “stat_summary_bin” to do that for me by passing in “mean” to his “fun.y” parameter.</p>
+<p><strong>*GG (*eyes wide in amazement<em>):</em></strong> Oh, whoa… I don’t think I have stat_summary yet. I guess — pandas, could you help me out?</p>
+<p><strong>*P: *</strong>Uh, sure.</p>
+<p><strong>*GG: *</strong>Weeeee!</p>
+<pre><code><span class="comment"># GGPLOT</span>
+g = ggplot(df.groupby([<span class="string">'class'</span>, <span class="string">'survived'</span>]).<span class="string">\</span>
+           agg({<span class="string">'fare'</span>: <span class="string">'mean'</span>}).<span class="string">\</span>
+           reset_index(), aes(x=<span class="string">'class'</span>,
+                              fill=<span class="string">'factor(survived)'</span>,
+                              weight=<span class="string">'fare'</span>,
+                              y=<span class="string">'fare'</span>)) + <span class="string">\</span>
+    geom_bar() + <span class="string">\</span>
+    ylab(<span class="string">'Avg. Fare'</span>) + <span class="string">\</span>
+    xlab(<span class="string">'Class'</span>) + <span class="string">\</span>
+    ggtitle(<span class="string">'Fare by survival and class'</span>)
+g
+</code></pre><img src="/images/ADramatic/33.png">  
+<p><strong>*GG2: *</strong>Huh, not exactly grammar of graphics-approved, but I guess so long as Hadley doesn’t find out it seems to work fine… In particular, you shouldn’t have to summarize your data in advance of your visualization. I’m also confused by what “weight” means in this context…</p>
+<p><strong>*GG: *</strong>Well, by default, my bar geom seems to default to simple counts, so without a “weight,” all the bars would have had a height of one.</p>
+<p><strong>*GG2: *</strong>Ah, I see… Let’s talk about that later later.</p>
+<p><strong>\</strong>GG and GG2 say their goodbyes and leave the dinner party*<em>*</em></p>
+<p><strong>*ALT: *</strong>Ah, now <em>this</em> is my bread-and-butter. It’s really simple.</p>
+<pre><code><span class="comment"># ALTAIR</span>
+<span class="constant">c</span> = Chart(df).mark_bar().encode(
+<span class="constant">x</span>='survived:N',
+<span class="constant">y</span>='mean(fare)',
+<span class="constant">color</span>='survived:N',
+<span class="constant">column</span>='class')
+c.configure_facet_cell(strokeWidth=0, height=250)
+</code></pre><img src="/images/ADramatic/34.png">  
+<p><strong>*ALT:*</strong> I’m hoping all the arguments are intuitive by this point: I want to plot mean fare by survivorship — faceted by class. This directly translates into “survived” as the x argument; “mean(fare)” as the y argument; and “class” as the column argument. (I specify the color argument for some pizazz.)</p>
+<p>That said, a couple of new things are happening here. Notice how I append “:N” to the “survived” string in the x and color arguments. This is a note to myself which says, “This is a nominal variable.” I need to put this here because survived <em>looks </em>like a quantitative variable, and a quantitative variable would lead to a slightly uglier visualization of this plot. Don’t be alarmed: this has been happening the whole time — just implicitly. For example, in the time series plots above, if I hadn’t known “dt” was a temporal variable I would have assumed they were nominal variables, which… would have been awkward (at least until I appended “:T” to clear things up.</p>
+<p>Separately, I invoke my configure_facet_cell protocol to make my three subplots look more unified.</p>
+<h4 id="*_Analyzing_Scene_5*"><strong>* Analyzing Scene 5*</strong></h4><hr>
+<ul>
+<li>Don’t overthink this one: I’m never making a bar chart in matplotlib again, and to be clear, it’s nothing personal! The fact is: unlike the other libraries, matplotlib doesn’t have the luxury of making any assumptions about the data it receives. Occasionally, this means you’ll have pedantically imperative code.</li>
+</ul>
+<ul>
+<li>(Of course, it’s this same data agnosticism that allows matplotlib to be the foundation upon which Python visualization is built.)</li>
+</ul>
+<ul>
+<li>Conversely, whenever I need summary statistics and error bars, I will always and forever turn to Seaborn.</li>
+</ul>
+<ul>
+<li>(It’s potentially unfair I chose an example that seems tailor-made to one of Seaborn’s functions, but it comes up a lot in my work, and hey, I’m writing the blog post here.)</li>
+</ul>
+<ul>
+<li>I don’t find either the pandas approach or the ggplot approach particularly offensive.</li>
+</ul>
+<ul>
+<li>However, in the pandas case, knowing you must group by <em>and </em>pivot — all in service of a simple bar chart — seems a bit silly.</li>
+</ul>
+<ul>
+<li>Similarly, I do think this is the main hole I’ve found in yhat’s ggplot — having a “stat_summary” equivalent would go a long way toward making this thing wonderfully full-featured.</li>
+</ul>
+<ul>
+<li>Meanwhile, Altair continues to impress! I was struck by how intuitive the code was for this example. Even if you’d never seen Altair before, I imagine someone could intuit what was happening. It’s <em>this</em> type of 1:1:1 mapping between thinking, code, and visualization that is my favorite thing about the library.</li>
+</ul>
+<h3 id="Final_Thoughts"><em>Final Thoughts</em></h3><hr>
+<p>You know, sometimes I think it’s important to just be grateful: we have a ton of great visualization options, and I enjoyed digging into all of them!</p>
+<p>(Yes, this is a cop-out.)</p>
+<p>Although I was a bit hard on matplotlib, it was all in good fun (every play needs comedic relief). Not only is matplotlib the foundation upon which pandas plotting, Seaborn, and ggplot are built, but the fine-grained aesthetic control he gives you is essential. I didn’t touch on this, but in almost every non-Altair example, I used matplotlib to customize our final graph. But — and this is a big “but” — matplotlib is purely imperative, and specifying your visualization in exacting detail can get tedious (see: bar chart). Indeed, the upshot here is probably: “Judging matplotlib on the basis of its statistical visualization capabilities is kind of unfair, you big meanie. You’re comparing <em>one </em>of its use cases to the other libraries’ <em>primary </em>use case.”</p>
+<p>Meanwhile, pivoting plus pandas works wonders for time series plots. Given how good pandas’ time series support is more broadly, this is something I’ll continue to leverage. Moreover, the next time I need a <a href="http://pandas.pydata.org/pandas-docs/stable/visualization.html#radviz" target="_blank" rel="external">RadViz</a> plot, I’ll know where to go. That said, while pandas <em>does </em>improve upon matplotlib’s imperative paradigm by giving you basic declarative syntax (see: bar chart), it’s still fundamentally matplotlib-ish.</p>
+<p>Moving on: if you want to do anything more stats-y, use Seaborn (she really did pick up a ton of cool things when she went abroad). Learn her API — factorplot, regplot, displot, et al — and love it. It will be worth the time. As for faceting, I find FacetGrid to be a very useful partner in crime; however, if I hadn’t worked with Seaborn for so long, I think I would probably prefer the ggplot or Altair versions — after all, they’re rooted in more expressive, purely declarative syntaxes, and, in general, it’s nicer to specify <em>what </em>I want than specify exactly <em>how </em>I want it done.</p>
+<p>Speaking of declarative elegance, I’ve long loved ggplot2, and for the most part came away impressed by how well Python’s ggplot managed to hang in example-for-example. This is a project I will definitely continue to monitor. (More selfishly, I hope it prevents my R-centric coworkers from making fun of me.)</p>
+<p>Finally, if the thing you want to do is implemented in Altair (sorry, boxplot jockeys), it boasts an amazingly simple and pleasant API. Use it! If you need additional motivation, consider the following: one exciting thing about Altair — other than forthcoming improvements to its underlying Vega-Lite grammar — is that it technically isn’t a visualization library. It emits Vega-Lite approved JSON blobs, which — in notebooks — get lovingly rendered by IPython Vega.</p>
+<p>Why is this exciting? Well, under the hood, all of our visualizations looked like this:</p>
+<img src="/images/ADramatic/35.png"> 
+<p>Granted, that doesn’t<em> look</em> exciting, but think about the implication: if other libraries were interested, they could <em>also </em>develop ways to turn these Vega-Lite JSON blobs into visualizations. That would mean you could do the basics in Altair and then drop down to matplotlib for more control.</p>
+<p>I am already salivating about the possibilities.</p>
+<p>All of that said, some parting words: visualization in Python is larger than any single man, woman, or Loch Ness Monster. Thus, you should take everything I said above — code and opinions alike — with a grain of salt. Remember: everything on the internet amounts to lies, damned lies, and statistics.</p>
+<p>I hope you enjoyed this far nerdier version of Mad Hatter’s Tea Party, and that you learned some things you can take to your own work.</p>
+<p>As always, <a href="https://github.com/dsaber/py-viz-blog" target="_blank" rel="external">code is available</a>.</p>
+<h4 id="*Notes*"><strong>*Notes*</strong></h4><hr>
+<p>First, a huge thank you to redditor /u/counters, who provided extremely valuable feedback/perspective in the form of <a href="https://www.reddit.com/r/Python/comments/55k4ru/a_dramatic_tour_through_pythons_data/d8bawp4" target="_blank" rel="external">this comment</a>. I incorporated some of it into the “Final Thoughts” section; however, my rambling is far less articulate. Which is to say: read the comment; it’s good.</p>
+<p>Second, a huge thank you to <a href="https://plus.google.com/+ThomasCaswell" target="_blank" rel="external">Thomas Caswell</a>, who left a phenomenal comment below about matplotlib’s features that you should absolutely read. Doing will lead to far more elegant matplotlib code.</p>
+<p>1Strictly speaking, this story isn’t true. I’ve almost always used Seaborn if I could, dropping down to matplotlib when I needed the customizability. That said, I find this premise to be a more compelling set-up, plus we’re living in a post-truth society anyway.</p>
+<p>2Right off the bat, you’re mad at me, so allow me to explain: I love bokeh and plotly. Indeed, one of my favorite things to do before sending out an analysis is getting “free interactivity” by passing my figures to the relevant bokeh/plotly functions; however, I’m not familiar enough with either to do anything more sophisticated. (And let’s be honest — this post is long enough.)</p>
+<p>Obviously, if you’re in the market for interactive visualizations (versus statistical visualizations), then you should probably look to them.</p>
+<p>3<em>Please</em> note: this is all in good fun. I am rendering <strong>no*</strong> *judgments on any library with my amateur anthropomorphism. I’m sure matplotlib is very charming in real life.</p>
+<p>4To be frank, I’m not <em>totally </em>sure if faceting is handled separately for ideological purity or if it’s simply a practical concern. While my ggplot character claims it’s the former (his understanding is based on a hasty reading of <a href="http://vita.had.co.nz/papers/layered-grammar.pdf" target="_blank" rel="external">this paper</a>), it may be that ggplot2 has such rich faceting support that — practically speaking — it needs to happen as a separate step. If my characterization offends any grammar of graphics disciples, please let me know and I’ll find a new bit.</p>
+<p>5Absolutely <strong>*not*</strong> the moral of this story</p>
+<p><a href="https://dansaber.wordpress.com/2016/10/02/a-dramatic-tour-through-pythons-data-visualization-landscape-including-ggplot-and-altair/" target="_blank" rel="external">Origin</a></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/blog/09142016/A-Tour-of-Machine-Learning-Algorithms-FW/">
+        A Tour of Machine Learning Algorithms(FW) →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="blog/10102016/A-Dramatic-Tour-through-Python’s-Data-Visualization-Landscape-including-ggplot-and-Altair-FW/" data-title="A Dramatic Tour through Python’s Data Visualization Landscape (including ggplot and Altair)(FW)" data-url="http://www.aprilzephyr.com/blog/10102016/A-Dramatic-Tour-through-Python’s-Data-Visualization-Landscape-including-ggplot-and-Altair-FW/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Themis_Sword. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran.</a> Thanks!</p>
+            </div>
+<div align='right'>
+    <form class="navbar-form" action="/search/">
+        <input type="text" class="form-control" placeholder="Google Search" name="q">
+    </form>
+ </div>
+            
+            
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
