@@ -108,7 +108,7 @@
 				    
 				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(4)</small></a></li>
 				    
-				    <li><a href="/categories/machine-learning-data-analysis/" class="animsition-link">machine learning &amp; data analysis<small>(19)</small></a></li>
+				    <li><a href="/categories/machine-learning-data-analysis/" class="animsition-link">machine learning &amp; data analysis<small>(20)</small></a></li>
 				    
 				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(18)</small></a></li>
 				    
@@ -212,6 +212,47 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h4><a href="/blog/04022014/網頁重定向的方法(轉)/">網頁重定向的方法(轉)</a></h4>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2014-04-02T02:58:43.000Z" itemprop="datePublished">
+          2014-04-02
+      </time>
+    
+    
+    | 
+    <a href='/categories/web/'>web</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <h4 id="1-_使用HTTP通訊協定301_Moved_Permanently來完成轉導網址(永久轉址)">1. 使用HTTP通訊協定301 Moved Permanently來完成轉導網址(永久轉址)</h4><p><em>建議使用，不會對SEO有不良影響</em>  </p>
+<h5 id="PHP程式範例:">PHP程式範例:</h5><pre><code><span class="php"><span class="preprocessor">&lt;?php</span>
+header(“HTTP/<span class="number">1.1</span> <span class="number">301</span> Moved Permanently<span class="string">");
+header(“Location: http://www.new-url.com/"</span>);
+<span class="preprocessor">?&gt;</span></span>
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>The document has moved <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.new-url.com/"</span>&gt;</span>here<span class="tag">&lt;/<span class="title">a</span>&gt;</span>.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</code></pre><p>註<br>1) 使用者的瀏覽器必須根據HTTP header的Location欄位值(稱做URI)來轉導網址。<br>2) 除非Request Method是HEAD，不然伺服器端回覆的訊息內必須包含一短的新網址的連結(hyperlink)資訊。
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/blog/04022014/網頁重定向的方法(轉)/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -457,44 +498,6 @@
                     
                     <p class="pull-right readMore">
                         <a href="/blog/03262014/Python-常用函數之Join,-Split,-Zip,-Map,-Reduce,-Filter/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h4><a href="/blog/03242014/about-lives/">About Lives</a></h4>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2014-03-24T15:21:46.000Z" itemprop="datePublished">
-          2014-03-24
-      </time>
-    
-    
-    | 
-    <a href='/categories/mood/'>mood</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        <img src="/images/mourning_angel.jpg">
-<p>The distance between life and death, might be far beyond the real boundary from life and death.  </p>
-<p>It might need only one second separating fresh teary faces from pale freezing corpses. Or, seventeen days’ passing eclipse infinite dread and heart-lacerating sorrow over these pathetic waiting families who have already withstood too much.  </p>
-<p>Time is a queer thing could not be explained reasonably which gives people shock, sadness, hope then and despair finally.
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/blog/03242014/about-lives/">Read More...</a>
                     </p>
                     
                 </div>

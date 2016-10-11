@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>使用sklearn做單機特徵工程(轉) | Themis_Sword&#39;s Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Themis_Sword's Blog">
+    <meta name="author" content="Themis_Sword">
+    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Themis_Sword&#39;s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/inspiring/" class="animsition-link">inspiring<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/machine-learning-data-analysis/" class="animsition-link">machine learning &amp; data analysis<small>(20)</small></a></li>
+				    
+				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/software/" class="animsition-link">software<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/web/" class="animsition-link">web<small>(5)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            <li><a href="/information" class="animsition-link" title="Information">Information</a></li>
+            <li><a href="/gallery" class="animsition-link" title="Gallery">Gallery</a></li>
+            <li><a href="/timeline" class="animsition-link" title="Timeline">Timeline</a></li>
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/author" class="animsition-link" title="Author">Author</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Themis_Sword's Blog</a></li>
+                            <li class="nolink">Reverence for Nature, and Life.</li>
+                            
+                            
+                            
+                            
+                            
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2><span>Love, and to be Loved.</span></h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>我愛你，你是自由的。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-10-11T07:53:07.000Z" itemprop="datePublished">
+          2016-10-11
+      </time>
+    
+    
+    | 
+    <a href='/categories/machine-learning-data-analysis/'>machine learning &amp; data analysis</a>
+    
+    
+</span>
+                <h1>使用sklearn做單機特徵工程(轉)</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h1 id="目录">目录</h1><p>1 特征工程是什么？<br>2 数据预处理<br>　　2.1 无量纲化<br>　　　　2.1.1 标准化<br>　　　　2.1.2 区间缩放法<br>　　　　2.1.3 标准化与归一化的区别<br>　　2.2 对定量特征二值化<br>　　2.3 对定性特征哑编码<br>　　2.4 缺失值计算<br>　　2.5 数据变换<br>　　2.6 回顾 <a id="more"></a><br>3 特征选择<br>　　3.1 Filter<br>　　　　3.1.1 方差选择法<br>　　　　3.1.2 相关系数法<br>　　　　3.1.3 卡方检验<br>　　　　3.1.4 互信息法<br>　　3.2 Wrapper<br>　　　　3.2.1 递归特征消除法<br>　　3.3 Embedded<br>　　　　3.3.1 基于惩罚项的特征选择法<br>　　　　3.3.2 基于树模型的特征选择法<br>　　3.4 回顾<br>4 降维<br>　　4.1 主成分分析法（PCA）<br>　　4.2 线性判别分析法（LDA）<br>　　4.3 回顾<br>5 总结<br>6 参考资料</p>
+<hr>
+<h1 id="1_特征工程是什么？">1 特征工程是什么？</h1><p>　　有这么一句话在业界广泛流传：数据和特征决定了机器学习的上限，而模型和算法只是逼近这个上限而已。那特征工程到底是什么呢？顾名思义，其本质是一项工程活动，目的是最大限度地从原始数据中提取特征以供算法和模型使用。通过总结和归纳，人们认为特征工程包括以下方面：</p>
+<img src="/images/sklearn/1.jpg">
+<p>　　特征处理是特征工程的核心部分，sklearn提供了较为完整的特征处理方法，包括数据预处理，特征选择，降维等。首次接触到sklearn，通常会被其丰富且方便的算法模型库吸引，但是这里介绍的特征处理库也十分强大！</p>
+<p>　　本文中使用sklearn中的<a href="http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html#sklearn.datasets.load_iris" target="_blank" rel="external">IRIS（鸢尾花）数据集</a>来对特征处理功能进行说明。IRIS数据集由Fisher在1936年整理，包含4个特征（Sepal.Length（花萼长度）、Sepal.Width（花萼宽度）、Petal.Length（花瓣长度）、Petal.Width（花瓣宽度）），特征值都为正浮点数，单位为厘米。目标值为鸢尾花的分类（Iris Setosa（山鸢尾）、Iris Versicolour（杂色鸢尾），Iris Virginica（维吉尼亚鸢尾））。导入IRIS数据集的代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span> from sklearn.datasets import load_iris</span><br><span class="line"> <span class="number">2</span> </span><br><span class="line"> <span class="number">3</span> <span class="preprocessor">#导入IRIS数据集</span></span><br><span class="line"> <span class="number">4</span> iris = load_iris()</span><br><span class="line"> <span class="number">5</span> </span><br><span class="line"> <span class="number">6</span> <span class="preprocessor">#特征矩阵</span></span><br><span class="line"> <span class="number">7</span> iris.data</span><br><span class="line"> <span class="number">8</span> </span><br><span class="line"> <span class="number">9</span> <span class="preprocessor">#目标向量</span></span><br><span class="line"><span class="number">10</span> iris.target</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="2_数据预处理">2 数据预处理</h1><p>　　通过特征提取，我们能得到未经处理的特征，这时的特征可能有以下问题：</p>
+<ul>
+<li>不属于同一量纲：即特征的规格不一样，不能够放在一起比较。无量纲化可以解决这一问题。</li>
+<li>信息冗余：对于某些定量特征，其包含的有效信息为区间划分，例如学习成绩，假若只关心“及格”或不“及格”，那么需要将定量的考分，转换成“1”和“0”表示及格和未及格。二值化可以解决这一问题。</li>
+<li>定性特征不能直接使用：某些机器学习算法和模型只能接受定量特征的输入，那么需要将定性特征转换为定量特征。最简单的方式是为每一种定性值指定一个定量值，但是这种方式过于灵活，增加了调参的工作。<a href="http://www.ats.ucla.edu/stat/mult_pkg/faq/general/dummy.htm" target="_blank" rel="external">通常使用哑编码的方式将定性特征转换为定量特征</a>：假设有N种定性值，则将这一个特征扩展为N种特征，当原始特征值为第i种定性值时，第i个扩展特征赋值为1，其他扩展特征赋值为0。哑编码的方式相比直接指定的方式，不用增加调参的工作，对于线性模型来说，使用哑编码后的特征可达到非线性的效果。</li>
+<li>存在缺失值：缺失值需要补充。</li>
+<li>信息利用率低：不同的机器学习算法和模型对数据中信息的利用是不同的，之前提到在线性模型中，使用对定性特征哑编码可以达到非线性的效果。类似地，对定量变量多项式化，或者进行其他的转换，都能达到非线性的效果。</li>
+</ul>
+<p>　　我们使用sklearn中的preproccessing库来进行数据预处理，可以覆盖以上问题的解决方案。</p>
+<h2 id="2-1_无量纲化">2.1 无量纲化</h2><p>　　无量纲化使不同规格的数据转换到同一规格。常见的无量纲化方法有标准化和区间缩放法。标准化的前提是特征值服从正态分布，标准化后，其转换成标准正态分布。区间缩放法利用了边界值信息，将特征的取值区间缩放到某个特点的范围，例如[0, 1]等。</p>
+<h3 id="2-1-1_标准化">2.1.1 标准化</h3><p>　　标准化需要计算特征的均值和标准差，公式表达为：</p>
+<p><a href="https://www.codecogs.com/eqnedit.php?latex={x}'=\frac{x&space;-&space;\bar{X}}{S}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?{x}'=\frac{x&space;-&space;\bar{X}}{S}" title="{x}'=\frac{x - \bar{X}}{S}"></a></p>
+<p>　　使用preproccessing库的StandardScaler类对数据进行标准化的代码如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn<span class="class">.preprocessing</span> import StandardScaler</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> #标准化，返回值为标准化后的数据</span><br><span class="line"><span class="number">4</span> <span class="function"><span class="title">StandardScaler</span><span class="params">()</span></span>.<span class="function"><span class="title">fit_transform</span><span class="params">(iris.data)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="2-1-2_区间缩放法">2.1.2 区间缩放法</h3><p>　　区间缩放法的思路有多种，常见的一种为利用两个最值进行缩放，公式表达为：</p>
+<p><a href="https://www.codecogs.com/eqnedit.php?latex={x}'=\frac{x&space;-&space;Min}{Max&space;-&space;Min}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?{x}'=\frac{x&space;-&space;Min}{Max&space;-&space;Min}" title="{x}'=\frac{x - Min}{Max - Min}"></a></p>
+<p>　　使用preproccessing库的MinMaxScaler类对数据进行区间缩放的代码如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn<span class="class">.preprocessing</span> import MinMaxScaler</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> #区间缩放，返回值为缩放到[<span class="number">0</span>, <span class="number">1</span>]区间的数据</span><br><span class="line"><span class="number">4</span> <span class="function"><span class="title">MinMaxScaler</span><span class="params">()</span></span>.<span class="function"><span class="title">fit_transform</span><span class="params">(iris.data)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="2-1-3_标准化与归一化的区别">2.1.3 标准化与归一化的区别</h3><p>　　简单来说，标准化是依照特征矩阵的列处理数据，其通过求z-score的方法，将样本的特征值转换到同一量纲下。归一化是依照特征矩阵的行处理数据，其目的在于样本向量在点乘运算或其他核函数计算相似性时，拥有统一的标准，也就是说都转化为“单位向量”。规则为l2的归一化公式如下：</p>
+<p><a href="https://www.codecogs.com/eqnedit.php?latex={x}'=\frac{x}{\sqrt{\sum_{j}^{m}x[j]^{2}}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?{x}'=\frac{x}{\sqrt{\sum_{j}^{m}x[j]^{2}}}" title="{x}'=\frac{x}{\sqrt{\sum_{j}^{m}x[j]^{2}}}"></a></p>
+<p>　　使用preproccessing库的Normalizer类对数据进行归一化的代码如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn<span class="class">.preprocessing</span> import Normalizer</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> #归一化，返回值为归一化后的数据</span><br><span class="line"><span class="number">4</span> <span class="function"><span class="title">Normalizer</span><span class="params">()</span></span>.<span class="function"><span class="title">fit_transform</span><span class="params">(iris.data)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="2-2_对定量特征二值化">2.2 对定量特征二值化</h2><p>　　定量特征二值化的核心在于设定一个阈值，大于阈值的赋值为1，小于等于阈值的赋值为0，公式表达如下：</p>
+<p><img src="http://images2015.cnblogs.com/blog/927391/201605/927391-20160502115121216-456946808.png" alt="img"></p>
+<p>　　使用preproccessing库的Binarizer类对数据进行二值化的代码如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn<span class="class">.preprocessing</span> import Binarizer</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> #二值化，阈值设置为<span class="number">3</span>，返回值为二值化后的数据</span><br><span class="line"><span class="number">4</span> <span class="function"><span class="title">Binarizer</span><span class="params">(threshold=<span class="number">3</span>)</span></span>.<span class="function"><span class="title">fit_transform</span><span class="params">(iris.data)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="2-3_对定性特征哑编码">2.3 对定性特征哑编码</h2><p>　　由于IRIS数据集的特征皆为定量特征，故使用其目标值进行哑编码（实际上是不需要的）。使用preproccessing库的OneHotEncoder类对数据进行哑编码的代码如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn<span class="class">.preprocessing</span> import OneHotEncoder</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> #哑编码，对IRIS数据集的目标值，返回值为哑编码后的数据</span><br><span class="line"><span class="number">4</span> <span class="function"><span class="title">OneHotEncoder</span><span class="params">()</span></span>.<span class="function"><span class="title">fit_transform</span><span class="params">(iris.target.reshape((-<span class="number">1</span>,<span class="number">1</span>)</span></span>))</span><br></pre></td></tr></table></figure>
+<h2 id="2-4_缺失值计算">2.4 缺失值计算</h2><p>　　由于IRIS数据集没有缺失值，故对数据集新增一个样本，4个特征均赋值为NaN，表示数据缺失。使用preproccessing库的Imputer类对数据进行缺失值计算的代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from numpy import vstack, <span class="built_in">array</span>, nan</span><br><span class="line"><span class="number">2</span> from sklearn.preprocessing import Imputer</span><br><span class="line"><span class="number">3</span> </span><br><span class="line"><span class="number">4</span> <span class="preprocessor">#缺失值计算，返回值为计算缺失值后的数据</span></span><br><span class="line"><span class="number">5</span> <span class="preprocessor">#参数missing_value为缺失值的表示形式，默认为NaN</span></span><br><span class="line"><span class="number">6</span> <span class="preprocessor">#参数strategy为缺失值填充方式，默认为mean（均值）</span></span><br><span class="line"><span class="number">7</span> Imputer().fit_transform(vstack((<span class="built_in">array</span>([nan, nan, nan, nan]), iris.data)))</span><br></pre></td></tr></table></figure>
+<h2 id="2-5_数据变换">2.5 数据变换</h2><p>　　常见的数据变换有基于多项式的、基于指数函数的、基于对数函数的。4个特征，度为2的多项式转换公式如下：</p>
+<p><a href="https://www.codecogs.com/eqnedit.php?latex=({x}'_{1},&space;{x}'_{2},&space;{x}'_{3},&space;{x}'_{4},&space;{x}'_{5},&space;{x}'_{6},&space;{x}'_{7},&space;{x}'_{8},&space;{x}'_{9},&space;{x}'_{10},&space;{x}'_{11},&space;{x}'_{12},&space;{x}'_{13},&space;{x}'_{14},&space;{x}'_{15})&space;=&space;(1,&space;x_{1},&space;x_{2},&space;x_{3},&space;x_{4},&space;x_{1}^{2},&space;x_{1}&space;*&space;x_{2},&space;x_{1}&space;*&space;x_{3},&space;x_{1}&space;*&space;x_{4},&space;x_{2}^{2},&space;x_{2}&space;*&space;x_{3},&space;x_{2}&space;*&space;x_{4},&space;x_{3}^{2},&space;x_{3}&space;*&space;x_{4},&space;x_{4}^{2})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?({x}'_{1},&space;{x}'_{2},&space;{x}'_{3},&space;{x}'_{4},&space;{x}'_{5},&space;{x}'_{6},&space;{x}'_{7},&space;{x}'_{8},&space;{x}'_{9},&space;{x}'_{10},&space;{x}'_{11},&space;{x}'_{12},&space;{x}'_{13},&space;{x}'_{14},&space;{x}'_{15})&space;=&space;(1,&space;x_{1},&space;x_{2},&space;x_{3},&space;x_{4},&space;x_{1}^{2},&space;x_{1}&space;*&space;x_{2},&space;x_{1}&space;*&space;x_{3},&space;x_{1}&space;*&space;x_{4},&space;x_{2}^{2},&space;x_{2}&space;*&space;x_{3},&space;x_{2}&space;*&space;x_{4},&space;x_{3}^{2},&space;x_{3}&space;*&space;x_{4},&space;x_{4}^{2})" title="({x}'_{1}, {x}'_{2}, {x}'_{3}, {x}'_{4}, {x}'_{5}, {x}'_{6}, {x}'_{7}, {x}'_{8}, {x}'_{9}, {x}'_{10}, {x}'_{11}, {x}'_{12}, {x}'_{13}, {x}'_{14}, {x}'_{15}) = (1, x_{1}, x_{2}, x_{3}, x_{4}, x_{1}^{2}, x_{1} * x_{2}, x_{1} * x_{3}, x_{1} * x_{4}, x_{2}^{2}, x_{2} * x_{3}, x_{2} * x_{4}, x_{3}^{2}, x_{3} * x_{4}, x_{4}^{2})"></a></p>
+<p>　　使用preproccessing库的PolynomialFeatures类对数据进行多项式转换的代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn.preprocessing import PolynomialFeatures</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> <span class="preprocessor">#多项式转换</span></span><br><span class="line"><span class="number">4</span> <span class="preprocessor">#参数degree为度，默认值为<span class="number">2</span></span></span><br><span class="line"><span class="number">5</span> PolynomialFeatures().fit_transform(iris.data)</span><br></pre></td></tr></table></figure>
+<p>　　基于单变元函数的数据变换可以使用一个统一的方式完成，使用preproccessing库的FunctionTransformer对数据进行对数函数转换的代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from numpy import log1p</span><br><span class="line"><span class="number">2</span> from sklearn.preprocessing import FunctionTransformer</span><br><span class="line"><span class="number">3</span> </span><br><span class="line"><span class="number">4</span> <span class="preprocessor">#自定义转换函数为对数函数的数据变换</span></span><br><span class="line"><span class="number">5</span> <span class="preprocessor">#第一个参数是单变元函数</span></span><br><span class="line"><span class="number">6</span> FunctionTransformer(log1p).fit_transform(iris.data)</span><br></pre></td></tr></table></figure>
+<h2 id="2-6_回顾">2.6 回顾</h2><table>
+<thead>
+<tr>
+<th>类</th>
+<th>功能</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>StandardScaler</td>
+<td>无量纲化</td>
+<td>标准化，基于特征矩阵的列，将特征值转换至服从标准正态分布</td>
+</tr>
+<tr>
+<td>MinMaxScaler</td>
+<td>无量纲化</td>
+<td>区间缩放，基于最大最小值，将特征值转换到[0, 1]区间上</td>
+</tr>
+<tr>
+<td>Normalizer</td>
+<td>归一化</td>
+<td>基于特征矩阵的行，将样本向量转换为“单位向量”</td>
+</tr>
+<tr>
+<td>Binarizer</td>
+<td>二值化</td>
+<td>基于给定阈值，将定量特征按阈值划分</td>
+</tr>
+<tr>
+<td>OneHotEncoder</td>
+<td>哑编码</td>
+<td>将定性数据编码为定量数据</td>
+</tr>
+<tr>
+<td>Imputer</td>
+<td>缺失值计算</td>
+<td>计算缺失值，缺失值可填充为均值等</td>
+</tr>
+<tr>
+<td>PolynomialFeatures</td>
+<td>多项式数据转换</td>
+<td>多项式数据转换</td>
+</tr>
+<tr>
+<td>FunctionTransformer</td>
+<td>自定义单元数据转换</td>
+<td>使用单变元的函数来转换数据</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="3_特征选择">3 特征选择</h1><p>　　当数据预处理完成后，我们需要选择有意义的特征输入机器学习的算法和模型进行训练。通常来说，从两个方面考虑来选择特征：</p>
+<ul>
+<li>特征是否发散：如果一个特征不发散，例如方差接近于0，也就是说样本在这个特征上基本上没有差异，这个特征对于样本的区分并没有什么用。</li>
+<li>特征与目标的相关性：这点比较显见，与目标相关性高的特征，应当优选选择。除方差法外，本文介绍的其他方法均从相关性考虑。</li>
+</ul>
+<p>　　根据特征选择的形式又可以将特征选择方法分为3种：</p>
+<ul>
+<li>Filter：过滤法，按照发散性或者相关性对各个特征进行评分，设定阈值或者待选择阈值的个数，选择特征。</li>
+<li>Wrapper：包装法，根据目标函数（通常是预测效果评分），每次选择若干特征，或者排除若干特征。</li>
+<li>Embedded：嵌入法，先使用某些机器学习的算法和模型进行训练，得到各个特征的权值系数，根据系数从大到小选择特征。类似于Filter方法，但是是通过训练来确定特征的优劣。</li>
+</ul>
+<p>　　我们使用sklearn中的feature_selection库来进行特征选择。</p>
+<h2 id="3-1_Filter">3.1 Filter</h2><h3 id="3-1-1_方差选择法">3.1.1 方差选择法</h3><p>　　使用方差选择法，先要计算各个特征的方差，然后根据阈值，选择方差大于阈值的特征。使用feature_selection库的VarianceThreshold类来选择特征的代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn.feature_selection import VarianceThreshold</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> <span class="preprocessor">#方差选择法，返回值为特征选择后的数据</span></span><br><span class="line"><span class="number">4</span> <span class="preprocessor">#参数threshold为方差的阈值</span></span><br><span class="line"><span class="number">5</span> VarianceThreshold(threshold=<span class="number">3</span>).fit_transform(iris.data)</span><br></pre></td></tr></table></figure>
+<h3 id="3-1-2_相关系数法">3.1.2 相关系数法</h3><p>　　使用相关系数法，先要计算各个特征对目标值的相关系数以及相关系数的P值。用feature_selection库的SelectKBest类结合相关系数来选择特征的代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn.feature_selection import SelectKBest</span><br><span class="line"><span class="number">2</span> from scipy.stats import pearsonr</span><br><span class="line"><span class="number">3</span> </span><br><span class="line"><span class="number">4</span> <span class="preprocessor">#选择K个最好的特征，返回选择特征后的数据</span></span><br><span class="line"><span class="number">5</span> <span class="preprocessor">#第一个参数为计算评估特征是否好的函数，该函数输入特征矩阵和目标向量，输出二元组（评分，P值）的数组，数组第i项为第i个特征的评分和P值。在此定义为计算相关系数</span></span><br><span class="line"><span class="number">6</span> <span class="preprocessor">#参数k为选择的特征个数</span></span><br><span class="line"><span class="number">7</span> SelectKBest(lambda X, Y: <span class="built_in">array</span>(<span class="built_in">map</span>(lambda x:pearsonr(x, Y), X.T)).T, k=<span class="number">2</span>).fit_transform(iris.data, iris.target)</span><br></pre></td></tr></table></figure>
+<h3 id="3-1-3_卡方检验">3.1.3 卡方检验</h3><p>　　经典的卡方检验是检验定性自变量对定性因变量的相关性。假设自变量有N种取值，因变量有M种取值，考虑自变量等于i且因变量等于j的样本频数的观察值与期望的差距，构建统计量：</p>
+<p><a href="https://www.codecogs.com/eqnedit.php?latex=\chi&space;^{2}&space;=&space;\sum&space;\frac{(A&space;-&space;E)^{2}}{E}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\chi&space;^{2}&space;=&space;\sum&space;\frac{(A&space;-&space;E)^{2}}{E}" title="\chi ^{2} = \sum \frac{(A - E)^{2}}{E}"></a></p>
+<p>　　<a href="http://wiki.mbalib.com/wiki/%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C" target="_blank" rel="external">这个统计量的含义简而言之就是自变量对因变量的相关性</a>。用feature_selection库的SelectKBest类结合卡方检验来选择特征的代码如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn<span class="class">.feature_selection</span> import SelectKBest</span><br><span class="line"><span class="number">2</span> from sklearn<span class="class">.feature_selection</span> import chi2</span><br><span class="line"><span class="number">3</span> </span><br><span class="line"><span class="number">4</span> #选择K个最好的特征，返回选择特征后的数据</span><br><span class="line"><span class="number">5</span> <span class="function"><span class="title">SelectKBest</span><span class="params">(chi2, k=<span class="number">2</span>)</span></span>.<span class="function"><span class="title">fit_transform</span><span class="params">(iris.data, iris.target)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="3-1-4_互信息法">3.1.4 互信息法</h3><p>　　经典的互信息也是评价定性自变量对定性因变量的相关性的，互信息计算公式如下：</p>
+<p><a href="https://www.codecogs.com/eqnedit.php?latex=I(X;Y)&space;=&space;\sum_{x\in&space;X}^{&space;}&space;\sum_{y\in&space;Y}p(x,y)&space;log\frac{p(x,y)}{p(x)p(y)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?I(X;Y)&space;=&space;\sum_{x\in&space;X}^{&space;}&space;\sum_{y\in&space;Y}p(x,y)&space;log\frac{p(x,y)}{p(x)p(y)}" title="I(X;Y) = \sum_{x\in X}^{ } \sum_{y\in Y}p(x,y) log\frac{p(x,y)}{p(x)p(y)}"></a></p>
+<p>　　为了处理定量数据，最大信息系数法被提出，使用feature_selection库的SelectKBest类结合最大信息系数法来选择特征的代码如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span> from sklearn<span class="class">.feature_selection</span> import SelectKBest</span><br><span class="line"> <span class="number">2</span> from minepy import MINE</span><br><span class="line"> <span class="number">3</span> </span><br><span class="line"> <span class="number">4</span> #由于MINE的设计不是函数式的，定义mic方法将其为函数式的，返回一个二元组，二元组的第<span class="number">2</span>项设置成固定的P值<span class="number">0.5</span></span><br><span class="line"> <span class="number">5</span> def <span class="function"><span class="title">mic</span><span class="params">(x, y)</span></span>:</span><br><span class="line"> <span class="number">6</span>     m = <span class="function"><span class="title">MINE</span><span class="params">()</span></span></span><br><span class="line"> <span class="number">7</span>     m.<span class="function"><span class="title">compute_score</span><span class="params">(x, y)</span></span></span><br><span class="line"> <span class="number">8</span>     return (m.<span class="function"><span class="title">mic</span><span class="params">()</span></span>, <span class="number">0.5</span>)</span><br><span class="line"> <span class="number">9</span> </span><br><span class="line"><span class="number">10</span> #选择K个最好的特征，返回特征选择后的数据</span><br><span class="line"><span class="number">11</span> <span class="function"><span class="title">SelectKBest</span><span class="params">(lambda X, Y: array(map(lambda x:mic(x, Y)</span></span>, X.T))<span class="class">.T</span>, k=<span class="number">2</span>).<span class="function"><span class="title">fit_transform</span><span class="params">(iris.data, iris.target)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="3-2_Wrapper">3.2 Wrapper</h2><h3 id="3-2-1_递归特征消除法">3.2.1 递归特征消除法</h3><p>　　递归消除特征法使用一个基模型来进行多轮训练，每轮训练后，消除若干权值系数的特征，再基于新的特征集进行下一轮训练。使用feature_selection库的RFE类来选择特征的代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn.feature_selection import RFE</span><br><span class="line"><span class="number">2</span> from sklearn.linear_model import LogisticRegression</span><br><span class="line"><span class="number">3</span> </span><br><span class="line"><span class="number">4</span> <span class="preprocessor">#递归特征消除法，返回特征选择后的数据</span></span><br><span class="line"><span class="number">5</span> <span class="preprocessor">#参数estimator为基模型</span></span><br><span class="line"><span class="number">6</span> <span class="preprocessor">#参数n_features_to_select为选择的特征个数</span></span><br><span class="line"><span class="number">7</span> RFE(estimator=LogisticRegression(), n_features_to_select=<span class="number">2</span>).fit_transform(iris.data, iris.target)</span><br></pre></td></tr></table></figure>
+<h2 id="3-3_Embedded">3.3 Embedded</h2><h3 id="3-3-1_基于惩罚项的特征选择法">3.3.1 基于惩罚项的特征选择法</h3><p>　　使用带惩罚项的基模型，除了筛选出特征外，同时也进行了降维。使用feature_selection库的SelectFromModel类结合带L1惩罚项的逻辑回归模型，来选择特征的代码如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn<span class="class">.feature_selection</span> import SelectFromModel</span><br><span class="line"><span class="number">2</span> from sklearn<span class="class">.linear_model</span> import LogisticRegression</span><br><span class="line"><span class="number">3</span> </span><br><span class="line"><span class="number">4</span> #带L1惩罚项的逻辑回归作为基模型的特征选择</span><br><span class="line"><span class="number">5</span> <span class="function"><span class="title">SelectFromModel</span><span class="params">(LogisticRegression(penalty=<span class="string">"l1"</span>, C=<span class="number">0.1</span>)</span></span>).<span class="function"><span class="title">fit_transform</span><span class="params">(iris.data, iris.target)</span></span></span><br></pre></td></tr></table></figure>
+<p>　　<a href="http://www.zhihu.com/question/28641663/answer/41653367" target="_blank" rel="external">L1惩罚项降维的原理在于保留多个对目标值具有同等相关性的特征中的一个</a>，所以没选到的特征不代表不重要。故，可结合L2惩罚项来优化。具体操作为：若一个特征在L1中的权值为1，选择在L2中权值差别不大且在L1中权值为0的特征构成同类集合，将这一集合中的特征平分L1中的权值，故需要构建一个新的逻辑回归模型：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">from sklearn<span class="class">.linear_model</span> import LogisticRegression</span><br><span class="line"></span><br><span class="line">class <span class="function"><span class="title">LR</span><span class="params">(LogisticRegression)</span></span>:</span><br><span class="line">    def __init__(self, threshold=<span class="number">0.01</span>, dual=False, tol=<span class="number">1</span>e-<span class="number">4</span>, C=<span class="number">1.0</span>,</span><br><span class="line">                 fit_intercept=True, intercept_scaling=<span class="number">1</span>, class_weight=None,</span><br><span class="line">                 random_state=None, solver=<span class="string">'liblinear'</span>, max_iter=<span class="number">100</span>,</span><br><span class="line">                 multi_class=<span class="string">'ovr'</span>, verbose=<span class="number">0</span>, warm_start=False, n_jobs=<span class="number">1</span>):</span><br><span class="line">    </span><br><span class="line">        #权值相近的阈值</span><br><span class="line">        self<span class="class">.threshold</span> = threshold</span><br><span class="line">        LogisticRegression.__init__(self, penalty=<span class="string">'l1'</span>, dual=dual, tol=tol, C=C,</span><br><span class="line">                 fit_intercept=fit_intercept, intercept_scaling=intercept_scaling, class_weight=class_weight,</span><br><span class="line">                 random_state=random_state, solver=solver, max_iter=max_iter,</span><br><span class="line">                 multi_class=multi_class, verbose=verbose, warm_start=warm_start, n_jobs=n_jobs)</span><br><span class="line">        #使用同样的参数创建L2逻辑回归</span><br><span class="line">        self<span class="class">.l2</span> = <span class="function"><span class="title">LogisticRegression</span><span class="params">(penalty=<span class="string">'l2'</span>, dual=dual, tol=tol, C=C, fit_intercept=fit_intercept, intercept_scaling=intercept_scaling, class_weight = class_weight, random_state=random_state, solver=solver, max_iter=max_iter, multi_class=multi_class, verbose=verbose, warm_start=warm_start, n_jobs=n_jobs)</span></span></span><br><span class="line">    </span><br><span class="line">    def <span class="function"><span class="title">fit</span><span class="params">(self, X, y, sample_weight=None)</span></span>:</span><br><span class="line">        #训练L1逻辑回归</span><br><span class="line">        <span class="function"><span class="title">super</span><span class="params">(LR, self)</span></span>.<span class="function"><span class="title">fit</span><span class="params">(X, y, sample_weight=sample_weight)</span></span></span><br><span class="line">        self<span class="class">.coef_old_</span> = self<span class="class">.coef_</span><span class="class">.copy</span>()</span><br><span class="line">        #训练L2逻辑回归</span><br><span class="line">        self<span class="class">.l2</span><span class="class">.fit</span>(X, y, sample_weight=sample_weight)</span><br><span class="line">    </span><br><span class="line">        cntOfRow, cntOfCol = self<span class="class">.coef_</span><span class="class">.shape</span></span><br><span class="line">        #权值系数矩阵的行数对应目标值的种类数目</span><br><span class="line">        <span class="keyword">for</span> <span class="tag">i</span> <span class="keyword">in</span> <span class="function"><span class="title">range</span><span class="params">(cntOfRow)</span></span>:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="function"><span class="title">range</span><span class="params">(cntOfCol)</span></span>:</span><br><span class="line">                coef = self<span class="class">.coef_</span>[i][j]</span><br><span class="line">                #L1逻辑回归的权值系数不为<span class="number">0</span></span><br><span class="line">                <span class="keyword">if</span> coef != <span class="number">0</span>:</span><br><span class="line">                    idx = [j]</span><br><span class="line">                    #对应在L2逻辑回归中的权值系数</span><br><span class="line">                    coef1 = self<span class="class">.l2</span><span class="class">.coef_</span>[i][j]</span><br><span class="line">                    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="function"><span class="title">range</span><span class="params">(cntOfCol)</span></span>:</span><br><span class="line">                        coef2 = self<span class="class">.l2</span><span class="class">.coef_</span>[i][k]</span><br><span class="line">                        #在L2逻辑回归中，权值系数之差小于设定的阈值，且在L1中对应的权值为<span class="number">0</span></span><br><span class="line">                        <span class="keyword">if</span> <span class="function"><span class="title">abs</span><span class="params">(coef1-coef2)</span></span> &lt; self<span class="class">.threshold</span> and j != k and self<span class="class">.coef_</span>[i][k] == <span class="number">0</span>:</span><br><span class="line">                            idx.<span class="function"><span class="title">append</span><span class="params">(k)</span></span></span><br><span class="line">                    #计算这一类特征的权值系数均值</span><br><span class="line">                    mean = coef / <span class="function"><span class="title">len</span><span class="params">(idx)</span></span></span><br><span class="line">                    self<span class="class">.coef_</span>[i][idx] = mean</span><br><span class="line">        return self</span><br></pre></td></tr></table></figure>
+<p>　　使用feature_selection库的SelectFromModel类结合带L1以及L2惩罚项的逻辑回归模型，来选择特征的代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn.feature_selection import SelectFromModel</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> <span class="preprocessor">#带L1和L2惩罚项的逻辑回归作为基模型的特征选择</span></span><br><span class="line"><span class="number">4</span> <span class="preprocessor">#参数threshold为权值系数之差的阈值</span></span><br><span class="line"><span class="number">5</span> SelectFromModel(LR(threshold=<span class="number">0.5</span>, C=<span class="number">0.1</span>)).fit_transform(iris.data, iris.target)</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-2_基于树模型的特征选择法">3.3.2 基于树模型的特征选择法</h3><p>　　树模型中GBDT也可用来作为基模型进行特征选择，使用feature_selection库的SelectFromModel类结合GBDT模型，来选择特征的代码如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn<span class="class">.feature_selection</span> import SelectFromModel</span><br><span class="line"><span class="number">2</span> from sklearn<span class="class">.ensemble</span> import GradientBoostingClassifier</span><br><span class="line"><span class="number">3</span> </span><br><span class="line"><span class="number">4</span> #GBDT作为基模型的特征选择</span><br><span class="line"><span class="number">5</span> <span class="function"><span class="title">SelectFromModel</span><span class="params">(GradientBoostingClassifier()</span></span>).<span class="function"><span class="title">fit_transform</span><span class="params">(iris.data, iris.target)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="3-4_回顾">3.4 回顾</h2><table>
+<thead>
+<tr>
+<th>类</th>
+<th>所属方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VarianceThreshold</td>
+<td>Filter</td>
+<td>方差选择法</td>
+</tr>
+<tr>
+<td>SelectKBest</td>
+<td>Filter</td>
+<td>可选关联系数、卡方校验、最大信息系数作为得分计算的方法</td>
+</tr>
+<tr>
+<td>RFE</td>
+<td>Wrapper</td>
+<td>递归地训练基模型，将权值系数较小的特征从特征集合中消除</td>
+</tr>
+<tr>
+<td>SelectFromModel</td>
+<td>Embedded</td>
+<td>训练基模型，选择权值系数较高的特征</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="4_降维">4 降维</h1><p>　　当特征选择完成后，可以直接训练模型了，但是可能由于特征矩阵过大，导致计算量大，训练时间长的问题，因此降低特征矩阵维度也是必不可少的。常见的降维方法除了以上提到的基于L1惩罚项的模型以外，另外还有主成分分析法（PCA）和线性判别分析（LDA），线性判别分析本身也是一个分类模型。PCA和LDA有很多的相似点，其本质是要将原始的样本映射到维度更低的样本空间中，但是PCA和LDA的映射目标不一样：<a href="http://www.cnblogs.com/LeftNotEasy/archive/2011/01/08/lda-and-pca-machine-learning.html" target="_blank" rel="external">PCA是为了让映射后的样本具有最大的发散性；而LDA是为了让映射后的样本有最好的分类性能</a>。所以说PCA是一种无监督的降维方法，而LDA是一种有监督的降维方法。</p>
+<h2 id="4-1_主成分分析法（PCA）">4.1 主成分分析法（PCA）</h2><p>　　使用decomposition库的PCA类选择特征的代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn.decomposition import PCA</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> <span class="preprocessor">#主成分分析法，返回降维后的数据</span></span><br><span class="line"><span class="number">4</span> <span class="preprocessor">#参数n_components为主成分数目</span></span><br><span class="line"><span class="number">5</span> PCA(n_components=<span class="number">2</span>).fit_transform(iris.data)</span><br></pre></td></tr></table></figure>
+<h2 id="4-2_线性判别分析法（LDA）">4.2 线性判别分析法（LDA）</h2><p>　　使用lda库的LDA类选择特征的代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> from sklearn.lda import LDA</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> <span class="preprocessor">#线性判别分析法，返回降维后的数据</span></span><br><span class="line"><span class="number">4</span> <span class="preprocessor">#参数n_components为降维后的维数</span></span><br><span class="line"><span class="number">5</span> LDA(n_components=<span class="number">2</span>).fit_transform(iris.data, iris.target)</span><br></pre></td></tr></table></figure>
+<h2 id="4-3_回顾">4.3 回顾</h2><table>
+<thead>
+<tr>
+<th>库</th>
+<th>类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>decomposition</td>
+<td>PCA</td>
+<td>主成分分析法</td>
+</tr>
+<tr>
+<td>lda</td>
+<td>LDA</td>
+<td>线性判别分析法</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="5_总结">5 总结</h1><p>　　再让我们回归一下本文开始的特征工程的思维导图，我们可以使用sklearn完成几乎所有特征处理的工作，而且不管是数据预处理，还是特征选择，抑或降维，它们都是通过某个类的方法fit_transform完成的，fit_transform要不只带一个参数：特征矩阵，要不带两个参数：特征矩阵加目标向量。这些难道都是巧合吗？还是故意设计成这样？方法fit_transform中有fit这一单词，它和训练模型的fit方法有关联吗？接下来，我将在<a href="http://www.cnblogs.com/jasonfreak/p/5448462.html" target="_blank" rel="external">《使用sklearn优雅地进行数据挖掘》</a>中阐述其中的奥妙！</p>
+<hr>
+<h1 id="6_参考资料">6 参考资料</h1><ol>
+<li><a href="http://www.ats.ucla.edu/stat/mult_pkg/faq/general/dummy.htm" target="_blank" rel="external">FAQ: What is dummy coding?</a></li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html#sklearn.datasets.load_iris" target="_blank" rel="external">IRIS（鸢尾花）数据集</a></li>
+<li><a href="http://wiki.mbalib.com/wiki/%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C" target="_blank" rel="external">卡方检验</a></li>
+<li><a href="http://dataunion.org/14072.html" target="_blank" rel="external">干货：结合Scikit-learn介绍几种常用的特征选择方法</a></li>
+<li><a href="http://www.zhihu.com/question/28641663/answer/41653367" target="_blank" rel="external">机器学习中，有哪些特征选择的工程方法？</a></li>
+<li><a href="http://www.cnblogs.com/LeftNotEasy/archive/2011/01/08/lda-and-pca-machine-learning.html" target="_blank" rel="external">机器学习中的数学(4)-线性判别分析（LDA）, 主成分分析(PCA)</a></li>
+</ol>
+<p><a href="http://www.cnblogs.com/jasonfreak/p/5448385.html" target="_blank" rel="external">Origin</a></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/blog/10112016/Becoming-a-Data-Scientist-FW/">
+        Becoming a Data Scientist (FW) →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="blog/10112016/使用sklearn做單機特徵工程-轉/" data-title="使用sklearn做單機特徵工程(轉)" data-url="http://www.aprilzephyr.com/blog/10112016/使用sklearn做單機特徵工程-轉/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Themis_Sword. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran.</a> Thanks!</p>
+            </div>
+<div align='right'>
+    <form class="navbar-form" action="/search/">
+        <input type="text" class="form-control" placeholder="Google Search" name="q">
+    </form>
+ </div>
+            
+            
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
