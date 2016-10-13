@@ -1,0 +1,3228 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>An Introduction to Stock Market Data Analysis with Python (FW) | Themis_Sword&#39;s Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Themis_Sword's Blog">
+    <meta name="author" content="Themis_Sword">
+    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Themis_Sword&#39;s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/inspiring/" class="animsition-link">inspiring<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/machine-learning-data-analysis/" class="animsition-link">machine learning &amp; data analysis<small>(21)</small></a></li>
+				    
+				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(19)</small></a></li>
+				    
+				    <li><a href="/categories/software/" class="animsition-link">software<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/web/" class="animsition-link">web<small>(5)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            <li><a href="/information" class="animsition-link" title="Information">Information</a></li>
+            <li><a href="/gallery" class="animsition-link" title="Gallery">Gallery</a></li>
+            <li><a href="/timeline" class="animsition-link" title="Timeline">Timeline</a></li>
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/author" class="animsition-link" title="Author">Author</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Themis_Sword's Blog</a></li>
+                            <li class="nolink">Reverence for Nature, and Life.</li>
+                            
+                            
+                            
+                            
+                            
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2><span>Love, and to be Loved.</span></h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>我愛你，你是自由的。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-10-13T01:46:17.000Z" itemprop="datePublished">
+          2016-10-13
+      </time>
+    
+    
+    | 
+    <a href='/categories/machine-learning-data-analysis/'>machine learning &amp; data analysis</a>
+    
+    
+</span>
+                <h1>An Introduction to Stock Market Data Analysis with Python (FW)</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<img src="/images/AnIntro/1.png">
+<h2 id="PART_I">PART I</h2><p>This post is the first in a two-part series on stock data analysis using Python, based on a lecture I gave on the subject for MATH 3900 (Data Science) at the University of Utah. In these posts, I will discuss basics such as obtaining the data from Yahoo! Finance using *<em>pandas**, visualizing stock data, moving averages, developing a moving-average crossover strategy, backtesting, and benchmarking. The final post will include practice problems. This first post discusses topics up to introducing moving averages.</em><a id="more"></a></p>
+<p><strong>NOTE: The information in this post is of a general nature containing information and opinions from the author’s perspective. None of the content of this post should be considered financial advice. Furthermore, any code written here is provided without any form of guarantee. Individuals who choose to use it do so at their own risk.</strong></p>
+<h3 id="Introduction">Introduction</h3><p>Advanced mathematics and statistics has been present in finance for some time. Prior to the 1980s, banking and finance were well known for being “boring”; investment banking was distinct from commercial banking and the primary role of the industry was handling “simple” (at least in comparison to today) financial instruments, such as loans. Deregulation under the Reagan administration, coupled with an influx of mathematical talent, transformed the industry from the “boring” business of banking to what it is today, and since then, finance has joined the other sciences as a motivation for mathematical research and advancement. For example one of the biggest recent achievements of mathematics was the derivation of the <a href="https://en.wikipedia.org/wiki/Black%E2%80%93Scholes_model" target="_blank" rel="external">Black-Scholes formula</a>, which facilitated the pricing of stock options (a contract giving the holder the right to purchase or sell a stock at a particular price to the issuer of the option). That said, <a href="https://www.theguardian.com/science/2012/feb/12/black-scholes-equation-credit-crunch" target="_blank" rel="external">bad statistical models, including the Black-Scholes formula, hold part of the blame for the 2008 financial crisis</a>.</p>
+<p>In recent years, computer science has joined advanced mathematics in revolutionizing finance and <strong>trading</strong>, the practice of buying and selling of financial assets for the purpose of making a profit. In recent years, trading has become dominated by computers; algorithms are responsible for making rapid split-second trading decisions faster than humans could make (so rapidly, <a href="http://www.nature.com/news/physics-in-finance-trading-at-the-speed-of-light-1.16872" target="_blank" rel="external">the speed at which light travels is a limitation when designing systems</a>). Additionally, <a href="http://www.ft.com/cms/s/0/9278d1b6-1e02-11e6-b286-cddde55ca122.html#axzz4G8daZxcl" target="_blank" rel="external">machine learning and data mining techniques are growing in popularity</a> in the financial sector, and likely will continue to do so. In fact, a large part of algorithmic trading is <strong>high-frequency trading (HFT)</strong>. While algorithms may outperform humans, the technology is still new and playing in a famously turbulent, high-stakes arena. HFT was responsible for phenomena such as the <a href="https://en.wikipedia.org/wiki/2010_Flash_Crash" target="_blank" rel="external">2010 flash crash</a> and a <a href="http://money.cnn.com/2013/04/24/investing/twitter-flash-crash/" target="_blank" rel="external">2013 flash crash</a> prompted by a hacked <a href="http://money.cnn.com/2013/04/23/technology/security/ap-twitter-hacked/index.html?iid=EL" target="_blank" rel="external">Associated Press tweet</a> about an attack on the White House.</p>
+<p>This lecture, however, will not be about how to crash the stock market with bad mathematical models or trading algorithms. Instead, I intend to provide you with basic tools for handling and analyzing stock market data with Python. I will also discuss moving averages, how to construct trading strategies using moving averages, how to formulate exit strategies upon entering a position, and how to evaluate a strategy with backtesting.</p>
+<p><strong>DISCLAIMER: THIS IS NOT FINANCIAL ADVICE!!! Furthermore, I have ZERO experience as a trader (a lot of this knowledge comes from a one-semester course on stock trading I took at Salt Lake Community College)! This is purely introductory knowledge, not enough to make a living trading stocks. People can and do lose money trading stocks, and you do so at your own risk!</strong></p>
+<h3 id="Getting_and_Visualizing_Stock_Data">Getting and Visualizing Stock Data</h3><h4 id="Getting_Data_from_Yahoo!_Finance_with_pandas">Getting Data from Yahoo! Finance with pandas</h4><p>Before we play with stock data, we need to get it in some workable format. Stock data can be obtained from <a href="http://finance.yahoo.com/" target="_blank" rel="external">Yahoo! Finance</a>, <a href="http://finance.google.com/" target="_blank" rel="external">Google Finance</a>, or a number of other sources, and the <strong>pandas</strong> package provides easy access to Yahoo! Finance and Google Finance data, along with other sources. In this lecture, we will get our data from Yahoo! Finance.</p>
+<p>The following code demonstrates how to create directly a <code>DataFrame</code> object containing stock information. (You can read more about remote data access<a href="http://pandas.pydata.org/pandas-docs/stable/remote_data.html" target="_blank" rel="external">here</a>.)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import pandas.io.data as web   # Package and modules for importing data; this code may <span class="operator"><span class="keyword">change</span> depending <span class="keyword">on</span> pandas <span class="keyword">version</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"> </span><br><span class="line"># We will look <span class="keyword">at</span> stock prices <span class="keyword">over</span> the past <span class="keyword">year</span>, <span class="keyword">starting</span> <span class="keyword">at</span> January <span class="number">1</span>, <span class="number">2016</span></span><br><span class="line"><span class="keyword">start</span> = datetime.datetime(<span class="number">2016</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"><span class="keyword">end</span> = datetime.<span class="built_in">date</span>.today()</span><br><span class="line"> </span><br><span class="line"># Let<span class="string">'s get Apple stock data; Apple'</span>s ticker symbol <span class="keyword">is</span> AAPL</span><br><span class="line"># <span class="keyword">First</span> argument <span class="keyword">is</span> the series we want, <span class="keyword">second</span> <span class="keyword">is</span> the <span class="keyword">source</span> (<span class="string">"yahoo"</span> <span class="keyword">for</span> Yahoo! Finance), third <span class="keyword">is</span> the <span class="keyword">start</span> <span class="built_in">date</span>, fourth <span class="keyword">is</span> the <span class="keyword">end</span> <span class="built_in">date</span></span><br><span class="line">apple = web.DataReader(<span class="string">"AAPL"</span>, <span class="string">"yahoo"</span>, <span class="keyword">start</span>, <span class="keyword">end</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">type</span>(apple)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">C</span>:\Anaconda3\lib\site-packages\pandas\io\<span class="keyword">data</span>.py:<span class="number">35</span>: FutureWarning: </span><br><span class="line">The pandas.io.<span class="keyword">data</span> <span class="keyword">module</span> <span class="keyword">is</span> moved <span class="keyword">to</span> a separate <span class="keyword">package</span> (pandas-datareader) <span class="keyword">and</span> will be removed <span class="keyword">from</span> pandas <span class="keyword">in</span> a future <span class="keyword">version</span>.</span><br><span class="line"><span class="keyword">After</span> installing the pandas-datareader <span class="keyword">package</span> (https://github.com/pydata/pandas-datareader), you can <span class="keyword">change</span> the <span class="keyword">import</span> <span class="string">``</span><span class="keyword">from</span> pandas.io <span class="keyword">import</span> <span class="keyword">data</span>, wb<span class="string">``</span> <span class="keyword">to</span> <span class="string">``</span><span class="keyword">from</span> pandas_datareader <span class="keyword">import</span> <span class="keyword">data</span>, wb<span class="string">``</span>.</span><br><span class="line">  FutureWarning)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pandas.core.frame.DataFrame</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apple.<span class="function"><span class="title">head</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Open</th>
+<th>High</th>
+<th>Low</th>
+<th>Close</th>
+<th>Volume</th>
+<th>Adj Close</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2016-01-04</td>
+<td>102.610001</td>
+<td>105.370003</td>
+<td>102.000000</td>
+<td>105.349998</td>
+<td>67649400</td>
+<td>103.586180</td>
+</tr>
+<tr>
+<td>2016-01-05</td>
+<td>105.750000</td>
+<td>105.849998</td>
+<td>102.410004</td>
+<td>102.709999</td>
+<td>55791000</td>
+<td>100.990380</td>
+</tr>
+<tr>
+<td>2016-01-06</td>
+<td>100.559998</td>
+<td>102.370003</td>
+<td>99.870003</td>
+<td>100.699997</td>
+<td>68457400</td>
+<td>99.014030</td>
+</tr>
+<tr>
+<td>2016-01-07</td>
+<td>98.680000</td>
+<td>100.129997</td>
+<td>96.430000</td>
+<td>96.449997</td>
+<td>81094400</td>
+<td>94.835186</td>
+</tr>
+<tr>
+<td>2016-01-08</td>
+<td>98.550003</td>
+<td>99.110001</td>
+<td>96.760002</td>
+<td>96.959999</td>
+<td>70798000</td>
+<td>95.336649</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s briefly discuss this. <strong>Open</strong> is the price of the stock at the beginning of the trading day (it need not be the closing price of the previous trading day),<strong>high</strong> is the highest price of the stock on that trading day, <strong>low</strong> the lowest price of the stock on that trading day, and <strong>close</strong> the price of the stock at closing time. <strong>Volume</strong> indicates how many stocks were traded. <strong>Adjusted close</strong> is the closing price of the stock that adjusts the price of the stock for corporate actions. While stock prices are considered to be set mostly by traders, <strong>stock splits</strong> (when the company makes each extant stock worth two and halves the price) and <strong>dividends</strong> (payout of company profits per share) also affect the price of a stock and should be accounted for.</p>
+<h4 id="Visualizing_Stock_Data">Visualizing Stock Data</h4><p>Now that we have stock data we would like to visualize it. I first demonstrate how to do so using the <strong>matplotlib</strong> package. Notice that the <code>apple``DataFrame</code> object has a convenience method, <code>plot()</code>, which makes creating plots easier.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt   <span class="comment"># Import matplotlib</span></span><br><span class="line"><span class="comment"># This line is necessary for the plot to appear in a Jupyter notebook</span></span><br><span class="line">%matplotlib inline</span><br><span class="line"><span class="comment"># Control the default size of figures in this Jupyter notebook</span></span><br><span class="line">%pylab inline</span><br><span class="line">pylab.rcParams[<span class="string">'figure.figsize'</span>] = (<span class="number">15</span>, <span class="number">9</span>)   <span class="comment"># Change the size of plots</span></span><br><span class="line"> </span><br><span class="line">apple[<span class="string">"Adj Close"</span>].plot(grid = <span class="keyword">True</span>) <span class="comment"># Plot the adjusted closing price of AAPL</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Populating the interactive namespace <span class="keyword">from</span> numpy <span class="keyword">and</span> matplotlib</span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/2.png">
+<p>A linechart is fine, but there are at least four variables involved for each date (open, high, low, and close), and we would like to have some visual way to see all four variables that does not require plotting four separate lines. Financial data is often plotted with a <strong>Japanese candlestick plot</strong>, so named because it was first created by 18th century Japanese rice traders. Such a chart can be created with <strong>matplotlib</strong>, though it requires considerable effort.</p>
+<p>I have made a function you are welcome to use to more easily create candlestick charts from <strong>pandas</strong> data frames, and use it to plot our stock data. (Code is based off <a href="http://matplotlib.org/examples/pylab_examples/finance_demo.html" target="_blank" rel="external">this example</a>, and you can read the documentation for the functions involved <a href="http://matplotlib.org/api/finance_api.html" target="_blank" rel="external">here</a>.)</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">from matplotlib.dates import DateFormatter, WeekdayLocator,\</span><br><span class="line">    DayLocator, MONDAY</span><br><span class="line">from matplotlib.finance import candlestick_ohlc</span><br><span class="line"> </span><br><span class="line">def pandas_candlestick_ohlc(dat, stick = <span class="string">"day"</span>, otherseries = None):</span><br><span class="line">    <span class="string">""</span>"</span><br><span class="line">    :param dat: pandas DataFrame object with datetime64 index, and float columns <span class="string">"Open"</span>, <span class="string">"High"</span>, <span class="string">"Low"</span>, and <span class="string">"Close"</span>, likely created via DataReader from <span class="string">"yahoo"</span></span><br><span class="line">    :param stick: A string or number indicating the period of time covered <span class="keyword">by</span> a single candlestick. Valid string inputs <span class="keyword">include</span> <span class="string">"day"</span>, <span class="string">"week"</span>, <span class="string">"month"</span>, and <span class="string">"year"</span>, (<span class="string">"day"</span> default), and any numeric <span class="keyword">input</span> indicates the number of trading days included <span class="keyword">in</span> a period</span><br><span class="line">    :param otherseries: <span class="keyword">An</span> iterable that will be coerced into a <span class="keyword">list</span>, containing the columns of dat that hold other series to be plotted <span class="keyword">as</span> lines</span><br><span class="line"> </span><br><span class="line">    This will show a Japanese candlestick <span class="keyword">plot</span> <span class="keyword">for</span> stock data stored <span class="keyword">in</span> dat, also plotting other series <span class="keyword">if</span> passed.</span><br><span class="line">    <span class="string">""</span>"</span><br><span class="line">    mondays = WeekdayLocator(MONDAY)        # major ticks <span class="keyword">on</span> the mondays</span><br><span class="line">    alldays = DayLocator()              # minor ticks <span class="keyword">on</span> the days</span><br><span class="line">    dayFormatter = DateFormatter('%<span class="keyword">d</span>')      # <span class="keyword">e</span>.<span class="keyword">g</span>., 12</span><br><span class="line"> </span><br><span class="line">    # Create a new DataFrame <span class="keyword">which</span> includes OHLC data <span class="keyword">for</span> each period specified <span class="keyword">by</span> stick <span class="keyword">input</span></span><br><span class="line">    transdat = dat.<span class="keyword">loc</span>[:,[<span class="string">"Open"</span>, <span class="string">"High"</span>, <span class="string">"Low"</span>, <span class="string">"Close"</span>]]</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">type</span>(stick) == str):</span><br><span class="line">        <span class="keyword">if</span> stick == <span class="string">"day"</span>:</span><br><span class="line">            plotdat = transdat</span><br><span class="line">            stick = 1 # Used <span class="keyword">for</span> plotting</span><br><span class="line">        elif stick <span class="keyword">in</span> [<span class="string">"week"</span>, <span class="string">"month"</span>, <span class="string">"year"</span>]:</span><br><span class="line">            <span class="keyword">if</span> stick == <span class="string">"week"</span>:</span><br><span class="line">                transdat[<span class="string">"week"</span>] = pd.to_datetime(transdat.index).map(lambda x: x.isocalendar()[1]) # Identify weeks</span><br><span class="line">            elif stick == <span class="string">"month"</span>:</span><br><span class="line">                transdat[<span class="string">"month"</span>] = pd.to_datetime(transdat.index).map(lambda x: x.month) # Identify months</span><br><span class="line">            transdat[<span class="string">"year"</span>] = pd.to_datetime(transdat.index).map(lambda x: x.isocalendar()[0]) # Identify years</span><br><span class="line">            grouped = transdat.groupby(<span class="keyword">list</span>(<span class="keyword">set</span>([<span class="string">"year"</span>,stick]))) # Group <span class="keyword">by</span> year and other appropriate variable</span><br><span class="line">            plotdat = pd.DataFrame(&#123;<span class="string">"Open"</span>: [], <span class="string">"High"</span>: [], <span class="string">"Low"</span>: [], <span class="string">"Close"</span>: []&#125;) # Create empty data frame containing what will be plotted</span><br><span class="line">            <span class="keyword">for</span> name, group <span class="keyword">in</span> grouped:</span><br><span class="line">                plotdat = plotdat.<span class="keyword">append</span>(pd.DataFrame(&#123;<span class="string">"Open"</span>: group.iloc[0,0],</span><br><span class="line">                                            <span class="string">"High"</span>: <span class="literal">max</span>(group.High),</span><br><span class="line">                                            <span class="string">"Low"</span>: <span class="literal">min</span>(group.Low),</span><br><span class="line">                                            <span class="string">"Close"</span>: group.iloc[-1,3]&#125;,</span><br><span class="line">                                           index = [group.index[0]]))</span><br><span class="line">            <span class="keyword">if</span> stick == <span class="string">"week"</span>: stick = 5</span><br><span class="line">            elif stick == <span class="string">"month"</span>: stick = 30</span><br><span class="line">            elif stick == <span class="string">"year"</span>: stick = 365</span><br><span class="line"> </span><br><span class="line">    elif (<span class="keyword">type</span>(stick) == int and stick &gt;= 1):</span><br><span class="line">        transdat[<span class="string">"stick"</span>] = [np.<span class="literal">floor</span>(i / stick) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="keyword">range</span>(len(transdat.index))]</span><br><span class="line">        grouped = transdat.groupby(<span class="string">"stick"</span>)</span><br><span class="line">        plotdat = pd.DataFrame(&#123;<span class="string">"Open"</span>: [], <span class="string">"High"</span>: [], <span class="string">"Low"</span>: [], <span class="string">"Close"</span>: []&#125;) # Create empty data frame containing what will be plotted</span><br><span class="line">        <span class="keyword">for</span> name, group <span class="keyword">in</span> grouped:</span><br><span class="line">            plotdat = plotdat.<span class="keyword">append</span>(pd.DataFrame(&#123;<span class="string">"Open"</span>: group.iloc[0,0],</span><br><span class="line">                                        <span class="string">"High"</span>: <span class="literal">max</span>(group.High),</span><br><span class="line">                                        <span class="string">"Low"</span>: <span class="literal">min</span>(group.Low),</span><br><span class="line">                                        <span class="string">"Close"</span>: group.iloc[-1,3]&#125;,</span><br><span class="line">                                       index = [group.index[0]]))</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        raise ValueError('Valid inputs to argument <span class="string">"stick"</span> <span class="keyword">include</span> the strings <span class="string">"day"</span>, <span class="string">"week"</span>, <span class="string">"month"</span>, <span class="string">"year"</span>, or a positive integer')</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    # <span class="keyword">Set</span> <span class="keyword">plot</span> parameters, including the axis object ax used <span class="keyword">for</span> plotting</span><br><span class="line">    fig, ax = plt.subplots()</span><br><span class="line">    fig.subplots_adjust(bottom=0.2)</span><br><span class="line">    <span class="keyword">if</span> plotdat.index[-1] - plotdat.index[0] &lt; pd.Timedelta('730 days'):</span><br><span class="line">        weekFormatter = DateFormatter('%b %<span class="keyword">d</span>')  # <span class="keyword">e</span>.<span class="keyword">g</span>., Jan 12</span><br><span class="line">        ax.xaxis.set_major_locator(mondays)</span><br><span class="line">        ax.xaxis.set_minor_locator(alldays)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        weekFormatter = DateFormatter('%b %<span class="keyword">d</span>, %Y')</span><br><span class="line">    ax.xaxis.set_major_formatter(weekFormatter)</span><br><span class="line"> </span><br><span class="line">    ax.grid(True)</span><br><span class="line"> </span><br><span class="line">    # Create the candelstick chart</span><br><span class="line">    candlestick_ohlc(ax, <span class="keyword">list</span>(<span class="keyword">zip</span>(<span class="keyword">list</span>(date2num(plotdat.index.tolist())), plotdat[<span class="string">"Open"</span>].tolist(), plotdat[<span class="string">"High"</span>].tolist(),</span><br><span class="line">                      plotdat[<span class="string">"Low"</span>].tolist(), plotdat[<span class="string">"Close"</span>].tolist())),</span><br><span class="line">                      colorup = <span class="string">"black"</span>, colordown = <span class="string">"red"</span>, width = stick * .4)</span><br><span class="line"> </span><br><span class="line">    # <span class="keyword">Plot</span> other series (such <span class="keyword">as</span> moving averages) <span class="keyword">as</span> lines</span><br><span class="line">    <span class="keyword">if</span> otherseries != None:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">type</span>(otherseries) != <span class="keyword">list</span>:</span><br><span class="line">            otherseries = [otherseries]</span><br><span class="line">        dat.<span class="keyword">loc</span>[:,otherseries].<span class="keyword">plot</span>(ax = ax, lw = 1.3, grid = True)</span><br><span class="line"> </span><br><span class="line">    ax.xaxis_date()</span><br><span class="line">    ax.autoscale_view()</span><br><span class="line">    plt.setp(plt.gca().get_xticklabels(), rotation=45, horizontalalignment='right')</span><br><span class="line"> </span><br><span class="line">    plt.show()</span><br><span class="line"> </span><br><span class="line">pandas_candlestick_ohlc(apple)</span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/1.png">
+<p>With a candlestick chart, a black candlestick indicates a day where the closing price was higher than the open (a gain), while a red candlestick indicates a day where the open was higher than the close (a loss). The wicks indicate the high and the low, and the body the open and close (hue is used to determine which end of the body is the open and which the close). Candlestick charts are popular in finance and some strategies in <a href="https://en.wikipedia.org/wiki/Technical_analysis" target="_blank" rel="external">technical analysis</a> use them to make trading decisions, depending on the shape, color, and position of the candles. I will not cover such strategies today.</p>
+<p>We may wish to plot multiple financial instruments together; we may want to compare stocks, compare them to the market, or look at other securities such as <a href="https://en.wikipedia.org/wiki/Exchange-traded_fund" target="_blank" rel="external">exchange-traded funds (ETFs)</a>. Later, we will also want to see how to plot a financial instrument against some indicator, like a moving average. For this you would rather use a line chart than a candlestick chart. (How would you plot multiple candlestick charts on top of one another without cluttering the chart?)</p>
+<p>Below, I get stock data for some other tech companies and plot their adjusted close together.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">microsoft = web.DataReader("MSFT", "yahoo", <span class="operator"><span class="keyword">start</span>, <span class="keyword">end</span>)</span><br><span class="line">google = web.DataReader(<span class="string">"GOOG"</span>, <span class="string">"yahoo"</span>, <span class="keyword">start</span>, <span class="keyword">end</span>)</span><br><span class="line"> </span><br><span class="line"># Below <span class="keyword">I</span> <span class="keyword">create</span> a DataFrame consisting <span class="keyword">of</span> the adjusted closing price <span class="keyword">of</span> these stocks, <span class="keyword">first</span> <span class="keyword">by</span> making a <span class="keyword">list</span> <span class="keyword">of</span> these objects <span class="keyword">and</span> <span class="keyword">using</span> the <span class="keyword">join</span> method</span><br><span class="line">stocks = pd.DataFrame(&#123;<span class="string">"AAPL"</span>: apple[<span class="string">"Adj Close"</span>],</span><br><span class="line">                      <span class="string">"MSFT"</span>: microsoft[<span class="string">"Adj Close"</span>],</span><br><span class="line">                      <span class="string">"GOOG"</span>: google[<span class="string">"Adj Close"</span>]&#125;)</span><br><span class="line"> </span><br><span class="line">stocks.<span class="keyword">head</span>()</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>AAPL</th>
+<th>GOOG</th>
+<th>MSFT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2016-01-04</td>
+<td>103.586180</td>
+<td>741.840027</td>
+<td>53.696756</td>
+</tr>
+<tr>
+<td>2016-01-05</td>
+<td>100.990380</td>
+<td>742.580017</td>
+<td>53.941723</td>
+</tr>
+<tr>
+<td>2016-01-06</td>
+<td>99.014030</td>
+<td>743.619995</td>
+<td>52.961855</td>
+</tr>
+<tr>
+<td>2016-01-07</td>
+<td>94.835186</td>
+<td>726.390015</td>
+<td>51.119702</td>
+</tr>
+<tr>
+<td>2016-01-08</td>
+<td>95.336649</td>
+<td>714.469971</td>
+<td>51.276485</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stocks.<span class="function"><span class="title">plot</span><span class="params">(grid = True)</span></span></span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/3.png">
+<p>What’s wrong with this chart? While absolute price is important (pricy stocks are difficult to purchase, which affects not only their volatility but <em>your</em> ability to trade that stock), when trading, we are more concerned about the relative change of an asset rather than its absolute price. Google’s stocks are much more expensive than Apple’s or Microsoft’s, and this difference makes Apple’s and Microsoft’s stocks appear much less volatile than they truly are.</p>
+<p>One solution would be to use two different scales when plotting the data; one scale will be used by Apple and Microsoft stocks, and the other by Google.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stocks.<span class="function"><span class="title">plot</span><span class="params">(secondary_y = [<span class="string">"AAPL"</span>, <span class="string">"MSFT"</span>], grid = True)</span></span></span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/4.png">
+<p>A “better” solution, though, would be to plot the information we actually want: the stock’s returns. This involves transforming the data into something more useful for our purposes. There are multiple transformations we could apply.</p>
+<p>One transformation would be to consider the stock’s return since the beginning of the period of interest. In other words, we plot:</p>
+<p><img src="https://s0.wp.com/latex.php?latex=%5Ctext%7Breturn%7D_%7Bt%2C0%7D+%3D+%5Cfrac%7B%5Ctext%7Bprice%7D_t%7D%7B%5Ctext%7Bprice%7D_0%7D+&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="\text{return}_{t,0} = \frac{\text{price}_t}{\text{price}_0} "></p>
+<p>This will require transforming the data in the <code>stocks</code> object, which I do next.</p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># df.apply(arg) will apply the <span class="keyword">function</span> arg <span class="keyword">to</span> <span class="keyword">each</span> column <span class="keyword">in</span> df, <span class="keyword">and</span> return a DataFrame <span class="keyword">with</span> the result</span><br><span class="line"># Recall that lambda x <span class="keyword">is</span> an anonymous <span class="keyword">function</span> accepting parameter x; <span class="keyword">in</span> this <span class="keyword">case</span>, x will be a pandas Series object</span><br><span class="line">stock_return = stocks.apply(lambda x: x / x[<span class="number">0</span>])</span><br><span class="line">stock_return.head()</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>AAPL</th>
+<th>GOOG</th>
+<th>MSFT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2016-01-04</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+</tr>
+<tr>
+<td>2016-01-05</td>
+<td>0.974941</td>
+<td>1.000998</td>
+<td>1.004562</td>
+</tr>
+<tr>
+<td>2016-01-06</td>
+<td>0.955861</td>
+<td>1.002399</td>
+<td>0.986314</td>
+</tr>
+<tr>
+<td>2016-01-07</td>
+<td>0.915520</td>
+<td>0.979173</td>
+<td>0.952007</td>
+</tr>
+<tr>
+<td>2016-01-08</td>
+<td>0.920361</td>
+<td>0.963105</td>
+<td>0.954927</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stock_return.<span class="function"><span class="title">plot</span><span class="params">(grid = True)</span></span>.<span class="function"><span class="title">axhline</span><span class="params">(y = <span class="number">1</span>, color = <span class="string">"black"</span>, lw = <span class="number">2</span>)</span></span></span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/5.png">
+<p>This is a much more useful plot. We can now see how profitable each stock was since the beginning of the period. Furthermore, we see that these stocks are highly correlated; they generally move in the same direction, a fact that was difficult to see in the other charts.</p>
+<p>Alternatively, we could plot the change of each stock per day. One way to do so would be to plot the percentage increase of a stock when comparing day $t$ to day $t + 1$, with the formula:</p>
+<p><img src="https://s0.wp.com/latex.php?latex=%5Ctext%7Bgrowth%7D_t+%3D+%5Cfrac%7B%5Ctext%7Bprice%7D_%7Bt+%2B+1%7D+-+%5Ctext%7Bprice%7D_t%7D%7B%5Ctext%7Bprice%7D_t%7D+&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="\text{growth}_t = \frac{\text{price}_{t + 1} - \text{price}_t}{\text{price}_t} "></p>
+<p>But change could be thought of differently as:</p>
+<p><img src="https://s0.wp.com/latex.php?latex=%5Ctext%7Bincrease%7D_t+%3D+%5Cfrac%7B%5Ctext%7Bprice%7D_%7Bt%7D+-+%5Ctext%7Bprice%7D_%7Bt-1%7D%7D%7B%5Ctext%7Bprice%7D_t%7D+&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="\text{increase}_t = \frac{\text{price}_{t} - \text{price}_{t-1}}{\text{price}_t} "></p>
+<p>These formulas are not the same and can lead to differing conclusions, but there is another way to model the growth of a stock: with log differences.</p>
+<p><img src="https://s0.wp.com/latex.php?latex=%5Ctext%7Bchange%7D_t+%3D+%5Clog%28%5Ctext%7Bprice%7D_%7Bt%7D%29+-+%5Clog%28%5Ctext%7Bprice%7D_%7Bt+-+1%7D%29+&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="\text{change}_t = \log(\text{price}_{t}) - \log(\text{price}_{t - 1}) "></p>
+<p>(Here, <img src="https://s0.wp.com/latex.php?latex=%5Clog&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="\log"> is the natural log, and our definition does not depend as strongly on whether we use <img src="https://s0.wp.com/latex.php?latex=%5Clog%28%5Ctext%7Bprice%7D_%7Bt%7D%29+-+%5Clog%28%5Ctext%7Bprice%7D_%7Bt+-+1%7D%29&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="\log(\text{price}_{t}) - \log(\text{price}_{t - 1})"> or <img src="https://s0.wp.com/latex.php?latex=%5Clog%28%5Ctext%7Bprice%7D_%7Bt%2B1%7D%29+-+%5Clog%28%5Ctext%7Bprice%7D_%7Bt%7D%29&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="\log(\text{price}_{t+1}) - \log(\text{price}_{t})">.) The advantage of using log differences is that this difference can be interpreted as the percentage change in a stock but does not depend on the denominator of a fraction.</p>
+<p>We can obtain and plot the log differences of the data in <code>stocks</code> as follows:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Let's <span class="operator"><span class="keyword">use</span> NumPy<span class="string">'s log function, though math'</span>s <span class="keyword">log</span> <span class="keyword">function</span> would <span class="keyword">work</span> just <span class="keyword">as</span> well</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"> </span><br><span class="line">stock_change = stocks.<span class="keyword">apply</span>(lambda x: np.<span class="keyword">log</span>(x) - np.<span class="keyword">log</span>(x.shift(<span class="number">1</span>))) # shift moves dates back <span class="keyword">by</span> <span class="number">1.</span></span><br><span class="line">stock_change.<span class="keyword">head</span>()</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>AAPL</th>
+<th>GOOG</th>
+<th>MSFT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2016-01-04</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td>2016-01-05</td>
+<td>-0.025379</td>
+<td>0.000997</td>
+<td>0.004552</td>
+</tr>
+<tr>
+<td>2016-01-06</td>
+<td>-0.019764</td>
+<td>0.001400</td>
+<td>-0.018332</td>
+</tr>
+<tr>
+<td>2016-01-07</td>
+<td>-0.043121</td>
+<td>-0.023443</td>
+<td>-0.035402</td>
+</tr>
+<tr>
+<td>2016-01-08</td>
+<td>0.005274</td>
+<td>-0.016546</td>
+<td>0.003062</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stock_change.<span class="function"><span class="title">plot</span><span class="params">(grid = True)</span></span>.<span class="function"><span class="title">axhline</span><span class="params">(y = <span class="number">0</span>, color = <span class="string">"black"</span>, lw = <span class="number">2</span>)</span></span></span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/6.png">
+<p>Which transformation do you prefer? Looking at returns since the beginning of the period make the overall trend of the securities in question much more apparent. Changes between days, though, are what more advanced methods actually consider when modelling the behavior of a stock. so they should not be ignored.</p>
+<h3 id="Moving_Averages">Moving Averages</h3><p>Charts are very useful. In fact, some traders base their strategies almost entirely off charts (these are the “technicians”, since trading strategies based off finding patterns in charts is a part of the trading doctrine known as<strong>technical analysis</strong>). Let’s now consider how we can find trends in stocks.</p>
+<p>A <strong><img src="https://s0.wp.com/latex.php?latex=q&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="q">-day moving average</strong> is, for a series <img src="https://s0.wp.com/latex.php?latex=x_t&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="x_t"> and a point in time <img src="https://s0.wp.com/latex.php?latex=t&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="t">, the average of the past $q$ days: that is, if <img src="https://s0.wp.com/latex.php?latex=MA%5Eq_t&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="MA^q_t"> denotes a moving average process, then:</p>
+<p><img src="https://s0.wp.com/latex.php?latex=MA%5Eq_t+%3D+%5Cfrac%7B1%7D%7Bq%7D+%5Csum_%7Bi+%3D+0%7D%5E%7Bq-1%7D+x_%7Bt+-+i%7D+&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="MA^q_t = \frac{1}{q} \sum_{i = 0}^{q-1} x_{t - i} ">latex</p>
+<p>Moving averages smooth a series and helps identify trends. The larger <img src="https://s0.wp.com/latex.php?latex=q&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="q"> is, the less responsive a moving average process is to short-term fluctuations in the series <img src="https://s0.wp.com/latex.php?latex=x_t&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="x_t">. The idea is that moving average processes help identify trends from “noise”. <strong>Fast</strong> moving averages have smaller <img src="https://s0.wp.com/latex.php?latex=q&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="q"> and more closely follow the stock, while <strong>slow</strong> moving averages have larger <img src="https://s0.wp.com/latex.php?latex=q&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="q">, resulting in them responding less to the fluctuations of the stock and being more stable.</p>
+<p><strong>pandas</strong> provides functionality for easily computing moving averages. I demonstrate its use by creating a 20-day (one month) moving average for the Apple data, and plotting it alongside the stock.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apple[<span class="string">"20d"</span>] = np.<span class="function"><span class="title">round</span><span class="params">(apple[<span class="string">"Close"</span>].rolling(window = <span class="number">20</span>, center = False)</span></span>.<span class="function"><span class="title">mean</span><span class="params">()</span></span>, <span class="number">2</span>)</span><br><span class="line"><span class="function"><span class="title">pandas_candlestick_ohlc</span><span class="params">(apple.loc[<span class="string">'2016-01-04'</span>:<span class="string">'2016-08-07'</span>,:], otherseries = <span class="string">"20d"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/7.png">
+<p>Notice how late the rolling average begins. It cannot be computed until 20 days have passed. This limitation becomes more severe for longer moving averages. Because I would like to be able to compute 200-day moving averages, I’m going to extend out how much AAPL data we have. That said, we will still largely focus on 2016.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">start = datetime.<span class="function"><span class="title">datetime</span><span class="params">(<span class="number">2010</span>,<span class="number">1</span>,<span class="number">1</span>)</span></span></span><br><span class="line">apple = web.<span class="function"><span class="title">DataReader</span><span class="params">(<span class="string">"AAPL"</span>, <span class="string">"yahoo"</span>, start, end)</span></span></span><br><span class="line">apple[<span class="string">"20d"</span>] = np.<span class="function"><span class="title">round</span><span class="params">(apple[<span class="string">"Close"</span>].rolling(window = <span class="number">20</span>, center = False)</span></span>.<span class="function"><span class="title">mean</span><span class="params">()</span></span>, <span class="number">2</span>)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="title">pandas_candlestick_ohlc</span><span class="params">(apple.loc[<span class="string">'2016-01-04'</span>:<span class="string">'2016-08-07'</span>,:], otherseries = <span class="string">"20d"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/8.png">
+<p>You will notice that a moving average is much smoother than the actua stock data. Additionally, it’s a stubborn indicator; a stock needs to be above or below the moving average line in order for the line to change direction. Thus, crossing a moving average signals a possible change in trend, and should draw attention.</p>
+<p>Traders are usually interested in multiple moving averages, such as the 20-day, 50-day, and 200-day moving averages. It’s easy to examine multiple moving averages at once.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apple[<span class="string">"50d"</span>] = np.<span class="function"><span class="title">round</span><span class="params">(apple[<span class="string">"Close"</span>].rolling(window = <span class="number">50</span>, center = False)</span></span>.<span class="function"><span class="title">mean</span><span class="params">()</span></span>, <span class="number">2</span>)</span><br><span class="line">apple[<span class="string">"200d"</span>] = np.<span class="function"><span class="title">round</span><span class="params">(apple[<span class="string">"Close"</span>].rolling(window = <span class="number">200</span>, center = False)</span></span>.<span class="function"><span class="title">mean</span><span class="params">()</span></span>, <span class="number">2</span>)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="title">pandas_candlestick_ohlc</span><span class="params">(apple.loc[<span class="string">'2016-01-04'</span>:<span class="string">'2016-08-07'</span>,:], otherseries = [<span class="string">"20d"</span>, <span class="string">"50d"</span>, <span class="string">"200d"</span>])</span></span></span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/9.png">
+<p>The 20-day moving average is the most sensitive to local changes, and the 200-day moving average the least. Here, the 200-day moving average indicates an overall <strong>bearish</strong> trend: the stock is trending downward over time. The 20-day moving average is at times bearish and at other times<strong>bullish</strong>, where a positive swing is expected. You can also see that the crossing of moving average lines indicate changes in trend. These crossings are what we can use as <strong>trading signals</strong>, or indications that a financial security is changing direction and a profitable trade might be made.</p>
+<p><em>Visit next week to read about how to design and test a trading strategy using moving averages.</em></p>
+<p><em>Update: An earlier version of this article suggested that algorithmic trading was synonymous as high-frequency trading. As pointed out in the comments by dissolved, this need not be the case; algorithms can be used to identify trades without necessarily being high frequency. While HFT is a large subset of algorithmic trading, it is not equal to it.</em></p>
+<h2 id="PART_II">PART II</h2><p><em>This post is the second in a two-part series on stock data analysis using Python, based on a lecture I gave on the subject for <a href="http://datasciencecourse.net/2016/index.html" target="_blank" rel="external">MATH 3900 (Data Mining) at the University of Utah</a> <a href="https://ntguardian.wordpress.com/2016/09/19/introduction-stock-market-data-python-1/" target="_blank" rel="external">(read part 1 here)</a>. In these posts, I will discuss basics such as obtaining the data from Yahoo! Finance using<em>*pandas</em></em>, visualizing stock data, moving averages, developing a moving-average crossover strategy, backtesting, and benchmarking. This second post discusses topics including divising a moving average crossover strategy, backtesting, and benchmarking, along with practice problems for readers to ponder.</p>
+<p><strong>NOTE: The information in this post is of a general nature containing information and opinions from the author’s perspective. None of the content of this post should be considered financial advice. Furthermore, any code written here is provided without any form of guarantee. Individuals who choose to use it do so at their own risk.</strong></p>
+<h3 id="Trading_Strategy">Trading Strategy</h3><p>Call an <strong>open position</strong> a trade that will be terminated in the future when a condition is met. A <strong>long</strong> position is one in which a profit is made if the financial instrument traded increases in value, and a <strong>short</strong> position is on in which a profit is made if the financial asset being traded decreases in value. When trading stocks directly, all long positions are bullish and all short position are bearish. That said, a bullish attitude need not be accompanied by a long position, and a bearish attitude need not be accompanied by a short position (this is particularly true when trading stock options).</p>
+<p>Here is an example. Let’s say you buy a stock with the expectation that the stock will increase in value, with a plan to sell the stock at a higher price. This is a long position: you are holding a financial asset for which you will profit if the asset increases in value. Your potential profit is unlimited, and your potential losses are limited by the price of the stock since stock prices never go below zero. On the other hand, if you expect a stock to decrease in value, you may borrow the stock from a brokerage firm and sell it, with the expectation of buying the stock back later at a lower price, thus earning you a profit. This is called <strong>shorting a stock</strong>, and is a short position, since you will earn a profit if the stock drops in value. The potential profit from shorting a stock is limited by the price of the stock (the best you can do is have the stock become worth nothing; you buy it back for free), while the losses are unlimited, since you could potentially spend an arbitrarily large amount of money to buy the stock back. Thus, a broker will expect an investor to be in a very good financial position before allowing the investor to short a stock.</p>
+<p>Any trader must have a set of rules that determine how much of her money she is willing to bet on any single trade. For example, a trader may decide that under no circumstances will she risk more than 10% of her portfolio on a trade. Additionally, in any trade, a trader must have an <strong>exit strategy</strong>, a set of conditions determining when she will exit the position, for either profit or loss. A trader may set a <strong>target</strong>, which is the minimum profit that will induce the trader to leave the position. Likewise, a trader must have a maximum loss she is willing to tolerate; if potential losses go beyond this amount, the trader will exit the position in order to prevent any further loss (this is usually done by setting a <strong>stop-loss order</strong>, an order that is triggered to prevent further losses).</p>
+<p>We will call a plan that includes trading signals for prompting trades, a rule for deciding how much of the portfolio to risk on any particular strategy, and a complete exit strategy for any trade an overall <strong>trading strategy</strong>. Our concern now is to design and evaluate trading strategies.</p>
+<p>We will suppose that the amount of money in the portfolio involved in any particular trade is a fixed proportion; 10% seems like a good number. We will also say that for any trade, if losses exceed 20% of the value of the trade, we will exit the position. Now we need a means for deciding when to enter position and when to exit for a profit.</p>
+<p>Here, I will be demonstrating a <a href="http://www.investopedia.com/university/movingaverage/movingaverages4.asp" target="_blank" rel="external">moving average crossover strategy</a>. We will use two moving averages, one we consider “fast”, and the other “slow”. The strategy is:</p>
+<ul>
+<li>Trade the asset when the fast moving average crosses over the slow moving average.</li>
+<li>Exit the trade when the fast moving average crosses over the slow moving average again.</li>
+</ul>
+<p>A long trade will be prompted when the fast moving average crosses from below to above the slow moving average, and the trade will be exited when the fast moving average crosses below the slow moving average later. A short trade will be prompted when the fast moving average crosses below the slow moving average, and the trade will be exited when the fast moving average later crosses above the slow moving average.</p>
+<p>We now have a complete strategy. But before we decide we want to use it, we should try to evaluate the quality of the strategy first. The usual means for doing so is <strong>backtesting</strong>, which is looking at how profitable the strategy is on historical data. For example, looking at the above chart’s performance on Apple stock, if the 20-day moving average is the fast moving average and the 50-day moving average the slow, this strategy does not appear to be very profitable, at least not if you are always taking long positions.</p>
+<p>Let’s see if we can automate the backtesting task. We first identify when the 20-day average is below the 50-day average, and vice versa.</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="atom">apple</span>[<span class="string">'20d-50d'</span>] = <span class="atom">apple</span>[<span class="string">'20d'</span>] - <span class="atom">apple</span>[<span class="string">'50d'</span>]</span><br><span class="line"><span class="atom">apple</span>.<span class="atom">tail</span>()</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Open</th>
+<th>High</th>
+<th>Low</th>
+<th>Close</th>
+<th>Volume</th>
+<th>Adj Close</th>
+<th>20d</th>
+<th>50d</th>
+<th>200d</th>
+<th>20d-50d</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2016-08-26</td>
+<td>107.410004</td>
+<td>107.949997</td>
+<td>106.309998</td>
+<td>106.940002</td>
+<td>27766300</td>
+<td>106.940002</td>
+<td>107.87</td>
+<td>101.51</td>
+<td>102.73</td>
+<td>6.36</td>
+</tr>
+<tr>
+<td>2016-08-29</td>
+<td>106.620003</td>
+<td>107.440002</td>
+<td>106.290001</td>
+<td>106.820000</td>
+<td>24970300</td>
+<td>106.820000</td>
+<td>107.91</td>
+<td>101.74</td>
+<td>102.68</td>
+<td>6.17</td>
+</tr>
+<tr>
+<td>2016-08-30</td>
+<td>105.800003</td>
+<td>106.500000</td>
+<td>105.500000</td>
+<td>106.000000</td>
+<td>24863900</td>
+<td>106.000000</td>
+<td>107.98</td>
+<td>101.96</td>
+<td>102.63</td>
+<td>6.02</td>
+</tr>
+<tr>
+<td>2016-08-31</td>
+<td>105.660004</td>
+<td>106.570000</td>
+<td>105.639999</td>
+<td>106.099998</td>
+<td>29662400</td>
+<td>106.099998</td>
+<td>108.00</td>
+<td>102.16</td>
+<td>102.60</td>
+<td>5.84</td>
+</tr>
+<tr>
+<td>2016-09-01</td>
+<td>106.139999</td>
+<td>106.800003</td>
+<td>105.620003</td>
+<td>106.730003</td>
+<td>26643600</td>
+<td>106.730003</td>
+<td>108.04</td>
+<td>102.39</td>
+<td>102.56</td>
+<td>5.65</td>
+</tr>
+</tbody>
+</table>
+<p>We will refer to the sign of this difference as the <strong>regime</strong>; that is, if the fast moving average is above the slow moving average, this is a bullish regime (the bulls rule), and a bearish regime (the bears rule) holds when the fast moving average is below the slow moving average. I identify regimes with the following code.</p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># np.where() <span class="keyword">is</span> a vectorized <span class="keyword">if</span>-<span class="keyword">else</span> <span class="keyword">function</span>, where a condition <span class="keyword">is</span> checked <span class="keyword">for</span> each <span class="keyword">component</span> <span class="keyword">of</span> a vector, <span class="keyword">and</span> the first argument passed <span class="keyword">is</span> used <span class="keyword">when</span> the condition holds, <span class="keyword">and</span> the other passed <span class="keyword">if</span> it does <span class="keyword">not</span></span><br><span class="line">apple[<span class="string">"Regime"</span>] = np.where(apple['<span class="number">20</span>d-<span class="number">50</span>d'] &gt; <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line"># We have <span class="number">1</span><span class="attribute">'s</span> <span class="keyword">for</span> bullish regimes <span class="keyword">and</span> <span class="number">0</span><span class="attribute">'s</span> <span class="keyword">for</span> everything <span class="keyword">else</span>. Below I replace bearish regimes<span class="attribute">'s</span> values <span class="keyword">with</span> -<span class="number">1</span>, <span class="keyword">and</span> <span class="keyword">to</span> maintain the rest <span class="keyword">of</span> the vector, the second argument <span class="keyword">is</span> apple[<span class="string">"Regime"</span>]</span><br><span class="line">apple[<span class="string">"Regime"</span>] = np.where(apple['<span class="number">20</span>d-<span class="number">50</span>d'] &lt; <span class="number">0</span>, -<span class="number">1</span>, apple[<span class="string">"Regime"</span>])</span><br><span class="line">apple.loc['<span class="number">2016</span>-<span class="number">01</span>-<span class="number">01</span>':'<span class="number">2016</span>-<span class="number">08</span>-<span class="number">07</span>',<span class="string">"Regime"</span>].plot(ylim = (-<span class="number">2</span>,<span class="number">2</span>)).axhline(y = <span class="number">0</span>, color = <span class="string">"black"</span>, lw = <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/10.png">
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apple[<span class="string">"Regime"</span>].<span class="function"><span class="title">plot</span><span class="params">(ylim = (-<span class="number">2</span>,<span class="number">2</span>)</span></span>).<span class="function"><span class="title">axhline</span><span class="params">(y = <span class="number">0</span>, color = <span class="string">"black"</span>, lw = <span class="number">2</span>)</span></span></span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/11.png">
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apple[<span class="string">"Regime"</span>].<span class="function"><span class="title">value_counts</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span>    <span class="number">966</span></span><br><span class="line">-<span class="number">1</span>    <span class="number">663</span></span><br><span class="line"> <span class="number">0</span>     <span class="number">50</span></span><br><span class="line">Name: Regime, dtype: int64</span><br></pre></td></tr></table></figure>
+<p>The last line above indicates that for 1005 days the market was bearish on Apple, while for 600 days the market was bullish, and it was neutral for 54 days.</p>
+<p>Trading signals appear at regime changes. When a bullish regime begins, a buy signal is triggered, and when it ends, a sell signal is triggered. Likewise, when a bearish regime begins, a sell signal is triggered, and when the regime ends, a buy signal is triggered (this is of interest only if you ever will short the stock, or use some derivative like a stock option to bet against the market).</p>
+<p>It’s simple to obtain signals. Let <img src="https://s0.wp.com/latex.php?latex=r_t&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="r_t"> indicate the regime at time <img src="https://s0.wp.com/latex.php?latex=t&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="t">, and <img src="https://s0.wp.com/latex.php?latex=s_t&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="s_t"> the signal at time <img src="https://s0.wp.com/latex.php?latex=t&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="t">. Then:</p>
+<p><img src="https://s0.wp.com/latex.php?latex=s_t+%3D+%5Ctext%7Bsign%7D%28r_t+-+r_%7Bt+-+1%7D%29+&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="s_t = \text{sign}(r_t - r_{t - 1}) "></p>
+<p><img src="https://s0.wp.com/latex.php?latex=s_t+%5Cin+%5C%7B-1%2C+0%2C+1%5C%7D&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="s_t \in \{-1, 0, 1\}">, with <img src="https://s0.wp.com/latex.php?latex=-1&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="-1"> indicating “sell”, <img src="https://s0.wp.com/latex.php?latex=1&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="1"> indicating “buy”, and <img src="https://s0.wp.com/latex.php?latex=0&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="0"> no action. We can obtain signals like so:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># To ensure that all trades close out, I temporarily change the regime of the last row to <span class="number">0</span></span></span><br><span class="line">regime_orig = apple.ix[-<span class="number">1</span>, <span class="string">"Regime"</span>]</span><br><span class="line">apple.ix[-<span class="number">1</span>, <span class="string">"Regime"</span>] = <span class="number">0</span></span><br><span class="line">apple[<span class="string">"Signal"</span>] = np.sign(apple[<span class="string">"Regime"</span>] - apple[<span class="string">"Regime"</span>].shift(<span class="number">1</span>))</span><br><span class="line"><span class="preprocessor"># Restore original regime data</span></span><br><span class="line">apple.ix[-<span class="number">1</span>, <span class="string">"Regime"</span>] = regime_orig</span><br><span class="line">apple.tail()</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Open</th>
+<th>High</th>
+<th>Low</th>
+<th>Close</th>
+<th>Volume</th>
+<th>Adj Close</th>
+<th>20d</th>
+<th>50d</th>
+<th>200d</th>
+<th>20d-50d</th>
+<th>Regime</th>
+<th>Signal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2016-08-26</td>
+<td>107.410004</td>
+<td>107.949997</td>
+<td>106.309998</td>
+<td>106.940002</td>
+<td>27766300</td>
+<td>106.940002</td>
+<td>107.87</td>
+<td>101.51</td>
+<td>102.73</td>
+<td>6.36</td>
+<td>1.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>2016-08-29</td>
+<td>106.620003</td>
+<td>107.440002</td>
+<td>106.290001</td>
+<td>106.820000</td>
+<td>24970300</td>
+<td>106.820000</td>
+<td>107.91</td>
+<td>101.74</td>
+<td>102.68</td>
+<td>6.17</td>
+<td>1.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>2016-08-30</td>
+<td>105.800003</td>
+<td>106.500000</td>
+<td>105.500000</td>
+<td>106.000000</td>
+<td>24863900</td>
+<td>106.000000</td>
+<td>107.98</td>
+<td>101.96</td>
+<td>102.63</td>
+<td>6.02</td>
+<td>1.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>2016-08-31</td>
+<td>105.660004</td>
+<td>106.570000</td>
+<td>105.639999</td>
+<td>106.099998</td>
+<td>29662400</td>
+<td>106.099998</td>
+<td>108.00</td>
+<td>102.16</td>
+<td>102.60</td>
+<td>5.84</td>
+<td>1.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>2016-09-01</td>
+<td>106.139999</td>
+<td>106.800003</td>
+<td>105.620003</td>
+<td>106.730003</td>
+<td>26643600</td>
+<td>106.730003</td>
+<td>108.04</td>
+<td>102.39</td>
+<td>102.56</td>
+<td>5.65</td>
+<td>1.0</td>
+<td>-1.0</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apple[<span class="string">"Signal"</span>].<span class="function"><span class="title">plot</span><span class="params">(ylim = (-<span class="number">2</span>, <span class="number">2</span>)</span></span>)</span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/12.png">
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apple[<span class="string">"Signal"</span>].<span class="function"><span class="title">value_counts</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">0.0</span>    <span class="number">1637</span></span><br><span class="line">-<span class="number">1.0</span>      <span class="number">21</span></span><br><span class="line"> <span class="number">1.0</span>      <span class="number">20</span></span><br><span class="line">Name: Signal, dtype: int64</span><br></pre></td></tr></table></figure>
+<p>We would buy Apple stock 23 times and sell Apple stock 23 times. If we only go long on Apple stock, only 23 trades will be engaged in over the 6-year period, while if we pivot from a long to a short position every time a long position is terminated, we would engage in 23 trades total. (Bear in mind that trading more frequently isn’t necessarily good; trades are never free.)</p>
+<p>You may notice that the system as it currently stands isn’t very robust, since even a fleeting moment when the fast moving average is above the slow moving average triggers a trade, resulting in trades that end immediately (which is bad if not simply because realistically every trade is accompanied by a fee that can quickly erode earnings). Additionally, every bullish regime immediately transitions into a bearish regime, and if you were constructing trading systems that allow both bullish and bearish bets, this would lead to the end of one trade immediately triggering a new trade that bets on the market in the opposite direction, which again seems finnicky. A better system would require more evidence that the market is moving in some particular direction. But we will not concern ourselves with these details for now.</p>
+<p>Let’s now try to identify what the prices of the stock is at every buy and every sell.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">apple.loc[apple[<span class="string">"Signal"</span>] == <span class="number">1</span>, <span class="string">"Close"</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Date</span><br><span class="line"><span class="number">2010</span>-<span class="number">03</span>-<span class="number">16</span>    <span class="number">224.449997</span></span><br><span class="line"><span class="number">2010</span>-<span class="number">06</span>-<span class="number">18</span>    <span class="number">274.070011</span></span><br><span class="line"><span class="number">2010</span>-<span class="number">09</span>-<span class="number">20</span>    <span class="number">283.230007</span></span><br><span class="line"><span class="number">2011</span>-<span class="number">05</span>-<span class="number">12</span>    <span class="number">346.569988</span></span><br><span class="line"><span class="number">2011</span>-<span class="number">07</span>-<span class="number">14</span>    <span class="number">357.770004</span></span><br><span class="line"><span class="number">2011</span>-<span class="number">12</span>-<span class="number">28</span>    <span class="number">402.640003</span></span><br><span class="line"><span class="number">2012</span>-<span class="number">06</span>-<span class="number">25</span>    <span class="number">570.770020</span></span><br><span class="line"><span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span>    <span class="number">433.260010</span></span><br><span class="line"><span class="number">2013</span>-<span class="number">07</span>-<span class="number">31</span>    <span class="number">452.529984</span></span><br><span class="line"><span class="number">2013</span>-<span class="number">10</span>-<span class="number">16</span>    <span class="number">501.110001</span></span><br><span class="line"><span class="number">2014</span>-<span class="number">03</span>-<span class="number">26</span>    <span class="number">539.779991</span></span><br><span class="line"><span class="number">2014</span>-<span class="number">04</span>-<span class="number">25</span>    <span class="number">571.939980</span></span><br><span class="line"><span class="number">2014</span>-<span class="number">08</span>-<span class="number">18</span>     <span class="number">99.160004</span></span><br><span class="line"><span class="number">2014</span>-<span class="number">10</span>-<span class="number">28</span>    <span class="number">106.739998</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">02</span>-<span class="number">05</span>    <span class="number">119.940002</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">04</span>-<span class="number">28</span>    <span class="number">130.559998</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">10</span>-<span class="number">27</span>    <span class="number">114.550003</span></span><br><span class="line"><span class="number">2016</span>-<span class="number">03</span>-<span class="number">11</span>    <span class="number">102.260002</span></span><br><span class="line"><span class="number">2016</span>-<span class="number">07</span>-<span class="number">01</span>     <span class="number">95.889999</span></span><br><span class="line"><span class="number">2016</span>-<span class="number">07</span>-<span class="number">25</span>     <span class="number">97.339996</span></span><br><span class="line">Name: Close, dtype: float64</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">apple.loc[apple[<span class="string">"Signal"</span>] == -<span class="number">1</span>, <span class="string">"Close"</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Date</span><br><span class="line"><span class="number">2010</span>-<span class="number">06</span>-<span class="number">11</span>    <span class="number">253.509995</span></span><br><span class="line"><span class="number">2010</span>-<span class="number">07</span>-<span class="number">22</span>    <span class="number">259.020000</span></span><br><span class="line"><span class="number">2011</span>-<span class="number">03</span>-<span class="number">30</span>    <span class="number">348.630009</span></span><br><span class="line"><span class="number">2011</span>-<span class="number">03</span>-<span class="number">31</span>    <span class="number">348.510006</span></span><br><span class="line"><span class="number">2011</span>-<span class="number">05</span>-<span class="number">27</span>    <span class="number">337.409992</span></span><br><span class="line"><span class="number">2011</span>-<span class="number">11</span>-<span class="number">17</span>    <span class="number">377.410000</span></span><br><span class="line"><span class="number">2012</span>-<span class="number">05</span>-<span class="number">09</span>    <span class="number">569.180023</span></span><br><span class="line"><span class="number">2012</span>-<span class="number">10</span>-<span class="number">17</span>    <span class="number">644.610001</span></span><br><span class="line"><span class="number">2013</span>-<span class="number">06</span>-<span class="number">26</span>    <span class="number">398.069992</span></span><br><span class="line"><span class="number">2013</span>-<span class="number">10</span>-<span class="number">03</span>    <span class="number">483.409996</span></span><br><span class="line"><span class="number">2014</span>-<span class="number">01</span>-<span class="number">28</span>    <span class="number">506.499977</span></span><br><span class="line"><span class="number">2014</span>-<span class="number">04</span>-<span class="number">22</span>    <span class="number">531.700020</span></span><br><span class="line"><span class="number">2014</span>-<span class="number">06</span>-<span class="number">11</span>     <span class="number">93.860001</span></span><br><span class="line"><span class="number">2014</span>-<span class="number">10</span>-<span class="number">17</span>     <span class="number">97.669998</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">01</span>-<span class="number">05</span>    <span class="number">106.250000</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">04</span>-<span class="number">16</span>    <span class="number">126.169998</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">06</span>-<span class="number">25</span>    <span class="number">127.500000</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">12</span>-<span class="number">18</span>    <span class="number">106.029999</span></span><br><span class="line"><span class="number">2016</span>-<span class="number">05</span>-<span class="number">05</span>     <span class="number">93.239998</span></span><br><span class="line"><span class="number">2016</span>-<span class="number">07</span>-<span class="number">08</span>     <span class="number">96.680000</span></span><br><span class="line"><span class="number">2016</span>-<span class="number">09</span>-<span class="number">01</span>    <span class="number">106.730003</span></span><br><span class="line">Name: Close, dtype: float64</span><br></pre></td></tr></table></figure>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># <span class="name">Create</span> <span class="atom">a</span> <span class="name">DataFrame</span> <span class="atom">with</span> <span class="atom">trades</span>, <span class="atom">including</span> <span class="atom">the</span> <span class="atom">price</span> <span class="atom">at</span> <span class="atom">the</span> <span class="atom">trade</span> <span class="atom">and</span> <span class="atom">the</span> <span class="atom">regime</span> <span class="atom">under</span> <span class="atom">which</span> <span class="atom">the</span> <span class="atom">trade</span> <span class="atom">is</span> <span class="atom">made</span>.</span><br><span class="line"><span class="atom">apple_signals</span> = <span class="atom">pd</span>.<span class="atom">concat</span>([</span><br><span class="line">        <span class="atom">pd</span>.<span class="name">DataFrame</span>(&#123;<span class="string">"Price"</span>: <span class="atom">apple</span>.<span class="atom">loc</span>[<span class="atom">apple</span>[<span class="string">"Signal"</span>] == <span class="number">1</span>, <span class="string">"Close"</span>],</span><br><span class="line">                     <span class="string">"Regime"</span>: <span class="atom">apple</span>.<span class="atom">loc</span>[<span class="atom">apple</span>[<span class="string">"Signal"</span>] == <span class="number">1</span>, <span class="string">"Regime"</span>],</span><br><span class="line">                     <span class="string">"Signal"</span>: <span class="string">"Buy"</span>&#125;),</span><br><span class="line">        <span class="atom">pd</span>.<span class="name">DataFrame</span>(&#123;<span class="string">"Price"</span>: <span class="atom">apple</span>.<span class="atom">loc</span>[<span class="atom">apple</span>[<span class="string">"Signal"</span>] == -<span class="number">1</span>, <span class="string">"Close"</span>],</span><br><span class="line">                     <span class="string">"Regime"</span>: <span class="atom">apple</span>.<span class="atom">loc</span>[<span class="atom">apple</span>[<span class="string">"Signal"</span>] == -<span class="number">1</span>, <span class="string">"Regime"</span>],</span><br><span class="line">                     <span class="string">"Signal"</span>: <span class="string">"Sell"</span>&#125;),</span><br><span class="line">    ])</span><br><span class="line"><span class="atom">apple_signals</span>.<span class="atom">sort_index</span>(<span class="atom">inplace</span> = <span class="name">True</span>)</span><br><span class="line"><span class="atom">apple_signals</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Price</th>
+<th>Regime</th>
+<th>Signal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2010-03-16</td>
+<td>224.449997</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-06-11</td>
+<td>253.509995</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-06-18</td>
+<td>274.070011</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-07-22</td>
+<td>259.020000</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-09-20</td>
+<td>283.230007</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2011-03-30</td>
+<td>348.630009</td>
+<td>0.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2011-03-31</td>
+<td>348.510006</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2011-05-12</td>
+<td>346.569988</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2011-05-27</td>
+<td>337.409992</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2011-07-14</td>
+<td>357.770004</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2011-11-17</td>
+<td>377.410000</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2011-12-28</td>
+<td>402.640003</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2012-05-09</td>
+<td>569.180023</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2012-06-25</td>
+<td>570.770020</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2012-10-17</td>
+<td>644.610001</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2013-05-17</td>
+<td>433.260010</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2013-06-26</td>
+<td>398.069992</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2013-07-31</td>
+<td>452.529984</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2013-10-03</td>
+<td>483.409996</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2013-10-16</td>
+<td>501.110001</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2014-01-28</td>
+<td>506.499977</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2014-03-26</td>
+<td>539.779991</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2014-04-22</td>
+<td>531.700020</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2014-04-25</td>
+<td>571.939980</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2014-06-11</td>
+<td>93.860001</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2014-08-18</td>
+<td>99.160004</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2014-10-17</td>
+<td>97.669998</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2014-10-28</td>
+<td>106.739998</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2015-01-05</td>
+<td>106.250000</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2015-02-05</td>
+<td>119.940002</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2015-04-16</td>
+<td>126.169998</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2015-04-28</td>
+<td>130.559998</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2015-06-25</td>
+<td>127.500000</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2015-10-27</td>
+<td>114.550003</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2015-12-18</td>
+<td>106.029999</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2016-03-11</td>
+<td>102.260002</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2016-05-05</td>
+<td>93.239998</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2016-07-01</td>
+<td>95.889999</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2016-07-08</td>
+<td>96.680000</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2016-07-25</td>
+<td>97.339996</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2016-09-01</td>
+<td>106.730003</td>
+<td>1.0</td>
+<td>Sell</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Let's see the profitability of long trades</span></span><br><span class="line">apple_long_profits = pd.DataFrame(&#123;</span><br><span class="line">        <span class="string">"Price"</span>: apple_signals.loc[(apple_signals[<span class="string">"Signal"</span>] == <span class="string">"Buy"</span>) &amp;</span><br><span class="line">                                  apple_signals[<span class="string">"Regime"</span>] == <span class="number">1</span>, <span class="string">"Price"</span>],</span><br><span class="line">        <span class="string">"Profit"</span>: pd.Series(apple_signals[<span class="string">"Price"</span>] - apple_signals[<span class="string">"Price"</span>].<span class="keyword">shift</span>(<span class="number">1</span>)).loc[</span><br><span class="line">            apple_signals.loc[(apple_signals[<span class="string">"Signal"</span>].<span class="keyword">shift</span>(<span class="number">1</span>) == <span class="string">"Buy"</span>) &amp; (apple_signals[<span class="string">"Regime"</span>].<span class="keyword">shift</span>(<span class="number">1</span>) == <span class="number">1</span>)].<span class="keyword">index</span></span><br><span class="line">        ].tolist(),</span><br><span class="line">        <span class="string">"End Date"</span>: apple_signals[<span class="string">"Price"</span>].loc[</span><br><span class="line">            apple_signals.loc[(apple_signals[<span class="string">"Signal"</span>].<span class="keyword">shift</span>(<span class="number">1</span>) == <span class="string">"Buy"</span>) &amp; (apple_signals[<span class="string">"Regime"</span>].<span class="keyword">shift</span>(<span class="number">1</span>) == <span class="number">1</span>)].<span class="keyword">index</span></span><br><span class="line">        ].<span class="keyword">index</span></span><br><span class="line">    &#125;)</span><br><span class="line">apple_long_profits</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>End Date</th>
+<th>Price</th>
+<th>Profit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2010-03-16</td>
+<td>2010-06-11</td>
+<td>224.449997</td>
+<td>29.059998</td>
+</tr>
+<tr>
+<td>2010-06-18</td>
+<td>2010-07-22</td>
+<td>274.070011</td>
+<td>-15.050011</td>
+</tr>
+<tr>
+<td>2010-09-20</td>
+<td>2011-03-30</td>
+<td>283.230007</td>
+<td>65.400002</td>
+</tr>
+<tr>
+<td>2011-05-12</td>
+<td>2011-05-27</td>
+<td>346.569988</td>
+<td>-9.159996</td>
+</tr>
+<tr>
+<td>2011-07-14</td>
+<td>2011-11-17</td>
+<td>357.770004</td>
+<td>19.639996</td>
+</tr>
+<tr>
+<td>2011-12-28</td>
+<td>2012-05-09</td>
+<td>402.640003</td>
+<td>166.540020</td>
+</tr>
+<tr>
+<td>2012-06-25</td>
+<td>2012-10-17</td>
+<td>570.770020</td>
+<td>73.839981</td>
+</tr>
+<tr>
+<td>2013-05-17</td>
+<td>2013-06-26</td>
+<td>433.260010</td>
+<td>-35.190018</td>
+</tr>
+<tr>
+<td>2013-07-31</td>
+<td>2013-10-03</td>
+<td>452.529984</td>
+<td>30.880012</td>
+</tr>
+<tr>
+<td>2013-10-16</td>
+<td>2014-01-28</td>
+<td>501.110001</td>
+<td>5.389976</td>
+</tr>
+<tr>
+<td>2014-03-26</td>
+<td>2014-04-22</td>
+<td>539.779991</td>
+<td>-8.079971</td>
+</tr>
+<tr>
+<td>2014-04-25</td>
+<td>2014-06-11</td>
+<td>571.939980</td>
+<td>-478.079979</td>
+</tr>
+<tr>
+<td>2014-08-18</td>
+<td>2014-10-17</td>
+<td>99.160004</td>
+<td>-1.490006</td>
+</tr>
+<tr>
+<td>2014-10-28</td>
+<td>2015-01-05</td>
+<td>106.739998</td>
+<td>-0.489998</td>
+</tr>
+<tr>
+<td>2015-02-05</td>
+<td>2015-04-16</td>
+<td>119.940002</td>
+<td>6.229996</td>
+</tr>
+<tr>
+<td>2015-04-28</td>
+<td>2015-06-25</td>
+<td>130.559998</td>
+<td>-3.059998</td>
+</tr>
+<tr>
+<td>2015-10-27</td>
+<td>2015-12-18</td>
+<td>114.550003</td>
+<td>-8.520004</td>
+</tr>
+<tr>
+<td>2016-03-11</td>
+<td>2016-05-05</td>
+<td>102.260002</td>
+<td>-9.020004</td>
+</tr>
+<tr>
+<td>2016-07-01</td>
+<td>2016-07-08</td>
+<td>95.889999</td>
+<td>0.790001</td>
+</tr>
+<tr>
+<td>2016-07-25</td>
+<td>2016-09-01</td>
+<td>97.339996</td>
+<td>9.390007</td>
+</tr>
+</tbody>
+</table>
+<p>Above, we can see that on May 17th, 2013, there was a massive drop in the price of Apple stock, and it looks like our trading system would do badly. But this price drop is not because of a massive shock to Apple, but simply due to a stock split. And while dividend payments are not as obvious as a stock split, they may be affecting the performance of our system.</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Let's see the result over the whole period for which we have Apple data</span></span><br><span class="line">pandas_candlestick_ohlc(apple, stick = <span class="number">45</span>, otherseries = [<span class="string">"20d"</span>, <span class="string">"50d"</span>, <span class="string">"200d"</span>])</span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/13.png">
+<p>We don’t want our trading system to be behaving poorly because of stock splits and dividend payments. How should we handle this? One approach would be to obtain historical stock split and dividend payment data and design a trading system for handling these. This would most realistically represent the behavior of the stock and could be considered the best solution, but it is more complicated. Another solution would be to adjust the prices to account for stock splits and dividend payments.</p>
+<p>Yahoo! Finance only provides the adjusted closing price of a stock, but this is all we need to get adjusted opening, high, and low prices. The adjusted close is computed like so:</p>
+<p><img src="https://s0.wp.com/latex.php?latex=%5Ctext%7Bprice%7D%5E%7B%5Ctext%7Badj%7D%7D_t+%3D+m_t+%5Ctimes+%5Ctext%7Bprice%7D_t+&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="\text{price}^{\text{adj}}_t = m_t \times \text{price}_t "></p>
+<p>where <img src="https://s0.wp.com/latex.php?latex=m_t&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="m_t"> is the multiplier used for the adjustment. Solving for <img src="https://s0.wp.com/latex.php?latex=m_t&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="m_t"> requires only division and thus we can use the closing price and the adjusted closing price to adjust all prices in the series.</p>
+<p>Let’s go back, adjust the apple data, and reevaluate our trading system using the adjusted data.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ohlc_adj</span><span class="params">(dat)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    :param dat: pandas DataFrame with stock data, including "Open", "High", "Low", "Close", and "Adj Close", with "Adj Close" containing adjusted closing prices</span><br><span class="line"> </span><br><span class="line">    :return: pandas DataFrame with adjusted stock data</span><br><span class="line"> </span><br><span class="line">    This function adjusts stock data for splits, dividends, etc., returning a data frame with</span><br><span class="line">    "Open", "High", "Low" and "Close" columns. The input DataFrame is similar to that returned</span><br><span class="line">    by pandas Yahoo! Finance API.</span><br><span class="line">    """</span></span><br><span class="line">    <span class="keyword">return</span> pd.DataFrame(&#123;<span class="string">"Open"</span>: dat[<span class="string">"Open"</span>] * dat[<span class="string">"Adj Close"</span>] / dat[<span class="string">"Close"</span>],</span><br><span class="line">                       <span class="string">"High"</span>: dat[<span class="string">"High"</span>] * dat[<span class="string">"Adj Close"</span>] / dat[<span class="string">"Close"</span>],</span><br><span class="line">                       <span class="string">"Low"</span>: dat[<span class="string">"Low"</span>] * dat[<span class="string">"Adj Close"</span>] / dat[<span class="string">"Close"</span>],</span><br><span class="line">                       <span class="string">"Close"</span>: dat[<span class="string">"Adj Close"</span>]&#125;)</span><br><span class="line"> </span><br><span class="line">apple_adj = ohlc_adj(apple)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># This next code repeats all the earlier analysis we did on the adjusted data</span></span><br><span class="line"> </span><br><span class="line">apple_adj[<span class="string">"20d"</span>] = np.round(apple_adj[<span class="string">"Close"</span>].rolling(window = <span class="number">20</span>, center = <span class="keyword">False</span>).mean(), <span class="number">2</span>)</span><br><span class="line">apple_adj[<span class="string">"50d"</span>] = np.round(apple_adj[<span class="string">"Close"</span>].rolling(window = <span class="number">50</span>, center = <span class="keyword">False</span>).mean(), <span class="number">2</span>)</span><br><span class="line">apple_adj[<span class="string">"200d"</span>] = np.round(apple_adj[<span class="string">"Close"</span>].rolling(window = <span class="number">200</span>, center = <span class="keyword">False</span>).mean(), <span class="number">2</span>)</span><br><span class="line"> </span><br><span class="line">apple_adj[<span class="string">'20d-50d'</span>] = apple_adj[<span class="string">'20d'</span>] - apple_adj[<span class="string">'50d'</span>]</span><br><span class="line"><span class="comment"># np.where() is a vectorized if-else function, where a condition is checked for each component of a vector, and the first argument passed is used when the condition holds, and the other passed if it does not</span></span><br><span class="line">apple_adj[<span class="string">"Regime"</span>] = np.where(apple_adj[<span class="string">'20d-50d'</span>] &gt; <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment"># We have 1's for bullish regimes and 0's for everything else. Below I replace bearish regimes's values with -1, and to maintain the rest of the vector, the second argument is apple["Regime"]</span></span><br><span class="line">apple_adj[<span class="string">"Regime"</span>] = np.where(apple_adj[<span class="string">'20d-50d'</span>] &lt; <span class="number">0</span>, -<span class="number">1</span>, apple_adj[<span class="string">"Regime"</span>])</span><br><span class="line"><span class="comment"># To ensure that all trades close out, I temporarily change the regime of the last row to 0</span></span><br><span class="line">regime_orig = apple_adj.ix[-<span class="number">1</span>, <span class="string">"Regime"</span>]</span><br><span class="line">apple_adj.ix[-<span class="number">1</span>, <span class="string">"Regime"</span>] = <span class="number">0</span></span><br><span class="line">apple_adj[<span class="string">"Signal"</span>] = np.sign(apple_adj[<span class="string">"Regime"</span>] - apple_adj[<span class="string">"Regime"</span>].shift(<span class="number">1</span>))</span><br><span class="line"><span class="comment"># Restore original regime data</span></span><br><span class="line">apple_adj.ix[-<span class="number">1</span>, <span class="string">"Regime"</span>] = regime_orig</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Create a DataFrame with trades, including the price at the trade and the regime under which the trade is made.</span></span><br><span class="line">apple_adj_signals = pd.concat([</span><br><span class="line">        pd.DataFrame(&#123;<span class="string">"Price"</span>: apple_adj.loc[apple_adj[<span class="string">"Signal"</span>] == <span class="number">1</span>, <span class="string">"Close"</span>],</span><br><span class="line">                     <span class="string">"Regime"</span>: apple_adj.loc[apple_adj[<span class="string">"Signal"</span>] == <span class="number">1</span>, <span class="string">"Regime"</span>],</span><br><span class="line">                     <span class="string">"Signal"</span>: <span class="string">"Buy"</span>&#125;),</span><br><span class="line">        pd.DataFrame(&#123;<span class="string">"Price"</span>: apple_adj.loc[apple_adj[<span class="string">"Signal"</span>] == -<span class="number">1</span>, <span class="string">"Close"</span>],</span><br><span class="line">                     <span class="string">"Regime"</span>: apple_adj.loc[apple_adj[<span class="string">"Signal"</span>] == -<span class="number">1</span>, <span class="string">"Regime"</span>],</span><br><span class="line">                     <span class="string">"Signal"</span>: <span class="string">"Sell"</span>&#125;),</span><br><span class="line">    ])</span><br><span class="line">apple_adj_signals.sort_index(inplace = <span class="keyword">True</span>)</span><br><span class="line">apple_adj_long_profits = pd.DataFrame(&#123;</span><br><span class="line">        <span class="string">"Price"</span>: apple_adj_signals.loc[(apple_adj_signals[<span class="string">"Signal"</span>] == <span class="string">"Buy"</span>) &amp;</span><br><span class="line">                                  apple_adj_signals[<span class="string">"Regime"</span>] == <span class="number">1</span>, <span class="string">"Price"</span>],</span><br><span class="line">        <span class="string">"Profit"</span>: pd.Series(apple_adj_signals[<span class="string">"Price"</span>] - apple_adj_signals[<span class="string">"Price"</span>].shift(<span class="number">1</span>)).loc[</span><br><span class="line">            apple_adj_signals.loc[(apple_adj_signals[<span class="string">"Signal"</span>].shift(<span class="number">1</span>) == <span class="string">"Buy"</span>) &amp; (apple_adj_signals[<span class="string">"Regime"</span>].shift(<span class="number">1</span>) == <span class="number">1</span>)].index</span><br><span class="line">        ].tolist(),</span><br><span class="line">        <span class="string">"End Date"</span>: apple_adj_signals[<span class="string">"Price"</span>].loc[</span><br><span class="line">            apple_adj_signals.loc[(apple_adj_signals[<span class="string">"Signal"</span>].shift(<span class="number">1</span>) == <span class="string">"Buy"</span>) &amp; (apple_adj_signals[<span class="string">"Regime"</span>].shift(<span class="number">1</span>) == <span class="number">1</span>)].index</span><br><span class="line">        ].index</span><br><span class="line">    &#125;)</span><br><span class="line"> </span><br><span class="line">pandas_candlestick_ohlc(apple_adj, stick = <span class="number">45</span>, otherseries = [<span class="string">"20d"</span>, <span class="string">"50d"</span>, <span class="string">"200d"</span>])</span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/14.png">
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apple_adj_long_profits</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>End Date</th>
+<th>Price</th>
+<th>Profit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2010-03-16</td>
+<td>2010-06-10</td>
+<td>29.355667</td>
+<td>3.408371</td>
+</tr>
+<tr>
+<td>2010-06-18</td>
+<td>2010-07-22</td>
+<td>35.845436</td>
+<td>-1.968381</td>
+</tr>
+<tr>
+<td>2010-09-20</td>
+<td>2011-03-30</td>
+<td>37.043466</td>
+<td>8.553623</td>
+</tr>
+<tr>
+<td>2011-05-12</td>
+<td>2011-05-27</td>
+<td>45.327660</td>
+<td>-1.198030</td>
+</tr>
+<tr>
+<td>2011-07-14</td>
+<td>2011-11-17</td>
+<td>46.792503</td>
+<td>2.568702</td>
+</tr>
+<tr>
+<td>2011-12-28</td>
+<td>2012-05-09</td>
+<td>52.661020</td>
+<td>21.781659</td>
+</tr>
+<tr>
+<td>2012-06-25</td>
+<td>2012-10-17</td>
+<td>74.650634</td>
+<td>10.019459</td>
+</tr>
+<tr>
+<td>2013-05-17</td>
+<td>2013-06-26</td>
+<td>57.882798</td>
+<td>-4.701326</td>
+</tr>
+<tr>
+<td>2013-07-31</td>
+<td>2013-10-04</td>
+<td>60.457234</td>
+<td>4.500835</td>
+</tr>
+<tr>
+<td>2013-10-16</td>
+<td>2014-01-28</td>
+<td>67.389473</td>
+<td>1.122523</td>
+</tr>
+<tr>
+<td>2014-03-11</td>
+<td>2014-03-17</td>
+<td>72.948554</td>
+<td>-1.272298</td>
+</tr>
+<tr>
+<td>2014-03-24</td>
+<td>2014-04-22</td>
+<td>73.370393</td>
+<td>-1.019203</td>
+</tr>
+<tr>
+<td>2014-04-25</td>
+<td>2014-10-17</td>
+<td>77.826851</td>
+<td>16.191371</td>
+</tr>
+<tr>
+<td>2014-10-28</td>
+<td>2015-01-05</td>
+<td>102.749105</td>
+<td>-0.028185</td>
+</tr>
+<tr>
+<td>2015-02-05</td>
+<td>2015-04-16</td>
+<td>116.413846</td>
+<td>6.046838</td>
+</tr>
+<tr>
+<td>2015-04-28</td>
+<td>2015-06-26</td>
+<td>126.721620</td>
+<td>-3.184117</td>
+</tr>
+<tr>
+<td>2015-10-27</td>
+<td>2015-12-18</td>
+<td>112.152083</td>
+<td>-7.897288</td>
+</tr>
+<tr>
+<td>2016-03-10</td>
+<td>2016-05-05</td>
+<td>100.015950</td>
+<td>-7.278331</td>
+</tr>
+<tr>
+<td>2016-06-23</td>
+<td>2016-06-27</td>
+<td>95.582210</td>
+<td>-4.038123</td>
+</tr>
+<tr>
+<td>2016-06-30</td>
+<td>2016-07-11</td>
+<td>95.084904</td>
+<td>1.372569</td>
+</tr>
+<tr>
+<td>2016-07-25</td>
+<td>2016-09-01</td>
+<td>96.815526</td>
+<td>9.914477</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see, adjusting for dividends and stock splits makes a big difference. We will use this data from now on.</p>
+<p>Let’s now create a simulated portfolio of $1,000,000, and see how it would behave, according to the rules we have established. This includes:</p>
+<ul>
+<li>Investing only 10% of the portfolio in any trade</li>
+<li>Exiting the position if losses exceed 20% of the value of the trade.</li>
+</ul>
+<p>When simulating, bear in mind that:</p>
+<ul>
+<li>Trades are done in batches of 100 stocks.</li>
+<li>Our stop-loss rule involves placing an order to sell the stock the moment the price drops below the specified level. Thus we need to check whether the lows during this period ever go low enough to trigger the stop-loss. Realistically, unless we buy a put option, we cannot guarantee that we will sell the stock at the price we set at the stop-loss, but we will use this as the selling price anyway for the sake of simplicity.</li>
+<li>Every trade is accompanied by a commission to the broker, which should be accounted for. I do not do so here.</li>
+</ul>
+<p>Here’s how a backtest may look:</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># <span class="name">We</span> <span class="atom">need</span> <span class="atom">to</span> <span class="atom">get</span> <span class="atom">the</span> <span class="atom">low</span> <span class="atom">of</span> <span class="atom">the</span> <span class="atom">price</span> <span class="atom">during</span> <span class="atom">each</span> <span class="atom">trade</span>.</span><br><span class="line"><span class="atom">tradeperiods</span> = <span class="atom">pd</span>.<span class="name">DataFrame</span>(&#123;<span class="string">"Start"</span>: <span class="atom">apple_adj_long_profits</span>.<span class="atom">index</span>,</span><br><span class="line">                            <span class="string">"End"</span>: <span class="atom">apple_adj_long_profits</span>[<span class="string">"End Date"</span>]&#125;)</span><br><span class="line"><span class="atom">apple_adj_long_profits</span>[<span class="string">"Low"</span>] = <span class="atom">tradeperiods</span>.<span class="atom">apply</span>(<span class="atom">lambda</span> <span class="atom">x</span>: <span class="atom">min</span>(<span class="atom">apple_adj</span>.<span class="atom">loc</span>[<span class="atom">x</span>[<span class="string">"Start"</span>]:<span class="atom">x</span>[<span class="string">"End"</span>], <span class="string">"Low"</span>]), <span class="atom">axis</span> = <span class="number">1</span>)</span><br><span class="line"><span class="atom">apple_adj_long_profits</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>End Date</th>
+<th>Price</th>
+<th>Profit</th>
+<th>Low</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2010-03-16</td>
+<td>2010-06-10</td>
+<td>29.355667</td>
+<td>3.408371</td>
+<td>26.059775</td>
+</tr>
+<tr>
+<td>2010-06-18</td>
+<td>2010-07-22</td>
+<td>35.845436</td>
+<td>-1.968381</td>
+<td>31.337127</td>
+</tr>
+<tr>
+<td>2010-09-20</td>
+<td>2011-03-30</td>
+<td>37.043466</td>
+<td>8.553623</td>
+<td>35.967068</td>
+</tr>
+<tr>
+<td>2011-05-12</td>
+<td>2011-05-27</td>
+<td>45.327660</td>
+<td>-1.198030</td>
+<td>43.084626</td>
+</tr>
+<tr>
+<td>2011-07-14</td>
+<td>2011-11-17</td>
+<td>46.792503</td>
+<td>2.568702</td>
+<td>46.171251</td>
+</tr>
+<tr>
+<td>2011-12-28</td>
+<td>2012-05-09</td>
+<td>52.661020</td>
+<td>21.781659</td>
+<td>52.382438</td>
+</tr>
+<tr>
+<td>2012-06-25</td>
+<td>2012-10-17</td>
+<td>74.650634</td>
+<td>10.019459</td>
+<td>73.975759</td>
+</tr>
+<tr>
+<td>2013-05-17</td>
+<td>2013-06-26</td>
+<td>57.882798</td>
+<td>-4.701326</td>
+<td>52.859502</td>
+</tr>
+<tr>
+<td>2013-07-31</td>
+<td>2013-10-04</td>
+<td>60.457234</td>
+<td>4.500835</td>
+<td>60.043080</td>
+</tr>
+<tr>
+<td>2013-10-16</td>
+<td>2014-01-28</td>
+<td>67.389473</td>
+<td>1.122523</td>
+<td>67.136651</td>
+</tr>
+<tr>
+<td>2014-03-11</td>
+<td>2014-03-17</td>
+<td>72.948554</td>
+<td>-1.272298</td>
+<td>71.167335</td>
+</tr>
+<tr>
+<td>2014-03-24</td>
+<td>2014-04-22</td>
+<td>73.370393</td>
+<td>-1.019203</td>
+<td>69.579335</td>
+</tr>
+<tr>
+<td>2014-04-25</td>
+<td>2014-10-17</td>
+<td>77.826851</td>
+<td>16.191371</td>
+<td>76.740971</td>
+</tr>
+<tr>
+<td>2014-10-28</td>
+<td>2015-01-05</td>
+<td>102.749105</td>
+<td>-0.028185</td>
+<td>101.411076</td>
+</tr>
+<tr>
+<td>2015-02-05</td>
+<td>2015-04-16</td>
+<td>116.413846</td>
+<td>6.046838</td>
+<td>114.948237</td>
+</tr>
+<tr>
+<td>2015-04-28</td>
+<td>2015-06-26</td>
+<td>126.721620</td>
+<td>-3.184117</td>
+<td>119.733299</td>
+</tr>
+<tr>
+<td>2015-10-27</td>
+<td>2015-12-18</td>
+<td>112.152083</td>
+<td>-7.897288</td>
+<td>104.038477</td>
+</tr>
+<tr>
+<td>2016-03-10</td>
+<td>2016-05-05</td>
+<td>100.015950</td>
+<td>-7.278331</td>
+<td>91.345994</td>
+</tr>
+<tr>
+<td>2016-06-23</td>
+<td>2016-06-27</td>
+<td>95.582210</td>
+<td>-4.038123</td>
+<td>91.006996</td>
+</tr>
+<tr>
+<td>2016-06-30</td>
+<td>2016-07-11</td>
+<td>95.084904</td>
+<td>1.372569</td>
+<td>93.791913</td>
+</tr>
+<tr>
+<td>2016-07-25</td>
+<td>2016-09-01</td>
+<td>96.815526</td>
+<td>9.914477</td>
+<td>95.900485</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Now we have all the information needed to simulate this strategy in apple_adj_long_profits</span></span><br><span class="line">cash = <span class="number">1000000</span></span><br><span class="line">apple_backtest = pd.DataFrame(&#123;<span class="string">"Start Port. Value"</span>: [],</span><br><span class="line">                         <span class="string">"End Port. Value"</span>: [],</span><br><span class="line">                         <span class="string">"End Date"</span>: [],</span><br><span class="line">                         <span class="string">"Shares"</span>: [],</span><br><span class="line">                         <span class="string">"Share Price"</span>: [],</span><br><span class="line">                         <span class="string">"Trade Value"</span>: [],</span><br><span class="line">                         <span class="string">"Profit per Share"</span>: [],</span><br><span class="line">                         <span class="string">"Total Profit"</span>: [],</span><br><span class="line">                         <span class="string">"Stop-Loss Triggered"</span>: []&#125;)</span><br><span class="line">port_value = .<span class="number">1</span>  <span class="comment"># Max proportion of portfolio bet on any trade</span></span><br><span class="line">batch = <span class="number">100</span>      <span class="comment"># Number of shares bought per batch</span></span><br><span class="line">stoploss = .<span class="number">2</span>    <span class="comment"># % of trade loss that would trigger a stoploss</span></span><br><span class="line"><span class="keyword">for</span> <span class="keyword">index</span>, row in apple_adj_long_profits.iterrows():</span><br><span class="line">    batches = np.floor(cash * port_value) // np.ceil(batch * row[<span class="string">"Price"</span>]) <span class="comment"># Maximum number of batches of stocks invested in</span></span><br><span class="line">    trade_val = batches * batch * row[<span class="string">"Price"</span>] <span class="comment"># How much money is put on the line with each trade</span></span><br><span class="line">    <span class="keyword">if</span> row[<span class="string">"Low"</span>] &lt; (<span class="number">1</span> - stoploss) * row[<span class="string">"Price"</span>]:   <span class="comment"># Account for the stop-loss</span></span><br><span class="line">        share_profit = np.round((<span class="number">1</span> - stoploss) * row[<span class="string">"Price"</span>], <span class="number">2</span>)</span><br><span class="line">        stop_trig = True</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        share_profit = row[<span class="string">"Profit"</span>]</span><br><span class="line">        stop_trig = False</span><br><span class="line">    profit = share_profit * batches * batch <span class="comment"># Compute profits</span></span><br><span class="line">    <span class="comment"># Add a row to the backtest data frame containing the results of the trade</span></span><br><span class="line">    apple_backtest = apple_backtest.append(pd.DataFrame(&#123;</span><br><span class="line">                <span class="string">"Start Port. Value"</span>: cash,</span><br><span class="line">                <span class="string">"End Port. Value"</span>: cash + profit,</span><br><span class="line">                <span class="string">"End Date"</span>: row[<span class="string">"End Date"</span>],</span><br><span class="line">                <span class="string">"Shares"</span>: batch * batches,</span><br><span class="line">                <span class="string">"Share Price"</span>: row[<span class="string">"Price"</span>],</span><br><span class="line">                <span class="string">"Trade Value"</span>: trade_val,</span><br><span class="line">                <span class="string">"Profit per Share"</span>: share_profit,</span><br><span class="line">                <span class="string">"Total Profit"</span>: profit,</span><br><span class="line">                <span class="string">"Stop-Loss Triggered"</span>: stop_trig</span><br><span class="line">            &#125;, <span class="keyword">index</span> = [<span class="keyword">index</span>]))</span><br><span class="line">    cash = max(<span class="number">0</span>, cash + profit)</span><br><span class="line"> </span><br><span class="line">apple_backtest</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>End Date</th>
+<th>End Port. Value</th>
+<th>Profit per Share</th>
+<th>Share Price</th>
+<th>Shares</th>
+<th>Start Port. Value</th>
+<th>Stop-Loss Triggered</th>
+<th>Total Profit</th>
+<th>Trade Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2010-03-16</td>
+<td>2010-06-10</td>
+<td>1.011588e+06</td>
+<td>3.408371</td>
+<td>29.355667</td>
+<td>3400.0</td>
+<td>1.000000e+06</td>
+<td>0.0</td>
+<td>11588.4614</td>
+<td>99809.2678</td>
+</tr>
+<tr>
+<td>2010-06-18</td>
+<td>2010-07-22</td>
+<td>1.006077e+06</td>
+<td>-1.968381</td>
+<td>35.845436</td>
+<td>2800.0</td>
+<td>1.011588e+06</td>
+<td>0.0</td>
+<td>-5511.4668</td>
+<td>100367.2208</td>
+</tr>
+<tr>
+<td>2010-09-20</td>
+<td>2011-03-30</td>
+<td>1.029172e+06</td>
+<td>8.553623</td>
+<td>37.043466</td>
+<td>2700.0</td>
+<td>1.006077e+06</td>
+<td>0.0</td>
+<td>23094.7821</td>
+<td>100017.3582</td>
+</tr>
+<tr>
+<td>2011-05-12</td>
+<td>2011-05-27</td>
+<td>1.026536e+06</td>
+<td>-1.198030</td>
+<td>45.327660</td>
+<td>2200.0</td>
+<td>1.029172e+06</td>
+<td>0.0</td>
+<td>-2635.6660</td>
+<td>99720.8520</td>
+</tr>
+<tr>
+<td>2011-07-14</td>
+<td>2011-11-17</td>
+<td>1.031930e+06</td>
+<td>2.568702</td>
+<td>46.792503</td>
+<td>2100.0</td>
+<td>1.026536e+06</td>
+<td>0.0</td>
+<td>5394.2742</td>
+<td>98264.2563</td>
+</tr>
+<tr>
+<td>2011-12-28</td>
+<td>2012-05-09</td>
+<td>1.073316e+06</td>
+<td>21.781659</td>
+<td>52.661020</td>
+<td>1900.0</td>
+<td>1.031930e+06</td>
+<td>0.0</td>
+<td>41385.1521</td>
+<td>100055.9380</td>
+</tr>
+<tr>
+<td>2012-06-25</td>
+<td>2012-10-17</td>
+<td>1.087343e+06</td>
+<td>10.019459</td>
+<td>74.650634</td>
+<td>1400.0</td>
+<td>1.073316e+06</td>
+<td>0.0</td>
+<td>14027.2426</td>
+<td>104510.8876</td>
+</tr>
+<tr>
+<td>2013-05-17</td>
+<td>2013-06-26</td>
+<td>1.078880e+06</td>
+<td>-4.701326</td>
+<td>57.882798</td>
+<td>1800.0</td>
+<td>1.087343e+06</td>
+<td>0.0</td>
+<td>-8462.3868</td>
+<td>104189.0364</td>
+</tr>
+<tr>
+<td>2013-07-31</td>
+<td>2013-10-04</td>
+<td>1.086532e+06</td>
+<td>4.500835</td>
+<td>60.457234</td>
+<td>1700.0</td>
+<td>1.078880e+06</td>
+<td>0.0</td>
+<td>7651.4195</td>
+<td>102777.2978</td>
+</tr>
+<tr>
+<td>2013-10-16</td>
+<td>2014-01-28</td>
+<td>1.088328e+06</td>
+<td>1.122523</td>
+<td>67.389473</td>
+<td>1600.0</td>
+<td>1.086532e+06</td>
+<td>0.0</td>
+<td>1796.0368</td>
+<td>107823.1568</td>
+</tr>
+<tr>
+<td>2014-03-11</td>
+<td>2014-03-17</td>
+<td>1.086547e+06</td>
+<td>-1.272298</td>
+<td>72.948554</td>
+<td>1400.0</td>
+<td>1.088328e+06</td>
+<td>0.0</td>
+<td>-1781.2172</td>
+<td>102127.9756</td>
+</tr>
+<tr>
+<td>2014-03-24</td>
+<td>2014-04-22</td>
+<td>1.085120e+06</td>
+<td>-1.019203</td>
+<td>73.370393</td>
+<td>1400.0</td>
+<td>1.086547e+06</td>
+<td>0.0</td>
+<td>-1426.8842</td>
+<td>102718.5502</td>
+</tr>
+<tr>
+<td>2014-04-25</td>
+<td>2014-10-17</td>
+<td>1.106169e+06</td>
+<td>16.191371</td>
+<td>77.826851</td>
+<td>1300.0</td>
+<td>1.085120e+06</td>
+<td>0.0</td>
+<td>21048.7823</td>
+<td>101174.9063</td>
+</tr>
+<tr>
+<td>2014-10-28</td>
+<td>2015-01-05</td>
+<td>1.106140e+06</td>
+<td>-0.028185</td>
+<td>102.749105</td>
+<td>1000.0</td>
+<td>1.106169e+06</td>
+<td>0.0</td>
+<td>-28.1850</td>
+<td>102749.1050</td>
+</tr>
+<tr>
+<td>2015-02-05</td>
+<td>2015-04-16</td>
+<td>1.111582e+06</td>
+<td>6.046838</td>
+<td>116.413846</td>
+<td>900.0</td>
+<td>1.106140e+06</td>
+<td>0.0</td>
+<td>5442.1542</td>
+<td>104772.4614</td>
+</tr>
+<tr>
+<td>2015-04-28</td>
+<td>2015-06-26</td>
+<td>1.109035e+06</td>
+<td>-3.184117</td>
+<td>126.721620</td>
+<td>800.0</td>
+<td>1.111582e+06</td>
+<td>0.0</td>
+<td>-2547.2936</td>
+<td>101377.2960</td>
+</tr>
+<tr>
+<td>2015-10-27</td>
+<td>2015-12-18</td>
+<td>1.101928e+06</td>
+<td>-7.897288</td>
+<td>112.152083</td>
+<td>900.0</td>
+<td>1.109035e+06</td>
+<td>0.0</td>
+<td>-7107.5592</td>
+<td>100936.8747</td>
+</tr>
+<tr>
+<td>2016-03-10</td>
+<td>2016-05-05</td>
+<td>1.093921e+06</td>
+<td>-7.278331</td>
+<td>100.015950</td>
+<td>1100.0</td>
+<td>1.101928e+06</td>
+<td>0.0</td>
+<td>-8006.1641</td>
+<td>110017.5450</td>
+</tr>
+<tr>
+<td>2016-06-23</td>
+<td>2016-06-27</td>
+<td>1.089480e+06</td>
+<td>-4.038123</td>
+<td>95.582210</td>
+<td>1100.0</td>
+<td>1.093921e+06</td>
+<td>0.0</td>
+<td>-4441.9353</td>
+<td>105140.4310</td>
+</tr>
+<tr>
+<td>2016-06-30</td>
+<td>2016-07-11</td>
+<td>1.090989e+06</td>
+<td>1.372569</td>
+<td>95.084904</td>
+<td>1100.0</td>
+<td>1.089480e+06</td>
+<td>0.0</td>
+<td>1509.8259</td>
+<td>104593.3944</td>
+</tr>
+<tr>
+<td>2016-07-25</td>
+<td>2016-09-01</td>
+<td>1.101895e+06</td>
+<td>9.914477</td>
+<td>96.815526</td>
+<td>1100.0</td>
+<td>1.090989e+06</td>
+<td>0.0</td>
+<td>10905.9247</td>
+<td>106497.0786</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apple_backtest[<span class="string">"End Port. Value"</span>].<span class="function"><span class="title">plot</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<img src="/images/AnIntro/15.png">
+<p>Our portfolio’s value grew by 10% in about six years. Considering that only 10% of the portfolio was ever involved in any single trade, this is not bad performance.</p>
+<p>Notice that this strategy never lead to our stop-loss order being triggered. Does this mean we don’t need stop-loss orders? There is no simple answer to this. After all, if we had chosen a different level at which a stop-loss would be triggered, we may have seen it triggered.</p>
+<p>Stop-loss orders are automatically triggered and ask no question as to why the order was triggered. This means that both a genuine change in trend or a momentary fluctuation can trigger a stop-loss, with the latter being the more concerning reason since not only do you have to pay for the order, there is no guarantee that you will sell the stock at the price you set, which could make your losses worse. Meanwhile, the trend on which you based your trade still holds, and had the stop-loss not been triggered, you may have made a profit. That said, a stop-loss can help you protect against your own emotions, staying wedded to a trade even though it has lost its value. They’re also good to have if you cannot monitor or quickly access your portfolio, like when you are on vacation.</p>
+<p>I have provided links both <a href="http://www.investopedia.com/articles/stocks/09/use-stop-loss.asp" target="_blank" rel="external">for</a> and <a href="http://www.marketwatch.com/story/why-i-stopped-using-stop-loss-orders-2013-05-09" target="_blank" rel="external">“against”</a> the use of stop-loss orders, but from now on I’m not going to require our backtesting system to account for them. While less realistic (and I do believe an industrial-strength system should account for a stop-loss rule), this simplifies the backtesting task.</p>
+<p>A more realistic portfolio would not be betting 10% of its value on only one stock. A more realistic one would consider investing in multiple stocks. Multiple trades may be ongoing at any given time involving multiple companies, and most of the portfolio will be in stocks, not cash. Now that we will be investing in multiple stops and exiting only when moving averages cross (not because of a stop-loss), we will need to change our approach to backtesting. For example, we will be using one <strong>pandas</strong><code>DataFrame</code> to contain all buy and sell orders for all stocks being considered, and our loop above will have to track more information.</p>
+<p>I have written functions for creating order data for multiple stocks, and a function for performing the backtesting.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ma_crossover_orders</span><span class="params">(stocks, fast, slow)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    :param stocks: A list of tuples, the first argument in each tuple being a string containing the ticker symbol of each stock (or however you want the stock represented, so long as it's unique), and the second being a pandas DataFrame containing the stocks, with a "Close" column and indexing by date (like the data frames returned by the Yahoo! Finance API)</span><br><span class="line">    :param fast: Integer for the number of days used in the fast moving average</span><br><span class="line">    :param slow: Integer for the number of days used in the slow moving average</span><br><span class="line"> </span><br><span class="line">    :return: pandas DataFrame containing stock orders</span><br><span class="line"> </span><br><span class="line">    This function takes a list of stocks and determines when each stock would be bought or sold depending on a moving average crossover strategy, returning a data frame with information about when the stocks in the portfolio are bought or sold according to the strategy</span><br><span class="line">    """</span></span><br><span class="line">    fast_str = str(fast) + <span class="string">'d'</span></span><br><span class="line">    slow_str = str(slow) + <span class="string">'d'</span></span><br><span class="line">    ma_diff_str = fast_str + <span class="string">'-'</span> + slow_str</span><br><span class="line"> </span><br><span class="line">    trades = pd.DataFrame(&#123;<span class="string">"Price"</span>: [], <span class="string">"Regime"</span>: [], <span class="string">"Signal"</span>: []&#125;)</span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> stocks:</span><br><span class="line">        <span class="comment"># Get the moving averages, both fast and slow, along with the difference in the moving averages</span></span><br><span class="line">        s[<span class="number">1</span>][fast_str] = np.round(s[<span class="number">1</span>][<span class="string">"Close"</span>].rolling(window = fast, center = <span class="keyword">False</span>).mean(), <span class="number">2</span>)</span><br><span class="line">        s[<span class="number">1</span>][slow_str] = np.round(s[<span class="number">1</span>][<span class="string">"Close"</span>].rolling(window = slow, center = <span class="keyword">False</span>).mean(), <span class="number">2</span>)</span><br><span class="line">        s[<span class="number">1</span>][ma_diff_str] = s[<span class="number">1</span>][fast_str] - s[<span class="number">1</span>][slow_str]</span><br><span class="line"> </span><br><span class="line">        <span class="comment"># np.where() is a vectorized if-else function, where a condition is checked for each component of a vector, and the first argument passed is used when the condition holds, and the other passed if it does not</span></span><br><span class="line">        s[<span class="number">1</span>][<span class="string">"Regime"</span>] = np.where(s[<span class="number">1</span>][ma_diff_str] &gt; <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">        <span class="comment"># We have 1's for bullish regimes and 0's for everything else. Below I replace bearish regimes's values with -1, and to maintain the rest of the vector, the second argument is apple["Regime"]</span></span><br><span class="line">        s[<span class="number">1</span>][<span class="string">"Regime"</span>] = np.where(s[<span class="number">1</span>][ma_diff_str] &lt; <span class="number">0</span>, -<span class="number">1</span>, s[<span class="number">1</span>][<span class="string">"Regime"</span>])</span><br><span class="line">        <span class="comment"># To ensure that all trades close out, I temporarily change the regime of the last row to 0</span></span><br><span class="line">        regime_orig = s[<span class="number">1</span>].ix[-<span class="number">1</span>, <span class="string">"Regime"</span>]</span><br><span class="line">        s[<span class="number">1</span>].ix[-<span class="number">1</span>, <span class="string">"Regime"</span>] = <span class="number">0</span></span><br><span class="line">        s[<span class="number">1</span>][<span class="string">"Signal"</span>] = np.sign(s[<span class="number">1</span>][<span class="string">"Regime"</span>] - s[<span class="number">1</span>][<span class="string">"Regime"</span>].shift(<span class="number">1</span>))</span><br><span class="line">        <span class="comment"># Restore original regime data</span></span><br><span class="line">        s[<span class="number">1</span>].ix[-<span class="number">1</span>, <span class="string">"Regime"</span>] = regime_orig</span><br><span class="line"> </span><br><span class="line">        <span class="comment"># Get signals</span></span><br><span class="line">        signals = pd.concat([</span><br><span class="line">            pd.DataFrame(&#123;<span class="string">"Price"</span>: s[<span class="number">1</span>].loc[s[<span class="number">1</span>][<span class="string">"Signal"</span>] == <span class="number">1</span>, <span class="string">"Close"</span>],</span><br><span class="line">                         <span class="string">"Regime"</span>: s[<span class="number">1</span>].loc[s[<span class="number">1</span>][<span class="string">"Signal"</span>] == <span class="number">1</span>, <span class="string">"Regime"</span>],</span><br><span class="line">                         <span class="string">"Signal"</span>: <span class="string">"Buy"</span>&#125;),</span><br><span class="line">            pd.DataFrame(&#123;<span class="string">"Price"</span>: s[<span class="number">1</span>].loc[s[<span class="number">1</span>][<span class="string">"Signal"</span>] == -<span class="number">1</span>, <span class="string">"Close"</span>],</span><br><span class="line">                         <span class="string">"Regime"</span>: s[<span class="number">1</span>].loc[s[<span class="number">1</span>][<span class="string">"Signal"</span>] == -<span class="number">1</span>, <span class="string">"Regime"</span>],</span><br><span class="line">                         <span class="string">"Signal"</span>: <span class="string">"Sell"</span>&#125;),</span><br><span class="line">        ])</span><br><span class="line">        signals.index = pd.MultiIndex.from_product([signals.index, [s[<span class="number">0</span>]]], names = [<span class="string">"Date"</span>, <span class="string">"Symbol"</span>])</span><br><span class="line">        trades = trades.append(signals)</span><br><span class="line"> </span><br><span class="line">    trades.sort_index(inplace = <span class="keyword">True</span>)</span><br><span class="line">    trades.index = pd.MultiIndex.from_tuples(trades.index, names = [<span class="string">"Date"</span>, <span class="string">"Symbol"</span>])</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> trades</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtest</span><span class="params">(signals, cash, port_value = <span class="number">.1</span>, batch = <span class="number">100</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    :param signals: pandas DataFrame containing buy and sell signals with stock prices and symbols, like that returned by ma_crossover_orders</span><br><span class="line">    :param cash: integer for starting cash value</span><br><span class="line">    :param port_value: maximum proportion of portfolio to risk on any single trade</span><br><span class="line">    :param batch: Trading batch sizes</span><br><span class="line"> </span><br><span class="line">    :return: pandas DataFrame with backtesting results</span><br><span class="line"> </span><br><span class="line">    This function backtests strategies, with the signals generated by the strategies being passed in the signals DataFrame. A fictitious portfolio is simulated and the returns generated by this portfolio are reported.</span><br><span class="line">    """</span></span><br><span class="line"> </span><br><span class="line">    SYMBOL = <span class="number">1</span> <span class="comment"># Constant for which element in index represents symbol</span></span><br><span class="line">    portfolio = dict()    <span class="comment"># Will contain how many stocks are in the portfolio for a given symbol</span></span><br><span class="line">    port_prices = dict()  <span class="comment"># Tracks old trade prices for determining profits</span></span><br><span class="line">    <span class="comment"># Dataframe that will contain backtesting report</span></span><br><span class="line">    results = pd.DataFrame(&#123;<span class="string">"Start Cash"</span>: [],</span><br><span class="line">                            <span class="string">"End Cash"</span>: [],</span><br><span class="line">                            <span class="string">"Portfolio Value"</span>: [],</span><br><span class="line">                            <span class="string">"Type"</span>: [],</span><br><span class="line">                            <span class="string">"Shares"</span>: [],</span><br><span class="line">                            <span class="string">"Share Price"</span>: [],</span><br><span class="line">                            <span class="string">"Trade Value"</span>: [],</span><br><span class="line">                            <span class="string">"Profit per Share"</span>: [],</span><br><span class="line">                            <span class="string">"Total Profit"</span>: []&#125;)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span> index, row <span class="keyword">in</span> signals.iterrows():</span><br><span class="line">        <span class="comment"># These first few lines are done for any trade</span></span><br><span class="line">        shares = portfolio.setdefault(index[SYMBOL], <span class="number">0</span>)</span><br><span class="line">        trade_val = <span class="number">0</span></span><br><span class="line">        batches = <span class="number">0</span></span><br><span class="line">        cash_change = row[<span class="string">"Price"</span>] * shares   <span class="comment"># Shares could potentially be a positive or negative number (cash_change will be added in the end; negative shares indicate a short)</span></span><br><span class="line">        portfolio[index[SYMBOL]] = <span class="number">0</span>  <span class="comment"># For a given symbol, a position is effectively cleared</span></span><br><span class="line"> </span><br><span class="line">        old_price = port_prices.setdefault(index[SYMBOL], row[<span class="string">"Price"</span>])</span><br><span class="line">        portfolio_val = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> key, val <span class="keyword">in</span> portfolio.items():</span><br><span class="line">            portfolio_val += val * port_prices[key]</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> row[<span class="string">"Signal"</span>] == <span class="string">"Buy"</span> <span class="keyword">and</span> row[<span class="string">"Regime"</span>] == <span class="number">1</span>:  <span class="comment"># Entering a long position</span></span><br><span class="line">            batches = np.floor((portfolio_val + cash) * port_value) // np.ceil(batch * row[<span class="string">"Price"</span>]) <span class="comment"># Maximum number of batches of stocks invested in</span></span><br><span class="line">            trade_val = batches * batch * row[<span class="string">"Price"</span>] <span class="comment"># How much money is put on the line with each trade</span></span><br><span class="line">            cash_change -= trade_val  <span class="comment"># We are buying shares so cash will go down</span></span><br><span class="line">            portfolio[index[SYMBOL]] = batches * batch  <span class="comment"># Recording how many shares are currently invested in the stock</span></span><br><span class="line">            port_prices[index[SYMBOL]] = row[<span class="string">"Price"</span>]   <span class="comment"># Record price</span></span><br><span class="line">            old_price = row[<span class="string">"Price"</span>]</span><br><span class="line">        <span class="keyword">elif</span> row[<span class="string">"Signal"</span>] == <span class="string">"Sell"</span> <span class="keyword">and</span> row[<span class="string">"Regime"</span>] == -<span class="number">1</span>: <span class="comment"># Entering a short</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">            <span class="comment"># Do nothing; can we provide a method for shorting the market?</span></span><br><span class="line">        <span class="comment">#else:</span></span><br><span class="line">            <span class="comment">#raise ValueError("I don't know what to do with signal " + row["Signal"])</span></span><br><span class="line"> </span><br><span class="line">        pprofit = row[<span class="string">"Price"</span>] - old_price   <span class="comment"># Compute profit per share; old_price is set in such a way that entering a position results in a profit of zero</span></span><br><span class="line"> </span><br><span class="line">        <span class="comment"># Update report</span></span><br><span class="line">        results = results.append(pd.DataFrame(&#123;</span><br><span class="line">                <span class="string">"Start Cash"</span>: cash,</span><br><span class="line">                <span class="string">"End Cash"</span>: cash + cash_change,</span><br><span class="line">                <span class="string">"Portfolio Value"</span>: cash + cash_change + portfolio_val + trade_val,</span><br><span class="line">                <span class="string">"Type"</span>: row[<span class="string">"Signal"</span>],</span><br><span class="line">                <span class="string">"Shares"</span>: batch * batches,</span><br><span class="line">                <span class="string">"Share Price"</span>: row[<span class="string">"Price"</span>],</span><br><span class="line">                <span class="string">"Trade Value"</span>: abs(cash_change),</span><br><span class="line">                <span class="string">"Profit per Share"</span>: pprofit,</span><br><span class="line">                <span class="string">"Total Profit"</span>: batches * batch * pprofit</span><br><span class="line">            &#125;, index = [index]))</span><br><span class="line">        cash += cash_change  <span class="comment"># Final change to cash balance</span></span><br><span class="line"> </span><br><span class="line">    results.sort_index(inplace = <span class="keyword">True</span>)</span><br><span class="line">    results.index = pd.MultiIndex.from_tuples(results.index, names = [<span class="string">"Date"</span>, <span class="string">"Symbol"</span>])</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> results</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Get more stocks</span></span><br><span class="line">microsoft = web.DataReader(<span class="string">"MSFT"</span>, <span class="string">"yahoo"</span>, start, end)</span><br><span class="line">google = web.DataReader(<span class="string">"GOOG"</span>, <span class="string">"yahoo"</span>, start, end)</span><br><span class="line">facebook = web.DataReader(<span class="string">"FB"</span>, <span class="string">"yahoo"</span>, start, end)</span><br><span class="line">twitter = web.DataReader(<span class="string">"TWTR"</span>, <span class="string">"yahoo"</span>, start, end)</span><br><span class="line">netflix = web.DataReader(<span class="string">"NFLX"</span>, <span class="string">"yahoo"</span>, start, end)</span><br><span class="line">amazon = web.DataReader(<span class="string">"AMZN"</span>, <span class="string">"yahoo"</span>, start, end)</span><br><span class="line">yahoo = web.DataReader(<span class="string">"YHOO"</span>, <span class="string">"yahoo"</span>, start, end)</span><br><span class="line">sony = web.DataReader(<span class="string">"SNY"</span>, <span class="string">"yahoo"</span>, start, end)</span><br><span class="line">nintendo = web.DataReader(<span class="string">"NTDOY"</span>, <span class="string">"yahoo"</span>, start, end)</span><br><span class="line">ibm = web.DataReader(<span class="string">"IBM"</span>, <span class="string">"yahoo"</span>, start, end)</span><br><span class="line">hp = web.DataReader(<span class="string">"HPQ"</span>, <span class="string">"yahoo"</span>, start, end)</span><br></pre></td></tr></table></figure>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">signals = ma_crossover_orders<span class="list">([<span class="list">(<span class="string">"AAPL"</span>, ohlc_adj<span class="list">(<span class="keyword">apple</span>)</span>)</span>,</span><br><span class="line">                              <span class="list">(<span class="string">"MSFT"</span>,  ohlc_adj<span class="list">(<span class="keyword">microsoft</span>)</span>)</span>,</span><br><span class="line">                              <span class="list">(<span class="string">"GOOG"</span>,  ohlc_adj<span class="list">(<span class="keyword">google</span>)</span>)</span>,</span><br><span class="line">                              <span class="list">(<span class="string">"FB"</span>,    ohlc_adj<span class="list">(<span class="keyword">facebook</span>)</span>)</span>,</span><br><span class="line">                              <span class="list">(<span class="string">"TWTR"</span>,  ohlc_adj<span class="list">(<span class="keyword">twitter</span>)</span>)</span>,</span><br><span class="line">                              <span class="list">(<span class="string">"NFLX"</span>,  ohlc_adj<span class="list">(<span class="keyword">netflix</span>)</span>)</span>,</span><br><span class="line">                              <span class="list">(<span class="string">"AMZN"</span>,  ohlc_adj<span class="list">(<span class="keyword">amazon</span>)</span>)</span>,</span><br><span class="line">                              <span class="list">(<span class="string">"YHOO"</span>,  ohlc_adj<span class="list">(<span class="keyword">yahoo</span>)</span>)</span>,</span><br><span class="line">                              <span class="list">(<span class="string">"SNY"</span>,   ohlc_adj<span class="list">(<span class="keyword">yahoo</span>)</span>)</span>,</span><br><span class="line">                              <span class="list">(<span class="string">"NTDOY"</span>, ohlc_adj<span class="list">(<span class="keyword">nintendo</span>)</span>)</span>,</span><br><span class="line">                              <span class="list">(<span class="string">"IBM"</span>,   ohlc_adj<span class="list">(<span class="keyword">ibm</span>)</span>)</span>,</span><br><span class="line">                              <span class="list">(<span class="string">"HPQ"</span>,   ohlc_adj<span class="list">(<span class="keyword">hp</span>)</span>)</span>],</span><br><span class="line">                            fast = <span class="number">20</span>, slow = <span class="number">50</span>)</span></span><br><span class="line">signals</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>Price</th>
+<th>Regime</th>
+<th>Signal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td>Symbol</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2010-03-16</td>
+<td>AAPL</td>
+<td>29.355667</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>AMZN</td>
+<td>131.789993</td>
+<td>1.0</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>GOOG</td>
+<td>282.318173</td>
+<td>-1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>HPQ</td>
+<td>20.722316</td>
+<td>1.0</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>110.563240</td>
+<td>1.0</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>MSFT</td>
+<td>24.677580</td>
+<td>-1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>NFLX</td>
+<td>10.090000</td>
+<td>1.0</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>NTDOY</td>
+<td>37.099998</td>
+<td>1.0</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>SNY</td>
+<td>16.360001</td>
+<td>-1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>YHOO</td>
+<td>16.360001</td>
+<td>-1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>2010-03-17</td>
+<td>SNY</td>
+<td>16.500000</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>YHOO</td>
+<td>16.500000</td>
+<td>1.0</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>2010-03-22</td>
+<td>GOOG</td>
+<td>278.472004</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-03-23</td>
+<td>MSFT</td>
+<td>25.106096</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-05-03</td>
+<td>GOOG</td>
+<td>265.035411</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-05-10</td>
+<td>HPQ</td>
+<td>19.435830</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-05-14</td>
+<td>NTDOY</td>
+<td>35.799999</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-05-17</td>
+<td>SNY</td>
+<td>16.270000</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>YHOO</td>
+<td>16.270000</td>
+<td>-1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>2010-05-19</td>
+<td>AMZN</td>
+<td>124.589996</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>MSFT</td>
+<td>23.835187</td>
+<td>-1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>2010-05-21</td>
+<td>IBM</td>
+<td>108.322991</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-06-10</td>
+<td>AAPL</td>
+<td>32.764038</td>
+<td>0.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-06-11</td>
+<td>AAPL</td>
+<td>33.156405</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-06-18</td>
+<td>AAPL</td>
+<td>35.845436</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-06-28</td>
+<td>IBM</td>
+<td>111.397697</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-07-01</td>
+<td>IBM</td>
+<td>105.861499</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-07-06</td>
+<td>IBM</td>
+<td>106.630175</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-07-09</td>
+<td>NTDOY</td>
+<td>36.950001</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-07-20</td>
+<td>IBM</td>
+<td>109.298956</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>2016-06-23</td>
+<td>AAPL</td>
+<td>95.582210</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>TWTR</td>
+<td>17.040001</td>
+<td>1.0</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-06-27</td>
+<td>AAPL</td>
+<td>91.544087</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>FB</td>
+<td>108.970001</td>
+<td>-1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-06-28</td>
+<td>SNY</td>
+<td>36.040001</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>YHOO</td>
+<td>36.040001</td>
+<td>-1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-06-30</td>
+<td>AAPL</td>
+<td>95.084904</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>NFLX</td>
+<td>91.480003</td>
+<td>0.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-07-01</td>
+<td>NFLX</td>
+<td>96.669998</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>SNY</td>
+<td>37.990002</td>
+<td>1.0</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>YHOO</td>
+<td>37.990002</td>
+<td>1.0</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-07-11</td>
+<td>AAPL</td>
+<td>96.457473</td>
+<td>-1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>NTDOY</td>
+<td>27.700001</td>
+<td>1.0</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-07-14</td>
+<td>MSFT</td>
+<td>53.407133</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2016-07-25</td>
+<td>AAPL</td>
+<td>96.815526</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>FB</td>
+<td>121.629997</td>
+<td>1.0</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-07-26</td>
+<td>GOOG</td>
+<td>738.419983</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2016-08-18</td>
+<td>NFLX</td>
+<td>96.160004</td>
+<td>1.0</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2016-09-01</td>
+<td>AAPL</td>
+<td>106.730003</td>
+<td>1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2016-09-02</td>
+<td>AMZN</td>
+<td>772.440002</td>
+<td>1.0</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>FB</td>
+<td>126.510002</td>
+<td>1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>GOOG</td>
+<td>771.460022</td>
+<td>1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>HPQ</td>
+<td>14.490000</td>
+<td>1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>159.550003</td>
+<td>1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>MSFT</td>
+<td>57.669998</td>
+<td>1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>NFLX</td>
+<td>97.379997</td>
+<td>1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>NTDOY</td>
+<td>28.840000</td>
+<td>1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>SNY</td>
+<td>43.279999</td>
+<td>1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>TWTR</td>
+<td>19.549999</td>
+<td>1.0</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>YHOO</td>
+<td>43.279999</td>
+<td>1.0</td>
+<td>Sell</td>
+</tr>
+</tbody>
+</table>
+<p>475 rows × 3 columns</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bk = <span class="function"><span class="title">backtest</span><span class="params">(signals, <span class="number">1000000</span>)</span></span></span><br><span class="line">bk</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>End Cash</th>
+<th>Portfolio Value</th>
+<th>Profit per Share</th>
+<th>Share Price</th>
+<th>Shares</th>
+<th>Start Cash</th>
+<th>Total Profit</th>
+<th>Trade Value</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td>Symbol</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2010-03-16</td>
+<td>AAPL</td>
+<td>9.001907e+05</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>29.355667</td>
+<td>3400.0</td>
+<td>1.000000e+06</td>
+<td>0.0</td>
+<td>99809.2678</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>AMZN</td>
+<td>8.079377e+05</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>131.789993</td>
+<td>700.0</td>
+<td>9.001907e+05</td>
+<td>0.0</td>
+<td>92252.9951</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>GOOG</td>
+<td>8.079377e+05</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>282.318173</td>
+<td>0.0</td>
+<td>8.079377e+05</td>
+<td>0.0</td>
+<td>0.0000</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>HPQ</td>
+<td>7.084706e+05</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>20.722316</td>
+<td>4800.0</td>
+<td>8.079377e+05</td>
+<td>0.0</td>
+<td>99467.1168</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>6.089637e+05</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>110.563240</td>
+<td>900.0</td>
+<td>7.084706e+05</td>
+<td>0.0</td>
+<td>99506.9160</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>MSFT</td>
+<td>6.089637e+05</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>24.677580</td>
+<td>0.0</td>
+<td>6.089637e+05</td>
+<td>0.0</td>
+<td>0.0000</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>NFLX</td>
+<td>5.090727e+05</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>10.090000</td>
+<td>9900.0</td>
+<td>6.089637e+05</td>
+<td>0.0</td>
+<td>99891.0000</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>NTDOY</td>
+<td>4.126127e+05</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>37.099998</td>
+<td>2600.0</td>
+<td>5.090727e+05</td>
+<td>0.0</td>
+<td>96459.9948</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>SNY</td>
+<td>4.126127e+05</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>16.360001</td>
+<td>0.0</td>
+<td>4.126127e+05</td>
+<td>0.0</td>
+<td>0.0000</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>YHOO</td>
+<td>4.126127e+05</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>16.360001</td>
+<td>0.0</td>
+<td>4.126127e+05</td>
+<td>0.0</td>
+<td>0.0000</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>2010-03-17</td>
+<td>SNY</td>
+<td>3.136127e+05</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>16.500000</td>
+<td>6000.0</td>
+<td>4.126127e+05</td>
+<td>0.0</td>
+<td>99000.0000</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>YHOO</td>
+<td>2.146127e+05</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>16.500000</td>
+<td>6000.0</td>
+<td>3.136127e+05</td>
+<td>0.0</td>
+<td>99000.0000</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>2010-03-22</td>
+<td>GOOG</td>
+<td>1.310711e+05</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>278.472004</td>
+<td>300.0</td>
+<td>2.146127e+05</td>
+<td>0.0</td>
+<td>83541.6012</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-03-23</td>
+<td>MSFT</td>
+<td>3.315733e+04</td>
+<td>1.000000e+06</td>
+<td>0.000000</td>
+<td>25.106096</td>
+<td>3900.0</td>
+<td>1.310711e+05</td>
+<td>0.0</td>
+<td>97913.7744</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-05-03</td>
+<td>GOOG</td>
+<td>1.126680e+05</td>
+<td>9.959690e+05</td>
+<td>-13.436593</td>
+<td>265.035411</td>
+<td>0.0</td>
+<td>3.315733e+04</td>
+<td>-0.0</td>
+<td>79510.6233</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-05-10</td>
+<td>HPQ</td>
+<td>2.059599e+05</td>
+<td>9.897939e+05</td>
+<td>-1.286486</td>
+<td>19.435830</td>
+<td>0.0</td>
+<td>1.126680e+05</td>
+<td>-0.0</td>
+<td>93291.9840</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-05-14</td>
+<td>NTDOY</td>
+<td>2.990399e+05</td>
+<td>9.864139e+05</td>
+<td>-1.299999</td>
+<td>35.799999</td>
+<td>0.0</td>
+<td>2.059599e+05</td>
+<td>-0.0</td>
+<td>93079.9974</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-05-17</td>
+<td>SNY</td>
+<td>3.966599e+05</td>
+<td>9.850339e+05</td>
+<td>-0.230000</td>
+<td>16.270000</td>
+<td>0.0</td>
+<td>2.990399e+05</td>
+<td>-0.0</td>
+<td>97620.0000</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>YHOO</td>
+<td>4.942799e+05</td>
+<td>9.836539e+05</td>
+<td>-0.230000</td>
+<td>16.270000</td>
+<td>0.0</td>
+<td>3.966599e+05</td>
+<td>-0.0</td>
+<td>97620.0000</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>2010-05-19</td>
+<td>AMZN</td>
+<td>5.814929e+05</td>
+<td>9.786139e+05</td>
+<td>-7.199997</td>
+<td>124.589996</td>
+<td>0.0</td>
+<td>4.942799e+05</td>
+<td>-0.0</td>
+<td>87212.9972</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>MSFT</td>
+<td>6.744502e+05</td>
+<td>9.736573e+05</td>
+<td>-1.270909</td>
+<td>23.835187</td>
+<td>0.0</td>
+<td>5.814929e+05</td>
+<td>-0.0</td>
+<td>92957.2293</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>2010-05-21</td>
+<td>IBM</td>
+<td>7.719409e+05</td>
+<td>9.716411e+05</td>
+<td>-2.240249</td>
+<td>108.322991</td>
+<td>0.0</td>
+<td>6.744502e+05</td>
+<td>-0.0</td>
+<td>97490.6919</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-06-10</td>
+<td>AAPL</td>
+<td>8.833386e+05</td>
+<td>9.832296e+05</td>
+<td>3.408371</td>
+<td>32.764038</td>
+<td>0.0</td>
+<td>7.719409e+05</td>
+<td>0.0</td>
+<td>111397.7292</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-06-11</td>
+<td>AAPL</td>
+<td>8.833386e+05</td>
+<td>9.832296e+05</td>
+<td>3.800738</td>
+<td>33.156405</td>
+<td>0.0</td>
+<td>8.833386e+05</td>
+<td>0.0</td>
+<td>0.0000</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-06-18</td>
+<td>AAPL</td>
+<td>7.865559e+05</td>
+<td>9.832296e+05</td>
+<td>0.000000</td>
+<td>35.845436</td>
+<td>2700.0</td>
+<td>8.833386e+05</td>
+<td>0.0</td>
+<td>96782.6772</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-06-28</td>
+<td>IBM</td>
+<td>6.974378e+05</td>
+<td>9.832296e+05</td>
+<td>0.000000</td>
+<td>111.397697</td>
+<td>800.0</td>
+<td>7.865559e+05</td>
+<td>0.0</td>
+<td>89118.1576</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-07-01</td>
+<td>IBM</td>
+<td>7.821270e+05</td>
+<td>9.788006e+05</td>
+<td>-5.536198</td>
+<td>105.861499</td>
+<td>0.0</td>
+<td>6.974378e+05</td>
+<td>-0.0</td>
+<td>84689.1992</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2010-07-06</td>
+<td>IBM</td>
+<td>6.861598e+05</td>
+<td>9.788006e+05</td>
+<td>0.000000</td>
+<td>106.630175</td>
+<td>900.0</td>
+<td>7.821270e+05</td>
+<td>0.0</td>
+<td>95967.1575</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-07-09</td>
+<td>NTDOY</td>
+<td>5.900898e+05</td>
+<td>9.788006e+05</td>
+<td>0.000000</td>
+<td>36.950001</td>
+<td>2600.0</td>
+<td>6.861598e+05</td>
+<td>0.0</td>
+<td>96070.0026</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2010-07-20</td>
+<td>IBM</td>
+<td>6.884589e+05</td>
+<td>9.812025e+05</td>
+<td>2.668781</td>
+<td>109.298956</td>
+<td>0.0</td>
+<td>5.900898e+05</td>
+<td>0.0</td>
+<td>98369.0604</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>2016-06-23</td>
+<td>AAPL</td>
+<td>3.951693e+05</td>
+<td>1.863808e+06</td>
+<td>0.000000</td>
+<td>95.582210</td>
+<td>1900.0</td>
+<td>5.767755e+05</td>
+<td>0.0</td>
+<td>181606.1990</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>TWTR</td>
+<td>2.094333e+05</td>
+<td>1.863808e+06</td>
+<td>0.000000</td>
+<td>17.040001</td>
+<td>10900.0</td>
+<td>3.951693e+05</td>
+<td>0.0</td>
+<td>185736.0109</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-06-27</td>
+<td>AAPL</td>
+<td>3.833670e+05</td>
+<td>1.856135e+06</td>
+<td>-4.038123</td>
+<td>91.544087</td>
+<td>0.0</td>
+<td>2.094333e+05</td>
+<td>-0.0</td>
+<td>173933.7653</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>FB</td>
+<td>5.795130e+05</td>
+<td>1.862921e+06</td>
+<td>3.770004</td>
+<td>108.970001</td>
+<td>0.0</td>
+<td>3.833670e+05</td>
+<td>0.0</td>
+<td>196146.0018</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-06-28</td>
+<td>SNY</td>
+<td>7.885450e+05</td>
+<td>1.880959e+06</td>
+<td>3.110001</td>
+<td>36.040001</td>
+<td>0.0</td>
+<td>5.795130e+05</td>
+<td>0.0</td>
+<td>209032.0058</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>YHOO</td>
+<td>9.975770e+05</td>
+<td>1.898997e+06</td>
+<td>3.110001</td>
+<td>36.040001</td>
+<td>0.0</td>
+<td>7.885450e+05</td>
+<td>0.0</td>
+<td>209032.0058</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-06-30</td>
+<td>AAPL</td>
+<td>8.169157e+05</td>
+<td>1.898997e+06</td>
+<td>0.000000</td>
+<td>95.084904</td>
+<td>1900.0</td>
+<td>9.975770e+05</td>
+<td>0.0</td>
+<td>180661.3176</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>NFLX</td>
+<td>9.907277e+05</td>
+<td>1.893981e+06</td>
+<td>-2.640000</td>
+<td>91.480003</td>
+<td>0.0</td>
+<td>8.169157e+05</td>
+<td>-0.0</td>
+<td>173812.0057</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-07-01</td>
+<td>NFLX</td>
+<td>9.907277e+05</td>
+<td>1.893981e+06</td>
+<td>2.549995</td>
+<td>96.669998</td>
+<td>0.0</td>
+<td>9.907277e+05</td>
+<td>0.0</td>
+<td>0.0000</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>SNY</td>
+<td>8.045767e+05</td>
+<td>1.893981e+06</td>
+<td>0.000000</td>
+<td>37.990002</td>
+<td>4900.0</td>
+<td>9.907277e+05</td>
+<td>0.0</td>
+<td>186151.0098</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>YHOO</td>
+<td>6.184257e+05</td>
+<td>1.893981e+06</td>
+<td>0.000000</td>
+<td>37.990002</td>
+<td>4900.0</td>
+<td>8.045767e+05</td>
+<td>0.0</td>
+<td>186151.0098</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-07-11</td>
+<td>AAPL</td>
+<td>8.016949e+05</td>
+<td>1.896589e+06</td>
+<td>1.372569</td>
+<td>96.457473</td>
+<td>0.0</td>
+<td>6.184257e+05</td>
+<td>0.0</td>
+<td>183269.1987</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>NTDOY</td>
+<td>6.133349e+05</td>
+<td>1.896589e+06</td>
+<td>0.000000</td>
+<td>27.700001</td>
+<td>6800.0</td>
+<td>8.016949e+05</td>
+<td>0.0</td>
+<td>188360.0068</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-07-14</td>
+<td>MSFT</td>
+<td>4.264099e+05</td>
+<td>1.896589e+06</td>
+<td>0.000000</td>
+<td>53.407133</td>
+<td>3500.0</td>
+<td>6.133349e+05</td>
+<td>0.0</td>
+<td>186924.9655</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2016-07-25</td>
+<td>AAPL</td>
+<td>2.424604e+05</td>
+<td>1.896589e+06</td>
+<td>0.000000</td>
+<td>96.815526</td>
+<td>1900.0</td>
+<td>4.264099e+05</td>
+<td>0.0</td>
+<td>183949.4994</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>FB</td>
+<td>6.001543e+04</td>
+<td>1.896589e+06</td>
+<td>0.000000</td>
+<td>121.629997</td>
+<td>1500.0</td>
+<td>2.424604e+05</td>
+<td>0.0</td>
+<td>182444.9955</td>
+<td>Buy</td>
+<td></td>
+</tr>
+<tr>
+<td>2016-07-26</td>
+<td>GOOG</td>
+<td>-8.766857e+04</td>
+<td>1.896589e+06</td>
+<td>0.000000</td>
+<td>738.419983</td>
+<td>200.0</td>
+<td>6.001543e+04</td>
+<td>0.0</td>
+<td>147683.9966</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2016-08-18</td>
+<td>NFLX</td>
+<td>-2.703726e+05</td>
+<td>1.896589e+06</td>
+<td>0.000000</td>
+<td>96.160004</td>
+<td>1900.0</td>
+<td>-8.766857e+04</td>
+<td>0.0</td>
+<td>182704.0076</td>
+<td>Buy</td>
+</tr>
+<tr>
+<td>2016-09-01</td>
+<td>AAPL</td>
+<td>-6.758557e+04</td>
+<td>1.915427e+06</td>
+<td>9.914477</td>
+<td>106.730003</td>
+<td>0.0</td>
+<td>-2.703726e+05</td>
+<td>0.0</td>
+<td>202787.0057</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>2016-09-02</td>
+<td>AMZN</td>
+<td>1.641464e+05</td>
+<td>1.979327e+06</td>
+<td>213.000000</td>
+<td>772.440002</td>
+<td>0.0</td>
+<td>-6.758557e+04</td>
+<td>0.0</td>
+<td>231732.0006</td>
+<td>Sell</td>
+</tr>
+<tr>
+<td>FB</td>
+<td>3.539114e+05</td>
+<td>1.986647e+06</td>
+<td>4.880005</td>
+<td>126.510002</td>
+<td>0.0</td>
+<td>1.641464e+05</td>
+<td>0.0</td>
+<td>189765.0030</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>GOOG</td>
+<td>5.082034e+05</td>
+<td>1.993255e+06</td>
+<td>33.040039</td>
+<td>771.460022</td>
+<td>0.0</td>
+<td>3.539114e+05</td>
+<td>0.0</td>
+<td>154292.0044</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>HPQ</td>
+<td>7.081654e+05</td>
+<td>2.006030e+06</td>
+<td>0.925746</td>
+<td>14.490000</td>
+<td>0.0</td>
+<td>5.082034e+05</td>
+<td>0.0</td>
+<td>199962.0000</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>8.996254e+05</td>
+<td>2.015652e+06</td>
+<td>8.018727</td>
+<td>159.550003</td>
+<td>0.0</td>
+<td>7.081654e+05</td>
+<td>0.0</td>
+<td>191460.0036</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>MSFT</td>
+<td>1.101470e+06</td>
+<td>2.030572e+06</td>
+<td>4.262865</td>
+<td>57.669998</td>
+<td>0.0</td>
+<td>8.996254e+05</td>
+<td>0.0</td>
+<td>201844.9930</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>NFLX</td>
+<td>1.286492e+06</td>
+<td>2.032890e+06</td>
+<td>1.219993</td>
+<td>97.379997</td>
+<td>0.0</td>
+<td>1.101470e+06</td>
+<td>0.0</td>
+<td>185021.9943</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>NTDOY</td>
+<td>1.482604e+06</td>
+<td>2.040642e+06</td>
+<td>1.139999</td>
+<td>28.840000</td>
+<td>0.0</td>
+<td>1.286492e+06</td>
+<td>0.0</td>
+<td>196112.0000</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>SNY</td>
+<td>1.694676e+06</td>
+<td>2.066563e+06</td>
+<td>5.289997</td>
+<td>43.279999</td>
+<td>0.0</td>
+<td>1.482604e+06</td>
+<td>0.0</td>
+<td>212071.9951</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>TWTR</td>
+<td>1.907771e+06</td>
+<td>2.093922e+06</td>
+<td>2.509998</td>
+<td>19.549999</td>
+<td>0.0</td>
+<td>1.694676e+06</td>
+<td>0.0</td>
+<td>213094.9891</td>
+<td>Sell</td>
+<td></td>
+</tr>
+<tr>
+<td>YHOO</td>
+<td>2.119843e+06</td>
+<td>2.119843e+06</td>
+<td>5.289997</td>
+<td>43.279999</td>
+<td>0.0</td>
+<td>1.907771e+06</td>
+<td>0.0</td>
+<td>212071.9951</td>
+<td>Sell</td>
+</tr>
+</tbody>
+</table>
+<p>475 rows × 9 columns</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bk[<span class="string">"Portfolio Value"</span>].<span class="function"><span class="title">groupby</span><span class="params">(level = <span class="number">0</span>)</span></span>.<span class="function"><span class="title">apply</span><span class="params">(lambda x: x[-<span class="number">1</span>])</span></span>.<span class="function"><span class="title">plot</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<img class="images/AnIntro/16.png">
+<p>A more realistic portfolio that can invest in any in a list of twelve (tech) stocks has a final growth of about 100%. How good is this? While on the surface not bad, we will see we could have done better.</p>
+<h3 id="Benchmarking">Benchmarking</h3><p>Backtesting is only part of evaluating the efficacy of a trading strategy. We would like to <strong>benchmark</strong> the strategy, or compare it to other available (usually well-known) strategies in order to determine how well we have done.</p>
+<p>Whenever you evaluate a trading system, there is one strategy that you should always check, one that beats all but a handful of managed mutual funds and investment managers: buy and hold <a href="https://finance.yahoo.com/quote/SPY" target="_blank" rel="external">SPY</a>. The <strong>efficient market hypothesis</strong> claims that it is all but impossible for anyone to beat the market. Thus, one should always buy an index fund that merely reflects the composition of the market. SPY is an <strong>exchange-traded fund</strong> (a mutual fund that is traded on the market like a stock) whose value effectively represents the value of the stocks in the S&amp;P 500 stock index. By buying and holding SPY, we are effectively trying to match our returns with the market rather than beat it.</p>
+<p>I obtain data on SPY below, and look at the profits for simply buying and holding SPY.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spyder = web.<span class="function"><span class="title">DataReader</span><span class="params">(<span class="string">"SPY"</span>, <span class="string">"yahoo"</span>, start, end)</span></span></span><br><span class="line">spyder<span class="class">.iloc</span>[[<span class="number">0</span>,-<span class="number">1</span>],:]</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Open</th>
+<th>High</th>
+<th>Low</th>
+<th>Close</th>
+<th>Volume</th>
+<th>Adj Close</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2010-01-04</td>
+<td>112.370003</td>
+<td>113.389999</td>
+<td>111.510002</td>
+<td>113.330002</td>
+<td>118944600</td>
+<td>99.292299</td>
+</tr>
+<tr>
+<td>2016-09-01</td>
+<td>217.369995</td>
+<td>217.729996</td>
+<td>216.029999</td>
+<td>217.389999</td>
+<td>93859000</td>
+<td>217.389999</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">batches = 1000000 // np.ceil(100 <span class="keyword">*</span> spyder.ix[0,<span class="string">"Adj Close"</span>]) <span class="comment"># Maximum number of batches of stocks invested in</span></span><br><span class="line">trade_val = batches <span class="keyword">*</span> batch <span class="keyword">*</span> spyder.ix[0,<span class="string">"Adj Close"</span>] <span class="comment"># How much money is used to buy SPY</span></span><br><span class="line">final_val = batches <span class="keyword">*</span> batch <span class="keyword">*</span> spyder.ix[-1,<span class="string">"Adj Close"</span>] + (1000000 - trade_val) <span class="comment"># Final value of the portfolio</span></span><br><span class="line">final_val</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2180977.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># We see that the buy-and-hold strategy beats the strategy we developed earlier. I would also like to see a <span class="keyword">plot</span>.</span><br><span class="line">ax_bench = (spyder[<span class="string">"Adj Close"</span>] / spyder.ix[0, <span class="string">"Adj Close"</span>]).<span class="keyword">plot</span>(<span class="keyword">label</span> = <span class="string">"SPY"</span>)</span><br><span class="line">ax_bench = (bk[<span class="string">"Portfolio Value"</span>].groupby(level = 0).apply(lambda x: x[-1]) / 1000000).<span class="keyword">plot</span>(ax = ax_bench, <span class="keyword">label</span> = <span class="string">"Portfolio"</span>)</span><br><span class="line">ax_bench.legend(ax_bench.get_lines(), [<span class="keyword">l</span>.get_label() <span class="keyword">for</span> <span class="keyword">l</span> <span class="keyword">in</span> ax_bench.get_lines()], <span class="keyword">loc</span> = 'best')</span><br><span class="line">ax_bench</span><br></pre></td></tr></table></figure>
+<img class="images/AnIntro/17.png">
+<p>Buying and holding SPY beats our trading system, at least how we currently set it up, and we haven’t even accounted for how expensive our more complex strategy is in terms of fees. Given both the opportunity cost and the expense associated with the active strategy, we should not use it.</p>
+<p>What could we do to improve the performance of our system? For starters, we could try diversifying. All the stocks we considered were tech companies, which means that if the tech industry is doing poorly, our portfolio will reflect that. We could try developing a system that can also short stocks or bet bearishly, so we can take advantage of movement in any direction. We could seek means for forecasting how high we expect a stock to move. Whatever we do, though, must beat this benchmark; otherwise there is an opportunity cost associated with our trading system.</p>
+<p>Other benchmark strategies exist, and if our trading system beat the “buy and hold SPY” strategy, we may check against them. Some such strategies include:</p>
+<ul>
+<li>Buy SPY when its closing monthly price is aboves its ten-month moving average.</li>
+<li>Buy SPY when its ten-month momentum is positive. (<strong>Momentum</strong> is the first difference of a moving average process, or <img src="https://s0.wp.com/latex.php?latex=MO%5Eq_t+%3D+MA%5Eq_t+-+MA%5Eq_%7Bt+-+1%7D&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="MO^q_t = MA^q_t - MA^q_{t - 1}">.)</li>
+</ul>
+<p>(I first read of these strategies <a href="https://www.r-bloggers.com/are-r2s-useful-in-finance-hypothesis-driven-development-in-reverse/?utm_source=feedburner&amp;utm_medium=email&amp;utm_campaign=Feed%3A+RBloggers+%28R+bloggers%29" target="_blank" rel="external">here</a>.) The general lesson still holds: <em>don’t use a complex trading system with lots of active trading when a simple strategy involving an index fund without frequent trading beats it.</em> <a href="http://www.nytimes.com/2015/03/15/your-money/how-many-mutual-funds-routinely-rout-the-market-zero.html?_r=0" target="_blank" rel="external">This is actually a very difficult requirement to meet.</a></p>
+<p>As a final note, suppose that your trading system <em>did</em> manage to beat any baseline strategy thrown at it in backtesting. Does backtesting predict future performance? Not at all. <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2745220" target="_blank" rel="external">Backtesting has a propensity for overfitting</a>, so just because backtesting predicts high growth doesn’t mean that growth will hold in the future.</p>
+<h3 id="Conclusion">Conclusion</h3><p>While this lecture ends on a depressing note, keep in mind that <a href="http://www.nytimes.com/2009/06/06/business/06nocera.html" target="_blank" rel="external">the efficient market hypothesis has many critics.</a> My own opinion is that as trading becomes more algorithmic, beating the market will become more difficult. That said, it may be possible to beat the market, even though mutual funds seem incapable of doing so (bear in mind, though, that part of the reason mutual funds perform so poorly is because of fees, which is not a concern for index funds).</p>
+<p>This lecture is very brief, covering only one type of strategy: strategies based on moving averages. Many other trading signals exist and employed. Additionally, we never discussed in depth shorting stocks, currency trading, or stock options. Stock options, in particular, are a rich subject that offer many different ways to bet on the direction of a stock. You can read more about derivatives (including stock options and other derivatives) in the book<em>Derivatives Analytics with Python: Data Analysis, Models, Simulation, Calibration and Hedging</em>, <a href="http://proquest.safaribooksonline.com.ezproxy.lib.utah.edu/9781119037996" target="_blank" rel="external">which is available from the University of Utah library (for University of Utah students).</a></p>
+<p>Another resource (which I used as a reference while writing this lecture) is the O’Reilly book <em>Python for Finance</em>, <a href="http://proquest.safaribooksonline.com.ezproxy.lib.utah.edu/book/programming/python/9781491945360" target="_blank" rel="external">also available from the University of Utah library.</a></p>
+<p>Remember that it is possible (if not common) to lose money in the stock market. It’s also true, though, that it’s difficult to find returns like those found in stocks, and any investment strategy should take investing in it seriously. This lecture is intended to provide a starting point for evaluating stock trading and investment, and I hope you continue to explore these ideas.</p>
+<h3 id="Problems">Problems</h3><h4 id="Problem_1">Problem 1</h4><p><em>Devise a trading strategy as described in lecture based on moving-average crossovers (you do not need a stop-loss). Pick a list of at least 15 stocks that have existed since January 1st, 2010. Backtest your strategy with the stocks chosen and benchmark the performance of your portfolio against the performance of SPY. Are you able to beat the market?</em></p>
+<h4 id="Problem_2">Problem 2</h4><p><em>Realistically, with every trade a commission is applied. Read about howcommission works, and modify the backtest() function in the lecture to allow multiple commission structures (flat fee, percentage of portfolio, etc.) to be simulated.</em></p>
+<p><em>Additionally, our current moving average crossover strategy results in a trading signal triggering the moment two moving averages cross. We would like to make sure signals are more robust, either by:</em></p>
+<ol>
+<li><em>Triggering a trade when the moving averages differ by a fixed amount</em></li>
+<li><em>Triggering a trade when the moving averages differ by some amount of *<em>(rolling) standard deviations*</em>, which are defined by:</em></li>
+</ol>
+<p><img src="https://s0.wp.com/latex.php?latex=SD%5En_t+%3D+%5Csqrt%7B%5Cfrac%7B1%7D%7Bn+-+1%7D+%5Csum_%7Bi+%3D+0%7D%5E%7Bn+-+1%7D+%28x_%7Bt+-+1%7D+-+MA%5En_t%29%5E2%7D+&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="SD^n_t = \sqrt{\frac{1}{n - 1} \sum_{i = 0}^{n - 1} (x_{t - 1} - MA^n_t)^2} "></p>
+<p><em>(*<em>pandas*</em> does have means for computing rolling standard deviations.) Regarding the latter, if the moving averages differ by <img src="https://s0.wp.com/latex.php?latex=p+%5Ctimes+SD%5En_t&amp;bg=ffffff&amp;fg=444444&amp;s=0" alt="p \times SD^n_t">, a trading signal is sent. Modify the function ma_crossover_orders() so that these restrictions can be implemented. Specifically, you should have the ability to set how many days are in the window of the rolling standard deviation (it need not be the same as either the fast or slow moving average windows), and how many standard deviations the moving averages must differ by in order for a signal to be sent. (The current behavior of these functions should still be possible; in fact, it should be the default behavior.)</em></p>
+<p><em>Once these changes have been made, repeat problem 1, including a realistic commission scheme (consider looking up one from a brokerage firm) when simulating the performance of the portfolio, and requiring the moving averages differ by some fixed number or standard deviations in order for signals to be sent.</em></p>
+<h4 id="Problem_3">Problem 3</h4><p><em>We did not set up our trading system to allow for shorting stocks. Short selling is much trickier, since losses from short selling are unlimited (a long position, on the other hand, limits losses to the total value of the assets purchased). Read about short selling here. Then modify the functionbacktest() to allow for short selling. How will the function decide how to conduct short sales, including how many shares to short and how to account for shorted stocks when conducting other trades? We leave this up to you to decide. As a hint, the number of shares being shorted can be represented internally in the function by a negative number.</em></p>
+<p><em>Once this is done, repeat Problem 1, perhaps also using features implemented in Problem 2.</em></p>
+<p><a href="https://ntguardian.wordpress.com/2016/09/19/introduction-stock-market-data-python-1/" target="_blank" rel="external">Origin Part I</a></p>
+<p><a href="https://ntguardian.wordpress.com/2016/09/26/introduction-stock-market-data-python-2/" target="_blank" rel="external">Origin Part II</a></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/blog/10132016/30-Essential-Python-Tips-and-Tricks-for-Programmers-FW/">
+        30 Essential Python Tips and Tricks for Programmers (FW) →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="blog/10132016/An-Introduction-to-Stock-Market-Data-Analysis-with-Python-FW/" data-title="An Introduction to Stock Market Data Analysis with Python (FW)" data-url="http://www.aprilzephyr.com/blog/10132016/An-Introduction-to-Stock-Market-Data-Analysis-with-Python-FW/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Themis_Sword. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran.</a> Thanks!</p>
+            </div>
+<div align='right'>
+    <form class="navbar-form" action="/search/">
+        <input type="text" class="form-control" placeholder="Google Search" name="q">
+    </form>
+ </div>
+            
+            
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>

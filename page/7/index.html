@@ -108,11 +108,11 @@
 				    
 				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(4)</small></a></li>
 				    
-				    <li><a href="/categories/machine-learning-data-analysis/" class="animsition-link">machine learning &amp; data analysis<small>(20)</small></a></li>
+				    <li><a href="/categories/machine-learning-data-analysis/" class="animsition-link">machine learning &amp; data analysis<small>(21)</small></a></li>
 				    
 				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(18)</small></a></li>
 				    
-				    <li><a href="/categories/python/" class="animsition-link">python<small>(18)</small></a></li>
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(19)</small></a></li>
 				    
 				    <li><a href="/categories/software/" class="animsition-link">software<small>(3)</small></a></li>
 				    
@@ -212,6 +212,80 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h4><a href="/blog/04022014/fading-away/">Fading away</a></h4>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2014-04-02T12:21:50.000Z" itemprop="datePublished">
+          2014-04-02
+      </time>
+    
+    
+    | 
+    <a href='/categories/mood/'>mood</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                          
+Leaves sway down in sough late autumn winds, desolately, fading away, without one single sign.  
+Fortunately trees’ remaining vigor, notwithstanding in months’ hibernation, new shoots would be pushing out after auster
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/blog/04022014/fading-away/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h4><a href="/blog/04022014/Python-動態類型(轉)/">Python 動態類型(轉)</a></h4>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2014-04-02T07:15:39.000Z" itemprop="datePublished">
+          2014-04-02
+      </time>
+    
+    
+    | 
+    <a href='/categories/python/'>python</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <p>Python中只有一個賦值模型  </p>
+<h4 id="1-_缺少類型聲明語句的情況">1. 缺少類型聲明語句的情況</h4><p>在Python中，類型是在運行過程中自動決定的，而不是通過代碼聲明。這意味著沒有必要事聲明變量。只要記住，這個概念實質上對變量，對象和它們之間的關系都適用。那麽這個概念也容易理解並掌握。  </p>
+<p><strong>A 變量，對象和引用</strong><br>變量創建：一個變量，當代碼第一次給它賦值時它就被創建了。之後的賦值將會改變已創建的變量名的值。Python在代碼運行之前先檢測變量名，可以當成是最初的賦值創建變量。<br>變量類型：變量永遠不會有任何的它關聯的類型信息或約束。類型的概念是存在於對象中而不是變量中。變量原本是通用的。它只是在一個特定的時間點，簡單地引用了一個特定的對像而已。<br>變量的使用：當變量出現在表達式中時，它會馬上被當前引用的對像所代替，無論這個對象是什麽類型。<br>此外，所有的變量都必須在其使用前明確地賦值。使用未賦值的變量會產生錯誤。<br><code>&gt;&gt;&gt;a=3</code>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/blog/04022014/Python-動態類型(轉)/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
@@ -428,76 +502,6 @@ header(“Location: http://www.new-url.com/"</span>);
                     
                     <p class="pull-right readMore">
                         <a href="/blog/03272014/Python-import與from...import...(轉)/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h4><a href="/blog/03262014/Python-時間,-日期模塊/">Python 時間, 日期模塊</a></h4>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2014-03-26T08:53:19.000Z" itemprop="datePublished">
-          2014-03-26
-      </time>
-    
-    
-    | 
-    <a href='/categories/python/'>python</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        <p>Python提供了time/datetime/calendar等模塊來處理日期和時間。<br><strong>1.time模塊常用的函數</strong><br><em>A. time.time()</em><br>1970年1月1日以來的秒數，是一個浮點數。<br><em>B. time.sleep()</em><br>可以通過調用time.sleep來挂起當前的進程。time.sleep接收一个浮點型參數，表示進程挂起的時間。<br><em>C. time.clock()</em><br>time.clock()返回第一次调用该方法到现在的秒數，其精確度高於1微秒。可以使用该函數來記錄程序執行的時間。<br><em>D. time.gmtime()</em><br>該函數原型為time.gmtime([sec])，可選參數sec表示從1970-01-01以來的秒數，默認值為time.time()，函數返回time.struct_time類型的對象。(struct_time是在time模塊中定義的表示時間的對象)，下面是一個簡單的例子：
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/blog/03262014/Python-時間,-日期模塊/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h4><a href="/blog/03262014/Python-常用函數之Join,-Split,-Zip,-Map,-Reduce,-Filter/">Python 常用函數之Join, Split, Zip, Map, Reduce, Filter</a></h4>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2014-03-26T07:34:48.000Z" itemprop="datePublished">
-          2014-03-26
-      </time>
-    
-    
-    | 
-    <a href='/categories/python/'>python</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        <p><strong><em>1. Join, Split</em></strong><br><em>A 關於Join和Split方法</em><br>1) 只針對字符串進行處理。split:拆分字符串、join連接字符串<br>2) string.join(sep): 以string作為分割符，将sep中所有的元素(字符串表示)合併成一個新的字符串<br>3) string.split(str=’ ‘,num=string.count(str)): 以str為分隔符，切片string，如果num有指定值，則僅分隔num個子字符串<br>4) 對導入os模塊進行os.path.splie()/os.path.join() 貌似是處理機制不一樣，但是功能上一樣
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/blog/03262014/Python-常用函數之Join,-Split,-Zip,-Map,-Reduce,-Filter/">Read More...</a>
                     </p>
                     
                 </div>
