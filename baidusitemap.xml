@@ -4,8 +4,386 @@
 
     
   <url>
+    <loc>http://www.aprilzephyr.com/blog/04302015/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%EF%BC%8C%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%E8%B3%87%E6%96%99/</loc>
+    <lastmod>2016-10-27T02:45:09.000Z</lastmod>
+    <data>
+        <display>
+        <title>機器學習，深度學習資料</title>
+        <pubTime>2015-04-30T07:31:50.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/04302015/%E7%A5%9E%E7%B6%93%E7%B6%B2%E7%B5%A1(%E6%9B%B8%E6%91%98)/</loc>
+    <lastmod>2016-10-27T02:45:03.000Z</lastmod>
+    <data>
+        <display>
+        <title>神經網絡(書摘)</title>
+        <pubTime>2015-04-30T03:15:35.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/04302015/Machine-Learning-is-Fun!(FW)/</loc>
+    <lastmod>2016-10-27T02:44:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning is Fun!(FW)</title>
+        <pubTime>2015-04-30T06:44:26.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/05102015/Data-Science-Resources/</loc>
+    <lastmod>2016-10-27T02:44:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>Data Science Resources</title>
+        <pubTime>2015-05-10T14:01:26.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/05122015/Excerpt_Artificial-Intelligence-A-Modern-Approach-3rd-Edition/</loc>
+    <lastmod>2016-10-27T02:44:37.000Z</lastmod>
+    <data>
+        <display>
+        <title>Excerpt_Artificial Intelligence: A Modern Approach 3rd Edition</title>
+        <pubTime>2015-05-12T07:08:13.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/05122015/Excerpt_Machine-Learning(Tom-Mitchell)/</loc>
+    <lastmod>2016-10-27T02:44:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>Excerpt_Machine Learning(Tom Mitchell)</title>
+        <pubTime>2015-05-12T02:40:37.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/05142015/Pytho%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E5%85%A5%E9%96%80(%E8%BD%89)/</loc>
+    <lastmod>2016-10-27T02:44:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python數據分析入門(轉)</title>
+        <pubTime>2015-05-14T02:46:30.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/05142015/Python-Tools-for-Machine-Learning(FW)/</loc>
+    <lastmod>2016-10-27T02:44:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python Tools for Machine Learning(FW)</title>
+        <pubTime>2015-05-14T03:15:31.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/06022015/%E6%95%B8%E6%93%9A%E6%96%B0%E8%81%9E%E7%B2%BE%E9%81%B8(%E5%8F%AF%E8%A6%96%E5%8C%96%E7%89%B9%E8%BC%AF)%E8%BD%89/</loc>
+    <lastmod>2016-10-27T02:44:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>數據新聞精選(可視化特輯)轉</title>
+        <pubTime>2015-06-02T08:11:43.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/04242016/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E5%90%91%E8%80%81%E5%A9%86%E8%A7%A3%E9%87%8BMapReduce%E7%9A%84%EF%BC%9F(%E8%BD%89)/</loc>
+    <lastmod>2016-10-27T02:43:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>我是如何向老婆解釋MapReduce的？(轉)</title>
+        <pubTime>2016-04-24T10:11:56.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="big data" url="http://www.aprilzephyr.com/categories/big-data/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/05312016/7-Steps-to-Mastering-Machine-Learning-With-Python-FW/</loc>
+    <lastmod>2016-10-27T02:43:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>7 Steps to Mastering Machine Learning With Python (FW)</title>
+        <pubTime>2016-05-31T02:29:46.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/07122016/8%E5%80%8B%E7%B6%93%E9%81%8E%E8%AD%89%E5%AF%A6%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A%E6%8F%90%E9%AB%98%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%BA%96%E7%A2%BA%E7%8E%87-%E8%BD%89/</loc>
+    <lastmod>2016-10-27T02:43:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>8個經過證實的方法：提高機器學習模型的準確率 (轉)</title>
+        <pubTime>2016-07-12T06:21:27.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/07252016/Essentials-of-Machine-Learning-Algorithms-with-Python-and-R-Codes-FW/</loc>
+    <lastmod>2016-10-27T02:42:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>Essentials of Machine Learning Algorithms with Python and R Codes (FW)</title>
+        <pubTime>2016-07-25T04:50:10.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/07282016/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E6%A2%B3%E7%90%86/</loc>
+    <lastmod>2016-10-27T02:42:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>機器學習常用算法梳理</title>
+        <pubTime>2016-07-28T02:56:28.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/07302016/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B8%8D%E5%B9%B3%E8%A1%A1%E6%95%B8%E6%93%9A%E5%88%86%E9%A1%9E%E5%95%8F%E9%A1%8C-%E8%BD%89/</loc>
+    <lastmod>2016-10-27T02:42:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>深入理解不平衡數據分類問題(轉)</title>
+        <pubTime>2016-07-30T08:09:35.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/09142016/A-Tour-of-Machine-Learning-Algorithms-FW/</loc>
+    <lastmod>2016-10-27T02:42:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>A Tour of Machine Learning Algorithms(FW)</title>
+        <pubTime>2016-09-14T01:16:11.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/10102016/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8GBM-GBDT-GBRT-%E8%BD%89/</loc>
+    <lastmod>2016-10-27T02:42:19.000Z</lastmod>
+    <data>
+        <display>
+        <title>如何使用GBM/GBDT/GBRT(轉)</title>
+        <pubTime>2016-10-10T12:03:34.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/10102016/A-Dramatic-Tour-through-Python%E2%80%99s-Data-Visualization-Landscape-including-ggplot-and-Altair-FW/</loc>
+    <lastmod>2016-10-27T02:42:13.000Z</lastmod>
+    <data>
+        <display>
+        <title>A Dramatic Tour through Python’s Data Visualization Landscape (including ggplot and Altair)(FW)</title>
+        <pubTime>2016-10-10T08:12:02.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/10112016/%E4%BD%BF%E7%94%A8sklearn%E5%81%9A%E5%96%AE%E6%A9%9F%E7%89%B9%E5%BE%B5%E5%B7%A5%E7%A8%8B-%E8%BD%89/</loc>
+    <lastmod>2016-10-27T02:42:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用sklearn做單機特徵工程(轉)</title>
+        <pubTime>2016-10-11T07:53:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/10112016/Becoming-a-Data-Scientist-FW/</loc>
+    <lastmod>2016-10-27T02:41:55.000Z</lastmod>
+    <data>
+        <display>
+        <title>Becoming a Data Scientist (FW)</title>
+        <pubTime>2016-10-11T05:34:31.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.aprilzephyr.com/blog/10132016/An-Introduction-to-Stock-Market-Data-Analysis-with-Python-FW/</loc>
+    <lastmod>2016-10-27T02:41:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>An Introduction to Stock Market Data Analysis with Python (FW)</title>
+        <pubTime>2016-10-13T01:46:17.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.aprilzephyr.com/blog/10242016/21%E5%80%8B%E7%B6%93%E5%85%B8%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8%E5%95%8F%E9%A1%8C%E5%8F%8A%E7%AD%94%E6%A1%88-%E8%BD%89/</loc>
-    <lastmod>2016-10-27T02:38:12.000Z</lastmod>
+    <lastmod>2016-10-27T02:41:35.000Z</lastmod>
     <data>
         <display>
         <title>21個經典數據科學問題及答案(轉)</title>
@@ -14,7 +392,7 @@
          
            
              
-              <breadCrumb title="machine learning, data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
+              <breadCrumb title="data science" url="http://www.aprilzephyr.com/categories/data-science/"/>
           
         </display>
     </data>
@@ -40,24 +418,6 @@
 
     
   <url>
-    <loc>http://www.aprilzephyr.com/blog/10132016/An-Introduction-to-Stock-Market-Data-Analysis-with-Python-FW/</loc>
-    <lastmod>2016-10-13T02:36:15.000Z</lastmod>
-    <data>
-        <display>
-        <title>An Introduction to Stock Market Data Analysis with Python (FW)</title>
-        <pubTime>2016-10-13T01:46:17.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.aprilzephyr.com/blog/10132016/30-Essential-Python-Tips-and-Tricks-for-Programmers-FW/</loc>
     <lastmod>2016-10-13T01:41:19.000Z</lastmod>
     <data>
@@ -69,114 +429,6 @@
            
              
               <breadCrumb title="python" url="http://www.aprilzephyr.com/categories/python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/10112016/%E4%BD%BF%E7%94%A8sklearn%E5%81%9A%E5%96%AE%E6%A9%9F%E7%89%B9%E5%BE%B5%E5%B7%A5%E7%A8%8B-%E8%BD%89/</loc>
-    <lastmod>2016-10-11T08:34:42.000Z</lastmod>
-    <data>
-        <display>
-        <title>使用sklearn做單機特徵工程(轉)</title>
-        <pubTime>2016-10-11T07:53:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/10112016/Becoming-a-Data-Scientist-FW/</loc>
-    <lastmod>2016-10-11T05:36:51.000Z</lastmod>
-    <data>
-        <display>
-        <title>Becoming a Data Scientist (FW)</title>
-        <pubTime>2016-10-11T05:34:31.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/10102016/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8GBM-GBDT-GBRT-%E8%BD%89/</loc>
-    <lastmod>2016-10-10T12:28:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>如何使用GBM/GBDT/GBRT(轉)</title>
-        <pubTime>2016-10-10T12:03:34.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/07282016/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E6%A2%B3%E7%90%86/</loc>
-    <lastmod>2016-10-10T09:31:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>機器學習常用算法梳理</title>
-        <pubTime>2016-07-28T02:56:28.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/10102016/A-Dramatic-Tour-through-Python%E2%80%99s-Data-Visualization-Landscape-including-ggplot-and-Altair-FW/</loc>
-    <lastmod>2016-10-10T09:14:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>A Dramatic Tour through Python’s Data Visualization Landscape (including ggplot and Altair)(FW)</title>
-        <pubTime>2016-10-10T08:12:02.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/09142016/A-Tour-of-Machine-Learning-Algorithms-FW/</loc>
-    <lastmod>2016-09-14T01:45:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>A Tour of Machine Learning Algorithms(FW)</title>
-        <pubTime>2016-09-14T01:16:11.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
           
         </display>
     </data>
@@ -215,24 +467,6 @@
            
              
               <breadCrumb title="justice" url="http://www.aprilzephyr.com/categories/justice/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/07302016/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B8%8D%E5%B9%B3%E8%A1%A1%E6%95%B8%E6%93%9A%E5%88%86%E9%A1%9E%E5%95%8F%E9%A1%8C-%E8%BD%89/</loc>
-    <lastmod>2016-08-05T03:26:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>深入理解不平衡數據分類問題(轉)</title>
-        <pubTime>2016-07-30T08:09:35.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
           
         </display>
     </data>
@@ -305,24 +539,6 @@
            
              
               <breadCrumb title="python" url="http://www.aprilzephyr.com/categories/python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/04302015/Machine-Learning-is-Fun!(FW)/</loc>
-    <lastmod>2016-07-31T05:41:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning is Fun!(FW)</title>
-        <pubTime>2015-04-30T06:44:26.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
           
         </display>
     </data>
@@ -582,24 +798,6 @@
 
     
   <url>
-    <loc>http://www.aprilzephyr.com/blog/04302015/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%EF%BC%8C%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%E8%B3%87%E6%96%99/</loc>
-    <lastmod>2016-07-31T04:23:19.000Z</lastmod>
-    <data>
-        <display>
-        <title>機器學習，深度學習資料</title>
-        <pubTime>2015-04-30T07:31:50.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.aprilzephyr.com/blog/04272015/I-am-a-Nerd:Weirdo:Crackpot/</loc>
     <lastmod>2016-07-31T04:19:59.000Z</lastmod>
     <data>
@@ -611,42 +809,6 @@
            
              
               <breadCrumb title="mood" url="http://www.aprilzephyr.com/categories/mood/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/05122015/Excerpt_Artificial-Intelligence-A-Modern-Approach-3rd-Edition/</loc>
-    <lastmod>2016-07-31T04:05:51.000Z</lastmod>
-    <data>
-        <display>
-        <title>Excerpt_Artificial Intelligence: A Modern Approach 3rd Edition</title>
-        <pubTime>2015-05-12T07:08:13.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/04302015/%E7%A5%9E%E7%B6%93%E7%B6%B2%E7%B5%A1(%E6%9B%B8%E6%91%98)/</loc>
-    <lastmod>2016-07-31T04:03:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>神經網絡(書摘)</title>
-        <pubTime>2015-04-30T03:15:35.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
           
         </display>
     </data>
@@ -1140,42 +1302,6 @@
 
     
   <url>
-    <loc>http://www.aprilzephyr.com/blog/05102015/Data-Science-Resources/</loc>
-    <lastmod>2016-07-31T03:25:49.000Z</lastmod>
-    <data>
-        <display>
-        <title>Data Science Resources</title>
-        <pubTime>2015-05-10T14:01:26.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/05122015/Excerpt_Machine-Learning(Tom-Mitchell)/</loc>
-    <lastmod>2016-07-31T03:25:29.000Z</lastmod>
-    <data>
-        <display>
-        <title>Excerpt_Machine Learning(Tom Mitchell)</title>
-        <pubTime>2015-05-12T02:40:37.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.aprilzephyr.com/blog/05142015/Potential-Pythonic-Pitfalls(FW)/</loc>
     <lastmod>2016-07-31T03:25:18.000Z</lastmod>
     <data>
@@ -1194,42 +1320,6 @@
 
     
   <url>
-    <loc>http://www.aprilzephyr.com/blog/05142015/Python-Tools-for-Machine-Learning(FW)/</loc>
-    <lastmod>2016-07-31T03:25:12.000Z</lastmod>
-    <data>
-        <display>
-        <title>Python Tools for Machine Learning(FW)</title>
-        <pubTime>2015-05-14T03:15:31.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/05142015/Pytho%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E5%85%A5%E9%96%80(%E8%BD%89)/</loc>
-    <lastmod>2016-07-31T03:25:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>Python數據分析入門(轉)</title>
-        <pubTime>2015-05-14T02:46:30.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.aprilzephyr.com/blog/05292015/Nifty-Python-tricks(FW)/</loc>
     <lastmod>2016-07-31T03:24:50.000Z</lastmod>
     <data>
@@ -1241,24 +1331,6 @@
            
              
               <breadCrumb title="python" url="http://www.aprilzephyr.com/categories/python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/06022015/%E6%95%B8%E6%93%9A%E6%96%B0%E8%81%9E%E7%B2%BE%E9%81%B8(%E5%8F%AF%E8%A6%96%E5%8C%96%E7%89%B9%E8%BC%AF)%E8%BD%89/</loc>
-    <lastmod>2016-07-31T03:24:45.000Z</lastmod>
-    <data>
-        <display>
-        <title>數據新聞精選(可視化特輯)轉</title>
-        <pubTime>2015-06-02T08:11:43.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
           
         </display>
     </data>
@@ -1313,78 +1385,6 @@
            
              
               <breadCrumb title="mood" url="http://www.aprilzephyr.com/categories/mood/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/04242016/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E5%90%91%E8%80%81%E5%A9%86%E8%A7%A3%E9%87%8BMapReduce%E7%9A%84%EF%BC%9F(%E8%BD%89)/</loc>
-    <lastmod>2016-07-31T03:24:12.000Z</lastmod>
-    <data>
-        <display>
-        <title>我是如何向老婆解釋MapReduce的？(轉)</title>
-        <pubTime>2016-04-24T10:11:56.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/05312016/7-Steps-to-Mastering-Machine-Learning-With-Python-FW/</loc>
-    <lastmod>2016-07-31T03:23:57.000Z</lastmod>
-    <data>
-        <display>
-        <title>7 Steps to Mastering Machine Learning With Python (FW)</title>
-        <pubTime>2016-05-31T02:29:46.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/07122016/8%E5%80%8B%E7%B6%93%E9%81%8E%E8%AD%89%E5%AF%A6%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A%E6%8F%90%E9%AB%98%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%BA%96%E7%A2%BA%E7%8E%87-%E8%BD%89/</loc>
-    <lastmod>2016-07-31T03:23:42.000Z</lastmod>
-    <data>
-        <display>
-        <title>8個經過證實的方法：提高機器學習模型的準確率 (轉)</title>
-        <pubTime>2016-07-12T06:21:27.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/07252016/Essentials-of-Machine-Learning-Algorithms-with-Python-and-R-Codes-FW/</loc>
-    <lastmod>2016-07-31T03:23:29.000Z</lastmod>
-    <data>
-        <display>
-        <title>Essentials of Machine Learning Algorithms with Python and R Codes (FW)</title>
-        <pubTime>2016-07-25T04:50:10.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="machine learning &amp; data analysis" url="http://www.aprilzephyr.com/categories/machine-learning-data-analysis/"/>
           
         </display>
     </data>
