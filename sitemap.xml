@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.aprilzephyr.com/author/index.html</loc>
+    
+    <lastmod>2016-11-05T09:04:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.aprilzephyr.com/blog/10312016/Complete-Study-of-Factors-Contributing-to-Air-Pollution-FW/</loc>
     
     <lastmod>2016-10-31T04:35:34.000Z</lastmod>
@@ -173,13 +180,6 @@
     <loc>http://www.aprilzephyr.com/blog/10132016/30-Essential-Python-Tips-and-Tricks-for-Programmers-FW/</loc>
     
     <lastmod>2016-10-13T01:41:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.aprilzephyr.com/author/index.html</loc>
-    
-    <lastmod>2016-08-26T07:43:45.000Z</lastmod>
     
   </url>
   
