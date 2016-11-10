@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>Random Forests in Python (FW) | Themis_Sword&#39;s Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Themis_Sword's Blog">
+    <meta name="author" content="Themis_Sword">
+    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Themis_Sword&#39;s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/SQL/" class="animsition-link">SQL<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/big-data/" class="animsition-link">big data<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/business/" class="animsition-link">business<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/data-science/" class="animsition-link">data science<small>(23)</small></a></li>
+				    
+				    <li><a href="/categories/inspiring/" class="animsition-link">inspiring<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/justice/" class="animsition-link">justice<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/mood/" class="animsition-link">mood<small>(18)</small></a></li>
+				    
+				    <li><a href="/categories/python/" class="animsition-link">python<small>(19)</small></a></li>
+				    
+				    <li><a href="/categories/software/" class="animsition-link">software<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/web/" class="animsition-link">web<small>(5)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            <li><a href="/information" class="animsition-link" title="Information">Information</a></li>
+            <li><a href="/gallery" class="animsition-link" title="Gallery">Gallery</a></li>
+            <li><a href="/timeline" class="animsition-link" title="Timeline">Timeline</a></li>
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/author" class="animsition-link" title="Author">Author</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Themis_Sword's Blog</a></li>
+                            <li class="nolink">Reverence for Nature, and Life.</li>
+                            
+                            
+                            
+                            
+                            
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/1.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2><span>Love, and to be Loved.</span></h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>我愛你，你是自由的。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-11-10T02:31:22.000Z" itemprop="datePublished">
+          2016-11-10
+      </time>
+    
+    
+    | 
+    <a href='/categories/data-science/'>data science</a>
+    
+    
+</span>
+                <h1>Random Forests in Python (FW)</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p><a href="http://en.wikipedia.org/wiki/Random_forest" target="_blank" rel="external">Random forest</a> is a highly versatile machine learning method with numerous applications ranging from marketing to healthcare and insurance. It can be used to <a href="http://epubl.ltu.se/1653-0187/2008/014/LTU-PB-EX-08014-SE.pdf" target="_blank" rel="external">model the impact of marketing</a> on customer acquisition, retention, and churn or to <a href="http://www.biomedcentral.com/1472-6947/11/51" target="_blank" rel="external">predict disease risk and susceptibility</a> in patients.</p>
+<p>Random forest is capable of regression and classification. It can handle a large number of features, and it’s helpful for estimating which of your variables are important in the underlying data being modeled. <a id="more"></a></p>
+<p>This is a post about random forests using Python.</p>
+<h4 id="What_is_a_Random_Forest?">What is a Random Forest?</h4><p>Random forest is solid choice for nearly any prediction problem (even non-linear ones). It’s a relatively new machine learning strategy (it came out of Bell Labs in the 90s) and it can be used for just about anything. It belongs to a larger class of machine learning algorithms called ensemble methods.</p>
+<h5 id="Ensemble_Learning">Ensemble Learning</h5><p><a href="http://en.wikipedia.org/wiki/Ensemble_learning" target="_blank" rel="external">Ensemble learning</a> involves the combination of several models to solve a single prediction problem. It works by generating multiple classifiers/models which learn and make predictions independently. Those predictions are then combined into a single (mega) prediction that should be as good or better than the prediction made by any one classifer.</p>
+<p>Random forest is a brand of ensemble learning, as it relies on an ensemble of decision trees. More on ensemble learning in Python here: <a href="http://scikit-learn.org/dev/modules/ensemble.html" target="_blank" rel="external">Scikit-Learn docs</a>.</p>
+<h5 id="Randomized_Decision_Trees">Randomized Decision Trees</h5><p>So we know that random forest is an aggregation of other models, but what types of models is it aggregating? As you might have guessed from its name, random forest aggregates <a href="http://en.wikipedia.org/wiki/Decision_tree_learning" target="_blank" rel="external">Classification (or Regression) Trees</a>. A decision tree is composed of a series of decisions that can be used to classify an observation in a dataset.</p>
+<h5 id="Random_Forest"><em>Random</em> Forest</h5><p>The algorithm to induce a random forest will create a bunch of random decision trees automatically. Since the trees are generated at random, most won’t be all that meaningful to learning your classification/regression problem (maybe 99.9% of trees).</p>
+<p>If an observation has a length of 45, blue eyes, and 2 legs, it’s going to be classified as <strong>red</strong>.</p>
+<h5 id="Arboreal_Voting">Arboreal Voting</h5><p>So what good are 10000 (probably) bad models? Well it turns out that they really aren’t that helpful. But <em>what is helpful</em> are the few really good decision trees that you also generated along with the bad ones.</p>
+<p>When you make a prediction, the new observation gets pushed down each decision tree and assigned a predicted value/label. Once each of the trees in the forest have reported its predicted value/label, the predictions are tallied up and the mode vote of all trees is returned as the final prediction.</p>
+<p>Simply, the 99.9% of trees that are irrelevant make predictions that are all over the map and cancel each another out. The predictions of the minority of trees that are good top that noise and yield a good prediction.</p>
+<h4 id="Why_you_should_I_use_it?">Why you should I use it?</h4><h5 id="It’s_Easy">It’s Easy</h5><p>Random forest is the <a href="http://www.leatherman.com/product/Super_Tool_300" target="_blank" rel="external">Leatherman</a> of learning methods. You can throw pretty much anything at it and it’ll do a serviceable job. It does a particularly good job of estimating inferred transformations, and, as a result, doesn’t require much tuning like SVM (i.e. it’s good for folks with tight deadlines).</p>
+<h5 id="An_Example_Transformation">An Example Transformation</h5><p>Random forest is capable of learning without carefully crafted data transformations. Take the the <code>f(x) = log(x)</code> function for example.</p>
+<p>Alright let’s write some code. We’ll be writing our Python code in Yhat’s very own interactive environment built for analyzing data, Rodeo. You can download Rodeo for Mac, Windows or Linux <a href="https://www.yhat.com/products/rodeo" target="_blank" rel="external">here</a>.</p>
+<p>First, create some fake data and add a little noise.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import pylab as pl</span><br><span class="line"></span><br><span class="line">x = np<span class="class">.random</span><span class="class">.uniform</span>(<span class="number">1</span>, <span class="number">100</span>, <span class="number">1000</span>)</span><br><span class="line">y = np.<span class="function"><span class="title">log</span><span class="params">(x)</span></span> + np<span class="class">.random</span><span class="class">.normal</span>(<span class="number">0</span>, .<span class="number">3</span>, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line">pl.<span class="function"><span class="title">scatter</span><span class="params">(x, y, s=<span class="number">1</span>, label=<span class="string">"log(x) with noise"</span>)</span></span></span><br><span class="line">pl.<span class="function"><span class="title">plot</span><span class="params">(np.arange(<span class="number">1</span>, <span class="number">100</span>)</span></span>, np.<span class="function"><span class="title">log</span><span class="params">(np.arange(<span class="number">1</span>, <span class="number">100</span>)</span></span>), c=<span class="string">"b"</span>, label=<span class="string">"log(x) true function"</span>)</span><br><span class="line">pl.<span class="function"><span class="title">xlabel</span><span class="params">(<span class="string">"x"</span>)</span></span></span><br><span class="line">pl.<span class="function"><span class="title">ylabel</span><span class="params">(<span class="string">"f(x) = log(x)"</span>)</span></span></span><br><span class="line">pl.<span class="function"><span class="title">legend</span><span class="params">(loc=<span class="string">"best"</span>)</span></span></span><br><span class="line">pl.<span class="function"><span class="title">title</span><span class="params">(<span class="string">"A Basic Log Function"</span>)</span></span></span><br><span class="line">pl.<span class="function"><span class="title">show</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<p>Check out the gist here</p>
+<p>Following along in Rodeo? Here’s what you should see.</p>
+<p>Let’s take a closer look at that plot.</p>
+<p>If we try and build a basic linear model to predict <code>y</code> using <code>x</code> we wind up with a straight line that sort of bisects the <code>log(x)</code> function. Whereas if we use a random forest, it does a much better job of approximating the <code>log(x)</code> curve and we get something that looks much more like the true function.<img src="http://blog.yhat.com/static/img/log_lm_vs_rf.png" alt="img"><img src="http://blog.yhat.com/static/img/log_lm_vs_rf_fit.png" alt="img"></p>
+<p>You could argue that the random forest overfits the <code>log(x)</code> function a little bit. Either way, I think this does a nice job of illustrating how the random forest isn’t bound by linear constraints.</p>
+<h4 id="Uses">Uses</h4><h5 id="Variable_Selection">Variable Selection</h5><p>One of the best use cases for random forest is feature selection. One of the byproducts of trying lots of decision tree variations is that you can examine which variables are working best/worst in each tree.</p>
+<p>When a certain tree uses one variable and another doesn’t, you can compare the value lost or gained from the inclusion/exclusion of that variable. The good random forest implementations are going to do that for you, so all you need to do is know which method or variable to look at.</p>
+<p>In the following examples, we’re trying to figure out which variables are most important for classifying a wine as being red or white.</p>
+<h5 id="Classification">Classification</h5><p>Random forest is also great for classification. It can be used to make predictions for categories with multiple possible values and it can be calibrated to output probabilities as well. One thing you do need to watch out for is <a href="http://en.wikipedia.org/wiki/Overfitting" target="_blank" rel="external">overfitting</a>. Random forest can be prone to overfitting, especially when working with relatively small datasets. You should be suspicious if your model is making “too good” of predictions on our test set.</p>
+<p>One way to overfitting is to only use really relevant features in your model. While this isn’t always cut and dry, using a feature selection technique (like the one mentioned previously) can make it a lot easier.</p>
+<h5 id="Regression">Regression</h5><p>Yep. It does regression too.</p>
+<p>I’ve found that random forest–unlike other algorithms–does really well learning on categorical variables or a mixture of categorical and real variables. Categorical variables with high cardinality (# of possible values) can be tricky, so having something like this in your back pocket can come in quite useful.</p>
+<h4 id="A_Short_Python_Example">A Short Python Example</h4><p>Scikit-Learn is a great way to get started with random forest. The scikit-learn API is extremely consistent across algorithms, so you horse race and switch between models very easily. A lot of times I start with something simple and then move to random forest.</p>
+<p>One of the best features of the random forest implementation in scikit-learn is the <code>n_jobs</code> parameter. This will automatically parallelize fitting your random forest based on the number of cores you want to use. <a href="http://vimeo.com/63269736" target="_blank" rel="external">Here’s a great presentation</a> by scikit-learn contributor Olivier Grisel where he talks about training a random forest on a 20 node EC2 cluster.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">from sklearn<span class="class">.datasets</span> import load_iris</span><br><span class="line">from sklearn<span class="class">.ensemble</span> import RandomForestClassifier</span><br><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">iris = <span class="function"><span class="title">load_iris</span><span class="params">()</span></span></span><br><span class="line">df = pd.<span class="function"><span class="title">DataFrame</span><span class="params">(iris.data, columns=iris.feature_names)</span></span></span><br><span class="line">df[<span class="string">'is_train'</span>] = np<span class="class">.random</span><span class="class">.uniform</span>(<span class="number">0</span>, <span class="number">1</span>, <span class="function"><span class="title">len</span><span class="params">(df)</span></span>) &lt;= .<span class="number">75</span></span><br><span class="line">df[<span class="string">'species'</span>] = pd<span class="class">.Categorical</span><span class="class">.from_codes</span>(iris<span class="class">.target</span>, iris.target_names)</span><br><span class="line">df.<span class="function"><span class="title">head</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line">train, test = df[df[<span class="string">'is_train'</span>]==True], df[df[<span class="string">'is_train'</span>]==False]</span><br><span class="line"></span><br><span class="line">features = df<span class="class">.columns</span>[:<span class="number">4</span>]</span><br><span class="line">clf = <span class="function"><span class="title">RandomForestClassifier</span><span class="params">(n_jobs=<span class="number">2</span>)</span></span></span><br><span class="line">y, _ = pd.<span class="function"><span class="title">factorize</span><span class="params">(train[<span class="string">'species'</span>])</span></span></span><br><span class="line">clf.<span class="function"><span class="title">fit</span><span class="params">(train[features], y)</span></span></span><br><span class="line"></span><br><span class="line">preds = iris<span class="class">.target_names</span>[clf.<span class="function"><span class="title">predict</span><span class="params">(test[features])</span></span>]</span><br><span class="line">pd.<span class="function"><span class="title">crosstab</span><span class="params">(test[<span class="string">'species'</span>], preds, rownames=[<span class="string">'actual'</span>], colnames=[<span class="string">'preds'</span>])</span></span></span><br></pre></td></tr></table></figure>
+<p>Following along? Here’s what you should see(ish). We’re using <em>randomly</em> selected data, so your exact values will differ each time.</p>
+<table>
+<thead>
+<tr>
+<th>preds</th>
+<th>sertosa</th>
+<th>versicolor</th>
+<th>virginica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>actual</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sertosa</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>versicolor</td>
+<td>0</td>
+<td>16</td>
+<td>1</td>
+</tr>
+<tr>
+<td>virginica</td>
+<td>0</td>
+<td>0</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Final_Thoughts">Final Thoughts</h4><p>Random forests are remarkably easy to use given how advanced they are. As with any modeling, be wary of overfitting. If you’re interested in getting started with random forest in <code>R</code>, check out the <a href="http://cran.r-project.org/web/packages/randomForest/randomForest.pdf" target="_blank" rel="external"><code>randomForest</code></a> package.</p>
+<ul>
+<li><a href="http://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm" target="_blank" rel="external">Berkley Resources</a></li>
+<li><a href="https://www.kaggle.com/wiki/RandomForests" target="_blank" rel="external">Kaggle blogpost</a></li>
+<li><a href="http://peekaboo-vision.blogspot.de/" target="_blank" rel="external">Andy Mueller’s blog (scikit-learn contributor)</a></li>
+<li><a href="http://www.stanford.edu/~stephsus/R-randomforest-guide.pdf" target="_blank" rel="external">Random Forest Guide</a></li>
+<li><a href="http://ogrisel.com/" target="_blank" rel="external">Olivier Grisel’s website</a></li>
+</ul>
+<p><a href="http://blog.yhat.com/posts/python-random-forest.html" target="_blank" rel="external">Origin</a></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/blog/10312016/Complete-Study-of-Factors-Contributing-to-Air-Pollution-FW/">
+        Complete Study of Factors Contributing to Air Pollution (FW) →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="blog/11102016/Random-Forests-in-Python-FW/" data-title="Random Forests in Python (FW)" data-url="http://www.aprilzephyr.com/blog/11102016/Random-Forests-in-Python-FW/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Themis_Sword. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran.</a> Thanks!</p>
+            </div>
+<div align='right'>
+    <form class="navbar-form" action="/search/">
+        <input type="text" class="form-control" placeholder="Google Search" name="q">
+    </form>
+ </div>
+            
+            
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
