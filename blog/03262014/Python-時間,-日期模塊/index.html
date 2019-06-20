@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="Themis_Sword's Blog">
     <meta name="author" content="Themis_Sword">
-    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="description" content="Reverence for Nature, Life and Being." />
     <meta name="keywords" content="" />
 
     <!-- Favicon, (keep icon in root folder) -->
@@ -239,7 +239,7 @@
 (<span class="number">2013</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">28</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="number">98</span>, <span class="number">0</span>)
 &gt;&gt;&gt; print time.gmtime(time.time()-<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>)    <span class="preprocessor">#獲取昨天這個時間的struct_time對象</span>
 (<span class="number">2013</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">10</span>, <span class="number">6</span>, <span class="number">97</span>, <span class="number">0</span>)
-</code></pre><p><em>E. time.localtime()</em><br>與time.gmtime()非常類似，也返回一個struct_time對象，可以看作是gmtime()的本地化版本。<br><em>F. time.mktime()</em><br>time.mktime執行與gmtime(), localtime()相反的操作，它接收struct_time對象作為參數，返回用秒數來表示時間的浮點數。<br><em>G. time.strftime()</em><br>time.strftime將日期轉換為字符串表示，它的函數原型為：time.strftime(format[, t])。參數format是格式字符串（格式字符串的知識可以參考：<a href="http://docs.python.org/2/library/time.html" target="_blank" rel="external">time.strftime</a> ），可選的參數t是一个struct_time對象。  </p>
+</code></pre><p><em>E. time.localtime()</em><br>與time.gmtime()非常類似，也返回一個struct_time對象，可以看作是gmtime()的本地化版本。<br><em>F. time.mktime()</em><br>time.mktime執行與gmtime(), localtime()相反的操作，它接收struct_time對象作為參數，返回用秒數來表示時間的浮點數。<br><em>G. time.strftime()</em><br>time.strftime將日期轉換為字符串表示，它的函數原型為：time.strftime(format[, t])。參數format是格式字符串（格式字符串的知識可以參考：<a href="http://docs.python.org/2/library/time.html" target="_blank" rel="noopener">time.strftime</a> ），可選的參數t是一个struct_time對象。  </p>
 <pre><code>time.strftime參數:
 strftime(format[, tuple]) -&gt; string
 將指定的struct_time(默認為當前時間)，根據指定的格式化字符串輸出
@@ -308,7 +308,7 @@ print  tomorrow &gt; <span class="built_in">now</span>
 <span class="preprocessor"># timedelta: 1 day, 0:00:00   </span>
 <span class="preprocessor"># 2010-04-07   </span>
 <span class="preprocessor"># True</span>
-</code></pre><p><a href="http://www.cnblogs.com/BeginMan/archive/2013/04/08/3007403.html" target="_blank" rel="external">Origin</a></p>
+</code></pre><p><a href="http://www.cnblogs.com/BeginMan/archive/2013/04/08/3007403.html" target="_blank" rel="noopener">Origin</a></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

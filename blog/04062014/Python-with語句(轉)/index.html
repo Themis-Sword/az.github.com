@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="Themis_Sword's Blog">
     <meta name="author" content="Themis_Sword">
-    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="description" content="Reverence for Nature, Life and Being." />
     <meta name="keywords" content="" />
 
     <!-- Favicon, (keep icon in root folder) -->
@@ -289,7 +289,7 @@ data = <span class="built_in">file</span>.<span class="built_in">read</span>()
 
 <span class="keyword">with</span> Sample() <span class="keyword">as</span> sample:
 sample.do_something()
-</code></pre><p>Notice how in this example, instead of get<em>sample(), with takes Sample(). It does not matter, as long as the statement that follows with evaluates to an object that has an \</em>_enter__() and __exit__() functions. In this case, Sample()’s __enter__() returns the newly created instance of Sample and that is what gets passed to sample.<br>這個例子中，with後面的get<em>sample()變成了Sample()。這沒有任何關系，只要緊跟with後面的語句所返回的對象有\</em>_enter__()和__exit__()方法即可。此例中，Sample()的__enter__()方法返回新創建的Sample對象，並賦值給變量sample。  </p>
+</code></pre><p>Notice how in this example, instead of get_sample(), with takes Sample(). It does not matter, as long as the statement that follows with evaluates to an object that has an __enter__() and __exit__() functions. In this case, Sample()’s __enter__() returns the newly created instance of Sample and that is what gets passed to sample.<br>這個例子中，with後面的get_sample()變成了Sample()。這沒有任何關系，只要緊跟with後面的語句所返回的對象有__enter__()和__exit__()方法即可。此例中，Sample()的__enter__()方法返回新創建的Sample對象，並賦值給變量sample。  </p>
 <p>When executed:<br>代碼執行後：  </p>
 <pre><code>bash-<span class="number">3.2</span>$ ./with_example02.py
 type: &lt;type <span class="string">'exceptions.ZeroDivisionError'</span>&gt;
@@ -303,9 +303,9 @@ bar = <span class="number">1</span>/<span class="number">0</span>
 ZeroDivisionError: <span class="keyword">integer</span> division <span class="operator">or</span> modulo <span class="keyword">by</span> <span class="constant">zero</span>
 </code></pre><p>Essentially, if there are exceptions being thrown from anywhere inside the block, the __exit__() function for the object is called. As you can see, the type, value and the stack trace associated with the exception thrown is passed to this function. In this case, you can see that there was a ZeroDivisionError exception being thrown. People implementing libraries can write code that clean up resources, close files etc. in their __exit__() functions.<br>實際上，在with後面的代碼塊拋出任何異常時，__exit__()方法被執行。正如例子所示，異常拋出時，與之關聯的type，value和stack trace傳給__exit__()方法，因此拋出的ZeroDivisionError異常被打印出來了。開發庫時，清理資源，關閉文件等等操作，都可以放在__exit__方法當中。  </p>
 <p>Thus, Python’s with is a nifty construct that makes code a little less verbose and makes cleaning up during exceptions a bit easier.<br>因此，Python的with語句是提供一個有效的機制，讓代碼更簡練，同時在異常產生時，清理工作更簡單。  </p>
-<p>I have put the code examples given here on <a href="https://github.com/sdqali/python_dojo/tree/master/with" target="_blank" rel="external">Github</a>.<br>示例代碼可以在<a href="https://github.com/sdqali/python_dojo/tree/master/with" target="_blank" rel="external">Github</a>上面找到。  </p>
-<p>譯註：本文原文見<a href="http://blog.sdqali.in/blog/2012/07/09/understanding-pythons-with/" target="_blank" rel="external">Understanding Python’s “With” Statement</a>  </p>
-<p><a href="http://python.42qu.com/11155501" target="_blank" rel="external">Origin</a></p>
+<p>I have put the code examples given here on <a href="https://github.com/sdqali/python_dojo/tree/master/with" target="_blank" rel="noopener">Github</a>.<br>示例代碼可以在<a href="https://github.com/sdqali/python_dojo/tree/master/with" target="_blank" rel="noopener">Github</a>上面找到。  </p>
+<p>譯註：本文原文見<a href="http://blog.sdqali.in/blog/2012/07/09/understanding-pythons-with/" target="_blank" rel="noopener">Understanding Python’s “With” Statement</a>  </p>
+<p><a href="http://python.42qu.com/11155501" target="_blank" rel="noopener">Origin</a></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

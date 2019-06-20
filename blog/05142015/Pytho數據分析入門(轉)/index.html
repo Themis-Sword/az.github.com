@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="Themis_Sword's Blog">
     <meta name="author" content="Themis_Sword">
-    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="description" content="Reverence for Nature, Life and Being." />
     <meta name="keywords" content="" />
 
     <!-- Favicon, (keep icon in root folder) -->
@@ -232,7 +232,7 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>最近，<a href="http://alstatr.blogspot.com/" target="_blank" rel="external">Analysis with Programming</a>加入了<a href="http://planetpython.org/" target="_blank" rel="external">Planet Python</a>。作為該網站的首批特約博客，我這裏來分享一下如何通過Python來開始數據分析。具體內容如下：</p>
+      		<p>最近，<a href="http://alstatr.blogspot.com/" target="_blank" rel="noopener">Analysis with Programming</a>加入了<a href="http://planetpython.org/" target="_blank" rel="noopener">Planet Python</a>。作為該網站的首批特約博客，我這裏來分享一下如何通過Python來開始數據分析。具體內容如下：</p>
 <ol>
 <li>數據導入<br>** 導入本地的或者web端的CSV文件；</li>
 <li>數據變換；  </li>
@@ -449,7 +449,7 @@ def case(<span class="keyword">n</span> = 10, mu = 3, sigma = np.<span class="li
            <span class="string">"the true mean ("</span> + str(mu) + <span class="string">"), that is "</span> + str(per) + <span class="string">" percent of the total CIs"</span>
 
     <span class="keyword">return</span> {<span class="string">"Matrix"</span>: <span class="keyword">m</span>, <span class="string">"Decision"</span>: <span class="keyword">desc</span>}
-</code></pre><p>上述代碼讀起來很簡單，但是循環的時候就很慢了。下面針對上述代碼進行了改進，這多虧了 Python專家，看我上篇博文的<a href="http://alstatr.blogspot.com/2014/01/python-and-r-is-python-really-faster.html#disqus_thread" target="_blank" rel="external">15條意見</a>吧。</p>
+</code></pre><p>上述代碼讀起來很簡單，但是循環的時候就很慢了。下面針對上述代碼進行了改進，這多虧了 Python專家，看我上篇博文的<a href="http://alstatr.blogspot.com/2014/01/python-and-r-is-python-really-faster.html#disqus_thread" target="_blank" rel="noopener">15條意見</a>吧。</p>
 <pre><code><span class="keyword">import</span> numpy <span class="keyword">as</span> np
 <span class="keyword">import</span> scipy.stats <span class="keyword">as</span> ss
 
@@ -469,9 +469,9 @@ def case(<span class="keyword">n</span> = 10, mu = 3, sigma = np.<span class="li
     desc = <span class="string">"There are "</span> + str(inside) + <span class="string">" confidence intervals that contain "</span>
            <span class="string">"the true mean ("</span> + str(mu) + <span class="string">"), that is "</span> + str(per) + <span class="string">" percent of the total CIs"</span>
     <span class="keyword">return</span> {<span class="string">"Matrix"</span>: m, <span class="string">"Decision"</span>: desc}
-</code></pre><h3 id="更新">更新</h3><p>那些對於本文ipython notebook版本感興趣的，請點擊<a href="http://nuttenscl.be/Python_Getting_Started_with_Data_Analysis.html" target="_blank" rel="external">這裏</a>。這篇文章由<a href="https://twitter.com/NuttensC" target="_blank" rel="external">Nuttens Claude</a>負責轉換成 ipython notebook 。</p>
-<p>關於作者: <a href="http://python.jobbole.com/author/dengcy/" target="_blank" rel="external">Den</a></p>
-<p><a href="http://alstatr.blogspot.ca/2015/02/python-getting-started-with-data.html" target="_blank" rel="external">Origin</a><br><a href="http://python.jobbole.com/81133/" target="_blank" rel="external">中文譯文</a></p>
+</code></pre><h3 id="更新">更新</h3><p>那些對於本文ipython notebook版本感興趣的，請點擊<a href="http://nuttenscl.be/Python_Getting_Started_with_Data_Analysis.html" target="_blank" rel="noopener">這裏</a>。這篇文章由<a href="https://twitter.com/NuttensC" target="_blank" rel="noopener">Nuttens Claude</a>負責轉換成 ipython notebook 。</p>
+<p>關於作者: <a href="http://python.jobbole.com/author/dengcy/" target="_blank" rel="noopener">Den</a></p>
+<p><a href="http://alstatr.blogspot.ca/2015/02/python-getting-started-with-data.html" target="_blank" rel="noopener">Origin</a><br><a href="http://python.jobbole.com/81133/" target="_blank" rel="noopener">中文譯文</a></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

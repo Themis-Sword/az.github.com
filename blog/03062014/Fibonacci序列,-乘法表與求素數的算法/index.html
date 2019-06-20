@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="Themis_Sword's Blog">
     <meta name="author" content="Themis_Sword">
-    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="description" content="Reverence for Nature, Life and Being." />
     <meta name="keywords" content="" />
 
     <!-- Favicon, (keep icon in root folder) -->
@@ -246,7 +246,7 @@
         <span class="keyword">if</span> n==<span class="number">0</span> : <span class="keyword">return</span> x
         <span class="keyword">else</span> : <span class="keyword">return</span> fib_iter(n-<span class="number">1</span>,y,x+y)
     <span class="keyword">return</span> fib_iter(n,<span class="number">0</span>,<span class="number">1</span>)
-</code></pre><p><a href="http://www.cnblogs.com/figure9/archive/2010/08/30/1812927.html" target="_blank" rel="external">Origin</a><a id="more"></a>  </p>
+</code></pre><p><a href="http://www.cnblogs.com/figure9/archive/2010/08/30/1812927.html" target="_blank" rel="noopener">Origin</a><a id="more"></a>  </p>
 <p>4-1) yield生成器(尾數不大於1000的序列):  </p>
 <pre><code>def <span class="function"><span class="title">fibonacci</span><span class="params">()</span></span>:
 <span class="tag">a</span>, <span class="tag">b</span> = <span class="number">0</span>, <span class="number">1</span>
@@ -316,7 +316,7 @@ i = <span class="number">2</span>
         <span class="keyword">return</span> <span class="keyword">False</span> 
     i += <span class="number">1</span> 
 <span class="keyword">return</span> <span class="keyword">True</span> 
-</code></pre><h3 id="4-_從Python求素數到list與dict的比較(轉)">4. 從Python求素數到list與dict的比較(轉)</h3><p><strong>原理:</strong><br>素數，指在一個大於1的自然數中，除了1和此整數自身外，不能被其他自然數整除的數。在加密應用中起重要的位置，比如廣為人知的RSA算法中，就是基於大整數的因式分解難題，尋找兩個超大的素數然後相乘作為密鑰的。一個比較常見的求素數的辦法是<a href="http://zh.wikipedia.org/wiki/%E5%9F%83%E6%8B%89%E6%89%98%E6%96%AF%E7%89%B9%E5%B0%BC%E7%AD%9B%E6%B3%95" target="_blank" rel="external">埃拉托斯特尼篩法(the Sieve of Eratosthenes)</a>，說簡單一點就是畫表格，然後刪表格，如圖所示：<br><img src="/images/sieve.gif"><br>從2開始依次往後面數，如果當前數字一個素數，那麽就將所有其倍數的數從表中刪除或者標記，然後最終得到所有的素數。  </p>
+</code></pre><h3 id="4-_從Python求素數到list與dict的比較(轉)">4. 從Python求素數到list與dict的比較(轉)</h3><p><strong>原理:</strong><br>素數，指在一個大於1的自然數中，除了1和此整數自身外，不能被其他自然數整除的數。在加密應用中起重要的位置，比如廣為人知的RSA算法中，就是基於大整數的因式分解難題，尋找兩個超大的素數然後相乘作為密鑰的。一個比較常見的求素數的辦法是<a href="http://zh.wikipedia.org/wiki/%E5%9F%83%E6%8B%89%E6%89%98%E6%96%AF%E7%89%B9%E5%B0%BC%E7%AD%9B%E6%B3%95" target="_blank" rel="noopener">埃拉托斯特尼篩法(the Sieve of Eratosthenes)</a>，說簡單一點就是畫表格，然後刪表格，如圖所示：<br><img src="/images/sieve.gif"><br>從2開始依次往後面數，如果當前數字一個素數，那麽就將所有其倍數的數從表中刪除或者標記，然後最終得到所有的素數。  </p>
 <p><strong>實現:</strong><br>01)<br>首先用dic存儲n範圍內的元素，然後依次標記，最後從頭掃描一次dic，把合適的元素放在list中返回結果  </p>
 <pre><code><span class="function"><span class="keyword">def</span> <span class="title">prime</span><span class="params">(n)</span>:</span>
 lis = {}
@@ -392,7 +392,7 @@ removeDic(dicc,test)
 <span class="number">2.117143183</span>96
 <span class="number">0.00037469</span><span class="number">2766596</span>
 </code></pre><p>可以看出，在查找方面list是遠遠不如dict的，說明list不應該是哈希查找，而remove的時間也遠遠大於哈希的賦值時間。<br>不過由此判斷第二種方法是一無是處的話未免言之過早了。因為第二種方法裏面的實現是先申請了一段空間，然後再運算，而實現一的空間是動態增長的(在給哈希表賦值的那邊體現)，所以如果漲到一半發現內存不夠用的話就會報錯（測試1億數據的時候就出現了這個問題），而實現二一開始就會報錯，而不用做前面的一系列無用功。<br>總之就是空間換時間，時間換空間的那些戲碼。不過挺有意思。  </p>
-<p><a href="http://www.cnblogs.com/liga/archive/2012/08/31/2665811.html" target="_blank" rel="external">Origin</a></p>
+<p><a href="http://www.cnblogs.com/liga/archive/2012/08/31/2665811.html" target="_blank" rel="noopener">Origin</a></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

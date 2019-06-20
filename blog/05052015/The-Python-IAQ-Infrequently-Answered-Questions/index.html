@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="Themis_Sword's Blog">
     <meta name="author" content="Themis_Sword">
-    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="description" content="Reverence for Nature, Life and Being." />
     <meta name="keywords" content="" />
 
     <!-- Favicon, (keep icon in root folder) -->
@@ -232,7 +232,7 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h3 id="1_Q:_什麽是”少有回答的問題(Infrequently_Answered_Question)”_?">1 Q: 什麽是”少有回答的問題(Infrequently Answered Question)” ?</h3><p>一個問題之所以很少有人回答，要麽是因為很少有人知道問題的答案，要麽是因為它涉及到一個晦澀而隱蔽的知識點(但可能是你關心的)。我過去認為是我在<a href="http://www.norvig.com/java-iaq.html" target="_blank" rel="external">Java IAQ</a>中發明了這個詞組，但是它也出現在了以資料豐富而著稱的<a href="http://urbanlegends.about.com/library/weekly/aa082497.htm" target="_blank" rel="external">About.com Urban Legends</a>網站上. 關於Python的FAQ有很多,但是Python的IAQ只有這一個。(“少見問題列表”倒是有一些，其中一個是有諷刺意味的<a href="http://www.plethora.net/%7Eseebs/faqs/c-iaq.html" target="_blank" rel="external">C</a>。)<a id="more"></a></p>
+      		<h3 id="1_Q:_什麽是”少有回答的問題(Infrequently_Answered_Question)”_?">1 Q: 什麽是”少有回答的問題(Infrequently Answered Question)” ?</h3><p>一個問題之所以很少有人回答，要麽是因為很少有人知道問題的答案，要麽是因為它涉及到一個晦澀而隱蔽的知識點(但可能是你關心的)。我過去認為是我在<a href="http://www.norvig.com/java-iaq.html" target="_blank" rel="noopener">Java IAQ</a>中發明了這個詞組，但是它也出現在了以資料豐富而著稱的<a href="http://urbanlegends.about.com/library/weekly/aa082497.htm" target="_blank" rel="noopener">About.com Urban Legends</a>網站上. 關於Python的FAQ有很多,但是Python的IAQ只有這一個。(“少見問題列表”倒是有一些，其中一個是有諷刺意味的<a href="http://www.plethora.net/%7Eseebs/faqs/c-iaq.html" target="_blank" rel="noopener">C</a>。)<a id="more"></a></p>
 <h3 id="2_Q:_finally子句中的代碼每次都會被執行,對嗎?">2 Q: finally子句中的代碼每次都會被執行,對嗎?</h3><p>每次?應該說，幾乎每次。在try子句被執行後，無論是否出現異常，finally子句中的代碼都會被執行，即使調用了sys.exit. 不過如果程序沒有執行到finally子句的話，它就沒有辦法運行了。下面的代碼中，無論choice取何值，都會發生這樣的情況:</p>
 <pre><code><span class="keyword">try</span>:
     <span class="keyword">if</span> choice:
@@ -417,7 +417,7 @@ NotImplementedError: method1 must be implemented <span class="keyword">in</span>
 </code></pre><p>現在Colors.red會得到0, 並且dir(Colors)可能也能派上用場(雖然你還需要忽略__doc__和__module__兩項). 如果你想完全控制每個枚舉變量的值, 可以使用好幾個問題以前的Struct函數, 就像下面:</p>
 <pre><code>Enum = Struct
 Colors = Enum(red=<span class="number">0</span>, green=<span class="number">100</span>, blue=<span class="number">200</span>)
-</code></pre><p>盡管這些簡單的辦法通常已經夠了，可有人還想要更多。在 <a href="http://www.python.org/doc/essays/metaclasses/Enum.py" target="_blank" rel="external">python.org</a>，<a href="http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/67107" target="_blank" rel="external">ASPN</a>和<a href="http://www.faqts.com/knowledge_base/view.phtml/aid/4415" target="_blank" rel="external">faqts</a>上都有枚舉類型的實現。下面是我的版本，它(幾乎)涵蓋所有人的需要，並且仍然保持合理的簡潔(一共44行，其中有22行代碼):</p>
+</code></pre><p>盡管這些簡單的辦法通常已經夠了，可有人還想要更多。在 <a href="http://www.python.org/doc/essays/metaclasses/Enum.py" target="_blank" rel="noopener">python.org</a>，<a href="http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/67107" target="_blank" rel="noopener">ASPN</a>和<a href="http://www.faqts.com/knowledge_base/view.phtml/aid/4415" target="_blank" rel="noopener">faqts</a>上都有枚舉類型的實現。下面是我的版本，它(幾乎)涵蓋所有人的需要，並且仍然保持合理的簡潔(一共44行，其中有22行代碼):</p>
 <pre><code><span class="class"><span class="keyword">class</span> <span class="title">Enum</span>:</span>
 
     <span class="string">"""創建一個可的枚舉類型, 然後給他添加變量/值對. 構造函數
@@ -471,8 +471,8 @@ Colors = Enum(red=<span class="number">0</span>, green=<span class="number">100<
 <span class="prompt">&gt;&gt;</span>&gt; vars(opcodes).values()
   [<span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">2</span>]
 </code></pre><p>註意這些方法都是層疊(cascaded)的，在構造函數後你可以把.strs， .ints和.vals組合在一行代碼中。還要註意的dir和vals輔助使用，它們不會被任何東西幹擾, 除了你定義的變量。為了遍歷所有的枚舉值，你可以使用for x in vars(opcodes).values()。還有就是，如果你願意，可以使用非整數值來賦給枚舉變量。使用.strs和.vals方法就行了。最後，註意重復變量名和值都是一種錯誤。有時你可能想有一個重復的值(比如為了創建別名)。你可以刪掉拋出ValueError的那行，或者像這樣用:vars(opcodes)[‘first_op’] = 0。這裏我最不喜歡的是很有可能把vals和value搞混。也許我可以給vals想一個更好的名字。</p>
-<h3 id="15_Q:_為什麽Python中沒有”集合(Set)”類型?">15 Q: 為什麽Python中沒有”集合(Set)”類型?</h3><p>當這個問題第一個發布在這裏的時候還沒有, 程序員們通常用字典來代替它. 但是在Python 2.4中有一個很好的內建<a href="http://docs.python.org/lib/types-set.html" target="_blank" rel="external">set類型</a>。</p>
-<h3 id="16_Q:_我能用布爾類型嗎?">16 Q: 我能用布爾類型嗎?</h3><p>當這個問題第一次發布在這裏時，Python中還沒有布爾類型。現在嘛，Python 2.3以後都內建有一個<a href="http://docs.python.org/lib/node31.html" target="_blank" rel="external">bool類型</a>。</p>
+<h3 id="15_Q:_為什麽Python中沒有”集合(Set)”類型?">15 Q: 為什麽Python中沒有”集合(Set)”類型?</h3><p>當這個問題第一個發布在這裏的時候還沒有, 程序員們通常用字典來代替它. 但是在Python 2.4中有一個很好的內建<a href="http://docs.python.org/lib/types-set.html" target="_blank" rel="noopener">set類型</a>。</p>
+<h3 id="16_Q:_我能用布爾類型嗎?">16 Q: 我能用布爾類型嗎?</h3><p>當這個問題第一次發布在這裏時，Python中還沒有布爾類型。現在嘛，Python 2.3以後都內建有一個<a href="http://docs.python.org/lib/node31.html" target="_blank" rel="noopener">bool類型</a>。</p>
 <h3 id="17_Q:_Python中有能與(test?result:alternative)等價的操作嗎?">17 Q: Python中有能與(test?result:alternative)等價的操作嗎?</h3><p>Java和C++都有三目運算符(test?result:alternative)。Python一直拒絕它，但在將來的Python 2.5中，將允許(result if test else alternative)形式的表達式。這樣的結果是破壞了Python中表達式和語句清楚的區別，不過它是對許多人要求的妥協。</p>
 <p>在Python 2.5到來前，你怎麽辦?這裏有幾個選擇:</p>
 <ol>
@@ -496,7 +496,7 @@ Colors = Enum(red=<span class="number">0</span>, green=<span class="number">100<
 &gt;&gt;&gt; fact = lambda n: if_(n &lt;= <span class="number">1</span>, <span class="number">1</span>, lambda: n *     fact(n-<span class="number">1</span>))
 &gt;&gt;&gt; fact(<span class="number">6</span>)
 <span class="number">720</span>
-</code></pre><ol>
+</code></pre><ol start="7">
 <li>現在假定你因為某種原因, 與”if(test, …”的語法相比, 就是更喜歡”if(test) …”(並且, 你從來不想擺脫alternative那個部分). 你可以試試這個:</li>
 </ol>
 <hr>
@@ -512,7 +512,7 @@ Colors = Enum(red=<span class="number">0</span>, green=<span class="number">100<
 <span class="prompt">&gt;&gt;&gt; </span>fact(<span class="number">100</span>)
 <span class="number">93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000L</span>
 </code></pre><p>If u cn rd ths, u cn gt a jb in fncnl prg (if thr wr any)。(這個就不翻了吧:) ) </p>
-<h3 id="18_Q:_還有其他主要類型是Python缺少的嗎?">18 Q: 還有其他主要類型是Python缺少的嗎?</h3><p>關於Python，有一件很爽的事情就是你可以使用數字，字符串，列表，和字典(現在還有集合和布爾)就能走很遠。但是還有幾個主要類型是缺少的. 對我來說，最重要的是一個可變的字符串。一次又一次的使用str ＋＝ x 是很慢的，而維護字符組成的列表(或者子字符串的列表)意味著你放棄了一些很棒的字符串函數。一個可能的解決是array.array(‘c’)。另一個是UserString.MutableString，盡管它本來的目的是用於教學而不是實踐。第三個是mmap模塊, 第四是cStringIO. 這些方法都不完美，不過加在一起也提供了足夠的選擇。最後，我發現我經常需要一個某種順序的隊列。標準庫中有一個<a href="http://www.python.org/doc/current/lib/module-Queue.html" target="_blank" rel="external">Queue module</a>，但它是專用於線程的隊列。因為這裏有太多選項了，所以我就不為了實現一個標準隊列的去遊說了。不過呢，我將提供我實現的幾種隊列，FIFO，LIFO和優先隊列:</p>
+<h3 id="18_Q:_還有其他主要類型是Python缺少的嗎?">18 Q: 還有其他主要類型是Python缺少的嗎?</h3><p>關於Python，有一件很爽的事情就是你可以使用數字，字符串，列表，和字典(現在還有集合和布爾)就能走很遠。但是還有幾個主要類型是缺少的. 對我來說，最重要的是一個可變的字符串。一次又一次的使用str ＋＝ x 是很慢的，而維護字符組成的列表(或者子字符串的列表)意味著你放棄了一些很棒的字符串函數。一個可能的解決是array.array(‘c’)。另一個是UserString.MutableString，盡管它本來的目的是用於教學而不是實踐。第三個是mmap模塊, 第四是cStringIO. 這些方法都不完美，不過加在一起也提供了足夠的選擇。最後，我發現我經常需要一個某種順序的隊列。標準庫中有一個<a href="http://www.python.org/doc/current/lib/module-Queue.html" target="_blank" rel="noopener">Queue module</a>，但它是專用於線程的隊列。因為這裏有太多選項了，所以我就不為了實現一個標準隊列的去遊說了。不過呢，我將提供我實現的幾種隊列，FIFO，LIFO和優先隊列:</p>
 <pre><code><span class="string">"""
 This module provides three types of queues, with these constructors:
   Stack([items])  -- Create a Last In First Out queue, implemented as a list
@@ -726,7 +726,7 @@ h = [<span class="keyword">None</span>]
 <span class="keyword">else</span>:
     sys.ps1 = Prompt()
 sys.ps2 = <span class="string">''</span>
-</code></pre><p><a href="mailto: peter@norvig.com" target="_blank" rel="external">Peter Norvig</a><br><a href="http://norvig.com/python-iaq.html" target="_blank" rel="external">Origin</a><br><a href="http://pythonic.zoomquiet.io/data/20071017193806/index.html#11" target="_blank" rel="external">中文翻譯</a></p>
+</code></pre><p><a href="mailto: peter@norvig.com" target="_blank" rel="noopener">Peter Norvig</a><br><a href="http://norvig.com/python-iaq.html" target="_blank" rel="noopener">Origin</a><br><a href="http://pythonic.zoomquiet.io/data/20071017193806/index.html#11" target="_blank" rel="noopener">中文翻譯</a></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="Themis_Sword's Blog">
     <meta name="author" content="Themis_Sword">
-    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="description" content="Reverence for Nature, Life and Being." />
     <meta name="keywords" content="" />
 
     <!-- Favicon, (keep icon in root folder) -->
@@ -233,13 +233,13 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
       		<p>在聽到人們談論機器學習的時候，你是不是對它的涵義只有幾個模糊的認識呢？你是不是已經厭倦了在和同事交談時只能一直點頭？讓我們改變一下吧！</p>
-<p>本指南的讀者對象是所有對機器學習有求知欲但卻不知道如何開頭的朋友。我猜很多人已經讀過了“機器學習”的<a href="http://en.wikipedia.org/wiki/Machine_learning" target="_blank" rel="external">維基百科詞條</a>，倍感挫折，以為沒人能給出一個高層次的解釋。本文就是你們想要的東西。</p>
+<p>本指南的讀者對象是所有對機器學習有求知欲但卻不知道如何開頭的朋友。我猜很多人已經讀過了“機器學習”的<a href="http://en.wikipedia.org/wiki/Machine_learning" target="_blank" rel="noopener">維基百科詞條</a>，倍感挫折，以為沒人能給出一個高層次的解釋。本文就是你們想要的東西。</p>
 <p>本文目標在於平易近人，這意味著文中有大量的概括。但是誰在乎這些呢？只要能讓讀者對於ML更感興趣，任務也就完成了。<a id="more"></a></p>
 <h3 id="何為機器學習？">何為機器學習？</h3><p>機器學習這個概念認為，對於待解問題，你無需編寫任何專門的程序代碼，遺傳算法（Generic Algorithms）能夠在數據集上為你得出有趣的答案。對於遺傳算法，不用編碼，而是將數據輸入，它將在數據之上建立起它自己的邏輯。</p>
 <p>舉個例子，有一類算法稱為分類算法，它可以將數據劃分為不同的組別。一個用來識別手寫數字的分類算法，不用修改一行代碼，就可以用來將電子郵件分為垃圾郵件和普通郵件。算法沒變，但是輸入的訓練數據變了，因此它得出了不同的分類邏輯。<br><img src="/images/mlf/m1.png">  </p>
 <p>######<em>機器學習算法是個黑盒，可以重用來解決很多不同的分類問題。</em></p>
 <p>“機器學習”是一個涵蓋性術語，覆蓋了大量類似的遺傳算法。</p>
-<h3 id="兩類機器學習算法">兩類機器學習算法</h3><p>你可以認為機器學習算法分為兩大類：<strong>監督式學習（Supervised Learning）</strong>和<strong>非監督式學習（Unsupervised Learning）</strong>。兩者區別很簡單，但卻非常重要。<em>(還有第三種學習方式——增強學習(<a href="https://class.coursera.org/neuralnets-2012-001/lecture" target="_blank" rel="external">Reinforcement Learning</a>)：學習選擇行為來最大化效益。輸出是一個行為或一系列行為，唯一的監督信號是偶爾的有監督的獎勵，目標是選擇行為最大化未來的獎勵，通常使用一個折現因子，因此不用考慮太遠的未來。增強學習是困難的，因為獎勵是延時的，所以很難確定我們哪一步做對做錯，而且有監督的獎勵只是時而出現，並不提供太多信息，所以不能學習很多參數。–Themis_Sword注)</em></p>
+<h3 id="兩類機器學習算法">兩類機器學習算法</h3><p>你可以認為機器學習算法分為兩大類：<strong>監督式學習（Supervised Learning）</strong>和<strong>非監督式學習（Unsupervised Learning）</strong>。兩者區別很簡單，但卻非常重要。<em>(還有第三種學習方式——增強學習(<a href="https://class.coursera.org/neuralnets-2012-001/lecture" target="_blank" rel="noopener">Reinforcement Learning</a>)：學習選擇行為來最大化效益。輸出是一個行為或一系列行為，唯一的監督信號是偶爾的有監督的獎勵，目標是選擇行為最大化未來的獎勵，通常使用一個折現因子，因此不用考慮太遠的未來。增強學習是困難的，因為獎勵是延時的，所以很難確定我們哪一步做對做錯，而且有監督的獎勵只是時而出現，並不提供太多信息，所以不能學習很多參數。–Themis_Sword注)</em></p>
 <h4 id="監督式學習">監督式學習</h4><p>假設你是一名房產經紀，生意越做越大，因此你雇了一批實習生來幫你。但是問題來了——你可以看一眼房子就知道它到底值多少錢，實習生沒有經驗，不知道如何估價。</p>
 <p>為了幫助你的實習生（也許是為了解放你自己去度個假），你決定寫個小軟件，可以根據房屋大小、地段以及類似房屋的成交價等因素來評估你所在地區房屋的價值。</p>
 <p>你把3個月來城裏每筆房屋交易都寫了下來，每一單你都記錄了一長串的細節——臥室數量、房屋大小、地段等等。但最重要的是，你寫下了最終的成交價：</p>
@@ -342,7 +342,7 @@ price = price + (num_of_bedrooms * <span class="number">1000</span>)
 <p>2.你最後寫出的函數真是笨，它甚至不知道什麽是“面積”和“臥室數”。它知道的只是攪動，改變數字來得到正確的答案。</p>
 <p>3.很可能你都不知道為何一組特殊的權重值能起效。所以你只是寫出了一個你實際上並不理解卻能證明的函數。<br>4.試想一下，你的程序裏沒有類似“面積”和“臥室數”這樣的參數，而是接受了一組數字。假設每個數字代表了你車頂安裝的攝像頭捕捉的畫面中的一個像素，再將預測的輸出不稱為“價格”而是叫做“方向盤轉動度數”，<strong>這樣你就得到了一個程序可以自動操縱你的汽車了！</strong></p>
 <p>太瘋狂了，對吧？</p>
-<h3 id="步驟3中的“嘗試每個數字”怎麽回事？">步驟3中的“嘗試每個數字”怎麽回事？</h3><p>好吧，當然你不可能嘗試所有可能的權重值來找到效果最好的組合。那可真要花很長時間，因為要嘗試的數字可能無窮無盡。<br>為避免這種情況，數學家們找到了很多<a href="http://en.wikipedia.org/wiki/Gradient_descent" target="_blank" rel="external">聰明的辦法</a>來快速找到優秀的權重值，而不需要嘗試過多。下面是其中一種：<br>首先，寫出一個簡單的等式表示前述步驟2：</p>
+<h3 id="步驟3中的“嘗試每個數字”怎麽回事？">步驟3中的“嘗試每個數字”怎麽回事？</h3><p>好吧，當然你不可能嘗試所有可能的權重值來找到效果最好的組合。那可真要花很長時間，因為要嘗試的數字可能無窮無盡。<br>為避免這種情況，數學家們找到了很多<a href="http://en.wikipedia.org/wiki/Gradient_descent" target="_blank" rel="noopener">聰明的辦法</a>來快速找到優秀的權重值，而不需要嘗試過多。下面是其中一種：<br>首先，寫出一個簡單的等式表示前述步驟2：</p>
 <h6 id="這是你的代價函數。"><em>這是你的代價函數。</em></h6><img src="/images/mlf/m7.png">
 <p>接著，讓我們將這同一個等式用機器學習的數學術語（現在你可以忽略它們）進行重寫：</p>
 <h6 id="θ表示當前的權重值。_J(θ)_意為“當前權重值對應的代價”。"><em>θ表示當前的權重值。 J(θ) 意為“當前權重值對應的代價”。</em></h6><img src="/images/mlf/m8.png">
@@ -352,7 +352,7 @@ price = price + (num_of_bedrooms * <span class="number">1000</span>)
 <p>因此，我們只需要調整權重值使我們在圖上能向著最低點“走下坡路”。如果對於權重的細小調節能一直使我們保持向最低點移動，那麽最終我們不用嘗試太多權重值就能到達那裏。</p>
 <p>如果你還記得一點微積分的話，你也許記得如果你對一個函數求導，結果會告訴你函數在任一點的斜率。換句話說，對於圖上給定一點，它告訴我們那條路是下坡路。我們可以利用這一點朝底部進發。</p>
 <p>所以，如果我們對代價函數關於每一個權重求偏導，那麽我們就可以從每一個權重中減去該值。這樣可以讓我們更加接近山底。一直這樣做，最終我們將到達底部，得到權重的最優值。（讀不懂？不用擔心，接著往下讀）。</p>
-<p>這種找出最佳權重的辦法被稱為<strong>批量梯度下降</strong>，上面是對它的高度概括。如果想搞懂細節，不要害怕，繼續<a href="https://hbfs.wordpress.com/2012/04/24/introduction-to-gradient-descent/" target="_blank" rel="external">深入下去</a>吧。</p>
+<p>這種找出最佳權重的辦法被稱為<strong>批量梯度下降</strong>，上面是對它的高度概括。如果想搞懂細節，不要害怕，繼續<a href="https://hbfs.wordpress.com/2012/04/24/introduction-to-gradient-descent/" target="_blank" rel="noopener">深入下去</a>吧。</p>
 <p>當你使用機器學習算法庫來解決實際問題，所有這些都已經為你準備好了。但明白一些具體細節總是有用的。 </p>
 <h3 id="還有什麽你隨便就略過了？">還有什麽你隨便就略過了？</h3><p>上面我描述的三步算法被稱為<strong>多元線性回歸</strong>。你估算等式是在求一條能夠擬合所有房價數據點的直線。然後，你再根據房價在你的直線上可能出現的位置用這個等式來估算從未見過的房屋的價格。這個想法威力強大，可以用它來解決“實際”問題。</p>
 <p>但是，我為你展示的這種方法可能在簡單的情況下有效，它不會在所有情況下都有用。原因之一是因為房價不會一直那麽簡單地跟隨一條連續直線。</p>
@@ -363,11 +363,11 @@ price = price + (num_of_bedrooms * <span class="number">1000</span>)
 <p>但是很重要的一點你要記住，機器學習只能對用你占有的數據實際可解的問題才適用。</p>
 <p>例如，如果你建立了一個模型來根據每套房屋內盆栽數量來預測房價，它就永遠不會成功。房屋內盆栽數量和房價之間沒有任何的關系。所以，無論它怎麽去嘗試，計算機也推導不出兩者之間的關系。<br><img src="/images/mlf/m11.png">  </p>
 <h6 id="你只能對實際存在的關系建模。"><em>你只能對實際存在的關系建模。</em></h6><h3 id="怎樣深入學習機器學習">怎樣深入學習機器學習</h3><p>我認為，當前機器學習的最大問題是它主要活躍於學術界和商業研究組織中。對於圈外想要有個大體了解而不是想成為專家的人們，簡單易懂的學習資料不多。但是這一情況每一天都在改善。</p>
-<p>吳恩達教授（Andrew Ng）在Coursera上的<a href="https://www.coursera.org/course/ml" target="_blank" rel="external">機器學習免費課程</a>非常不錯。我強烈建議由此入門。任何擁有計算機科學學位、還能記住一點點數學的人應該都能理解。</p>
-<p>另外，你還可以下載安裝<a href="http://scikit-learn.org/stable/" target="_blank" rel="external">SciKit-Learn</a>，用它來試驗成千上萬的機器學習算法。它是一個python框架，對於所有的標準算法都有“黑盒”版本。</p>
+<p>吳恩達教授（Andrew Ng）在Coursera上的<a href="https://www.coursera.org/course/ml" target="_blank" rel="noopener">機器學習免費課程</a>非常不錯。我強烈建議由此入門。任何擁有計算機科學學位、還能記住一點點數學的人應該都能理解。</p>
+<p>另外，你還可以下載安裝<a href="http://scikit-learn.org/stable/" target="_blank" rel="noopener">SciKit-Learn</a>，用它來試驗成千上萬的機器學習算法。它是一個python框架，對於所有的標準算法都有“黑盒”版本。</p>
 <ol>
-<li><a href="https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471" target="_blank" rel="external">Origin</a></li>
-<li><a href="https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471" target="_blank" rel="external">中文翻譯</a></li>
+<li><a href="https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471" target="_blank" rel="noopener">Origin</a></li>
+<li><a href="https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471" target="_blank" rel="noopener">中文翻譯</a></li>
 </ol>
 
             <div class="clearfix"></div>

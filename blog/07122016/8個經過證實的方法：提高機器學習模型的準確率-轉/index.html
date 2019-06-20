@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="Themis_Sword's Blog">
     <meta name="author" content="Themis_Sword">
-    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="description" content="Reverence for Nature, Life and Being." />
     <meta name="keywords" content="" />
 
     <!-- Favicon, (keep icon in root folder) -->
@@ -234,13 +234,13 @@
         <div class="col-md-8 col-md-offset-2">
       		<img src="/images/8proven/8proven1.jpg">  
 <h4 id="摘要：本文分享了_8_個經過證實的方法。這些方法用來改善模型的預測表現。它們廣為人知，但不一定要按照文中的順序逐個使用。">摘要：本文分享了 8 個經過證實的方法。這些方法用來改善模型的預測表現。它們廣為人知，但不一定要按照文中的順序逐個使用。</h4><hr>
-<h2 id="導語：">導語：</h2><p>提升一個<a href="http://www.analyticsvidhya.com/blog/2015/01/model-performance-metrics-classification/" target="_blank" rel="external">模型的表現</a>有時很困難。如果你們曾經糾結於相似的問題，那我相信你們中很多人會同意我的看法。你會嘗試所有曾學習過的策略和算法，但模型正確率並沒有改善。你會覺得無助和困頓，這是90%的數據科學家開始放棄的時候。<a id="more"></a></p>
+<h2 id="導語：">導語：</h2><p>提升一個<a href="http://www.analyticsvidhya.com/blog/2015/01/model-performance-metrics-classification/" target="_blank" rel="noopener">模型的表現</a>有時很困難。如果你們曾經糾結於相似的問題，那我相信你們中很多人會同意我的看法。你會嘗試所有曾學習過的策略和算法，但模型正確率並沒有改善。你會覺得無助和困頓，這是90%的數據科學家開始放棄的時候。<a id="more"></a></p>
 <p>不過，這才是考驗真本領的時候！這也是普通的數據科學家跟大師級數據科學家的差距所在。你是否曾經夢想過成為大師級的數據科學家呢？</p>
 <p>如果是的話，你需要這 8 個經過證實的方法來重構你的模型。建立預測模型的方法不止一種。這裏沒有金科玉律。但是，如果你遵循我的方法（見下文），（在提供的數據足以用來做預測的前提下）你的模型會擁有較高的準確率。</p>
 <p>我從實踐中學習了到這些方法。相對於理論，我一向更熱衷於實踐。這種學習方式也一直在激勵我。本文將分享 8 個經過證實的方法，使用這些方法可以建立穩健的機器學習模型。希望我的知識可以幫助大家獲得更高的職業成就。  </p>
 <hr>
 <h2 id="正文：">正文：</h2><p>模型的開發周期有多個不同的階段，從數據收集開始直到模型建立。</p>
-<p>不過，在通過探索數據來理解（變量的）關系之前，建議進行假設生成（<strong>hypothesis generation</strong>）步驟（如果想了解更多有關假設生成的內容，推薦閱讀（<a href="http://discuss.analyticsvidhya.com/t/why-and-when-is-hypothesis-generation-important/2109/2" target="_blank" rel="external">Why and When is Hypothesis Generation Important</a>）。我認為，這是預測建模過程中最被低估的一個步驟。</p>
+<p>不過，在通過探索數據來理解（變量的）關系之前，建議進行假設生成（<strong>hypothesis generation</strong>）步驟（如果想了解更多有關假設生成的內容，推薦閱讀（<a href="http://discuss.analyticsvidhya.com/t/why-and-when-is-hypothesis-generation-important/2109/2" target="_blank" rel="noopener">Why and When is Hypothesis Generation Important</a>）。我認為，這是預測建模過程中最被低估的一個步驟。</p>
 <p>花時間思考要回答的問題以及獲取領域知識也很重要。這有什麽幫助呢？它會幫助你隨後建立更好的特征集，不被當前的數據集誤導。這是改善模型正確率的一個重要環節。</p>
 <p>在這個階段，你應該對問題進行結構化思考，即進行一個把此問題相關的所有可能的方面納入考慮範圍的思考過程。</p>
 <p>現在讓我們挖掘得更深入一些。讓我們看看這些已被證實的，用於改善模型準確率的方法。</p>
@@ -250,8 +250,8 @@
 <p>仔細看下面一幅截圖。在存在缺失值的情況下，男性和女性玩板球的概率相同。但如果看第二張表（缺失值根據稱呼“Miss”被填補以後），相對於男性，女性玩板球的概率更高。<br><img src="/images/8proven/8proven2.png">  </p>
 <p>左側：缺失值處理前；右側：缺失值處理後</p>
 <p>從上面的例子中，我們可以看出缺失值對於模型準確率的不利影響。所幸，我們有各種方法可以應對缺失值和異常值：</p>
-<p><strong>1.缺失值</strong>：對於連續變量，可以把缺失值替換成平均值、中位數、眾數。對於分類變量，可以把變量作為一個特殊類別看待。你也可以建立模型預測缺失值。KNN為處理缺失值提供了很好的方法。想了解更多這方面內容，推薦閱讀<a href="http://www.analyticsvidhya.com/blog/2015/02/7-steps-data-exploration-preparation-building-model-part-2/" target="_blank" rel="external">《Methods to Deal and Treat Missing Values》</a>。</p>
-<p><strong>2.異常值</strong>：你可以刪除這些條目，進行轉換，分箱。如同缺失值，你也可以對異常值進行區別對待。想了解更多這方面內容，推薦閱讀<a href="http://www.analyticsvidhya.com/blog/2015/02/outliers-detection-treatment-dataset/" target="_blank" rel="external">《How to Detect Outliers in Your Dataset and Treat Them?》</a>。</p>
+<p><strong>1.缺失值</strong>：對於連續變量，可以把缺失值替換成平均值、中位數、眾數。對於分類變量，可以把變量作為一個特殊類別看待。你也可以建立模型預測缺失值。KNN為處理缺失值提供了很好的方法。想了解更多這方面內容，推薦閱讀<a href="http://www.analyticsvidhya.com/blog/2015/02/7-steps-data-exploration-preparation-building-model-part-2/" target="_blank" rel="noopener">《Methods to Deal and Treat Missing Values》</a>。</p>
+<p><strong>2.異常值</strong>：你可以刪除這些條目，進行轉換，分箱。如同缺失值，你也可以對異常值進行區別對待。想了解更多這方面內容，推薦閱讀<a href="http://www.analyticsvidhya.com/blog/2015/02/outliers-detection-treatment-dataset/" target="_blank" rel="noopener">《How to Detect Outliers in Your Dataset and Treat Them?》</a>。</p>
 <h3 id="3-特征工程學（Feature_Engineering）">3.特征工程學（Feature Engineering）</h3><p>這一步驟有助於從現有數據中提取更多信息。新信息作為新特征被提取出來。這些特征可能會更好地解釋訓練集中的差異變化。因此能改善模型的準確率。</p>
 <p>假設生成對特征工程影響很大。好的假設能帶來更好的特征集。這也是我一直建議在假設生成上花時間的原因。特征工程能被分為兩個步驟：</p>
 <p><strong>特征轉換</strong>：許多場景需要進行特征轉換：</p>
@@ -272,23 +272,23 @@
 <p>來源：Scikit-Learn算法選擇圖</p>
 <h3 id="6-算法的調整">6.算法的調整</h3><p>我們都知道機器學習算法是由參數驅動的。這些參數對學習的結果有明顯影響。參數調整的目的是為每個參數尋找最優值，以改善模型正確率。要調整這些參數，你必須對它們的意義和各自的影響有所了解。你可以在一些表現良好的模型上重復這個過程。</p>
 <p>例如，在隨機森林中，我們有 max_features,number_trees, random_state, oob_score 以及其他參數。優化這些參數值會帶來更好更準確的模型。</p>
-<p>想要詳細了解調整參數帶來的影響，可以查閱<a href="http://www.analyticsvidhya.com/blog/2015/06/tuning-random-forest-model/" target="_blank" rel="external">《Tuning the Parameters of Your Random Forest Model》</a>。下面是隨機森林算法在scikit learn中的全部參數清單：</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RandomForestClassifier(n_estimators=<span class="number">10</span>,criterion=<span class="string">'gini'</span>,max_depth=<span class="literal">None</span>,min_samples_split=<span class="number">2</span>,min_samples_leaf=<span class="number">1</span>,min_weight_fraction_leaf=<span class="number">0.0</span>,max_features=<span class="string">'auto'</span>,max_leaf_nodes=<span class="literal">None</span>,bootstrap=<span class="literal">True</span>,oob_score=<span class="literal">False</span>,n_jobs=<span class="number">1</span>,random_state=<span class="literal">None</span>,verbose=<span class="number">0</span>,warm_start=<span class="literal">False</span>,class_weight=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<p>想要詳細了解調整參數帶來的影響，可以查閱<a href="http://www.analyticsvidhya.com/blog/2015/06/tuning-random-forest-model/" target="_blank" rel="noopener">《Tuning the Parameters of Your Random Forest Model》</a>。下面是隨機森林算法在scikit learn中的全部參數清單：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RandomForestClassifier<span class="params">(<span class="attr">n_estimators</span>=10,<span class="attr">criterion</span>='gini',<span class="attr">max_depth</span>=None,<span class="attr">min_samples_split</span>=2,<span class="attr">min_samples_leaf</span>=1,<span class="attr">min_weight_fraction_leaf</span>=0.0,<span class="attr">max_features</span>='auto',<span class="attr">max_leaf_nodes</span>=None,<span class="attr">bootstrap</span>=True,<span class="attr">oob_score</span>=False,<span class="attr">n_jobs</span>=1,<span class="attr">random_state</span>=None,<span class="attr">verbose</span>=0,<span class="attr">warm_start</span>=False,<span class="attr">class_weight</span>=None)</span></span><br></pre></td></tr></table></figure>
 <img src="/images/8proven/8proven7.jpg">  
 <h3 id="7-集成模型">7.集成模型</h3><p>在數據科學競賽獲勝方案中最常見的方法。這個技術就是把多個弱模型的結果組合在一起，獲得更好的結果。它能通過許多方式實現，如：</p>
 <p>·Bagging(Bootstrap Aggregating)</p>
 <p>·Boosting</p>
-<p>想了解更多這方面內容，可以查閱<a href="http://www.analyticsvidhya.com/blog/2015/08/introduction-ensemble-learning/" target="_blank" rel="external">《Introduction to Ensemble Learning》</a>。</p>
+<p>想了解更多這方面內容，可以查閱<a href="http://www.analyticsvidhya.com/blog/2015/08/introduction-ensemble-learning/" target="_blank" rel="noopener">《Introduction to Ensemble Learning》</a>。</p>
 <p>使用集成方法改進模型正確率永遠是個好主意。主要有兩個原因：1）集成方法通常比傳統方法更復雜；2）傳統方法提供好的基礎，在此基礎上可以建立集成方法。</p>
 <h2 id="註意！">註意！</h2><p>到目前為止，我們了解了改善模型準確率的方法。但是，高準確率的模型不一定（在未知數據上）有更好的表現。有時，模型準確率的改善是由於過度擬合。</p>
 <p>8.交叉驗證<br>如果想解決這個問題，我們必須使用交叉驗證技術（cross validation）。交叉驗證是數據建模領域最重要的概念之一。它是指，保留一部分數據樣本不用來訓練模型，而是在完成模型前用來驗證。<br><img src="/images/8proven/8proven8.png">  </p>
-<p>這種方法有助於得出更有概括性的關系。想了解更多有關交叉檢驗的內容，建議查閱<a href="http://www.analyticsvidhya.com/blog/2015/11/improve-model-performance-cross-validation-in-python-r/" target="_blank" rel="external">《Improve Model Performance Using Cross Validation》</a>。</p>
+<p>這種方法有助於得出更有概括性的關系。想了解更多有關交叉檢驗的內容，建議查閱<a href="http://www.analyticsvidhya.com/blog/2015/11/improve-model-performance-cross-validation-in-python-r/" target="_blank" rel="noopener">《Improve Model Performance Using Cross Validation》</a>。</p>
 <hr>
 <h2 id="結語">結語</h2><p>預測建模的過程令人疲憊。但是，如果你能靈活思考，就可以輕易勝過其他人。簡單地說，多考慮上面這8個步驟。獲得數據集以後，遵循這些被驗證過的方法，你就一定會得到穩健的機器學習模型。不過，只有當你熟練掌握了這些步驟，它們才會真正有幫助。比如，想要建立一個集成模型，你必須對多種機器學習算法有所了解。</p>
 <p>本文分享了8個經過證實的方法。這些方法用來改善模型的預測表現。它們廣為人知，但不一定要按照文中的順序逐個使用。</p>
-<p>原作者：<a href="http://www.analyticsvidhya.com/blog/author/sunil-ray/" target="_blank" rel="external">Sunil Ray</a></p>
+<p>原作者：<a href="http://www.analyticsvidhya.com/blog/author/sunil-ray/" target="_blank" rel="noopener">Sunil Ray</a></p>
 <p>翻譯: 數據工匠<br>文: 數據工匠（簡書作者）</p>
-<p><a href="http://www.analyticsvidhya.com/blog/2015/12/improve-machine-learning-results/" target="_blank" rel="external">Original</a></p>
+<p><a href="http://www.analyticsvidhya.com/blog/2015/12/improve-machine-learning-results/" target="_blank" rel="noopener">Original</a></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

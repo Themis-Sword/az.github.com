@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="Themis_Sword's Blog">
     <meta name="author" content="Themis_Sword">
-    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="description" content="Reverence for Nature, Life and Being." />
     <meta name="keywords" content="" />
 
     <!-- Favicon, (keep icon in root folder) -->
@@ -450,7 +450,7 @@ color=<span class="keyword">Color</span>(<span class="string">'kind'</span>, sca
 )
 c
 </code></pre><img src="/images/ADramatic/7.png">
-<p><strong>\</strong>MPL stares in terrified wonder*<em>*</em></p>
+<p><strong>\</strong>MPL stares in terrified wonder****</p>
 <h4 id="*Analyzing_Scene_1*"><strong>*Analyzing Scene 1*</strong></h4><hr>
 <p>Aside from matplotlib being a jerk3, a few themes emerged:</p>
 <ul>
@@ -613,7 +613,7 @@ ax[i].<span class="keyword">set</span>(xlabel=<span class="string">'Petal Length
 
 fig.tight_layout()
 </code></pre><img src="/images/ADramatic/13.png"> 
-<p><strong>\</strong>SB shares a look with ALT, who starts laughing; GG starts laughing to appear in on the joke*<em>*</em></p>
+<p><strong>\</strong>SB shares a look with ALT, who starts laughing; GG starts laughing to appear in on the joke****</p>
 <p><strong>*MPL: **</strong>What is it?!*</p>
 <p><strong>*Altair: *</strong>Check your x- and y-axes, man. All your plots have different limits.</p>
 <p><strong>*MPL (*goes red<em>): </em></strong>Ah, yes, of course. <em>A TEST TO ENSURE YOU WERE PAYING ATTENTION. </em>You can, uh, ensure that all subplots share the same limits by specifying this in the subplots function.</p>
@@ -649,7 +649,7 @@ g = ggplot(df, aes(x=<span class="string">'petalLength'</span>,
     geom_point(size=<span class="number">40.0</span>)
 g
 </code></pre><img src="/images/ADramatic/16.png"> 
-<p><strong>*ALT**</strong>:<em>*</em> I take a more Seaborn-esque approach here. Specifically, I just add a column argument to the encode function. That said, I’m doing a couple of new things here, too: (A) While the column parameter could accept a simple string argument, I actually use a Column object instead — this lets me set a title; (B) I use my configure_cell method, since without it, the subplots would have been way too big.</p>
+<p><strong>*ALT**</strong>:*** I take a more Seaborn-esque approach here. Specifically, I just add a column argument to the encode function. That said, I’m doing a couple of new things here, too: (A) While the column parameter could accept a simple string argument, I actually use a Column object instead — this lets me set a title; (B) I use my configure_cell method, since without it, the subplots would have been way too big.</p>
 <pre><code># ALTAIR
 c = Chart(df).mark_point().encode(
 x=<span class="string">'petalLength'</span>,
@@ -664,12 +664,12 @@ c.configure_cell(<span class="variable">height</span>=<span class="number">300</
 <ul>
 <li>matplotlib made a really good point: in this case, his code to facet by species is nearly identical to what we saw above; assuming you can wrap your head around the previous for loops, you can wrap your head around this one. However, I didn’t ask him to do anything more complicated — say, a 2 x 3 grid. In that case, he might have had to do something like this:</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MATPLOTLIB</span></span><br><span class="line">fig, ax = plt.subplots(<span class="number">2</span>, <span class="number">3</span>, figsize=(<span class="number">15</span>, <span class="number">10</span>), sharex=<span class="keyword">True</span>, sharey=<span class="keyword">True</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># this is preposterous -- don't do this</span></span><br><span class="line"><span class="keyword">for</span> i, s <span class="keyword">in</span> enumerate(df.species.unique()):</span><br><span class="line">    <span class="keyword">for</span> j, r <span class="keyword">in</span> enumerate(df.random_factor.sort_values().unique()):</span><br><span class="line">        tmp = df[(df.species == s) &amp; (df.random_factor == r)]</span><br><span class="line"> </span><br><span class="line">        ax[j][i].scatter(tmp.petalLength,</span><br><span class="line">                         tmp.petalWidth,</span><br><span class="line">                         c=cp[i+j])</span><br><span class="line"> </span><br><span class="line">        ax[j][i].set(xlabel=<span class="string">'Petal Length'</span>,</span><br><span class="line">                     ylabel=<span class="string">'Petal Width'</span>,</span><br><span class="line">                     title=s + <span class="string">'--'</span> + r)</span><br><span class="line"> </span><br><span class="line">fig.tight_layout()</span><br></pre></td></tr></table></figure>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MATPLOTLIB</span></span><br><span class="line">fig, <span class="attr">ax</span> = plt.subplots(<span class="number">2</span>, <span class="number">3</span>, <span class="attr">figsize=(15,</span> <span class="number">10</span>), <span class="attr">sharex=True,</span> <span class="attr">sharey=True)</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># this is preposterous -- don't do this</span></span><br><span class="line">for i, s <span class="keyword">in</span> enumerate(df.species.unique()):</span><br><span class="line">    for j, r <span class="keyword">in</span> enumerate(df.random_factor.sort_values().unique()):</span><br><span class="line">        <span class="attr">tmp</span> = df[(df.<span class="attr">species</span> == s) &amp; (df.<span class="attr">random_factor</span> == r)]</span><br><span class="line"> </span><br><span class="line">        ax[j][i].scatter(tmp.petalLength,</span><br><span class="line">                         tmp.petalWidth,</span><br><span class="line">                         <span class="attr">c=cp[i+j])</span></span><br><span class="line"> </span><br><span class="line">        ax[j][i].set(<span class="attr">xlabel='Petal</span> Length',</span><br><span class="line">                     <span class="attr">ylabel='Petal</span> Width',</span><br><span class="line">                     <span class="attr">title=s</span> + '--' + r)</span><br><span class="line"> </span><br><span class="line">fig.tight_layout()</span><br></pre></td></tr></table></figure>
 <img src="/images/ADramatic/18.png"> 
 <ul>
 <li>To use the formal visualization expression: <em>Yeesh. </em>Meanwhile, in Altair, this would have been wonderfully simple:</li>
 </ul>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># ALTAIR</span><br><span class="line">c = Chart(df).mark_point().encode(</span><br><span class="line">    x=<span class="string">'petalLength'</span>,</span><br><span class="line">    y=<span class="string">'petalWidth'</span>,</span><br><span class="line">    <span class="built_in">color</span>=<span class="string">'species'</span>,</span><br><span class="line">    column=Column(<span class="string">'species'</span>,</span><br><span class="line">                  title=<span class="string">'Petal Width v. Length by Species'</span>),</span><br><span class="line">    row=<span class="string">'random_factor'</span></span><br><span class="line">)</span><br><span class="line">c.configure_cell(<span class="variable">height</span>=<span class="number">200</span>, <span class="variable">width</span>=<span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ALTAIR</span></span><br><span class="line">c = Chart(df).mark_point().encode(</span><br><span class="line">    <span class="attribute">x</span>=<span class="string">'petalLength'</span>,</span><br><span class="line">    <span class="attribute">y</span>=<span class="string">'petalWidth'</span>,</span><br><span class="line">    <span class="attribute">color</span>=<span class="string">'species'</span>,</span><br><span class="line">    <span class="attribute">column</span>=Column('species',</span><br><span class="line">                  <span class="attribute">title</span>=<span class="string">'Petal Width v. Length by Species'</span>),</span><br><span class="line">    <span class="attribute">row</span>=<span class="string">'random_factor'</span></span><br><span class="line">)</span><br><span class="line">c.configure_cell(<span class="attribute">height</span>=200, <span class="attribute">width</span>=200)</span><br></pre></td></tr></table></figure>
 <img src="/images/ADramatic/19.png"> 
 <ul>
 <li>Just one more argument to the “encode” function than we had above!</li>
@@ -716,7 +716,7 @@ fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</sp
 
 df.hist(column=<span class="string">'petalWidth'</span>, <span class="keyword">by</span>=<span class="string">'species'</span>, grid=None, ax=ax)
 </code></pre><img src="/images/ADramatic/23.png"> 
-<p><strong>\</strong>GG and ALT high five and congratulate P; shouts of “awesome!”, “way to be!”, “let’s go!” audible*<em>*</em></p>
+<p><strong>\</strong>GG and ALT high five and congratulate P; shouts of “awesome!”, “way to be!”, “let’s go!” audible****</p>
 <p><strong>*SB (*feigning enthusiasm<em>): </em></strong>Wooooow. Greeeeat. Meanwhile, in my world, distributions are exceedingly important, so I maintain special methods for them. For example, my boxplot method needs an x argument, a y argument, and data, resulting in this:</p>
 <pre><code><span class="preprocessor"># SEABORN</span>
 fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, figsize=(<span class="number">10</span>, <span class="number">10</span>))
@@ -754,7 +754,7 @@ g = ggplot(df, aes(x=<span class="string">'petalWidth'</span>,
 g
 </code></pre><img src="/images/ADramatic/27.png">  
 <p><strong>*ALT (*looking steely-eyed and confident<em>): </em></strong>I… I have a confession…</p>
-<p><strong>\</strong>silence falls — GG stops running and lets plate fall to the floor*<em>*</em></p>
+<p><strong>\</strong>silence falls — GG stops running and lets plate fall to the floor****</p>
 <p><strong>*ALT: **</strong>(*breathing deeply<em>) </em>I… I… I can’t do boxplots. Never really learned how, but I trust the JavaScript grammar out of which I grew has a good reason for this. I can make a mean histogram, though…</p>
 <pre><code><span class="comment"># ALTAIR</span>
 c = Chart(df).mark_bar(opacity=<span class="number">.75</span>).encode(
@@ -934,7 +934,7 @@ autolabel(rects2)
 
 plt.show()
 </code></pre><img src="/images/ADramatic/29.png">  
-<p><strong>\</strong>everyone else shakes their head*<em>*</em></p>
+<p><strong>\</strong>everyone else shakes their head****</p>
 <p><strong>*P: *</strong>I need to do some data manipulation first — namely, a group by and a pivot — but once I do, I have a really cool bar chart method — much simpler than that mess above! Wow, I’m feeling so much more confident — who knew all I had to was put someone else down!?5</p>
 <pre><code><span class="preprocessor"># PANDAS</span>
 fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, figsize=(<span class="number">12.5</span>, <span class="number">7</span>))
@@ -961,7 +961,7 @@ g.ax.set_title('Fare by survival and <span class="class"><span class="keyword">c
 <p>Of course, there are many ways to visualize this information, only <em>one </em>of which is a bar. As such, I also have a “kind” parameter where you can specify different visualizations.</p>
 <p>Finally, <em>some </em>of us still care about statistical certainty, so by default, I bootstrap you some error bars so you can see if the differences in average fair between classes and survivorship are meaningful.</p>
 <p><em>(\</em>under her breath<em>) </em>Would like to see any of you top that…</p>
-<p><strong>\</strong>ggplot2 pulls up in his Lamborghini and walks through the door*<em>*</em></p>
+<p><strong>\</strong>ggplot2 pulls up in his Lamborghini and walks through the door****</p>
 <p><strong>*ggplo2: *</strong>Hey, have y’all see–</p>
 <p><strong>*GG: *</strong>HEY BRO.</p>
 <p><strong>*GG2: *</strong>Hey, little man. We gotta go.</p>
@@ -998,7 +998,7 @@ g
 <p><strong>*GG2: *</strong>Huh, not exactly grammar of graphics-approved, but I guess so long as Hadley doesn’t find out it seems to work fine… In particular, you shouldn’t have to summarize your data in advance of your visualization. I’m also confused by what “weight” means in this context…</p>
 <p><strong>*GG: *</strong>Well, by default, my bar geom seems to default to simple counts, so without a “weight,” all the bars would have had a height of one.</p>
 <p><strong>*GG2: *</strong>Ah, I see… Let’s talk about that later later.</p>
-<p><strong>\</strong>GG and GG2 say their goodbyes and leave the dinner party*<em>*</em></p>
+<p><strong>\</strong>GG and GG2 say their goodbyes and leave the dinner party****</p>
 <p><strong>*ALT: *</strong>Ah, now <em>this</em> is my bread-and-butter. It’s really simple.</p>
 <pre><code><span class="comment"># ALTAIR</span>
 <span class="constant">c</span> = Chart(df).mark_bar().encode(
@@ -1040,7 +1040,7 @@ c.configure_facet_cell(strokeWidth=0, height=250)
 <p>You know, sometimes I think it’s important to just be grateful: we have a ton of great visualization options, and I enjoyed digging into all of them!</p>
 <p>(Yes, this is a cop-out.)</p>
 <p>Although I was a bit hard on matplotlib, it was all in good fun (every play needs comedic relief). Not only is matplotlib the foundation upon which pandas plotting, Seaborn, and ggplot are built, but the fine-grained aesthetic control he gives you is essential. I didn’t touch on this, but in almost every non-Altair example, I used matplotlib to customize our final graph. But — and this is a big “but” — matplotlib is purely imperative, and specifying your visualization in exacting detail can get tedious (see: bar chart). Indeed, the upshot here is probably: “Judging matplotlib on the basis of its statistical visualization capabilities is kind of unfair, you big meanie. You’re comparing <em>one </em>of its use cases to the other libraries’ <em>primary </em>use case.”</p>
-<p>Meanwhile, pivoting plus pandas works wonders for time series plots. Given how good pandas’ time series support is more broadly, this is something I’ll continue to leverage. Moreover, the next time I need a <a href="http://pandas.pydata.org/pandas-docs/stable/visualization.html#radviz" target="_blank" rel="external">RadViz</a> plot, I’ll know where to go. That said, while pandas <em>does </em>improve upon matplotlib’s imperative paradigm by giving you basic declarative syntax (see: bar chart), it’s still fundamentally matplotlib-ish.</p>
+<p>Meanwhile, pivoting plus pandas works wonders for time series plots. Given how good pandas’ time series support is more broadly, this is something I’ll continue to leverage. Moreover, the next time I need a <a href="http://pandas.pydata.org/pandas-docs/stable/visualization.html#radviz" target="_blank" rel="noopener">RadViz</a> plot, I’ll know where to go. That said, while pandas <em>does </em>improve upon matplotlib’s imperative paradigm by giving you basic declarative syntax (see: bar chart), it’s still fundamentally matplotlib-ish.</p>
 <p>Moving on: if you want to do anything more stats-y, use Seaborn (she really did pick up a ton of cool things when she went abroad). Learn her API — factorplot, regplot, displot, et al — and love it. It will be worth the time. As for faceting, I find FacetGrid to be a very useful partner in crime; however, if I hadn’t worked with Seaborn for so long, I think I would probably prefer the ggplot or Altair versions — after all, they’re rooted in more expressive, purely declarative syntaxes, and, in general, it’s nicer to specify <em>what </em>I want than specify exactly <em>how </em>I want it done.</p>
 <p>Speaking of declarative elegance, I’ve long loved ggplot2, and for the most part came away impressed by how well Python’s ggplot managed to hang in example-for-example. This is a project I will definitely continue to monitor. (More selfishly, I hope it prevents my R-centric coworkers from making fun of me.)</p>
 <p>Finally, if the thing you want to do is implemented in Altair (sorry, boxplot jockeys), it boasts an amazingly simple and pleasant API. Use it! If you need additional motivation, consider the following: one exciting thing about Altair — other than forthcoming improvements to its underlying Vega-Lite grammar — is that it technically isn’t a visualization library. It emits Vega-Lite approved JSON blobs, which — in notebooks — get lovingly rendered by IPython Vega.</p>
@@ -1050,17 +1050,17 @@ c.configure_facet_cell(strokeWidth=0, height=250)
 <p>I am already salivating about the possibilities.</p>
 <p>All of that said, some parting words: visualization in Python is larger than any single man, woman, or Loch Ness Monster. Thus, you should take everything I said above — code and opinions alike — with a grain of salt. Remember: everything on the internet amounts to lies, damned lies, and statistics.</p>
 <p>I hope you enjoyed this far nerdier version of Mad Hatter’s Tea Party, and that you learned some things you can take to your own work.</p>
-<p>As always, <a href="https://github.com/dsaber/py-viz-blog" target="_blank" rel="external">code is available</a>.</p>
+<p>As always, <a href="https://github.com/dsaber/py-viz-blog" target="_blank" rel="noopener">code is available</a>.</p>
 <h4 id="*Notes*"><strong>*Notes*</strong></h4><hr>
-<p>First, a huge thank you to redditor /u/counters, who provided extremely valuable feedback/perspective in the form of <a href="https://www.reddit.com/r/Python/comments/55k4ru/a_dramatic_tour_through_pythons_data/d8bawp4" target="_blank" rel="external">this comment</a>. I incorporated some of it into the “Final Thoughts” section; however, my rambling is far less articulate. Which is to say: read the comment; it’s good.</p>
-<p>Second, a huge thank you to <a href="https://plus.google.com/+ThomasCaswell" target="_blank" rel="external">Thomas Caswell</a>, who left a phenomenal comment below about matplotlib’s features that you should absolutely read. Doing will lead to far more elegant matplotlib code.</p>
+<p>First, a huge thank you to redditor /u/counters, who provided extremely valuable feedback/perspective in the form of <a href="https://www.reddit.com/r/Python/comments/55k4ru/a_dramatic_tour_through_pythons_data/d8bawp4" target="_blank" rel="noopener">this comment</a>. I incorporated some of it into the “Final Thoughts” section; however, my rambling is far less articulate. Which is to say: read the comment; it’s good.</p>
+<p>Second, a huge thank you to <a href="https://plus.google.com/+ThomasCaswell" target="_blank" rel="noopener">Thomas Caswell</a>, who left a phenomenal comment below about matplotlib’s features that you should absolutely read. Doing will lead to far more elegant matplotlib code.</p>
 <p>1Strictly speaking, this story isn’t true. I’ve almost always used Seaborn if I could, dropping down to matplotlib when I needed the customizability. That said, I find this premise to be a more compelling set-up, plus we’re living in a post-truth society anyway.</p>
 <p>2Right off the bat, you’re mad at me, so allow me to explain: I love bokeh and plotly. Indeed, one of my favorite things to do before sending out an analysis is getting “free interactivity” by passing my figures to the relevant bokeh/plotly functions; however, I’m not familiar enough with either to do anything more sophisticated. (And let’s be honest — this post is long enough.)</p>
 <p>Obviously, if you’re in the market for interactive visualizations (versus statistical visualizations), then you should probably look to them.</p>
 <p>3<em>Please</em> note: this is all in good fun. I am rendering <strong>no*</strong> *judgments on any library with my amateur anthropomorphism. I’m sure matplotlib is very charming in real life.</p>
-<p>4To be frank, I’m not <em>totally </em>sure if faceting is handled separately for ideological purity or if it’s simply a practical concern. While my ggplot character claims it’s the former (his understanding is based on a hasty reading of <a href="http://vita.had.co.nz/papers/layered-grammar.pdf" target="_blank" rel="external">this paper</a>), it may be that ggplot2 has such rich faceting support that — practically speaking — it needs to happen as a separate step. If my characterization offends any grammar of graphics disciples, please let me know and I’ll find a new bit.</p>
+<p>4To be frank, I’m not <em>totally </em>sure if faceting is handled separately for ideological purity or if it’s simply a practical concern. While my ggplot character claims it’s the former (his understanding is based on a hasty reading of <a href="http://vita.had.co.nz/papers/layered-grammar.pdf" target="_blank" rel="noopener">this paper</a>), it may be that ggplot2 has such rich faceting support that — practically speaking — it needs to happen as a separate step. If my characterization offends any grammar of graphics disciples, please let me know and I’ll find a new bit.</p>
 <p>5Absolutely <strong>*not*</strong> the moral of this story</p>
-<p><a href="https://dansaber.wordpress.com/2016/10/02/a-dramatic-tour-through-pythons-data-visualization-landscape-including-ggplot-and-altair/" target="_blank" rel="external">Origin</a></p>
+<p><a href="https://dansaber.wordpress.com/2016/10/02/a-dramatic-tour-through-pythons-data-visualization-landscape-including-ggplot-and-altair/" target="_blank" rel="noopener">Origin</a></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">

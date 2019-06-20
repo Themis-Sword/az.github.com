@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="Themis_Sword's Blog">
     <meta name="author" content="Themis_Sword">
-    <meta name="description" content="Reverence for Nature, and Life." />
+    <meta name="description" content="Reverence for Nature, Life and Being." />
     <meta name="keywords" content="" />
 
     <!-- Favicon, (keep icon in root folder) -->
@@ -234,15 +234,15 @@
         <div class="col-md-8 col-md-offset-2">
       		<img src="/images/aws.jpg">
 <h4 id="預備">預備</h4><ol>
-<li>申請<a href="https://aws.amazon.com" target="_blank" rel="external">Amazon AWS服務</a></li>
-<li>進入<a href="http://console.aws.amazon.com" target="_blank" rel="external">AWS控制台</a>，選擇亞太區東京的數據中心</li>
+<li>申請<a href="https://aws.amazon.com" target="_blank" rel="noopener">Amazon AWS服務</a></li>
+<li>進入<a href="http://console.aws.amazon.com" target="_blank" rel="noopener">AWS控制台</a>，選擇亞太區東京的數據中心</li>
 <li>在Compute下創建EC2實例，選擇Ubuntu-64位操作系統，下載SSH密鑰文件並保存好</li>
 <li>Security Group下除了默認的SSH的22端口打開，增加一個新的TCP端口1723，以建立PPTP服務</li>
 <li>啟動實例</li>
 <li>在Elastic IP下申請一個固定的IP地址，並與上述實例綁定(如果停止實例，一定要把Elastic IP解除綁定，否則將被計費)<a id="more"></a></li>
 </ol>
 <h4 id="從本地連接實例">從本地連接實例</h4><ol>
-<li>Open an SSH client. (<a href="https://docs.aws.amazon.com/console/ec2/instances/connect/putty" target="_blank" rel="external">find out how to connect using PuTTY</a>)</li>
+<li>Open an SSH client. (<a href="https://docs.aws.amazon.com/console/ec2/instances/connect/putty" target="_blank" rel="noopener">find out how to connect using PuTTY</a>)</li>
 <li>Locate your private key file (xxxx.pem). The wizard automatically detects the key you used to launch the instance.</li>
 <li><p>Your key must not be publicly viewable for SSH to work. Use this command if needed:</p>
 <pre><code>chmod <span class="number">400</span> xxxx.pem
@@ -251,7 +251,7 @@
 <pre><code>ssh -<span class="tag">i</span> xxxx<span class="class">.pem</span> ubuntu@<span class="number">127.0</span>.<span class="number">0.1</span>  
 </code></pre></li>
 </ol>
-<p>Please note that in most cases the username above will be correct, however please ensure that you read your AMI usage instructions to ensure that the AMI owner has not changed the default AMI username.<br>If you need any assistance connecting to your instance, please see our <a href="https://docs.aws.amazon.com/console/ec2/instances/connect/docs" target="_blank" rel="external">connection documentation</a>.</p>
+<p>Please note that in most cases the username above will be correct, however please ensure that you read your AMI usage instructions to ensure that the AMI owner has not changed the default AMI username.<br>If you need any assistance connecting to your instance, please see our <a href="https://docs.aws.amazon.com/console/ec2/instances/connect/docs" target="_blank" rel="noopener">connection documentation</a>.</p>
 <h4 id="EC2實例下安裝PPTP_VPN">EC2實例下安裝PPTP VPN</h4><p>設置root密碼</p>
 <pre><code><span class="title">sudo</span> passwd
 </code></pre><p>安装pptpd</p>
