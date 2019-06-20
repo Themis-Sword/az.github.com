@@ -4,6 +4,24 @@
 
     
   <url>
+    <loc>http://www.aprilzephyr.com/blog/07262015/%E5%B0%87Blog%E5%BE%9EOctopress%E9%81%B7%E7%A7%BB%E8%87%B3Hexo/</loc>
+    <lastmod>2019-06-20T08:24:20.318Z</lastmod>
+    <data>
+        <display>
+        <title>將Blog從Octopress遷移至Hexo</title>
+        <pubTime>2015-07-26T02:30:55.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="web" url="http://www.aprilzephyr.com/categories/web/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.aprilzephyr.com/blog/11102016/What-is-hardcore-data-science%E2%80%94in-practice-FW/</loc>
     <lastmod>2016-11-10T04:27:08.000Z</lastmod>
     <data>
@@ -1400,24 +1418,6 @@
         <display>
         <title>利用Amazon的AWS搭建自己的VPN</title>
         <pubTime>2015-06-26T05:21:35.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="web" url="http://www.aprilzephyr.com/categories/web/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.aprilzephyr.com/blog/07262015/%E5%B0%87Blog%E5%BE%9EOctopress%E9%81%B7%E7%A7%BB%E8%87%B3Hexo/</loc>
-    <lastmod>2016-07-31T03:24:28.000Z</lastmod>
-    <data>
-        <display>
-        <title>將Blog從Octopress遷移至Hexo</title>
-        <pubTime>2015-07-26T02:30:55.000Z</pubTime>
         
          
            

@@ -253,6 +253,11 @@ sudo make install
 <pre><code><span class="built_in">cd</span> ~/Documents
 <span class="built_in">mkdir</span> hexo
 hexo init
+</code></pre><p>如果這個時候報錯無權限，則輸入： </p>
+<pre><code>sudo chown -R <span class="variable">$USER</span>:<span class="variable">$GROUP</span> ~/.npm
+sudo chown -R <span class="variable">$USER</span>:<span class="variable">$GROUP</span> ~/.config
+</code></pre><p>再重新建立hexo文件夾，並輸入</p>
+<pre><code><span class="title">hexo</span> init
 </code></pre><p>這個時候會提示：</p>
 <pre><code>[info] You are almost done! Don't forget <span class="keyword">to</span> <span class="command">run</span> `npm install` <span class="keyword">before</span> start blogging <span class="keyword">with</span> Hexo!
 </code></pre><p>根據提示輸入：</p>
